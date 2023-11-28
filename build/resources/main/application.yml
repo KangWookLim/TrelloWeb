@@ -1,11 +1,11 @@
 server:
-  port: 8080
+  port: 8091
   file:
     storage:
       #      #Mac OS
-      path: /Users/laku_mwa/resource/
+#      path: /Users/laku_mwa/resource/
 #      Windows OS
-#      path:
+      path: C:\NakyeonInt\resources
 
 spring:
   main:
