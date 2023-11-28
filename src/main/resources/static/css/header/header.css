@@ -1,0 +1,16 @@
+@charset "UTF-8";
+* {
+    margin : 0;
+    padding : 0;
+}
+#header-container {
+    background-color : #fff;
+    height : 48px;
+    width : 100vw;
+    padding : 8px;
+    border-bottom : 1px solid;
+    border-bottom-color : hsla(221, 18%, 68%, 0.16);
+    box-sizing: border-box;
+    display :flex;
+    overflow : hidden;
+}

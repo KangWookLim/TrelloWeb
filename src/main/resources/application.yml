@@ -39,3 +39,5 @@ spring:
       content-type: text/html
     prefix: classpath:/templates/
     suffix: .html
+    mvc :
+      static-path-pattern : "/static/**"
