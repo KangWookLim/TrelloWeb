@@ -5,7 +5,26 @@
 
     <div id = "header-container">
         <div id = "logo-container">
-            가나다라
+            <button class = "header-menu-btn">
+                <img th:src="@{/images/menu.png}" class="header-menu-img" />
+            </button>
+            </div>
+        <a th:href="@{/}">
+            <div class = "header-home-btn">
+                <img th:src="@{/images/trello.png}" class="header-home-img"/> Trello
+            </div>
+        </a>
+        <div class = "header-left-container">
+            <div class="header-flexible-btn-container">
+                <button class = "header-flexible-btn">Workspace</button>
+                <button class = "header-flexible-btn">Recent</button>
+                <button class = "header-flexible-btn">Starred</button>
+                <button class = "header-flexible-btn">Templates</button>
+            </div>
+            <button> Create </button>
+        </div>
+        <div class="header-right-container">
+
         </div>
     </div>
 
