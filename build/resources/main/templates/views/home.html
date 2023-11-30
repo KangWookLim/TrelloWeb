@@ -5,15 +5,15 @@
 
 <div layout:fragment="content">
     <div id = "parent">
-    <div>
+    <div id = "full_container3">
         <section class = "grid_container">
             <div class = "flex_container">
-                <div>
-                    <h1>Trello brings all your tasks, teammates, and tools together</h1>
-                    <p>Keep everything in the same place—even if your team isn’t.</p>
+                <div class = "left_align" style="width: 538px">
+                    <h1 class="fontCD" id="t1">Trello brings all your tasks, teammates, and tools together</h1>
+                    <p class="fontCT">Keep everything in the same place—even if your team isn’t.</p>
                     <form>
-                        <input type ="email" name = "email" placeholder="Email">
-                        <button>Sign up - it’s free!</button>
+                        <input type ="email" name = "email" placeholder="Email" class = "emailInput">
+                        <button class="blueButton">Sign up - it’s free!</button>
                     </form>
                     <a href="#video">watch video</a>
                 </div>
@@ -40,16 +40,50 @@
             </div>
         </div>
 
-        <section>
-            <div>
-                <div>
-                    buttons
+        <section id = "full_container4">
+            <div class ="flex_container">
+                <div style="width: 380px" >
+                    <button>
+                        <div>
+                            <h3>
+                                Boards
+                            </h3>
+                            <p>
+                                Trello boards keep tasks organized and work moving forward. In a glance, see everything from “things to do” to “aww yeah, we did it!
+                            </p>
+                        </div>
+                    </button>
+                    <button>
+                        <div>
+                            <h3>
+                                Lists
+                            </h3>
+                            <p>
+                                The different stages of a task. Start as simple as To Do, Doing or Done—or build a workflow custom fit to your team’s needs. There’s no wrong way to Trello.
+                            </p>
+                        </div>
+                    </button>
+                    <button>
+                        <div>
+                            <h3>
+                                Cards
+                            </h3>
+                            <p>
+                                Cards represent tasks and ideas and hold all the information to get the job done. As you make progress, move cards across lists to show their status.
+                            </p>
+                        </div>
+                    </button>
                 </div>
                 <div>
                     carousel
                 </div>
             </div>
+            <div class = "grid_container">
+                spacing
+            </div>
+
         </section>
+
     </div>
     <div class = "grid_container">
         spacing
@@ -64,10 +98,36 @@
 
     </div>
     <section class = "grid_container">
-        <div>carousel 넘기기 버튼</div>
+        <div style="position: relative">
+            <!-- If we need navigation buttons -->
+            <div class="flex_container">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            <!-- Slider main container -->
+            <div class="swiper-container-2 swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    ...
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+
+        </div>
         <div>
             <div>
-
+    sdsadsa
             </div>
         </div>
     </section>
@@ -75,7 +135,7 @@
         <div class="flex_container">
             <p>No need to start from scratch. Jump-start your workflow with
                 a proven playbook designed for different teams. Customize it to make it yours.</p>
-            <div>
+            <div class="anchorBox">
                 <a href="#">Explore all Use Cases</a>
             </div>
         </div>
@@ -88,13 +148,13 @@
                     <div>
                         <h2>See work in a whole new way</h2>
                         <p>View your team’s projects from every angle and bring a fresh perspective to the task at hand.</p>
-                        <a href="#">Discover all Use Cases</a>
+                        <div class="anchorBox"><a href="#">Discover all Use Cases</a></div>
                     </div>
-                    <div class ="flex_container">
-                        <div><img src = "https://images.ctfassets.net/rz1oowkt5gyp/5Hb09iiMrK6mSpThW5HS89/f5683a167ad3f74bed4dc7592ae5a002/TrelloBoard_Timeline_2x.png?w=1140&fm=webp" width="555" height="300"></div>
+                    <div class ="flex_container viewCard">
+                        <div><img style="margin-right: 32px" src = "https://images.ctfassets.net/rz1oowkt5gyp/5Hb09iiMrK6mSpThW5HS89/f5683a167ad3f74bed4dc7592ae5a002/TrelloBoard_Timeline_2x.png?w=1140&fm=webp" width="555" height="300"></div>
                         <div class="left_align">
                             <div class = "flex_container">
-                                <svg width="24" height="24" fill="currentColor" aria-hidden="true" viewBox="0 0 32 32"><path d="M6 5.333h9.333a3.333 3.333 0 0 1 0 6.667H6a3.333 3.333 0 0 1 0-6.667Zm9.333 4a.667.667 0 0 0 0-1.333H6a.667.667 0 0 0 0 1.333h9.333Zm-6.666 4H18A3.333 3.333 0 1 1 18 20H8.667a3.333 3.333 0 0 1 0-6.667Zm9.333 4A.667.667 0 0 0 18 16H8.667a.667.667 0 0 0 0 1.333H18Zm6.667 4h-9.334a3.333 3.333 0 1 0 0 6.667h9.334a3.333 3.333 0 0 0 0-6.667Zm-9.334 4a.667.667 0 0 1 0-1.333h9.334a.667.667 0 1 1 0 1.333h-9.334Zm8-20H26A3.333 3.333 0 1 1 26 12h-2.667a3.333 3.333 0 1 1 0-6.667Zm2.667 4A.667.667 0 1 0 26 8h-2.667a.667.667 0 1 0 0 1.333H26Z"></path></svg>
+                                <svg width="24" height="24" fill="#8777d9" aria-hidden="true" viewBox="0 0 32 32"><path d="M6 5.333h9.333a3.333 3.333 0 0 1 0 6.667H6a3.333 3.333 0 0 1 0-6.667Zm9.333 4a.667.667 0 0 0 0-1.333H6a.667.667 0 0 0 0 1.333h9.333Zm-6.666 4H18A3.333 3.333 0 1 1 18 20H8.667a3.333 3.333 0 0 1 0-6.667Zm9.333 4A.667.667 0 0 0 18 16H8.667a.667.667 0 0 0 0 1.333H18Zm6.667 4h-9.334a3.333 3.333 0 1 0 0 6.667h9.334a3.333 3.333 0 0 0 0-6.667Zm-9.334 4a.667.667 0 0 1 0-1.333h9.334a.667.667 0 1 1 0 1.333h-9.334Zm8-20H26A3.333 3.333 0 1 1 26 12h-2.667a3.333 3.333 0 1 1 0-6.667Zm2.667 4A.667.667 0 1 0 26 8h-2.667a.667.667 0 1 0 0 1.333H26Z"></path></svg>
                                 <h3>Hit deadlines every time</h3>
                             </div>
                             <p>From weekly sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a
@@ -103,10 +163,10 @@
                         </div>
                     </div>
                     <div style="height: 70px"></div>
-                    <div class = "flex_container">
-                        <div>
+                    <div class = "flex_container viewCard">
+                        <div style="margin-right: 32px">
                             <div class = "flex_container">
-                                <svg width ="24" height="24" fill="currentColor" aria-hidden="true" viewBox="0 0 32 32"><path d="M6.66 6.667h18.68A2.66 2.66 0 0 1 28 9.325v16.016A2.659 2.659 0 0 1 25.34 28H6.66A2.66 2.66 0 0 1 4 25.341V9.325a2.659 2.659 0 0 1 2.66-2.658ZM6.667 12v12A1.333 1.333 0 0 0 8 25.333h16A1.333 1.333 0 0 0 25.333 24V12H6.667ZM8 5.333a1.333 1.333 0 0 1 2.667 0v1.334H8V5.333Zm13.333 0a1.333 1.333 0 0 1 2.667 0v1.334h-2.667V5.333Zm-12 12v-2.668H12v2.668H9.333Zm10.667 0v-2.668h2.667v2.668H20Zm-5.333 0v-2.668h2.668v2.668h-2.668Zm-5.334 5.334V20H12v2.667H9.333Zm5.334 0V20h2.668v2.667h-2.668Zm5.333 0V20h2.667v2.667H20Z"></path></svg>
+                                <svg width ="24" height="24" fill="#00c7e5" aria-hidden="true" viewBox="0 0 32 32"><path d="M6.66 6.667h18.68A2.66 2.66 0 0 1 28 9.325v16.016A2.659 2.659 0 0 1 25.34 28H6.66A2.66 2.66 0 0 1 4 25.341V9.325a2.659 2.659 0 0 1 2.66-2.658ZM6.667 12v12A1.333 1.333 0 0 0 8 25.333h16A1.333 1.333 0 0 0 25.333 24V12H6.667ZM8 5.333a1.333 1.333 0 0 1 2.667 0v1.334H8V5.333Zm13.333 0a1.333 1.333 0 0 1 2.667 0v1.334h-2.667V5.333Zm-12 12v-2.668H12v2.668H9.333Zm10.667 0v-2.668h2.667v2.668H20Zm-5.333 0v-2.668h2.668v2.668h-2.668Zm-5.334 5.334V20H12v2.667H9.333Zm5.334 0V20h2.668v2.667h-2.668Zm5.333 0V20h2.667v2.667H20Z"></path></svg>
                                 <h3>STAY ON TOP OF TASKS</h3>
                             </div>
                             <p>Start each day without any surprises. Whether scheduling an editorial calendar or staying on top of to-dos,
@@ -132,24 +192,25 @@
                 <img src="https://images.ctfassets.net/rz1oowkt5gyp/gMfkjoA3yWYG3kat3qjpW/3902bfdfccf08869e33d63bbc9d1969b/Integrations_Puzzle.svg" alt="">
                 <h3>Integrations</h3>
                 <p>Connect the apps your team already uses into your Trello workflow or add a Power-Up to fine-tune your specific needs.</p>
-                <div><a>Browse Integrations</a></div>
+                <div class="anchorBox"><a>Browse Integrations</a></div>
             </div>
             <div class = "left_align">
                 <img src="https://images.ctfassets.net/rz1oowkt5gyp/7wxRW93hvb7858bMsK4LSs/f6fc44fb23dbc6ee9bc6a7f6e2af0fb7/Gears.svg" alt="">
                 <h3>Butler Automation</h3>
                 <p>No-code automation is built into every Trello board. Focus on the work that matters most and let the robots do the rest.</p>
-                <div><a>Get to know Automation</a></div>
+                <div class="anchorBox"><a>Get to know Automation</a></div>
             </div>
             <div class = "left_align">
                 <img src="https://images.ctfassets.net/rz1oowkt5gyp/mNa3Mi7T6ga2OTrNxJx1D/8991b8d57cd6ec7330398c7a8757b4dc/Search_Value.svg" alt="">
                 <h3>Trello Enterprise</h3>
                 <p>The productivity tool teams love, paired with the features and security needed for scale.</p>
-                <div><a>Explore Enterprise</a></div>
+                <div class="anchorBox"><a>Explore Enterprise</a></div>
             </div>
         </div>
     </section>
-    <section class = "grid_container">
 
+        <!--슬라이더-->
+    <section class = "grid_container">
         <div style="position: relative">
             <!-- If we need navigation buttons -->
             <div class="flex_container">
@@ -158,7 +219,7 @@
             </div>
 
         <!-- Slider main container -->
-        <div class="swiper">
+        <div class="swiper-container-1 swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -179,8 +240,45 @@
         </div>
 
     </section>
+    <section>
+        <div class = "grid_container">
+            <div>Join over 2,000,000 teams worldwide that are using Trello to get more done.</div>
+            <img src = "https://images.ctfassets.net/rz1oowkt5gyp/19rAABnbk8KNNuh3zJzsmr/210fb8ee51dea14595462f844b7c9beb/logos-horizontal-visa-coinbase-john-deere-zoom-grand-hyatt-fender.svg" width="960" height="80">
+        </div>
+    </section>
+
+        <div id = "full_container2">
+            <div>Get started with Trello today</div>
+            <form>
+                <input type ="email" name = "email" placeholder="Email" class = "emailInput">
+                <button class="blueButton">Sign up - it’s free!</button>
+            </form>
+        </div>
     <script>
-        const swiper = new Swiper('.swiper', {
+
+        const swiper1 = new Swiper('.swiper-container-1', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: true,
+
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+            },
+
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+
+            // And if we need scrollbar
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+        });
+
+        const swiper2 = new Swiper('.swiper-container-2', {
             // Optional parameters
             direction: 'horizontal',
             loop: true,
