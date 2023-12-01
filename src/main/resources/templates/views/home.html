@@ -6,19 +6,25 @@
 <div layout:fragment="content">
     <div id = "parent">
     <div id = "full_container3">
-        <section class = "grid_container">
-            <div class = "flex_container">
-                <div class = "left_align" style="width: 538px">
+        <section class = "grid_container" style="height: 100%">
+            <div class = "flex_container" style="height: 100%">
+                <div class = "left_align" style="width: 1050px">
                     <h1 class="fontCD" id="t1">Trello brings all your tasks, teammates, and tools together</h1>
-                    <p class="fontCT">Keep everything in the same place—even if your team isn’t.</p>
-                    <form>
+                    <p class="fontCT" id="t2">Keep everything in the same place—even if your team isn’t.</p>
+                    <form action="#">
                         <input type ="email" name = "email" placeholder="Email" class = "emailInput">
                         <button class="blueButton">Sign up - it’s free!</button>
                     </form>
-                    <a href="#video">watch video</a>
+                    <div>
+                        <a href="#video">
+                            <span class="fontCT" id = "t3">watch video</span>
+                            <svg color="rgb(255,255,255)" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 5h14v14h-14z"></path><path clip-rule="evenodd" d="m10.0138 16.3878c-.83597.4912-1.5138.105-1.5138-.8645v-7.04491c0-.97008.6755-1.358 1.5138-.86566l6.465 3.79747c.5548.3261.5589.8517 0 1.1801z" fill="currentColor" fill-rule="evenodd"></path><circle cx="12" cy="12" r="11.5" stroke="currentColor"></circle></svg>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <img src="https://images.ctfassets.net/rz1oowkt5gyp/75rDABL8fyMtNLlUAtBxrg/c5e145977a86c41c47e17c69410c64f7/TrelloUICollage_4x.png?w=1140&fm=webp" width="633" height ="558" alt="">
+
                 </div>
             </div>
         </section>
@@ -28,11 +34,11 @@
 
         <div class="left_align">
             <div>
-                <p>TRELLO 101</p>
-                <h2>A productivity powerhouse</h2>
+                <p class = "fontCT" id = "t4">TRELLO 101</p>
+                <h2 class ="fontCD" id = "t5">A productivity powerhouse</h2>
             </div>
             <div>
-                <p>
+                <p class ="fontCT" id = "t6">
                     Simple, flexible, and powerful. All it takes are boards, lists, and cards to get a clear
                     view of who’s doing what and what needs to get done. Learn more in our
                     <a href="#">guide for getting started.</a>
@@ -43,7 +49,7 @@
         <section id = "full_container4">
             <div class ="flex_container">
                 <div style="width: 380px" >
-                    <button>
+                    <button class="list_button">
                         <div>
                             <h3>
                                 Boards
@@ -97,34 +103,36 @@
         </h2>
 
     </div>
-    <section class = "grid_container">
-        <div style="position: relative">
-            <!-- If we need navigation buttons -->
-            <div class="flex_container">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
+    <section style="width: 100vw">
+        <div><button id = "ext-but1">이전</button><button id = "ext-but2">다음</button></div>
 
-            <!-- Slider main container -->
-            <div class="swiper-container-2 swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    ...
+        <div class="swiper mySwiper" style="overflow: visible">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+
+                    <a href="#" class="card">
+                        <div class="cardHeader" style = "background: rgb(255, 116, 82)"></div>
+                        <div style="padding: ">
+                            <div id = "c1"></div>
+                            <h3>Project management</h3>
+                            <p>Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+
+                        </div>
+                        </a>
+
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
             </div>
-
+            <div class="swiper-pagination"></div>
         </div>
+
         <div>
             <div>
     sdsadsa
@@ -150,6 +158,7 @@
                         <p>View your team’s projects from every angle and bring a fresh perspective to the task at hand.</p>
                         <div class="anchorBox"><a href="#">Discover all Use Cases</a></div>
                     </div>
+                <div style="height: 70px"></div>
                     <div class ="flex_container viewCard">
                         <div><img style="margin-right: 32px" src = "https://images.ctfassets.net/rz1oowkt5gyp/5Hb09iiMrK6mSpThW5HS89/f5683a167ad3f74bed4dc7592ae5a002/TrelloBoard_Timeline_2x.png?w=1140&fm=webp" width="555" height="300"></div>
                         <div class="left_align">
@@ -256,6 +265,19 @@
         </div>
     <script>
 
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
         const swiper1 = new Swiper('.swiper-container-1', {
             // Optional parameters
             direction: 'horizontal',
@@ -278,27 +300,18 @@
             },
         });
 
-        const swiper2 = new Swiper('.swiper-container-2', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: true,
+        document.getElementById('ext-but2').addEventListener('click', function() {
+            let lastIndex = swiper.slides.length - 1;
 
-            // If we need pagination
-            pagination: {
-                el: '.swiper-pagination',
-            },
+            swiper.slideTo(lastIndex);
 
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.swiper-scrollbar',
-            },
         });
+        document.getElementById('ext-but1').addEventListener('click', function() {
+
+            swiper.slideTo(0);
+        });
+
+
 
     </script>
     </div>
