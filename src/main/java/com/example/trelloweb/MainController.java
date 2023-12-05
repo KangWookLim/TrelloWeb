@@ -12,6 +12,21 @@ public class MainController {
         view.setViewName("views/home");
         return view;
     }
+    @GetMapping ("/startSign")
+    public ModelAndView startSignPage() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/startSign");
+        return view;
+    }
+
+    @GetMapping ("/login")
+    public ModelAndView loginPage() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/login");
+        return view;
+    }
+
+
 
 }
 
