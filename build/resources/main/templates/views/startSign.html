@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <link rel="stylesheet" th:href="@{/css/startSign.css}">
     <title>Login</title>
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userEmail = urlParams.get('email');
+            $('#email').val(userEmail);
+        });
 
+        $("#btn1").click(function(){
+            console.log('클릭 이벤트 처리');
+        });
+    </script>
 </head>
 
 <div id="background">
@@ -37,15 +48,14 @@
                 </div>
             </div>
             <div  style="margin-bottom: 16px">
-                <form>
-                    <input id="email" type="email" name="email" placeholder="이메일을 입력하세요" class="emailInput"
-                           value="">
+                <form action="/login">
+                    <input id="email" type="email" name="email" placeholder="이메일을 입력하세요" class="emailInput"                            >
                     <div><p class="div2">가입하면 Atlassian <a href="https://www.atlassian.com/legal/cloud-terms-of-service"
                                                            target="_blank" rel="noreferrer noopener">Cloud 이용 약관</a>에
                         동의하고 <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank"
                                 rel="noreferrer noopener">개인정보 보호정책</a>을 인정한 것으로 간주됩니다.</p></div>
                     <div style="margin-top: 8px">
-                        <button class="btn1">
+                        <button id="btn1">
                             <span>
                                 가입
                             </span>
