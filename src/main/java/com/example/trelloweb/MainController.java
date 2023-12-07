@@ -25,7 +25,11 @@ public class MainController {
         view.setViewName("views/login");
         return view;
     }
-
-
+    @GetMapping ("/emailSent")
+    public ModelAndView emailSent() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/emailSent");
+        return view;
+    }
 }
 

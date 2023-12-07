@@ -8,15 +8,51 @@
     <link rel="stylesheet" th:href="@{/css/startSign.css}">
     <title>Login</title>
     <script>
+        let isUserEmailChk = false;
+
+        function userEmailChk() {
+            const Email = $('#email').val();
+            isUserEmailChk = false;
+            if ($.trim(Email).length === 0) {
+                alert('이메일을 입력하십시오.');
+                return false;
+            }
+
+            $.ajax({
+                url : '/user/chkEmail',
+                type : 'post',
+                dataType : 'json',
+                data : 'json',
+                data :{
+                    Email : Email
+                }
+            }).done(function (data){
+                if (data === 0) {
+                    console.log(data);
+                    alert('사용가능한 이메일 입니다');
+                    window.location.href = "/emailSent";
+                }
+                else {
+                    console.log(data);
+                    alert('이미 등록된 이메일 입니다.');
+                    window.location.href = "/login";
+                }
+            }).fail(    function (xhr, status, error) {
+                alert('시스템에 문제가 발생했습니다. 관리자에게 문의해주세요.');
+                console.log(status);
+            })
+        }
+
+
+
         $(document).ready(function () {
             const urlParams = new URLSearchParams(window.location.search);
             const userEmail = urlParams.get('email');
             $('#email').val(userEmail);
-        });
 
-        $("#btn1").click(function(){
-            console.log('클릭 이벤트 처리');
-        });
+        })
+
+
     </script>
 </head>
 
@@ -48,14 +84,14 @@
                 </div>
             </div>
             <div  style="margin-bottom: 16px">
-                <form action="/login">
+                <form action="">
                     <input id="email" type="email" name="email" placeholder="이메일을 입력하세요" class="emailInput"                            >
                     <div><p class="div2">가입하면 Atlassian <a href="https://www.atlassian.com/legal/cloud-terms-of-service"
                                                            target="_blank" rel="noreferrer noopener">Cloud 이용 약관</a>에
                         동의하고 <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank"
                                 rel="noreferrer noopener">개인정보 보호정책</a>을 인정한 것으로 간주됩니다.</p></div>
                     <div style="margin-top: 8px">
-                        <button id="btn1">
+                        <button type = "button" id="btn1" onclick = "userEmailChk();">
                             <span>
                                 가입
                             </span>
