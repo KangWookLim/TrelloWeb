@@ -14,7 +14,19 @@
       view:
         prefix: /WEB-INF/views/
         suffix: .jsp
-
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      username: cnakyeon@gmail.com
+      password: pptf ftcn otng rvvc
+      properties:
+        mail:
+          smtp:
+            auth: true
+            timeout: 5000
+            starttls:
+              enable: true
+              required: true
     datasource:
       driver-class-name: oracle.jdbc.OracleDriver
       url: jdbc:oracle:thin:@localhost:1521:xe

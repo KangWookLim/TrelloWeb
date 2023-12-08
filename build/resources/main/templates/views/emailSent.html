@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
     <title>Title</title>
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userEmail = urlParams.get('email');
+            $('#email').text(userEmail);
+            $.ajax({
+                url: '/mail', // 이메일 전송을 처리하는 서버 엔드포인트
+                method: 'POST',
+                contentType: 'text/plain', // 데이터 타입을 텍스트로 설정
+                data: userEmail,
+                success: function () {
+                    console.log('이메일 전송 성공');
+                },
+                error: function () {
+                    console.error('이메일 전송에 실패했습니다.');
+                }
+            });
+
+
+
+        })
+    </script>
 </head>
-    <!--<div>
+    <div>
         <div>
             logo + trello
         </div>
@@ -16,21 +41,14 @@
             <div>
                 이제 Trello 계정을 어쩌구
             </div>
-            <div>
-                email@email.com
+            <div id = "email">
+
             </div>
             <div>
                 앵커 확인 이메일 보내기
             </div>
         </div>
 
-    </div>-->
-<body>
-    <form method="post" action="/mail">
-        <input type="text" name="receiver" placeholder="받는 사람 입력"><br>
-        <input type="text" name="title" placeholder="제목"><br>
-        <textarea name= "content" cols="10" rows="10"></textarea><br>
-        <input type="submit" value="전송">
-    </form>
-</body>
+    </div>
+
 </html>
