@@ -31,5 +31,7 @@ public class MainController {
         view.setViewName("views/emailSent");
         return view;
     }
+
+
 }
 

@@ -1,10 +1,32 @@
 @charset "UTF-8";
 
+.external-pagination {
+    display: flex;
+    justify-content: flex-end; /* 왼쪽 정렬 */
+    align-items: center;
+    overflow: hidden; /* 내용이 넘칠 경우 감추기 */
+}
 
+.external-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    margin: 0 5px;
+    border-radius: 5px;
+    background-color: #999;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: width 0.3s; /* 크기 변경 애니메이션 효과 */
+}
+
+.external-pagination .swiper-pagination-bullet-active {
+    width: 20px; /* 활성화된 슬라이드의 크기를 키웁니다 */
+    background-color: #333;
+    transition: width 0.3s; /* 크기 변경 애니메이션 효과 */
+}
 
 #parent {
     text-align: center;
-
+    overflow-x: hidden;
 }
 
 #full_container1 {

@@ -11,7 +11,7 @@
                 <div class = "left_align" style="width: 1050px">
                     <h1 class="fontCD" id="t1">Trello brings all your tasks, teammates, and tools together</h1>
                     <p class="fontCT" id="t2">Keep everything in the same place—even if your team isn’t.</p>
-                    <form action="/emailSent">
+                    <form action="/startSign">
                         <input type ="email" name = "email" placeholder="Email" class = "emailInput">
                         <button class="blueButton">Sign up - it’s free!</button>
                     </form>
@@ -49,7 +49,7 @@
         <section id = "full_container4">
             <div class ="flex_container">
                 <div style="width: 380px" >
-                    <button class="list_button">
+                    <button id ="ext-butBoards" class="list_button">
                         <div>
                             <h3>
                                 Boards
@@ -59,7 +59,7 @@
                             </p>
                         </div>
                     </button>
-                    <button>
+                    <button id = "ext-butLists">
                         <div>
                             <h3>
                                 Lists
@@ -69,7 +69,7 @@
                             </p>
                         </div>
                     </button>
-                    <button>
+                    <button id = "ext-butCards">
                         <div>
                             <h3>
                                 Cards
@@ -80,8 +80,14 @@
                         </div>
                     </button>
                 </div>
-                <div>
-                    carousel
+                <div class="swiper swiper2">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                    </div>
                 </div>
             </div>
             <div class = "grid_container">
@@ -103,7 +109,7 @@
         </h2>
 
     </div>
-    <section style="width: 100vw">
+    <section class ="grid_container">
         <div><button id = "ext-but1">이전</button><button id = "ext-but2">다음</button></div>
 
         <div class="swiper mySwiper" style="overflow: visible">
@@ -214,15 +220,10 @@
 
         <!--슬라이더-->
     <section class = "grid_container">
-        <div style="position: relative">
-            <!-- If we need navigation buttons -->
-            <div class="flex_container">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
 
         <!-- Slider main container -->
         <div class="swiper-container-1 swiper">
+            <!-- If we need pagination -->
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
@@ -231,18 +232,12 @@
                 <div class="swiper-slide">Slide 3</div>
                 ...
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-
-
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
-        </div>
-
         </div>
 
     </section>
+        <div class="grid_container">
+            <div class = "external-pagination"></div>
+        </div>
     <section>
         <div class = "grid_container">
             <div>Join over 2,000,000 teams worldwide that are using Trello to get more done.</div>
@@ -272,22 +267,23 @@
         const swiper1 = new Swiper('.swiper-container-1', {
             // Optional parameters
             direction: 'horizontal',
-            loop: true,
+            loop: false,
 
             // If we need pagination
             pagination: {
-                el: '.swiper-pagination',
+                el: '.external-pagination',
+                clickable: true,
             },
 
-            // Navigation arrows
+        });
+
+        var swiper2 = new Swiper('.swiper2', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: false, // Loop 비활성화
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-            },
-
-            // And if we need scrollbar
-            scrollbar: {
-                el: '.swiper-scrollbar',
             },
         });
 
@@ -301,7 +297,18 @@
 
             swiper.slideTo(0);
         });
+        document.getElementById('ext-butBoards').addEventListener('click', function() {
 
+            swiper2.slideTo(0);
+        });
+        document.getElementById('ext-butLists').addEventListener('click', function() {
+
+            swiper2.slideTo(1);
+        });
+        document.getElementById('ext-butCards').addEventListener('click', function() {
+
+            swiper2.slideTo(2);
+        });
 
 
     </script>

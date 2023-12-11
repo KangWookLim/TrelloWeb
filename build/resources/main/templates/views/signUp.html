@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+   $(document).ready(function () {
+       const urlParams = new URLSearchParams(window.location.search);
+       const token = urlParams.get('token');
+       console.log(token);
+       if ($.trim(token).length === 0) {
+           alert('Please enter a valid token');
+           //window.location.href = "/"
+           //return false;
+       }
+
+       $.ajax({
+           url : '/signup/chkToken',
+           type : 'post',
+           dataType : 'json',
+           data : 'json',
+           data : {
+               token : token
+           }
+       }).done(function(data) {
+           if (data === 0){
+               console.log(data);
+               alert ('Please enter a valid token');
+               //window.location.href = "/";
+           }
+           else {
+               console.log(data);
+
+           }
+       })
+       }
+   )
+</script>
+</body>
+</html>

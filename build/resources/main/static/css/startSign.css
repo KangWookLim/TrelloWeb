@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+/* 초기 상태에서는 밑줄 숨김 */
+a {
+    text-decoration: none;
+}
+
+/* hover 시에만 밑줄 표시 */
+a:hover {
+    text-decoration: underline;
+}
+
 #background {
     position: absolute;
     width: 100%;
