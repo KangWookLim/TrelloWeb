@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<div layout:fragment="content">
+  <link rel="stylesheet" th:href="@{/css/board/board.css}">
+
+  <div id = "content-wrapper">
+    <div class = "home-container">
+      <div class = "home-left-side-container">
+        <div>
+          <ul class = "home-sidebar-btn-container">
+            <li>
+              <a th:href="@{/board}" class = "home-sidebar-btn" onclick = "toBoard()">
+                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-board-btn"/>
+                Boards
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/templates}" class = "home-sidebar-btn">
+                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-template-btn"/>
+                Templates
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/home}" class = "home-sidebar-btn">
+                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-home-btn"/>
+                Home
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    const name =
+    function toBoard () {
+
+    }
+  </script>
+</div>
+</html>
