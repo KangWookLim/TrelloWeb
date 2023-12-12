@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#footerWrapper li{list-style-type: none; max-width: 230px; padding: 16px;}
+
+#footerWrapper ul li a {
+    display: block; /* 링크를 블록 레벨 요소로 만듦 */
+    text-decoration: none; /* 링크의 기본 밑줄 제거 (optional) */
+    color: inherit; /* 부모 요소의 텍스트 색상 상속 (optional) */
+    padding: 10px; /* 클릭 영역의 여백 설정 (원하는 값으로 조절) */
+}
+
+#footerWrapper {
+    background-color: rgb(23, 43, 77);
+    color: white;
+}
+
+.footerLogo {
+    max-width: 125px;
+}
