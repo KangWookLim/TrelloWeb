@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
@@ -13,19 +14,19 @@
           <ul class = "home-sidebar-btn-container">
             <li>
               <a th:href="@{/board}" class = "home-sidebar-btn" onclick = "toBoard()">
-                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-board-btn"/>
+                <img th:src="@{/images/trello.png}" class = "home-sidebar-board-btn"/>
                 Boards
               </a>
             </li>
             <li>
               <a th:href="@{/templates}" class = "home-sidebar-btn">
-                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-template-btn"/>
+                <img th:src="@{/images/trello.png}" class = "home-sidebar-template-btn"/>
                 Templates
               </a>
             </li>
             <li>
               <a th:href="@{/home}" class = "home-sidebar-btn">
-                <img th:src="@{/images/trelloA.png}" class = "home-sidebar-home-btn"/>
+                <img th:src="@{/images/trello.png}" class = "home-sidebar-home-btn"/>
                 Home
               </a>
             </li>

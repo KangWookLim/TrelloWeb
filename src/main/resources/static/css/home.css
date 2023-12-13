@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
-
+#header-container {
+    width : 100vw;
+    height : 48px;
+}
 
 #parent {
     text-align: center;

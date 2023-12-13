@@ -7,9 +7,7 @@
 }
 
 #content-wrapper {
-    background-color : #1D2125
-;
-    margin : auto;
+    background-color : #1D2125;
     display : flex;
     flex-direction : column;
     flex : 1 1 0%;
@@ -18,6 +16,7 @@
     line-height : 20px;
     font-size : 14px;
     font-weight : 400;
+    margin-top : 48px;
 }
 .home-container {
     min-height : calc(100vh - 40px);
@@ -58,12 +57,14 @@
     transition-duration : 85ms;
     color : #8c9bab;
 }
-.home-sidebar-btn.after {
-    background-color : #1c2b41;
-    color : #0d6efd;
+.home-sidebar-btn:hover {
+    background-color : #a6c5e229;
+    color : #8c9bab;
+    cursor : pointer;
+
 }
 
-.home-sidebar-board-btn {
+.home-sidebar-btn-container img {
     height : 16px;
     width : 16px;
     text-align : center;
