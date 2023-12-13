@@ -15,9 +15,10 @@
                         <input type ="email" name = "email" placeholder="Email" class = "emailInput">
                         <button class="blueButton">Sign up - it’s free!</button>
                     </form>
+                    <br>
                     <div>
                         <a href="#video">
-                            <span class="fontCT" id = "t3">watch video</span>
+                            <span class="fontCT" id = "t3">Watch video</span>
                             <svg color="rgb(255,255,255)" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m5 5h14v14h-14z"></path><path clip-rule="evenodd" d="m10.0138 16.3878c-.83597.4912-1.5138.105-1.5138-.8645v-7.04491c0-.97008.6755-1.358 1.5138-.86566l6.465 3.79747c.5548.3261.5589.8517 0 1.1801z" fill="currentColor" fill-rule="evenodd"></path><circle cx="12" cy="12" r="11.5" stroke="currentColor"></circle></svg>
                         </a>
                     </div>
@@ -47,8 +48,8 @@
 
         <section class = "grid_container">
             <div class ="flex_container">
-                <div style="width: 380px" >
-                    <button id ="ext-butBoards" class="list_button">
+                <div style="width: 33.3333%; padding: 0 16px; gap: 1rem; flex-direction: column; display: flex;" >
+                    <button id ="ext-butBoards" class="list_button" onclick="toggleButtonClick(this)">
                         <div>
                             <h3>
                                 Boards
@@ -58,7 +59,7 @@
                             </p>
                         </div>
                     </button>
-                    <button id = "ext-butLists">
+                    <button id = "ext-butLists" class="list_button" onclick="toggleButtonClick(this)">
                         <div>
                             <h3>
                                 Lists
@@ -68,7 +69,7 @@
                             </p>
                         </div>
                     </button>
-                    <button id = "ext-butCards">
+                    <button id = "ext-butCards" class="list_button_clicked" onclick="toggleButtonClick(this)">
                         <div>
                             <h3>
                                 Cards
@@ -83,21 +84,19 @@
                     <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide"><img style="width: 100%; height: 100%" src="https://images.ctfassets.net/rz1oowkt5gyp/3N2U3C71rApm61cGFxnc2E/970b010002488a09a420282df5e7b43a/Carousel_Image_Boards_2x.png?w=1140&fm=webp"></img></div>
+                        <div class="swiper-slide"><img style="width: 100%" src="https://images.ctfassets.net/rz1oowkt5gyp/4U0VUZYX2tQmB5KVGxBabp/7321ac088fe8ec39dbe3069c47d7df99/Carousel_Image_Lists_2x.png?w=1140&fm=webp"></div>
+                        <div class="swiper-slide"><img style="width: 100%" src="https://images.ctfassets.net/rz1oowkt5gyp/26CA6JZeRgoOK4nuRHnIlY/060702a80cf7c3be3651d9297d196267/Carousel_Image_Cards_2x.png?w=1140&fm=webp"></div>
                     </div>
                 </div>
             </div>
             <div class = "grid_container">
-                spacing
             </div>
 
         </section>
 
     </div>
     <div class = "grid_container">
-        spacing
     </div>
     <div class = "grid_container left_align">
         <p>
@@ -113,18 +112,19 @@
 
         <div class="swiper mySwiper" style="overflow: visible">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-
-                    <a href="#" class="card">
-                        <div class="cardHeader" style = "background: rgb(255, 116, 82)"></div>
-                        <div>
-                            <div id = "c1"></div>
-                            <h3>Project management</h3>
-                            <p>Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                <div class="swiper-slide card">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="cardHeader" style = "background: rgb(255, 116, 82)">
 
                         </div>
-                        </a>
-
+                        <div>
+                            <div id = "c1"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                            </div>
+                    </a>
                 </div>
                 <div class="swiper-slide">Slide 2</div>
                 <div class="swiper-slide">Slide 3</div>
@@ -140,11 +140,16 @@
     </section>
     <section class = "grid_container">
         <div class="flex_container">
-            <p>No need to start from scratch. Jump-start your workflow with
-                a proven playbook designed for different teams. Customize it to make it yours.</p>
-            <div class="anchorBox">
-                <a href="#">Explore all Use Cases</a>
+            <div>
+                <p style="width: 823px; margin-bottom: 80px; text-align: left; font-size: 1.25rem">No need to start from scratch. Jump-start your workflow with
+                    a proven playbook designed for different teams. Customize it to make it yours.</p>
             </div>
+            <div style="height: 140px">
+                <div class="anchorBox" style="margin-top: 0px;">
+                    <a href="#">Explore all Use Cases</a>
+                </div>
+            </div>
+
         </div>
 
     </section>
@@ -152,34 +157,34 @@
 
             <section class = "grid_container">
             <div>
-                    <div>
-                        <h2>See work in a whole new way</h2>
-                        <p>View your team’s projects from every angle and bring a fresh perspective to the task at hand.</p>
-                        <div class="anchorBox"><a href="#">Discover all Use Cases</a></div>
+                    <div style="color: white; margin-top: 40px">
+                        <h2 style="font-size: 2.25rem; font-weight: bold;">See work in a whole new way</h2>
+                        <p style="font-size: 1.25rem;">View your team’s projects from every angle and bring a fresh perspective to the task at hand.</p>
+                        <div class="anchorBox"><a href="#" style="text-decoration: none; color: black">Discover all Use Cases</a></div>
                     </div>
                 <div style="height: 70px"></div>
-                    <div class ="flex_container viewCard">
+                    <div class ="flex_container viewCard" >
                         <div><img style="margin-right: 32px" src = "https://images.ctfassets.net/rz1oowkt5gyp/5Hb09iiMrK6mSpThW5HS89/f5683a167ad3f74bed4dc7592ae5a002/TrelloBoard_Timeline_2x.png?w=1140&fm=webp" width="555" height="300"></div>
-                        <div class="left_align">
-                            <div class = "flex_container">
-                                <svg width="24" height="24" fill="#8777d9" aria-hidden="true" viewBox="0 0 32 32"><path d="M6 5.333h9.333a3.333 3.333 0 0 1 0 6.667H6a3.333 3.333 0 0 1 0-6.667Zm9.333 4a.667.667 0 0 0 0-1.333H6a.667.667 0 0 0 0 1.333h9.333Zm-6.666 4H18A3.333 3.333 0 1 1 18 20H8.667a3.333 3.333 0 0 1 0-6.667Zm9.333 4A.667.667 0 0 0 18 16H8.667a.667.667 0 0 0 0 1.333H18Zm6.667 4h-9.334a3.333 3.333 0 1 0 0 6.667h9.334a3.333 3.333 0 0 0 0-6.667Zm-9.334 4a.667.667 0 0 1 0-1.333h9.334a.667.667 0 1 1 0 1.333h-9.334Zm8-20H26A3.333 3.333 0 1 1 26 12h-2.667a3.333 3.333 0 1 1 0-6.667Zm2.667 4A.667.667 0 1 0 26 8h-2.667a.667.667 0 1 0 0 1.333H26Z"></path></svg>
-                                <h3>Hit deadlines every time</h3>
+                        <div class="left_align" style="height: 260px; width: 45%; padding: 0px 32px">
+                            <div class = "flex_container" style="margin-bottom: 24px">
+                                <svg width="32" height="32" fill="#8777d9" aria-hidden="true" viewBox="0 0 32 32"><path d="M6 5.333h9.333a3.333 3.333 0 0 1 0 6.667H6a3.333 3.333 0 0 1 0-6.667Zm9.333 4a.667.667 0 0 0 0-1.333H6a.667.667 0 0 0 0 1.333h9.333Zm-6.666 4H18A3.333 3.333 0 1 1 18 20H8.667a3.333 3.333 0 0 1 0-6.667Zm9.333 4A.667.667 0 0 0 18 16H8.667a.667.667 0 0 0 0 1.333H18Zm6.667 4h-9.334a3.333 3.333 0 1 0 0 6.667h9.334a3.333 3.333 0 0 0 0-6.667Zm-9.334 4a.667.667 0 0 1 0-1.333h9.334a.667.667 0 1 1 0 1.333h-9.334Zm8-20H26A3.333 3.333 0 1 1 26 12h-2.667a3.333 3.333 0 1 1 0-6.667Zm2.667 4A.667.667 0 1 0 26 8h-2.667a.667.667 0 1 0 0 1.333H26Z"></path></svg>
+                                <h3 style="font-size: 0.9rem; margin: auto; margin-left: 15px; font-family: 'Charlie Display', sans-serif; font-weight: bold">HIT DEADLINES EVERY TIME</h3>
                             </div>
-                            <p>From weekly sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a
+                            <p style="margin-bottom: 24px; font-size: 1.25rem;">From weekly sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a
                                 glimpse of what’s coming down the pipeline and identify any gaps that might impede your team’s progress.</p>
-                            <p><a href="#">Learn more about Timeline view</a></p>
+                            <p style="font-size: 1.25rem;"><a href="#">Learn more about Timeline view</a></p>
                         </div>
                     </div>
                     <div style="height: 70px"></div>
                     <div class = "flex_container viewCard">
-                        <div style="margin-right: 32px">
-                            <div class = "flex_container">
-                                <svg width ="24" height="24" fill="#00c7e5" aria-hidden="true" viewBox="0 0 32 32"><path d="M6.66 6.667h18.68A2.66 2.66 0 0 1 28 9.325v16.016A2.659 2.659 0 0 1 25.34 28H6.66A2.66 2.66 0 0 1 4 25.341V9.325a2.659 2.659 0 0 1 2.66-2.658ZM6.667 12v12A1.333 1.333 0 0 0 8 25.333h16A1.333 1.333 0 0 0 25.333 24V12H6.667ZM8 5.333a1.333 1.333 0 0 1 2.667 0v1.334H8V5.333Zm13.333 0a1.333 1.333 0 0 1 2.667 0v1.334h-2.667V5.333Zm-12 12v-2.668H12v2.668H9.333Zm10.667 0v-2.668h2.667v2.668H20Zm-5.333 0v-2.668h2.668v2.668h-2.668Zm-5.334 5.334V20H12v2.667H9.333Zm5.334 0V20h2.668v2.667h-2.668Zm5.333 0V20h2.667v2.667H20Z"></path></svg>
-                                <h3>STAY ON TOP OF TASKS</h3>
+                        <div class="left_align" style="margin-right: 32px; height: 260px; width: 45%; padding: 0px 32px">
+                            <div class = "flex_container" style="margin-bottom: 24px">
+                                <svg width ="32" height="32" fill="#00c7e5" aria-hidden="true" viewBox="0 0 32 32"><path d="M6.66 6.667h18.68A2.66 2.66 0 0 1 28 9.325v16.016A2.659 2.659 0 0 1 25.34 28H6.66A2.66 2.66 0 0 1 4 25.341V9.325a2.659 2.659 0 0 1 2.66-2.658ZM6.667 12v12A1.333 1.333 0 0 0 8 25.333h16A1.333 1.333 0 0 0 25.333 24V12H6.667ZM8 5.333a1.333 1.333 0 0 1 2.667 0v1.334H8V5.333Zm13.333 0a1.333 1.333 0 0 1 2.667 0v1.334h-2.667V5.333Zm-12 12v-2.668H12v2.668H9.333Zm10.667 0v-2.668h2.667v2.668H20Zm-5.333 0v-2.668h2.668v2.668h-2.668Zm-5.334 5.334V20H12v2.667H9.333Zm5.334 0V20h2.668v2.667h-2.668Zm5.333 0V20h2.667v2.667H20Z"></path></svg>
+                                <h3 style="font-size: 0.9rem; margin: auto; margin-left: 15px; font-family: 'Charlie Display', sans-serif; font-weight: bold">STAY ON TOP OF TASKS</h3>
                             </div>
-                            <p>Start each day without any surprises. Whether scheduling an editorial calendar or staying on top of to-dos,
+                            <p style="margin-bottom: 24px; font-size: 1.25rem;">Start each day without any surprises. Whether scheduling an editorial calendar or staying on top of to-dos,
                                 Calendar view is like a crystal ball giving you a clear vision of what work lies ahead.</p>
-                            <p><a href="#">Learn more about Calendar view</a></p>
+                            <p style="font-size: 1.25rem;"><a href="#">Learn more about Calendar view</a></p>
                         </div>
                         <div><img src = "https://images.ctfassets.net/rz1oowkt5gyp/7sxChS4x6XAcUgDpp4VAZk/25377d162e964f4243e329c447bfd7dc/TrelloBoard_Calendar_2x.png?w=1140&fm=webp" width="555" height="300"></div>
                     </div>
@@ -218,6 +223,11 @@
     </section>
 
         <!--슬라이더-->
+        </section>
+        <div class="grid_container">
+            <div class = "external-pagination"></div>
+        </div>
+        <section class="back1">
     <section class = "grid_container">
 
         <!-- Slider main container -->
@@ -226,24 +236,103 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                ...
+                <div class="swiper-slide">
+                    <div class="storyCard">
+                        <div class="flex_container storyCardInner">
+                            <figure class="storyCardLeft">
+                                <blockquote>
+                                    <p style="font-size: 1.5rem; font-family: 'Charlie Text', sans-serif; font-weight: 400;">[Trello is] great for simplifying complex processes. As a manager, I can chunk [processes] down into bite-sized pieces for my team and then delegate that out, but still keep a bird's-eye view.</p>
+                                </blockquote>
+                                <figcaption>
+                                    <p>Joey Rosenberg</p>
+                                    <p>Global Leadership Director at Women Who Code</p>
+                                    <div class="CorpDiv">
+                                        <img src= "https://images.ctfassets.net/rz1oowkt5gyp/2f3keSvy7vtldV4YDFKkE2/5ed788fb5257c342995d25ba8e8e313d/WomenWhoCode_logo.svg" alt="Women Who Code company logo" width="84" height="36" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm">
+                                        <a href="https://blog.trello.com/women-who-code" aria-label="Read the Women Who Code customer story" data-uuid="2o9mLypfF08ECjP8pn9bsL" target="_blank" rel="noopener">Read the story</a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            <div class="storyCardRight">
+                                <h3>
+                                    75% of organizations report that Trello delivers value to their business within 30 days.
+
+                                </h3>
+                                <div class="uiSurvey" style="margin-top: 48px;">
+                                    <a href="https://www.techvalidate.com/tvid/1D4-3E6-170" data-uuid="3IwPp5ABfwIFLIWnCXu3RX" target="_blank" rel="noopener">Trello TechValidate Survey</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div><div class="swiper-slide">
+                <div class="storyCard">
+                    <div class="flex_container storyCardInner">
+                        <figure class="storyCardLeft">
+                            <blockquote>
+                                <p style="font-size: 1.5rem; font-family: 'Charlie Text', sans-serif; font-weight: 400;">Whether someone is in the office, working from home, or working on-site with a client, everyone can share context and information through Trello.</p>
+                            </blockquote>
+                            <figcaption>
+                                <p>Sumeet Moghe</p>
+                                <p>Product Manager at ThoughtWorks</p>
+                                <div class="CorpDiv">
+                                    <img src="//images.ctfassets.net/rz1oowkt5gyp/2kIh1cWqsxjtHwWHWJJPsJ/d8436f3979be6cab7931f4d276c2d5ce/thoughtworks.svg" alt="ThoughtWorks company logo" width="223" height="35" loading="lazy" style="margin-top: 24px"><a href="https://blog.trello.com/women-who-code" aria-label="Read the Women Who Code customer story" data-uuid="2o9mLypfF08ECjP8pn9bsL" target="_blank" rel="noopener">Read the story</a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="storyCardRight">
+                            <h3>
+                                81% of customers choose Trello for its ease of use.
+                            </h3>
+                            <div class="uiSurvey" style="margin-top: 192px">
+                                <a href="https://www.techvalidate.com/tvid/1D4-3E6-170" data-uuid="3IwPp5ABfwIFLIWnCXu3RX" target="_blank" rel="noopener">Trello TechValidate Survey</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+                <div class="swiper-slide">
+                <div class="storyCard">
+                    <div class="flex_container storyCardInner">
+                        <figure class="storyCardLeft">
+                            <blockquote>
+                                <p style="font-size: 1.5rem; font-family: 'Charlie Text', sans-serif; font-weight: 400;">[Trello is] great for simplifying complex processes. As a manager, I can chunk [processes] down into bite-sized pieces for my team and then delegate that out, but still keep a bird's-eye view.</p>
+                            </blockquote>
+                            <figcaption>
+                                <p>Joey Rosenberg</p>
+                                <p>Global Leadership Director at Women Who Code</p>
+                                <div class="CorpDiv">
+                                    <img src= "https://images.ctfassets.net/rz1oowkt5gyp/2f3keSvy7vtldV4YDFKkE2/5ed788fb5257c342995d25ba8e8e313d/WomenWhoCode_logo.svg" alt="Women Who Code company logo" width="84" height="36" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm">
+                                    <a href="https://blog.trello.com/women-who-code" aria-label="Read the Women Who Code customer story" data-uuid="2o9mLypfF08ECjP8pn9bsL" target="_blank" rel="noopener">Read the story</a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="storyCardRight">
+                            <h3 style="margin-bottom: 0px;">
+                                74% of customers say Trello has improved coummunication with their co-workers and teams.
+                            </h3>
+                            <div class="uiSurvey">
+                                <a href="https://www.techvalidate.com/tvid/1D4-3E6-170" data-uuid="3IwPp5ABfwIFLIWnCXu3RX" target="_blank" rel="noopener">Trello TechValidate Survey</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
             </div>
         </div>
 
-    </section>
-        <div class="grid_container">
-            <div class = "external-pagination"></div>
-        </div>
-    <section>
+
         <div class = "grid_container">
             <div>Join over 2,000,000 teams worldwide that are using Trello to get more done.</div>
             <img src = "https://images.ctfassets.net/rz1oowkt5gyp/19rAABnbk8KNNuh3zJzsmr/210fb8ee51dea14595462f844b7c9beb/logos-horizontal-visa-coinbase-john-deere-zoom-grand-hyatt-fender.svg" width="960" height="80">
         </div>
     </section>
-
+        </section>
         <div id = "full_container2">
             <div>Get started with Trello today</div>
             <form>
@@ -309,6 +398,14 @@
             swiper2.slideTo(2);
         });
 
+        function toggleButtonClick(button) {
+            document.querySelectorAll('.list_button_clicked').forEach(function(btn) {
+                btn.classList.add('list_button');
+                btn.classList.remove('list_button_clicked');
+            });
+            button.classList.remove('list_button');
+            button.classList.add('list_button_clicked');
+        }
 
     </script>
     </div>
