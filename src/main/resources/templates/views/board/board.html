@@ -107,6 +107,35 @@
               </li>
             </ul>
           </div>
+
+          <div class = "board-section-box">
+            <div class="board-section-header">
+              <div class="board-icon-container">
+                <img th:src="@{/images/icons/time.png}" class="board-section-header-icon">
+              </div>
+              <h3 class="board-section-header-name">
+                Recently viewed
+              </h3>
+            </div>
+            <ul class="board-section-list">
+              <li class="board-section-list-item">
+                <a class="board-section-item-img">
+                  <div class="board-detail-box">
+                    <div class="board-detail-name">
+                      test board
+                    </div>
+                    <div class="board-detail-ws">
+                          <span>
+                          test workspace
+                          </span>
+                      <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                    </div>
+                  </div>
+                </a>
+                <div class="ex-margin1"></div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -114,7 +143,6 @@
   <script>
     const name =
     function toBoard () {
-
     }
 
     $("#home-workspace-box").click(function() {
