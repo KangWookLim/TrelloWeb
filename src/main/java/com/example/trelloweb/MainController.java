@@ -32,6 +32,12 @@ public class MainController {
         return view;
     }
 
+    @GetMapping ("/test")
+    public ModelAndView test() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/useCases");
+        return view;
+    }
 
 }
 
