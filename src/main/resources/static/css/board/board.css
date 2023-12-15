@@ -18,7 +18,7 @@ ul {
     padding-top : 48px;
     display : flex;
     flex-direction : column;
-    flex : 1 1 0%;
+    flex : 1 1 0;
     overflow-y : auto;
     width : 100%;
     line-height : 20px;
@@ -160,4 +160,124 @@ ul {
 }
 #ws-btn-ul.menuon {
     display : block;
+}
+
+/* board section */
+#home-board-wrapper {
+    margin: 40px 16px 0;
+    max-width: 825px;
+    min-width: 288px;
+    width: 100%;
+}
+.board-section-box {
+    padding : 0 0 20px;
+    max-width: 1266px;
+}
+.board-section-header {
+    display: flex;
+    margin: 0 0 0 40px;
+    padding: 0 0 11px;
+    position: relative;
+}
+.board-section-header-icon {
+    height : 22px;
+    width : 22px;
+}
+.board-icon-container {
+    height : 32px;
+    width : 32px;
+    left: -40px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.board-section-header-name {
+    display: inline-block;
+    flex: 1;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    margin: 3px 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color : #9fadbc;
+}
+.board-section-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.board-section-list-item {
+    margin: 0 2% 2% 0;
+    padding: 0;
+    transform: translate(0);
+    width: 23.5%;
+}
+.board-section-item-img {
+    background-image: url(https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x365/0c34d811eabe0f3e955b05f79e9517a6/photo-1696384036025-c7d7b7f6584d.jpg);
+    background-position: 50%;
+    background-size: cover;
+    color: #fff;
+    line-height: 20px;
+    padding: 8px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 3px;
+    display: block;
+    filter: brightness(1);
+    transition: 0.3s;
+}
+.board-section-item-img:hover {
+    color : #fff;
+    filter: brightness(0.6);
+}
+
+.ex-margin1 {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.board-detail-box {
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-between;
+    position: relative;
+}
+.board-detail-name {
+    word-wrap: break-word;
+    display: inline-block;
+    flex: 0 0 auto;
+    font-size: 16px;
+    font-weight: 700;
+    max-height: 40px;
+    overflow: hidden;
+    width: 100%;
+}
+.board-detail-ws {
+    align-items: baseline;
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+}
+.board-detail-ws>span {
+    color: #fff;
+    display: block;
+    flex: 1 1 auto;
+    letter-spacing: .02em;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+.board-starred-icon {
+    height : 12px;
+    width : 12px;
+    margin : 0 6px;
 }
