@@ -9,28 +9,74 @@
 
   <div id = "content-wrapper">
     <div class = "home-container">
-      <div class = "home-left-side-container">
+      <div id = "home-left-side-container">
         <div>
-          <ul class = "home-sidebar-btn-container">
+          <ul id = "home-sidebar-btn-container">
             <li>
               <a th:href="@{/board}" class = "home-sidebar-btn" onclick = "toBoard()">
-                <img th:src="@{/images/trello.png}" class = "home-sidebar-board-btn"/>
+                <img th:src="@{/images/icons/trello.png}" class = "home-sidebar-board-btn"/>
                 Boards
               </a>
             </li>
             <li>
               <a th:href="@{/templates}" class = "home-sidebar-btn">
-                <img th:src="@{/images/trello.png}" class = "home-sidebar-template-btn"/>
+                <img th:src="@{/images/icons/template.png}" class = "home-sidebar-template-btn"/>
                 Templates
               </a>
             </li>
             <li>
               <a th:href="@{/home}" class = "home-sidebar-btn">
-                <img th:src="@{/images/trello.png}" class = "home-sidebar-home-btn"/>
+                <img th:src="@{/images/icons/home.png}" class = "home-sidebar-home-btn"/>
                 Home
               </a>
             </li>
           </ul>
+        </div>
+        <div>
+          <ul id="home-workspace-container">
+            <div id="home-workspace-title"> Workspaces </div>
+            <li id = "home-workspace-tab">
+              <a id = "home-workspace-box">
+                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
+                <span>Workspace Name</span>
+                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+              </a>
+              <ul id = "ws-btn-ul">
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/heart.png}" class = "ws-btn-icon"/>
+                    <span>Highlights</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/views.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/team.png}" class = "ws-btn-icon"/>
+                    <span>Members</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/settings.png}" class = "ws-btn-icon"/>
+                    <span>Settings</span>
+                  </a>
+                </li>
+
+              </ul>
+            </li>
+          </ul>
+
         </div>
 
       </div>
@@ -41,6 +87,31 @@
     function toBoard () {
 
     }
+
+    // function manuOn() {
+    //   // const ulBtn =
+    //   if ($("#ws-btn-ul").css.display === "none"){
+    //     console.log("check1");
+    //     $("#ws-btn-ul").css.display = "block";
+    //   }else{
+    //     $("#ws-btn-ul").css.display = "none";
+    //     console.log("check2");
+    //   }
+    // }
+
+    $("#home-workspace-box").click(function() {
+      console.log("check1");
+      $("#ws-btn-ul").toggleClass("menuon");
+      const arrowImage = $("#home-workspace-box").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('up')) {
+          return attr.replace("up", "down");
+        }
+        else {
+          return attr.replace("down", "up");
+        }
+      });
+    });
   </script>
 </div>
 </html>
