@@ -72,13 +72,42 @@
                     <span>Settings</span>
                   </a>
                 </li>
-
               </ul>
             </li>
           </ul>
-
         </div>
-
+      </div>
+      <div id = "home-board-wrapper">
+        <div id = "content-all-board">
+          <div class = "board-section-box">
+            <div class="board-section-header">
+              <div class="board-icon-container">
+                <img th:src="@{/images/icons/star.png}" class="board-section-header-icon">
+              </div>
+              <h3 class="board-section-header-name">
+                Starred boards
+              </h3>
+            </div>
+            <ul class="board-section-list">
+              <li class="board-section-list-item">
+                <a class="board-section-item-img">
+                    <div class="board-detail-box">
+                        <div class="board-detail-name">
+                          test board
+                        </div>
+                        <div class="board-detail-ws">
+                          <span>
+                          test workspace
+                          </span>
+                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                        </div>
+                    </div>
+                </a>
+                <div class="ex-margin1"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -87,17 +116,6 @@
     function toBoard () {
 
     }
-
-    // function manuOn() {
-    //   // const ulBtn =
-    //   if ($("#ws-btn-ul").css.display === "none"){
-    //     console.log("check1");
-    //     $("#ws-btn-ul").css.display = "block";
-    //   }else{
-    //     $("#ws-btn-ul").css.display = "none";
-    //     console.log("check2");
-    //   }
-    // }
 
     $("#home-workspace-box").click(function() {
       console.log("check1");
@@ -112,6 +130,31 @@
         }
       });
     });
+
+    $(".board-starred-icon").click(function() {
+      console.log("check1");
+      const arrowImage = $(".board-detail-ws").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('full')) {
+          return attr.replace("full", "empty");
+        }
+        else {
+          return attr.replace("empty", "full");
+        }
+      });
+    });
+    $(".board-starred-icon").hover(function() {
+      const arrowImage = $(".board-detail-ws").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('full')) {
+          return attr.replace("full", "empty");
+        }
+        else {
+          return attr.replace("empty", "full");
+        }
+      });
+
+    })
   </script>
 </div>
 </html>
