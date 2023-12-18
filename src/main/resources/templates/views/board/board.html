@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<div layout:fragment="content">
+  <link rel="stylesheet" th:href="@{/css/board/board.css}">
+
+  <div id = "content-wrapper">
+    <div class = "home-container">
+      <div id = "home-left-side-container">
+        <div>
+          <ul id = "home-sidebar-btn-container">
+            <li>
+              <a th:href="@{/board}" class = "home-sidebar-btn" onclick = "toBoard()">
+                <img th:src="@{/images/icons/trello.png}" class = "home-sidebar-board-btn"/>
+                Boards
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/templates}" class = "home-sidebar-btn">
+                <img th:src="@{/images/icons/template.png}" class = "home-sidebar-template-btn"/>
+                Templates
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/home}" class = "home-sidebar-btn">
+                <img th:src="@{/images/icons/home.png}" class = "home-sidebar-home-btn"/>
+                Home
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul id="home-workspace-container">
+            <div id="home-workspace-title"> Workspaces </div>
+            <li id = "home-workspace-tab">
+              <a id = "home-workspace-box">
+                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
+                <span>Workspace Name</span>
+                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+              </a>
+              <ul id = "ws-btn-ul">
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/heart.png}" class = "ws-btn-icon"/>
+                    <span>Highlights</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/views.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/team.png}" class = "ws-btn-icon"/>
+                    <span>Members</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/settings.png}" class = "ws-btn-icon"/>
+                    <span>Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id = "home-board-wrapper">
+        <div id = "content-all-board">
+          <div class = "board-section-box">
+            <div class="board-section-header">
+              <div class="board-icon-container">
+                <img th:src="@{/images/icons/star.png}" class="board-section-header-icon">
+              </div>
+              <h3 class="board-section-header-name">
+                Starred boards
+              </h3>
+            </div>
+            <ul class="board-section-list">
+              <li class="board-section-list-item">
+                <a class="board-section-item-img">
+                    <div class="board-detail-box">
+                        <div class="board-detail-name">
+                          test board
+                        </div>
+                        <div class="board-detail-ws">
+                          <span>
+                          test workspace
+                          </span>
+                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                        </div>
+                    </div>
+                </a>
+                <div class="ex-margin1"></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class = "board-section-box">
+            <div class="board-section-header">
+              <div class="board-icon-container">
+                <img th:src="@{/images/icons/time.png}" class="board-section-header-icon">
+              </div>
+              <h3 class="board-section-header-name">
+                Recently viewed
+              </h3>
+            </div>
+            <ul class="board-section-list">
+              <li class="board-section-list-item">
+                <a class="board-section-item-img">
+                  <div class="board-detail-box">
+                    <div class="board-detail-name">
+                      test board
+                    </div>
+                    <div class="board-detail-ws">
+                          <span>
+                          test workspace
+                          </span>
+                      <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                    </div>
+                  </div>
+                </a>
+                <div class="ex-margin1"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const name =
+    function toBoard () {
+    }
+
+    $("#home-workspace-box").click(function() {
+      console.log("check1");
+      $("#ws-btn-ul").toggleClass("menuon");
+      const arrowImage = $("#home-workspace-box").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('up')) {
+          return attr.replace("up", "down");
+        }
+        else {
+          return attr.replace("down", "up");
+        }
+      });
+    });
+
+    $(".board-starred-icon").click(function() {
+      console.log("check1");
+      const arrowImage = $(".board-detail-ws").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('full')) {
+          return attr.replace("full", "empty");
+        }
+        else {
+          return attr.replace("empty", "full");
+        }
+      });
+    });
+    $(".board-starred-icon").hover(function() {
+      const arrowImage = $(".board-detail-ws").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('full')) {
+          return attr.replace("full", "empty");
+        }
+        else {
+          return attr.replace("empty", "full");
+        }
+      });
+
+    })
+  </script>
+</div>
+</html>
