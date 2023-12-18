@@ -35,7 +35,7 @@ public class MainController {
     @GetMapping ("/test")
     public ModelAndView test() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/useCases");
+        view.setViewName("views/aboutViews");
         return view;
     }
 

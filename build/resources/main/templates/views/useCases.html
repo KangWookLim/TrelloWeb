@@ -2,38 +2,253 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
+
 <div layout:fragment="content">
-    <section style="background:linear-gradient(rgb(230, 252, 255), rgb(255, 255, 255)) 0% 0% / auto repeat scroll padding-box border-box transparent">
-        <div class="grid_container flex_container">
+    <section style="background:linear-gradient(rgb(230, 252, 255), rgb(255, 255, 255)) 0% 0% / auto repeat scroll padding-box border-box transparent;">
+        <div class="grid_container flex_container" >
             <div style="width: 41.6667%; margin-left: 8.33333%">
                 <h1>
                     See Trello in action
                 </h1>
                 <p>Explore all the ways Trello can power team productivity</p>
             </div>
-            <div style="width: 33.3333%; margin-left: 8.33333%">
-                <picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540" alt="" width="649.5" height="577.5" loading="lazy" style="max-width: 100%"></picture>
+            <div id = "useCasesDrawer">
+                <picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1299 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/7vHw8fdsFtaL6FDbTayCam/140d2f8a8a2e1d04cf85bebed66cb859/Teams__board_migration_4x.png?w=540" alt="" width="347.95" height="309.52" loading="lazy" style="max-width: 100%"></picture>
             </div>
         </div>
     </section>
     <section>
         <div class="grid_container">
-            <div class="usecaseCard">
-                <a href="#" style="text-decoration: none; color: black;">
-                    <div class="cardHeader" style = "background: rgb(87, 217, 163)">
-
+            <div class="useCaseWrapper">
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(0, 199, 229)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/x2AI5JZPTDVY7BxKbvClM/dc65b20bf0914caa72bcaf2ddbb05d9b/UseCasesBrainstorming.svg')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                    <div>
-                        <div class = "c1" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5JwPiAFuOJCWEdYiTqlfs3/ca86f7f918d09a1782284ba4578a28ec/icon-object-leaf_2x.png')"></div>
-                        <div style="padding: 36px 24px 24px; text-align: left">
-                            <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
-                            <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(38, 132, 255)">
                         </div>
-                    </div>
-                </a>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/1bAaKPCUsUUfZ0ISolxQ6F/63ef93323e068efcbc2f9bedf1b10c4d/icon-object-id_2x.png')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(255, 196, 0)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/2QxxxQ4YT8zNA3pGQafzpu/0f967273349c82832850d336f2d215e3/icon-content-calendar_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(255, 116, 82)">
+                        </div>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5JFy2c5kuI8jj9GmFBBEaT/4d9eee16ae64e4b09f13295129f049e3/icon-object-building.svg')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(249, 156, 219)">
+                        </div>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/6P0DOJoAKSYvz3vabAo1WR/ccca7477e678b040a8cb5b655aea8d65/icon-object-heart_2x.png')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(135, 119, 217)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/at3cM0tPkheev0zhkuzel/f62c4a4615f9a066b9a8bc81208cbd5a/icon-object-headset_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(38, 132, 255)">
+                        </div>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5j0J5BEzFktzLYnsszcJWc/be9270f9ea1e9bb3c69a799e54ef9fea/icon-object-megaphone_2x.png')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(87, 217, 163)">
+                        </div>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5JwPiAFuOJCWEdYiTqlfs3/ca86f7f918d09a1782284ba4578a28ec/icon-object-leaf_2x.png')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(38, 132, 255)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/9LkrNI55Qg9MJxLwtN7Nl/a3b4b1ac27f28574c303e586c9a60f9c/icon-content-checkmark_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div><div class = "useCaseCardBox">
+                <div class="useCaseCard">
+                    <a href="#" style="text-decoration: none; color: black;">
+                        <div class="useCaseCardHeader" style = "background: rgb(135, 119, 217)">
+                        </div>
+                        <div style="position: relative">
+                            <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5Krx8E3KHvsIF6jP3Gp7T3/7e92a8b998e22e1534c7d48d06201347/icon-object-briefcase_2x.png')"></div>
+                            <div style="padding: 36px 24px 24px; text-align: left">
+                                <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(255, 116, 82)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5Oc1c9iIDmXtUFHs0uWuLQ/cef21b3212ac080d9d0adad649dc31e9/icon-content-folder_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(0, 199, 229)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/2duMI2H71euCPR17PtlDkA/90cfa5a543646d0a06da3d05cdcb5c8a/icon-object-radar_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(249, 156, 219)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5rv4eidOfMf1vdEzVpHNlA/bb102f380f9cfd3d1761858d8910963d/icon-object-book_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(255, 196, 0)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/4Mgm4SG6P6bD673rMtNpXP/9f8798510480b30d296550be747b9624/icon-content-checklists_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class = "useCaseCardBox">
+                    <div class="useCaseCard">
+                        <a href="#" style="text-decoration: none; color: black;">
+                            <div class="useCaseCardHeader" style = "background: rgb(87, 217, 163)">
+                            </div>
+                            <div style="position: relative">
+                                <div class = "useCaseIcon" style="background-image: url('https://images.ctfassets.net/rz1oowkt5gyp/5JwPiAFuOJCWEdYiTqlfs3/ca86f7f918d09a1782284ba4578a28ec/icon-object-leaf_2x.png')"></div>
+                                <div style="padding: 36px 24px 24px; text-align: left">
+                                    <h3 style="font-size: 1.5rem; font-family: 'Charlie Display',sans-serif;">Project management</h3>
+                                    <p style="font-size: 1rem; font-family: 'Charlie Text',sans-serif;">Keep tasks in order, deadlines on track, and team members aligned with Trello.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
         </div>
     </section>
+    <
 
 </div>
 </html>

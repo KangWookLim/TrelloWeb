@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<div layout:fragment="content">
+    <section style="overflow-x: hidden; background: linear-gradient(120deg, rgb(255, 242, 251), rgb(255, 255, 255)) 0% 0% / auto repeat scroll padding-box border-box transparent; background-blend-mode: normal">
+        <div class="grid_container">
+            <div id = "viewsAbstract">
+                <div id = "viewsAbstractImg" style="width: 58.3333%">
+                    <picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1280 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/68zIvQpZurj8bcZbd6gshI/5864c4ed8e1f8ca9fb144eaf9b775d47/Calendar_View_Illo_7.png?w=540" alt="An illustration showing Calendar view of a Trello board" width="640" height="360" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm"></picture></div>
+                <div id = "viewsAbstractText" style="width: 41.6667%">
+                    <div>
+                        <h1>Trello Calendar view</h1>
+                        <p>Get an overview of what’s to come in the days, weeks, and months ahead.</p>
+                    </div>
+                    <div class="anchorBox" style="margin-bottom: 0.75rem; border : 1px solid rgb(255, 171, 0);">
+                        <a href="#">
+                            <span>Try views for free!</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class = "aboutCalendarBackground">
+        <div class = "grid_container">
+            <div class = "explanationBox">
+                <div class="aboutCalendarPadding">
+                    <div style="width: 66.6667%; margin-left: 16.6667%; padding: 0rem 1rem 3rem;
+    position: relative;">
+                        <h2>
+                            Always see what work lies ahead
+                        </h2>
+                        <p>
+                            When your team relies on due dates and deadlines, Calendar provides a clearer view of your work while maintaining the ability to hone in on specific day-to-day details of what needs to be done.
+                        </p>
+                    </div>
+                    <div><video data-testid="ui-video" loop="" poster="//images.ctfassets.net/rz1oowkt5gyp/6NIz0jTRGp2wFHVtQ5Fudu/ca37d7ae8b0e9ab3c453389f80ce90fe/calendar_1.png" width="918" height="459" class="Video__ResponsiveVideo-sc-8pffl7-0 kUOkVw"><source src="//videos.ctfassets.net/rz1oowkt5gyp/7k7AWiGaQLWdprupIwKpnK/8d0f516aac179dc84a6b11b13229efdb/Trello_Calendar_View_Drag_and_Drop_Feature.mp4" type="video/mp4">Calendar views video</video></div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="grid_container">
+            <div class="explanationBox2">
+                <div class = "explanationText2">
+                    <h2>Take control of team workload</h2>
+                    <p>Balance out assignments across your team by scheduling existing and new tasks. Arrange cards according to their due date. They’ll also display any labels, members, or checklists added to them. Check your calendar on your phone in the Trello app too.</p>
+                </div>
+                <div class = "explanationImg2"><picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1454&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1454 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1454&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1454 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1440&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1440 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/7ny703tbLUUci3EKl41kW/cc5af2d4e497f52b24548e0f8b1fc99c/Calendar-main.png?w=540" alt="An image showing Calendar view of a Trello board" width="538" height="273" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm"></picture></div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="grid_container">
+            <div class="explanationBox" >
+                <div class="explanationImg" style="padding-top: 2rem;"><picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1202 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/3ZrZ6LOLjDBXN7iYu1VaYd/ca29e00d4c735e87165763dcb2a84750/Calendar-prioritize.png?w=540" alt="An image showing how to view your day using Calendar view in Trello" width="538" height="304" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm"></picture></div>
+                <div class="explanationText" style="padding-top: 2rem;">
+                    <h2>Prioritize and achieve full focus</h2>
+                    <p>Keep your working hours organized and productive. Zoom in to get a day-of view so you can stay focused and always know what’s coming next.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="grid_container">
+            <div class="explanationBox2">
+                <div class = "explanationText2" style="padding-top: 2rem;">
+                    <h2>Sync up work in third-party apps</h2>
+                    <p>Visualize project due dates and deadlines, even on third party calendars! Easily add to other calendars in your digital life, like Google, Outlook, Apple, and more with just a few clicks.</p>
+                </div>
+                <div class = "explanationImg2" style="padding-top:2rem;"><picture><source type="image/webp" media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=2280&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1140&amp;fm=webp"><source media="(min-width: 1200px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=2280 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1140"><source type="image/webp" media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1920&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=960&amp;fm=webp"><source media="(min-width: 992px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1920 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=960"><source type="image/webp" media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1440&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=720&amp;fm=webp"><source media="(min-width: 768px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1440 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=720"><source type="image/webp" media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1080&amp;fm=webp 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=540&amp;fm=webp"><source media="(min-width: 576px)" srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1080 2x, //images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=540"><img srcset="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=1080 2x" src="//images.ctfassets.net/rz1oowkt5gyp/2uV441S1PnR8iArVaGLJ4X/646525209fedbf4b6f073dcf81f7d98e/CalendarView_SyncWithApps.png?w=540" alt="An image showing Calendar view of a Trello Workspace" width="538" height="263" loading="lazy" class="Picture__Image-sc-1wdxyb4-0 eYmxm"></picture></div>
+            </div>
+        </div>
+    </section>
+    <section class = "aboutCalendarBackground">
+        <div class = "grid_container">
+            <div class = "explanationBox">
+                <div class="aboutCalendarPadding">
+                    <div>
+                        <h2>
+                            Keep teamwork ahead of schedule
+                        </h2>
+                        <p>
+                            Start a free trial today
+                        </p>
+                    </div>
+                    <div class="anchorBox" style="border: 1px solid rgb(255,171,0);">
+                        <a href="#">
+                            <span>Get started</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</html>
