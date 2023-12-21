@@ -5,11 +5,10 @@
     color-scheme : dark;
     list-style :none;
     line-height : 20px;
-    color: #9fadbc;
 }
 a {
     text-decoration-line: none;
-    color : #9fadbc;
+    color : #b6c2cf;
 }
 p {
     margin: 0 0 8px;
@@ -40,16 +39,19 @@ ul {
     position : sticky;
     top : 40px;
     width : 288px;
+
 }
 #home-sidebar-btn-container {
     border-bottom : 1px solid #a6c5e229;
     margin : 0;
     padding : 0;
-
+    color : #b6c2cf;
 }
 #home-sidebar-btn-container li {
     margin-bottom : 4px;
     display : list-item;
+    font-weight : 600;
+
 }
 .home-sidebar-btn {
     align-items : center;
@@ -63,7 +65,6 @@ ul {
     padding : 6px 8px;
     text-decoration : none;
     transition-duration : 85ms;
-    color : #8c9bab;
 }
 .home-sidebar-btn:hover {
     background-color : #a6c5e229;
@@ -76,8 +77,9 @@ ul {
     color: #579dff;
 }
 #home-sidebar-btn-container img {
-    height : 16px;
-    width : 16px;
+    height : 12px;
+    width : 12px;
+    margin : 4px;
     text-align : center;
     display : block;
 }
@@ -162,3 +164,8 @@ ul {
     padding : 0 0 20px;
     max-width: 1266px;
 }
+.template-sidebar-btn-items {
+    padding-left : 32px;
+    font-weight : 400!important;
+}
+
