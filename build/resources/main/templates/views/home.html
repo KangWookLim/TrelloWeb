@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/main_layout}">
+      layout:decorate="~{layout/home_layout}">
 
 <div layout:fragment="content">
     <div id = "parent">
@@ -11,9 +11,9 @@
                 <div class = "left_align" style="width: 1050px">
                     <h1 class="fontCD" id="t1">Trello brings all your tasks, teammates, and tools together</h1>
                     <p class="fontCT" id="t2">Keep everything in the same place—even if your team isn’t.</p>
-                    <form action="/startSign">
+                    <form action="/startSign" method = "get">
                         <input type ="email" name = "email" placeholder="Email" class = "emailInput">
-                        <button class="blueButton">Sign up - it’s free!</button>
+                        <button class="blueButton" type="submit">Sign up - it’s free!</button>
                     </form>
                     <br>
                     <div id = "modalOpenButton">
@@ -209,7 +209,7 @@
             </div>
             <div style="height: 140px">
                 <div class="anchorBox" style="margin-top: 0px;">
-                    <a href="#">Explore all Use Cases</a>
+                    <a href="/usecase">Explore all Use Cases</a>
                 </div>
             </div>
 
@@ -223,7 +223,7 @@
                     <div style="color: white; margin-top: 40px">
                         <h2 style="font-size: 2.25rem; font-weight: bold;">See work in a whole new way</h2>
                         <p style="font-size: 1.25rem;">View your team’s projects from every angle and bring a fresh perspective to the task at hand.</p>
-                        <div class="anchorBox"><a href="#" style="text-decoration: none; color: black">Discover all Use Cases</a></div>
+                        <div class="anchorBox"><a href="/views" style="text-decoration: none; color: black">Discover all Trello Views</a></div>
                     </div>
                 <div style="height: 70px"></div>
                     <div class ="flex_container viewCard" >
@@ -235,7 +235,7 @@
                             </div>
                             <p style="margin-bottom: 24px; font-size: 1.25rem;">From weekly sprints to annual planning, Timeline view keeps all tasks on track. Quickly get a
                                 glimpse of what’s coming down the pipeline and identify any gaps that might impede your team’s progress.</p>
-                            <p style="font-size: 1.25rem;"><a href="#">Learn more about Timeline view</a></p>
+                            <p style="font-size: 1.25rem;"><a href="/views/timeline">Learn more about Timeline view</a></p>
                         </div>
                     </div>
                     <div style="height: 70px"></div>
@@ -247,7 +247,7 @@
                             </div>
                             <p style="margin-bottom: 24px; font-size: 1.25rem;">Start each day without any surprises. Whether scheduling an editorial calendar or staying on top of to-dos,
                                 Calendar view is like a crystal ball giving you a clear vision of what work lies ahead.</p>
-                            <p style="font-size: 1.25rem;"><a href="#">Learn more about Calendar view</a></p>
+                            <p style="font-size: 1.25rem;"><a href="/views/calendar">Learn more about Calendar view</a></p>
                         </div>
                         <div><img src = "https://images.ctfassets.net/rz1oowkt5gyp/7sxChS4x6XAcUgDpp4VAZk/25377d162e964f4243e329c447bfd7dc/TrelloBoard_Calendar_2x.png?w=1140&fm=webp" width="555" height="300"></div>
                     </div>
@@ -399,93 +399,22 @@
         <div id = "full_container2">
             <div style="color: white; font-size: 2.25rem; line-height: 1.3333; font-family: 'Charlie Display', sans-serif; font-weight: 500; margin-bottom: 0.5rem; margin-top: 0px;">Get started with Trello today</div>
             <br>
-            <form>
+            <form action="/startSign">
                 <input type ="email" name = "email" placeholder="Email" class = "emailInput">
                 <button class="blueButton">Sign up - it’s free!</button>
             </form>
         </div>
 
-        <div id="modalContainer" class="hidden">
+        <div id="modalContainer">
             <div id="modalContent">
-                <iframe width="560" height="315"
+                <iframe id ="TrelloVideo" width="560" height="315"
                         src="https://www.youtube.com/embed/AyfupeWS0yY?si=5cOBsj8XjN0KRjWq"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
             </div>
         </div>
-    <script>
-        const modalOpenButton = document.getElementById('modalOpenButton');
-        const modalCloseButton = document.getElementById('modalCloseButton');
-        const modal = document.getElementById('modalContainer');
-        modalOpenButton.addEventListener('click', () => {modal.classList.remove('hidden');});
-        modal.addEventListener('click', () => {modal.classList.add('hidden');});
-
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-
-        const swiper1 = new Swiper('.swiper-container-1', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: false,
-
-            // If we need pagination
-            pagination: {
-                el: '.external-pagination',
-                clickable: true,
-            },
-
-        });
-
-        var swiper2 = new Swiper('.swiper2', {
-            slidesPerView: 1,
-            spaceBetween: 10,
-            loop: false, // Loop 비활성화
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-
-        document.getElementById('ext-but2').addEventListener('click', function() {
-            let lastIndex = swiper.slides.length - 1;
-
-            swiper.slideTo(lastIndex);
-
-        });
-        document.getElementById('ext-but1').addEventListener('click', function() {
-
-            swiper.slideTo(0);
-        });
-        document.getElementById('ext-butBoards').addEventListener('click', function() {
-
-            swiper2.slideTo(0);
-        });
-        document.getElementById('ext-butLists').addEventListener('click', function() {
-
-            swiper2.slideTo(1);
-        });
-        document.getElementById('ext-butCards').addEventListener('click', function() {
-
-            swiper2.slideTo(2);
-        });
-
-        function toggleButtonClick(button) {
-            document.querySelectorAll('.list_button_clicked').forEach(function(btn) {
-                btn.classList.add('list_button');
-                btn.classList.remove('list_button_clicked');
-            });
-            button.classList.remove('list_button');
-            button.classList.add('list_button_clicked');
-        }
-
+    <script type="text/javascript" th:src="@{/js/home.js}">
     </script>
     </div>
 </div>

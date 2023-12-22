@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/main_layout}">
+      layout:decorate="~{layout/home_layout}">
 
 <div layout:fragment="content">
     <section style="overflow-x: hidden; background: linear-gradient(120deg, rgb(255, 242, 251), rgb(255, 255, 255)) 0% 0% / auto repeat scroll padding-box border-box transparent; background-blend-mode: normal">
@@ -17,12 +17,12 @@
                         <p>Boards are available to all users. Additional views require a Premium or Enterprise account.</p>
                     </div>
                     <div class="anchorBox" style="border: 1px solid rgb(214, 38, 136); margin-bottom: 0.75rem;">
-                        <a href="#">
+                        <a href="/startSign">
                             <span>Try views for free!</span>
                         </a>
                     </div>
                     <div style="font-size: 1rem;">
-                        <a href="#">Learn more about Trello’s plans and pricing.</a>
+                        <a href="/startSign">Learn more about Trello’s plans and pricing.</a>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         Stay on top of every sprint and stay on track of every goal with Timeline. Use Timeline to see how all of the moving parts piece together over time. Drag and drop to make start and due date adjustments on the fly as priorities shift and needs change. Quickly get a glimpse of what’s coming down the pipeline and identify any gaps that might impede your team’s progress.
                     </p>
                     <p>
-                        <a href="#">
+                        <a href="/views/timeline">
                             Learn more about Timeline view
                         </a>
                     </p>
@@ -90,7 +90,7 @@
                         Start each day without any surprises. Whether scheduling a quarterly editorial calendar or staying on top of your to-dos, Calendar is like a crystal ball giving you a clear vision of what work lies ahead. Sync any third party calendars to maintain the perfect work-life balance.
                     </p>
                     <p>
-                        <a href="#">
+                        <a href="/views/calendar">
                             Learn more about Calendar views
                         </a>
                     </p>
@@ -109,7 +109,7 @@
                     <p>
                         Bring a bird’s-eye view to projects and processes with Dashboard so that you can manage workloads and prevent bottlenecks before they begin. Visualize key metrics like due dates, assigned cards, and cards per list to keep stakeholders aligned and confidence running high.</p>
                     <p>
-                        <a href="#">
+                        <a href="/views/dashboard">
                             Learn more about Dashboard view
                         </a>
                     </p>
@@ -130,7 +130,7 @@
                     <p>
                         Dial in on all of the work that is happening across a board with the Table view. View your work in a convenient spreadsheet-styled list that can be sorted and filtered to drill down to exactly the cards you need to see.</p>
                     <p>
-                        <a href="#">
+                        <a href="/views/table">
                             Learn more about Table view
                         </a>
                     </p>
@@ -149,7 +149,7 @@
                     <p>
                         Wherever you are in the world, use Trello’s Map view to display location-based data in context on an interactive map. Whether tracking real estate properties, planning an event, or organizing work in the field, Map will make sure your team doesn’t lose their way.</p>
                     <p>
-                        <a href="#">
+                        <a href="/views/map">
                             Learn more about Map view
                         </a>
                     </p>
@@ -172,7 +172,7 @@
                     <p>
                         Create as many custom overviews as you need across Workspace boards. Use the Workspace Table and Calendar views to keep track of minor details or large projects.</p>
                     <p>
-                        <a href="#">
+                        <a href="/views/workspace">
                             Learn more about Workspace views
                         </a>
                     </p>
@@ -193,7 +193,7 @@
                         </p>
                     </div>
                     <div class="anchorBox">
-                        <a href="#">
+                        <a href="/startSign">
                             <span>I'm ready</span>
                         </a>
                     </div>

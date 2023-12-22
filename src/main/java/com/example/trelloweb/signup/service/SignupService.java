@@ -21,8 +21,7 @@ public class SignupService {
         System.out.println("token = " + token);
         System.out.println("email = " + email);
 
-        int result = signupMapper.insertToken(email, token);
-        return result;
+        return signupMapper.insertToken(email, token);
     }
 
 

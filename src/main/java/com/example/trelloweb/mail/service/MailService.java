@@ -4,6 +4,7 @@ import com.example.trelloweb.mail.vo.Mail;
 import com.example.trelloweb.signup.mapper.SignupMapper;
 import com.example.trelloweb.signup.vo.Signuptoken;
 import lombok.RequiredArgsConstructor;
+import lombok.Synchronized;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -20,6 +21,10 @@ public class MailService {
 
     private static final String senderEmail= "cnakyeon@gmail.com";
     private final SignupMapper signupMapper;
+
+    public String createtoken(){
+        return UUID.randomUUID().toString();
+    }
     public void CreateMail(String email, String token){
         System.out.println(email + "님에게 이메일을 보냈습니다.");
         MimeMessagePreparator preparatory = mimeMessage -> {

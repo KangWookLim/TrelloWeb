@@ -10,7 +10,7 @@ function userEmailChk() {
 
     $.ajax({
         url : '/user/chkEmail',
-        type : 'get',
+        type : 'post',
         dataType : 'json',
         data : 'json',
         data :{
@@ -18,13 +18,27 @@ function userEmailChk() {
         }
     }).done(function (data){
         if (data === 0) {
-        alert('사용가능한 이메일 입니다');
+            console.log(data);
+            alert('사용가능한 이메일 입니다');
+            window.location.href = "/emailSent?email=" + encodeURIComponent($('#email').val());
         }
         else {
+            console.log(data);
             alert('이미 등록된 이메일 입니다.');
+            window.location.href = "/login";
         }
     }).fail(    function (xhr, status, error) {
         alert('시스템에 문제가 발생했습니다. 관리자에게 문의해주세요.');
         console.log(status);
     })
 }
+
+
+
+$(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const userEmail = urlParams.get('email');
+    $('#email').val(userEmail);
+
+})
+

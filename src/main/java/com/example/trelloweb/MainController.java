@@ -12,32 +12,16 @@ public class MainController {
         view.setViewName("views/home");
         return view;
     }
-    @GetMapping ("/startSign")
-    public ModelAndView startSignPage() {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("views/startSign");
-        return view;
-    }
 
-    @GetMapping ("/login")
-    public ModelAndView loginPage() {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("views/login");
-        return view;
-    }
-    @GetMapping ("/emailSent")
-    public ModelAndView emailSent() {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("views/emailSent");
-        return view;
-    }
 
-    @GetMapping ("/test")
+
+    //테스트용
+   /* @GetMapping ("/test")
     public ModelAndView test() {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/aboutViews");
         return view;
-    }
+    }*/
 
 }
 

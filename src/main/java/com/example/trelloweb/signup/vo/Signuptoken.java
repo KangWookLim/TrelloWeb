@@ -11,8 +11,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Signuptoken {
-    String token;
-    String email;
-    String expirationtime;
-    String isused;
+    private String token;
+    private String email;
+    private String expirationtime;
+    private String isused;
 }

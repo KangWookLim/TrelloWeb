@@ -3,10 +3,7 @@ package com.example.trelloweb.signup.controller;
 import com.example.trelloweb.signup.service.SignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -14,6 +11,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class SignupController {
 
     private final SignupService signupService;
+
+    @RequestMapping ("/startSign")
+    public ModelAndView startSignPage() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/startSign");
+        return view;
+    }
     @GetMapping("/signup")
     public ModelAndView signup() {
         ModelAndView view = new ModelAndView();
