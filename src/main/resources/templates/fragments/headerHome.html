@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="headerHome">
+
+    <div class="header">
+        <nav id="nav3">
+            <a href="#">Trello</a>
+            <ul>
+                <li><button name="Features" onclick="OpenFeatures(this.name)">Features</button>></li>
+                <li><button name="Solution" onclick="OpenFeatures(this.name)">Solution</button>></li>
+                <li><button name="Plans" onclick="OpenFeatures(this.name)">Plans</button>></li>
+                <li><button name="Resources" onclick="OpenFeatures(this.name)">Resources</button>></li>
+            </ul>
+
+            <select>
+                <option>=test=</option>
+                <option>=test=</option>
+                <option>=test=</option>
+            </select>
+        </nav>
+        <div class="headerContents">
+            <div class="headerexpand dn" id="Features">
+                대충 내용
+                <button>hi1</button>
+                내용2
+            </div>
+            <div class="headerexpand dn" id="Solution">
+                대충 내용
+                <button>hi2</button>
+                내용2
+            </div>
+            <div class="headerexpand dn" id="Plans">
+                대충 내용
+                <button>hi3</button>
+                내용2
+            </div>
+            <div class="headerexpand dn" id="Resources">
+                대충 내용
+                <button>hi4</button>
+                내용2
+            </div>
+            <div class="headerRest dn" id="HeaderBack"
+                 onclick="removeHeaderBack()"></div>
+        </div>
+    </div>
+    <script>
+        var headerElements = [ "Features", "Solution", "Plans", "Resources" ];
+        //헤더 상세창 열기
+        function OpenFeatures(ID) {
+            for (let i = 0; i < headerElements.length; i++) {
+                var tmp = headerElements[i];
+
+                if (tmp != ID) {
+                    document.getElementById(tmp).classList.add("dn");
+                }
+            }
+            var drop = document.getElementById(ID);
+            if (drop.classList.contains("dn")) {
+                drop.classList.remove("dn");
+            } else {
+                drop.classList.add("dn");
+            }
+            const body = document.getElementsByTagName('body')[0];
+            if (drop.classList.contains("dn")) {
+                document.getElementById("HeaderBack").classList.add("dn");
+                body.classList.remove('scrollLock');
+
+            } else {
+                document.getElementById("HeaderBack").classList.remove("dn");
+                body.classList.add('scrollLock');
+
+            }
+
+        }
+        //헤더 상세창 밖 클릭 시
+        function removeHeaderBack() {
+            for (let i = 0; i < headerElements.length; i++) {
+                var tmp = headerElements[i];
+                document.getElementById(tmp).classList.add("dn");
+            }
+            document.getElementById("HeaderBack").classList.add("dn");
+            const body = document.getElementsByTagName('body')[0];
+            body.classList.remove('scrollLock');
+        }
+
+    </script>
+</div>
+
+</html>

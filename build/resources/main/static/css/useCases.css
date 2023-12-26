@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#useCasesDrawer {
+    margin-left: 8.33333%;
+    display: block;
+    flex: 0 0 auto;
+    width: 33.3333%;
+    margin-top: 0px;
+    padding-top: 8rem;
+    margin-bottom: 0px;
+    padding-bottom: 3rem;
+}
+
+.useCaseWrapper {
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.useCaseCardBox {
+    width: 33.3333%;
+    padding: 16px;
+}
+
+.useCaseCard{
+    overflow: hidden;
+    border : 0px;
+    border-radius: 0.5rem;
+    box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5rem 1rem 0px;
+    height: 244px;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+}
+
+.useCaseCardHeader {
+    width: 100%;
+    height: 48px;
+}
+
+.useCaseIcon
+{
+    background-color: rgb(255, 255, 255);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 8px;
+    height: 3rem;
+    left: 1rem;
+    position: absolute;
+    top: -1.5rem;
+    width: 3rem;
+}
