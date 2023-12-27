@@ -56,3 +56,8 @@
   mybatis:
     config-location: classpath:config/mybatis-config.xml
     mapper-locations: classpath:mapper/**/*.xml
+
+google:
+  client:
+    id: 896999086639-ljlnvom5ur5t9ljt26e8moquksthq73o.apps.googleusercontent.com
+    pw: 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

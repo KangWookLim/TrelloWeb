@@ -8,6 +8,8 @@
         path: C:\NakyeonInt\resources
 
   spring:
+    profiles:
+      include: oauth
     main:
       allow-bean-definition-overriding: true
     mvc:
@@ -56,3 +58,5 @@
   mybatis:
     config-location: classpath:config/mybatis-config.xml
     mapper-locations: classpath:mapper/**/*.xml
+
+
