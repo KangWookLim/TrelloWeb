@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+
+
+#viewsAbstract {
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+#viewsAbstractText {
+    text-align: left;
+    order: 1;
+    display: block;
+    flex: 0 0 auto;
+    width: 50%;
+    margin-top: 0;
+    padding: 5rem 1rem 5rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    margin-bottom: 0;
+}
+
+#viewsAbstractImg {
+    margin-left: -33.3333%;
+    left: 33.3333%;
+    order: 2;
+    display: block;
+    flex: 0 0 auto;
+    width: 75%;
+    margin-bottom: 0;
+    padding: 8rem 1rem 5rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.explanationBox {
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem
+}
+
+.explanationImg {
+    display: block;
+    flex: 0 0 auto;
+    width: 50%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8rem 1rem 3rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+}
+.explanationText {
+    margin-left: 8.33333%;
+    display: block;
+    flex: 0 0 auto;
+    width: 41.6667%;
+    margin-top: 0;
+    padding: 8rem 1rem 3rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: left;
+    margin-bottom: 0;
+}
+.explanationBox2 {
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    margin-right: -1rem
+}
+
+.explanationImg2 {
+    display: block;
+    flex: 0 0 auto;
+    width: 50%;
+    margin-left: 8.33333%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8rem 1rem 3rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+}
+.explanationText2 {
+    display: block;
+    flex: 0 0 auto;
+    width: 41.6667%;
+    margin-top: 0;
+    padding: 8rem 1rem 3rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: left;
+    margin-bottom: 0;
+}
+.aboutViewsBackground {
+    background: linear-gradient(rgb(222, 235, 255), rgb(255, 255, 255)) no-repeat;
+    color: rgb(9, 30, 66);
+    scroll-margin-top: 72px;
+}
+.aboutviewsPadding {
+    padding: 5rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.aboutTimelineBackground {
+    background: linear-gradient(0deg, rgb(0, 184, 217), rgb(0, 101, 255)) 0% 0% / auto repeat scroll padding-box border-box rgb(0, 101, 255);
+    color: rgb(255, 255, 255);
+    scroll-margin-top: 72px;
+}
+.aboutTimelinePadding {
+    padding: 5rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.aboutCalendarBackground {
+    background: linear-gradient(rgb(214, 38, 136), rgb(255, 143, 115)) 0% 0% / auto repeat scroll padding-box border-box rgb(222, 53, 11);
+    color: rgb(255, 255, 255);
+    scroll-margin-top: 72px;
+}
+.aboutCalendarPadding {
+    padding: 2rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.aboutDashboardBackground {
+    background: linear-gradient(0deg, rgb(192, 182, 242), rgb(222, 235, 255)) no-repeat;
+    color: black;
+    scroll-margin-top: 72px;
+}
+.aboutDashboardPadding {
+    padding: 2rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.aboutTableBackground {
+    background: linear-gradient(rgb(101, 84, 192), rgb(249, 156, 219)) 0% 0% / auto repeat scroll padding-box border-box transparent;
+    color: white;
+    scroll-margin-top: 72px;
+}
+.aboutTablePadding {
+    padding: 2rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.aboutMapBackground {
+    background: linear-gradient(300deg, rgb(249, 156, 219), rgb(255, 250, 229)) 0% 0% / auto repeat scroll padding-box border-box rgb(249, 156, 219);
+    color: black;
+    scroll-margin-top: 72px;
+}
+.aboutMapPadding {
+    padding: 2rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.aboutWorkspaceBackground {
+    background: linear-gradient(0deg, rgb(82, 67, 170), rgb(237, 80, 180)) 0% 0% / auto repeat scroll padding-box border-box rgb(178, 40, 101);
+    color: white;
+    scroll-margin-top: 72px;
+}
+.aboutWorkspaceBackground2 {
+    background: linear-gradient(rgb(64, 50, 148), rgb(23, 43, 77)) 0% 0% / auto repeat scroll padding-box border-box rgb(64, 50, 148);
+    color: white;
+    scroll-margin-top: 72px;
+
+}
+
+.aboutWorkspacePadding {
+    padding: 2rem 1rem;
+    position: relative;
+    scroll-margin-top: 72px;
+    text-align: center;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
