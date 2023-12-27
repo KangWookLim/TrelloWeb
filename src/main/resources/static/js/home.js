@@ -33,6 +33,10 @@ const swiper1 = new Swiper('.swiper-container-1', {
         el: '.external-pagination',
         clickable: true,
     },
+    navigation: {
+        nextEl: "#ext-but4",
+        prevEl: "#ext-but3"
+    }
 
 });
 
