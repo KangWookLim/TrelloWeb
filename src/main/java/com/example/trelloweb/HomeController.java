@@ -13,4 +13,10 @@ public class HomeController {
         view.setViewName("/views/about/aboutAutomation");
         return view;
     }
+    @RequestMapping("/editprofile")
+    public ModelAndView editProfile() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/views/editProfile");
+        return view;
+    }
 }
