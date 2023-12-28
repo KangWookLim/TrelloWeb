@@ -1,5 +1,6 @@
 package com.example.trelloweb.login.controller;
 
+import com.example.trelloweb.login.service.LoginService;
 import com.example.trelloweb.login.vo.GoogleInfResponse;
 import com.example.trelloweb.login.vo.GoogleRequest;
 import com.example.trelloweb.login.vo.GoogleResponse;
@@ -13,45 +14,32 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.HashMap;
 import java.util.Map;
 
-@CrossOrigin("*")
-@Controller
+//@CrossOrigin("*")
+//@Controller
+//public class LoginController {
+//
+//    @GetMapping("/login")
+//    public ModelAndView loginPage() {
+//        ModelAndView view = new ModelAndView();
+//        view.setViewName("views/login");
+//        return view;
+//    }
+//
+//
+//}
+
+@RestController
+@RequestMapping(value = "/login/oauth2", produces = "application/json")
 public class LoginController {
-    @Value("${google.client.id}")
-    private String googleClientId;
-    @Value("${google.client.pw}")
-    private String googleClientPw;
-    @GetMapping("/login")
-    public ModelAndView loginPage() {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("views/login");
-        return view;
+
+    LoginService loginService;
+
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
     }
 
-    @RequestMapping(value="/api/v1/oauth2/google", method = RequestMethod.POST)
-    public String loginUrlGoogle(){
-        String reqUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=" + googleClientId
-                + "&redirect_uri=http://localhost:8091/api/v1/oauth2/google&response_type=code&scope=email%20profile%20openid&access_type=offline";
-        return reqUrl;
+    @GetMapping("/code/{registrationId}")
+    public void googleLogin(@RequestParam String code, @PathVariable String registrationId) {
+        loginService.socialLogin(code, registrationId);
     }
-    @RequestMapping(value="/api/v1/oauth2/google", method = RequestMethod.GET)
-    public String loginGoogle(@RequestParam(value = "code") String authCode){
-        RestTemplate restTemplate = new RestTemplate();
-        GoogleRequest googleOAuthRequestParam = GoogleRequest
-                .builder()
-                .clientId(googleClientId)
-                .clientSecret(googleClientPw)
-                .code(authCode)
-                .redirectUri("http://localhost:8091/api/v1/oauth2/google")
-                .grantType("authorization_code").build();
-        ResponseEntity<GoogleResponse> resultEntity = restTemplate.postForEntity("https://oauth2.googleapis.com/token",
-                googleOAuthRequestParam, GoogleResponse.class);
-        String jwtToken=resultEntity.getBody().getId_token();
-        Map<String, String> map=new HashMap<>();
-        map.put("id_token",jwtToken);
-        ResponseEntity<GoogleInfResponse> resultEntity2 = restTemplate.postForEntity("https://oauth2.googleapis.com/tokeninfo",
-                map, GoogleInfResponse.class);
-        String email=resultEntity2.getBody().getEmail();
-        return email;
-    }
-
 }

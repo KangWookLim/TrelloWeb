@@ -8,40 +8,42 @@
         path: C:\NakyeonInt\resources
 
   spring:
+    profiles:
+      include: oauth
     main:
       allow-bean-definition-overriding: true
     mvc:
       view:
         prefix: /WEB-INF/views/
         suffix: .jsp
-    mail:
-      host: smtp.gmail.com
-      port: 587
-      username: cnakyeon@gmail.com
-      password: pptf ftcn otng rvvc
-      properties:
-        mail:
-          smtp:
-            auth: true
-            timeout: 5000
-            starttls:
-              enable: true
-              required: true
+#    mail:
+#      host: smtp.gmail.com
+#      port: 587
+#      username: cnakyeon@gmail.com
+#      password: pptf ftcn otng rvvc
+#      properties:
+#        mail:
+#          smtp:
+#            auth: true
+#            timeout: 5000
+#            starttls:
+#              enable: true
+#              required: true
     datasource:
       driver-class-name: oracle.jdbc.OracleDriver
       url: jdbc:oracle:thin:@localhost:1521:xe
-      username: naknak2
-      password: 1234
-      hikari:
-        connection-timeout: 60000
-        maximum-pool-size: 50
-        minimum-idle: 20
-        idle-timeout: 10000
-        data-source-properties:
-          cachePrepStmts: true
-          prepStmtCacheSize: 250
-          prepStmtCacheSqlLimit: 2048
-          useServerPrepStmts: true
+#      username: root
+#      password: 7285
+#      hikari:
+#        connection-timeout: 60000
+#        maximum-pool-size: 50
+#        minimum-idle: 20
+#        idle-timeout: 10000
+#        data-source-properties:
+#          cachePrepStmts: true
+#          prepStmtCacheSize: 250
+#          prepStmtCacheSqlLimit: 2048
+#          useServerPrepStmts: true
 
     thymeleaf:
       cache: true
@@ -57,7 +59,4 @@
     config-location: classpath:config/mybatis-config.xml
     mapper-locations: classpath:mapper/**/*.xml
 
-google:
-  client:
-    id: 896999086639-ljlnvom5ur5t9ljt26e8moquksthq73o.apps.googleusercontent.com
-    pw: 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
+
