@@ -13,4 +13,11 @@ public class UsecaseController {
         view.setViewName("/views/about/useCases");
         return view;
     }
+
+    @RequestMapping("/projectmanagement")
+    public ModelAndView projectManagement() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/views/about/aboutProjectManagement");
+        return view;
+    }
 }

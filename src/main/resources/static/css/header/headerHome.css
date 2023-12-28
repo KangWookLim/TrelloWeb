@@ -34,9 +34,9 @@ nav {
 
 }
 
-#header:hover {
+/*#header:hover {
     box-shadow: rgba(9, 30, 66, 0.15) 0px 0.5rem 1rem 0px;
-}
+}*/
 
 #logoAnchor {
     line-height: 60px;
@@ -102,6 +102,32 @@ nav {
 
 #nav3>ul li button:hover{
     color: #0052CC;
+}
+
+#hiddenRightArrow1, #hiddenRightArrow2, #hiddenRightArrow3 {
+
+}
+
+#showArrow1:hover + #hiddenRightArrow1,
+#showArrow2:hover + #hiddenRightArrow2,
+#showArrow3:hover + #hiddenRightArrow3
+{
+    display: block;
+
+}
+
+#tourBox {
+    text-align: left;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    background-color: rgba(255, 250, 229, 0.4);
 }
 
 #header {
@@ -191,9 +217,41 @@ nav {
     width: 100%;
 }
 
-
 .dn {
     display: none;
+}
+
+.productsInAction {
+    display: flex;
+    flex-direction: column;
+    margin: -1rem;
+    padding: 1.5rem 0;
+}
+
+.productsInAction>a {
+    display: block;
+    padding: 1rem;
+    text-align: left;
+    text-decoration: none;
+    color: rgb(23, 43, 77);
+}
+
+.productsInActionHeading {
+    font-family: var(--font-family-text,'Charlie Text',sans-serif);
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+    padding-right: 0.3rem;
+    margin: 0 !important;
+}
+
+.seeAll {
+    color: rgb(23, 43, 77);
+    display: flex;
+    font-size: 1rem;
+    gap: 0.25rem;
+    text-decoration: none;
+    transition: gap 0.2s ease 0s;
 }
 
 #Features {
