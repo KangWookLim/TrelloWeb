@@ -50,7 +50,7 @@
         <section class = "grid_container">
             <div class ="flex_container">
                 <div style="width: 33.3333%; padding: 0 16px; gap: 1rem; flex-direction: column; display: flex;" >
-                    <button id ="ext-butBoards" class="list_button" onclick="toggleButtonClick(this)">
+                    <button id ="ext-butBoards" class="list_button_clicked" onclick="toggleButtonClick(this)">
                         <div>
                             <h3>
                                 Boards
@@ -70,7 +70,7 @@
                             </p>
                         </div>
                     </button>
-                    <button id = "ext-butCards" class="list_button_clicked" onclick="toggleButtonClick(this)">
+                    <button id = "ext-butCards" class="list_button" onclick="toggleButtonClick(this)">
                         <div>
                             <h3>
                                 Cards
@@ -109,10 +109,13 @@
 
     </div>
     <section class ="grid_container">
-        <div><button id = "ext-but1">이전</button><button id = "ext-but2">다음</button></div>
+        <div style="justify-content: flex-end; display: flex;">
+            <button id = "ext-but1" style="border: none; background: none; margin-right: 10px;" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="15"></rect><path stroke="rgb(122, 134, 154)" d="M16.7167 8.21674L10.2168 14.7167L16.5001 20.9999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button id = "ext-but2" style="border: none; background: none"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="30" y="30" width="30" height="30" rx="15" transform="rotate(-180 30 30)"></rect><path stroke="rgb(122, 134, 154)" d="M13.2833 21.7833L19.7832 15.2833L13.4999 9.00007" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
 
-        <div class="swiper mySwiper" style="overflow: visible">
-            <div class="swiper-wrapper">
+        <div class="swiper mySwiper" style="overflow: visible;">
+            <div class="swiper-wrapper" style=" padding: 1rem; ">
                 <div class="swiper-slide card">
                     <a href="#" style="text-decoration: none; color: black;">
                         <div class="cardHeader" style = "background: rgb(255, 116, 82)">
@@ -288,8 +291,12 @@
 
         <!--슬라이더-->
         </section>
-        <div class="grid_container">
+        <div class="grid_container flex_container">
             <div class = "external-pagination"></div>
+            <div style="justify-content: flex-end; display: flex;">
+                <button id = "ext-but3" style="border: none; background: none; margin-right: 10px;" ><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect width="30" height="30" rx="15"></rect><path stroke="rgb(122, 134, 154)" d="M16.7167 8.21674L10.2168 14.7167L16.5001 20.9999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+                <button id = "ext-but4" style="border: none; background: none"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><rect x="30" y="30" width="30" height="30" rx="15" transform="rotate(-180 30 30)"></rect><path stroke="rgb(122, 134, 154)" d="M13.2833 21.7833L19.7832 15.2833L13.4999 9.00007" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            </div>
         </div>
         <section class="back1">
     <section class = "grid_container">
