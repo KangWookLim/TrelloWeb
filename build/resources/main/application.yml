@@ -10,6 +10,9 @@ server:
 spring:
   main:
     allow-bean-definition-overriding: true
+  devtools:
+    restart:
+      enabled: false
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -29,8 +32,8 @@ spring:
             required: true
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@localhost:1521:xe
-    username: trelloWeb
+    url: jdbc:oracle:thin:@192.168.8.17:1521:xe
+    username: naknak2
     password: 1234
     hikari:
       connection-timeout: 60000
@@ -44,7 +47,7 @@ spring:
         useServerPrepStmts: true
 
   thymeleaf:
-    cache: true
+    cache: false
     check-template-location: true
     encoding: UTF-8
     servlet:
@@ -53,10 +56,6 @@ spring:
     suffix: .html
     mvc :
       static-path-pattern : "/static/**"
-  security:
-    user:
-      name: user
-      password: 1234
 mybatis:
   config-location: classpath:config/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml

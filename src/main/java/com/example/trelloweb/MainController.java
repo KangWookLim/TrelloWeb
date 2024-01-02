@@ -7,15 +7,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-    @GetMapping("/")
+    @GetMapping("/home")
     public ModelAndView mainPage() {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/home");
         return view;
     }
-    @RequestMapping("/home")
+<<<<<<< Updated upstream
+    @RequestMapping("/")
     public String toHome() {
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 
@@ -28,5 +29,7 @@ public class MainController {
         return view;
     }*/
 
+=======
+>>>>>>> Stashed changes
 }
 
