@@ -13,14 +13,10 @@ public class MainController {
         view.setViewName("views/home");
         return view;
     }
-<<<<<<< Updated upstream
     @RequestMapping("/")
     public String toHome() {
         return "redirect:/home";
     }
-
-
-
     //테스트용
    /* @GetMapping ("/test")
     public ModelAndView test() {
@@ -28,8 +24,5 @@ public class MainController {
         view.setViewName("views/aboutViews");
         return view;
     }*/
-
-=======
->>>>>>> Stashed changes
 }
 
