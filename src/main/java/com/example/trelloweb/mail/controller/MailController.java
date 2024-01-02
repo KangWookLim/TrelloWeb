@@ -1,14 +1,11 @@
 package com.example.trelloweb.mail.controller;
 
 import com.example.trelloweb.mail.service.MailService;
-import com.example.trelloweb.mail.vo.Mail;
 import com.example.trelloweb.signup.service.SignupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,7 +27,7 @@ public class MailController {
     @GetMapping ("/emailSent")
     public ModelAndView emailSent() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/emailSent");
+        view.setViewName("views/signup/emailSent");
         return view;
     }
 

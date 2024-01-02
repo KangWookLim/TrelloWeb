@@ -1,4 +1,4 @@
-package com.example.trelloweb;
+package com.example.trelloweb.home.controller;
 
 
 import org.springframework.stereotype.Controller;
@@ -13,10 +13,5 @@ public class HomeController {
         view.setViewName("/views/about/aboutAutomation");
         return view;
     }
-    @RequestMapping("/editprofile")
-    public ModelAndView editProfile() {
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/views/editProfile");
-        return view;
-    }
+
 }
