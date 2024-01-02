@@ -30,7 +30,7 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@localhost:1521:xe
-    username: naknak2
+    username: trelloWeb
     password: 1234
     hikari:
       connection-timeout: 60000
@@ -53,6 +53,10 @@ spring:
     suffix: .html
     mvc :
       static-path-pattern : "/static/**"
+  security:
+    user:
+      name: user
+      password: 1234
 mybatis:
   config-location: classpath:config/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml
