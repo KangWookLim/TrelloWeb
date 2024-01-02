@@ -13,6 +13,7 @@ public class MainController {
         view.setViewName("views/home");
         return view;
     }
+<<<<<<< Updated upstream
     @RequestMapping("/")
     public String toHome() {
         return "redirect:/home";
@@ -28,5 +29,7 @@ public class MainController {
         return view;
     }*/
 
+=======
+>>>>>>> Stashed changes
 }
 
