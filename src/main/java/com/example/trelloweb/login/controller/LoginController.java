@@ -12,7 +12,7 @@ public class LoginController {
     @GetMapping("/login")
     public ModelAndView loginPage() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/login");
+        view.setViewName("views/login/login");
         return view;
     }
 

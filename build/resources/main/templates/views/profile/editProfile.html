@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
-    <link rel="stylesheet" th:href="@{/css/editProfile.css}">
+    <link rel="stylesheet" th:href="@{/css/profile/editProfile.css}">
     <title>Title</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
             <h3>Public profile</h3>
             <hr>
             <div style="display: flex">
-                <div style="width: 66.6666%;">
+                <div style="width: 66.6666%;" class = "editProfileLeft">
                     <label>Full Name</label>
                     <input type = "text" id = "fullName">
                     <p>Your Fullname will allow other to find and reach you efficiently</p>
@@ -50,7 +50,7 @@
     </div>
 
 
-<script type="text/javascript" th:src="@{/js/editProfile.js}">
+<script type="text/javascript" th:src="@{/js/profile/editProfile.js}">
 </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.example.trelloweb;
+package com.example.trelloweb.home.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
