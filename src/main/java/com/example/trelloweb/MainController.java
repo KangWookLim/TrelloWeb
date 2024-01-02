@@ -17,12 +17,13 @@ public class MainController {
     public String toHome() {
         return "redirect:/home";
     }
-    //테스트용
-   /* @GetMapping ("/test")
-    public ModelAndView test() {
+
+    //이동 예정
+    @RequestMapping("/editprofile")
+    public ModelAndView editProfile() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/aboutViews");
+        view.setViewName("/views/profile/editProfile");
         return view;
-    }*/
+    }
 }
 

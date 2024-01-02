@@ -15,13 +15,13 @@ public class SignupController {
     @RequestMapping ("/startSign")
     public ModelAndView startSignPage() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/startSign");
+        view.setViewName("views/signup/startSign");
         return view;
     }
     @GetMapping("/signup")
     public ModelAndView signup() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/signup");
+        view.setViewName("views/signup/signUp");
         return view;
     }
     @RequestMapping("/signup/chkToken")
