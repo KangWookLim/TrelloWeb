@@ -5,7 +5,7 @@
       layout:decorate="~{layout/main_layout}">
 
 <div layout:fragment="content">
-  <link rel="stylesheet" th:href="@{/css/board/template.css}">
+  <link rel="stylesheet" th:href="@{/css/template/template.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
 
   <div id = "content-wrapper">
@@ -99,7 +99,19 @@
       <div id = "home-board-wrapper">
         <div id = "content-all-board">
           <!--          즐겨찾기-->
-          <div class = "board-section-box">
+          <div class = "featured-categories-title">
+            <div class="template-board-title">
+              <h1>
+                Featured categories
+              </h1>
+              <div class="featured-search-container" role="searchbox">
+                <div style="position: relative; box-sizing: border-box;">
+                  <div class="featured-search-bar">
+
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
