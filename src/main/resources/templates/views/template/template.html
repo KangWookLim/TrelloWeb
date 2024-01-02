@@ -5,7 +5,7 @@
       layout:decorate="~{layout/main_layout}">
 
 <div layout:fragment="content">
-  <link rel="stylesheet" th:href="@{/css/board/template.css}">
+  <link rel="stylesheet" th:href="@{/css/template/template.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
 
   <div id = "content-wrapper">
@@ -98,8 +98,88 @@
 
       <div id = "home-board-wrapper">
         <div id = "content-all-board">
+          <div style="width: 100%; max-width: 825px; min-width: 288px;">
           <!--          즐겨찾기-->
-          <div class = "board-section-box">
+            <div class = "featured-categories-title">
+              <div class="template-board-title">
+                <h1>
+                  Featured categories
+                </h1>
+                <div class="featured-search-container" role="searchbox">
+                  <div style="position: relative; box-sizing: border-box;">
+                    <div class="featured-search-bar">
+                      <input class="featured-search-input" type="text" placeholder="Find template"/>
+                      <img src="/images/icons/search.png" class="featured-search-icon">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="featured-categories-items">
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/business}" title="Business">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/business.svg}" class="category-item-images">
+                  </div>
+                  <span>Business</span>
+                </a>
+              </div>
+
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/design}" title="Design">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/design.svg}" design="category-item-images">
+                  </div>
+                  <span>Design</span>
+                </a>
+              </div>
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/education}" title="Education">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/education.svg}" class="category-item-images">
+                  </div>
+                  <span>Education</span>
+                </a>
+              </div>
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/engineering}" title="Engineering">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/engineering.svg}" class="category-item-images">
+                  </div>
+                  <span>Engineering</span>
+                </a>
+              </div>
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/marketing}" title="Marketing">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/marketing.svg}" class="category-item-images">
+                  </div>
+                  <span>Marketing</span>
+                </a>
+              </div>
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/management}" title="management">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/management.svg}" class="category-item-images">
+                  </div>
+                  <span>Project<br/>Management</span>
+                </a>
+              </div>
+
+              <div class="category-item-container">
+                <a class="featured-categories-link" th:href="@{/template/remote}" title="Remote">
+                  <div class="category-item-image-box">
+                    <img th:src="@{/images/template/remote.svg}" class="category-item-images">
+                  </div>
+                  <span>Remote Work</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
