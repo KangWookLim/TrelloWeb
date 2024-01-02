@@ -23,11 +23,12 @@ nav {
 }
 
 #nav3 {
-    overflow: hidden;
+    overflow : auto;
     height: 60px;
     background-color: white;
     margin: 0 auto;
-    width: 1320px;
+    /*width: 1320px;*/
+    min-width : 925px;
     position: relative;
     text-align: center;
 
