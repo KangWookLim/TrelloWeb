@@ -1,0 +1,18 @@
+html, body{
+    height: 100%;
+}
+.content{
+    height: 100%;
+    width: max-content;
+    display: flex;
+    position: relative;
+}
+.boardsidebar{
+    width: 260px;
+    position: relative;
+    box-shadow: 1px 0px 0px 0px transparent;
+    z-index: 5;
+    height: 100%;
+    min-height: 100%;
+}
+/*.board*/
