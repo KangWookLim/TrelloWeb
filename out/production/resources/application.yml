@@ -11,8 +11,8 @@ spring:
   main:
     allow-bean-definition-overriding: true
   devtools:
-    restart:
-      enabled: false
+    livereload:
+      enabled: true
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -33,7 +33,7 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@192.168.8.17:1521:xe
-    username: naknak2
+    username: trellodb
     password: 1234
     hikari:
       connection-timeout: 60000

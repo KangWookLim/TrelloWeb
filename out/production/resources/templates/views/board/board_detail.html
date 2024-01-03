@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/board_layout}">
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<link rel="stylesheet" th:href="@{/css/home.css}">
+<nav layout:fragment="boardnav">
+    <div class="sidebar-container sidebar-show">
+        <div class="sidebar-logo">
+            <a class="sidebar-logo-worksapce-btn" href="#">
+                <div>
+                    <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/170.png" srcset="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/170.png 1x, https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/170.png 2x">
+                </div>
+            </a>
+            <div class="sidebar-logo-text-container">
+                <a><p class="sidebar-logo-text">12312</p></a>
+            </div>
+            <button class="sidebar-collapse-btn" id="side-earase-btn" type="button" aria-expanded="true">
+                <img class="sidebar-collapse-icon" th:src="@{/images/icons/collapsebtn.svg}">
+            </button>
+        </div>
+    </div>
+    <div class="sidebar-collapse-container">
+        <div class="sidebar-collapse">
+            <button class="sidebar-show-btn">
+                <span>
+                    <img th:src="@{/images/icons/right-arrow.png}">
+                </span>
+            </button>
+        </div>
+    </div>
+</nav>
+<div layout:fragment="content">
+    12312341
+</div>
+
+</html>
+<script type="text/javascript" th:src="@{/js/board-detail/boardsidebar.js}"></script>
