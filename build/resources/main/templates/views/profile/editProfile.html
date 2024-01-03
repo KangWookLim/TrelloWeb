@@ -10,14 +10,16 @@
             <hr>
             <div style="display: flex">
                 <div style="width: 66.6666%;" class = "editProfileLeft">
-                    <label>Full Name</label>
-                    <input type = "text" id = "fullName">
-                    <p>Your Fullname will allow other to find and reach you efficiently</p>
+                    <label>First Name</label>
+                    <input class="mandatory" th:abcd = "20" type = "text" id = "firstName">
+                    <label>Last Name</label>
+                    <input class="mandatory" th:abcd = "2" type = "text" id = "lastName">
+                    <p>Your name will allow other to find and reach you efficiently</p>
                     <label>Nick Name</label>
-                    <input type = "text" id = "nickName">
+                    <input class="mandatory" type = "text" id = "nickName">
                     <p>This will be your name while using Trello.</p>
                     <label>Birthday</label>
-                    <input type="text" placeholder="YYYY/MM/DD" id = "date">
+                    <input class="mandatory" type="text" placeholder="YYYY/MM/DD" id = "date">
                     <p id = "birthP">YYYY/MM/DD</p>
                     <label>Gender</label>
                     <label style="display: inline">Male</label><input type = "radio" name = "gender" value ="male">
