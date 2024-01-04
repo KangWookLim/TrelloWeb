@@ -81,3 +81,7 @@ function toggleButtonClick(button) {
     button.classList.remove('list_button');
     button.classList.add('list_button_clicked');
 }
+
+$("#t4").click(function (){
+    location.href = "/board_detail"
+});
