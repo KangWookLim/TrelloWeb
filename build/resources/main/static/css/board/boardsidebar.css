@@ -1,0 +1,117 @@
+.sidebar-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 260px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(6px);
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 100ms ease-in;
+    border-right: 1px solid #9fadbc;
+}
+.sidebar-show{
+    transform: translate3d(0%, 0, 0) !important;
+}
+.sidebar-collapse-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 16px;
+    height: 100%;
+    min-height: 100%;
+    border-right: 1px solid #9fadbc;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 100ms ease-in;
+}
+.sidebar-collapse{
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sidebar-logo{
+    display: flex;
+    align-items: center;
+    padding: 8px 12px 8px;
+    min-height: 57px;
+    border-bottom: 1px solid #BDBDBD
+}
+.sidebar-logo-worksapce-btn div{
+    height: 32px;
+    width: 32px;
+}
+.sidebar-logo-worksapce-btn div img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.sidebar-logo-text-container{
+    flex: 1;
+    margin-left: 8px;
+    margin-right: 4px;
+    text-align: left;
+    color: #9fadbc;
+}
+.sidebar-logo-text-container span {
+}
+.sidebar-logo-text-container span a{
+    text-decoration: none;
+}
+.sidebar-logo-text{
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: inline;
+}
+.sidebar-collapse-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-radius: 3px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 2px;
+    border-color: transparent;
+}
+.sidebar-collapse-btn:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.sidebar-collapse-icon{
+    filter: brightness(0) invert(100%);
+}
+.sidebar-show-btn{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background-color: rgba(255,255,255,0.16);
+    border-radius: 0;
+    border-width: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.sidebar-show-btn span{
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    margin: 15px 0 0 16px;
+    display: flex;
+    background-color: rgba(255,255,255,0.16);
+    justify-content: center;
+    align-items: center;
+    border:1px solid ;
+}
+img:not(:root){
+   overflow: hidden;
+}
+
