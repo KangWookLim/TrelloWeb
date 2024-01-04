@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<div layout:fragment="content">
+  <link rel="stylesheet" th:href="@{/css/board/home.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+
+  <div id = "content-wrapper">
+    <div class = "home-container" style="min-height:calc(100vh - 48px);">
+      <nav id = "home-left-side-container">
+        <div>
+          <ul id = "home-sidebar-btn-container">
+            <li>
+              <a th:href="@{/board}" class = "home-sidebar-btn" id="home-board-btn" onclick = "toBoard()">
+                <img th:src="@{/images/icons/trello.png}" class = "home-sidebar-board-btn"/>
+                Boards
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/template}" class = "home-sidebar-btn" id="home-template-btn">
+                <img th:src="@{/images/icons/template.png}" class = "home-sidebar-template-btn"/>
+                Templates
+              </a>
+            </li>
+            <li>
+              <a th:href="@{/home}" class = "home-sidebar-btn" id="home-home-btn">
+                <img th:src="@{/images/icons/home.png}" class = "home-sidebar-home-btn"/>
+                Home
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul id="home-workspace-container">
+            <div id="home-workspace-title"> Workspaces </div>
+            <li id = "home-workspace-tab">
+              <a id = "home-workspace-box">
+                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
+                <span>Workspace Name</span>
+                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+              </a>
+              <ul id = "ws-btn-ul">
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/heart.png}" class = "ws-btn-icon"/>
+                    <span>Highlights</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/views.png}" class = "ws-btn-icon"/>
+                    <span>Boards</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/team.png}" class = "ws-btn-icon"/>
+                    <span>Members</span>
+                  </a>
+                </li>
+                <li class = "ws-btn-container">
+                  <a href = "" class = "ws-btn-group">
+                    <img th:src="@{/images/icons/settings.png}" class = "ws-btn-icon"/>
+                    <span>Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id = "home-middle-side-container">
+        <div class="home-middle-side-box">
+          <div class="home-middle-side-image"></div>
+          <div class="home-middle-side-text-box">
+            <span class="home-middle-side-title-text">
+              Stay on track and up to date
+            </span>
+            <span class="home-middle-side-sub-text">
+              Invite people to boards and cards, leave comments, add due dates, and we'll show the most important activity here.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div id = "home-right-side-container">
+        <div><div class="home-starred-board-container">
+          <div class="home-right-board-title">
+            <div class="home-right-board-title-image">
+              <span data-testid="StarIcon" aria-hidden="true" class="css-snhnyn" style="--icon-primary-color: quiet; --icon-secondary-color: inherit;"><svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="line-height:16px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.49495 20.995L11.9999 18.6266L16.5049 20.995C16.8059 21.1533 17.1507 21.2079 17.4859 21.1504C18.3276 21.006 18.893 20.2066 18.7486 19.3649L17.8882 14.3485L21.5328 10.7959C21.7763 10.5585 21.9348 10.2475 21.9837 9.91094C22.1065 9.06576 21.5209 8.28106 20.6758 8.15825L15.6391 7.42637L13.3866 2.86236C13.2361 2.55739 12.9892 2.31054 12.6843 2.16003C11.9184 1.78206 10.9912 2.0965 10.6132 2.86236L8.36072 7.42637L3.32403 8.15825C2.98747 8.20715 2.67643 8.36564 2.43904 8.60917C1.84291 9.22074 1.85542 10.1998 2.46699 10.7959L6.11158 14.3485L5.25121 19.3649C5.19372 19.7 5.24833 20.0448 5.40658 20.3459C5.80401 21.1018 6.739 21.3924 7.49495 20.995ZM19.3457 10.0485L15.6728 13.6287L16.5398 18.684L11.9999 16.2972L7.45995 18.684L8.327 13.6287L4.65411 10.0485L9.72993 9.31093L11.9999 4.71146L14.2699 9.31093L19.3457 10.0485Z" fill="currentColor"></path></svg></span>
+            </div>
+            <div class="home-right-board-title-text"> Starred </div>
+          </div>
+          <div class="home-right-starred-board">
+            <a href="#" class="home-right-board-link">
+              <div class="home-right-board-image" style="background-image: url(&quot;https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x365/0c34d811eabe0f3e955b05f79e9517a6/photo-1696384036025-c7d7b7f6584d.jpg&quot;)"></div>
+              <span class="home-right-board-text">
+                <span class="board-title">text board1</span>
+                <span class="ws-title">text workspace1</span>
+              </span>
+            </a>
+            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star-full">
+              <img th:src="@{/images/icons/star-full.png}">
+            </button>
+          </div>
+        </div></div>
+        <div id="recently-viewed-container"></div>
+        <div id="link-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+      $("#home-home-btn").addClass("home-active-btn")
+      const activeTemplate = $("#home-home-btn").children("img");
+      activeTemplate.attr("src", function(index, attr){
+        return attr.replace("home", "homeA");
+      });
+    })
+
+    $("#home-workspace-box").click(function() {
+      console.log("check1");
+      $("#ws-btn-ul").toggleClass("menuon");
+      const arrowImage = $("#home-workspace-box").children("img");
+      arrowImage.attr("src", function(index, attr){
+        if (attr.match('up')) {
+          return attr.replace("up", "down");
+        }
+        else {
+          return attr.replace("down", "up");
+        }
+      });
+    });
+
+    $(".home-right-board-star-full").hover(function() {
+      const starImage = $(".home-right-board-star-full").children("img");
+      starImage.attr("src", function(index, attr){
+        if (attr.match('full')) {
+          return attr.replace("full", "empty");
+        }
+        else {
+          return attr.replace("empty", "full");
+        }
+      });
+
+    })
+  </script>
+</div>
+</html>

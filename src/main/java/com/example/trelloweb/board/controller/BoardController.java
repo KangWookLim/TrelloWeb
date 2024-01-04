@@ -16,4 +16,11 @@ public class BoardController {
         return view;
     }
 
+    @GetMapping("/home")
+    public ModelAndView home() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/board/home");
+        return view;
+    }
+
 }
