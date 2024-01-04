@@ -13,7 +13,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/header::header}"></div>
-<div class="board-base-container" style="display: flex; flex-direction: row; position: relative; overflow-y: auto; height:calc(100% - 48px); background: black;">
+<div class="board-base-container" style="display: flex; flex-direction: row; position: relative; overflow-y: auto; min-height:calc(100% - 48px); background: black;">
     <nav layout:fragment="boardnav" class="boardsidebar">
     </nav>
     <div layout:fragment="content" class="content">
