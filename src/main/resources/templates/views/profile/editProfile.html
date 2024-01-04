@@ -5,21 +5,21 @@
 <div layout:fragment="content" style="height: 100%">
 <link rel="stylesheet" th:href="@{/css/profile/editProfile.css}">
     <div class ="profileWrapper">
-        <form>
+        <form id = "profileUpdateForm" action="/board">
             <h3>Public profile</h3>
             <hr>
             <div style="display: flex">
                 <div style="width: 66.6666%;" class = "editProfileLeft">
                     <label>First Name</label>
-                    <input class="mandatory" th:abcd = "20" type = "text" id = "firstName">
+                    <input class = "mandatory alphabetOnly" type = "text" id = "firstName">
                     <label>Last Name</label>
-                    <input class="mandatory" th:abcd = "2" type = "text" id = "lastName">
+                    <input class = "mandatory alphabetOnly" type = "text" id = "lastName">
                     <p>Your name will allow other to find and reach you efficiently</p>
                     <label>Nick Name</label>
-                    <input class="mandatory" type = "text" id = "nickName">
+                    <input class = "mandatory" type = "text" id = "nickName">
                     <p>This will be your name while using Trello.</p>
                     <label>Birthday</label>
-                    <input class="mandatory" type="text" placeholder="YYYY/MM/DD" id = "date">
+                    <input class = "mandatory" type="text" placeholder="YYYY/MM/DD" id = "date">
                     <p id = "birthP">YYYY/MM/DD</p>
                     <label>Gender</label>
                     <label style="display: inline">Male</label><input type = "radio" name = "gender" value ="male">

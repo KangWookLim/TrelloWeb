@@ -25,5 +25,12 @@ public class MainController {
         view.setViewName("/views/profile/editProfile");
         return view;
     }
+
+    @RequestMapping("/profile")
+    public ModelAndView profile() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/views/profile/profile");
+        return view;
+    }
 }
 

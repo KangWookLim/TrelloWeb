@@ -23,7 +23,7 @@ nav {
 }
 
 #nav3 {
-    overflow : auto;
+    overflow : hidden;
     height: 60px;
     background-color: white;
     margin: 0 auto;
