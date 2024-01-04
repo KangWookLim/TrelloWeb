@@ -3,6 +3,10 @@ $(document).ready(function(){
         function (){
             alert("Please select");
         })
+    /*$(".mandatory").blur(function (){
+        alert("please fill in the required fields");
+    })*/
+
 })
 
 let date = document.querySelector("#date");
@@ -34,5 +38,33 @@ date.addEventListener("input", () => {
     }
     result = result.substring(0,10);
     date.value = result;
+
+})
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const mandatoryInputs = document.querySelectorAll('.mandatory');
+    mandatoryInputs.forEach(function(input){
+        input.addEventListener("blur",checkInputMandatory);
+        input.addEventListener("click",restoreInput);
+    });
+
+
+
+    function checkInputMandatory(event){
+        let input = event.target;
+        let abcd = input.getAttribute("abcd");
+        console.log(abcd);
+        if (input.value === ""){
+            input.style.border = "1px solid red";
+        }
+
+    }
+
+    function restoreInput(event){
+        let input = event.target;
+        input.style.border = "1px solid lightgray";
+
+    }
 
 })
