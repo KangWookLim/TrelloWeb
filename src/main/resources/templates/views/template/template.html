@@ -20,7 +20,7 @@
               </a>
             </li>
             <li>
-              <a th:href="@{/templates}" class = "home-sidebar-btn" id="home-template-btn">
+              <a th:href="@{/template}" class = "home-sidebar-btn" id="home-template-btn">
                 <img th:src="@{/images/icons/template.png}" class = "home-sidebar-template-btn"/>
                 Templates
               </a>
@@ -98,8 +98,9 @@
 
       <div id = "home-board-wrapper">
         <div id = "content-all-board">
+
           <div style="width: 100%; max-width: 825px; min-width: 288px;">
-          <!--          즐겨찾기-->
+            <!--          즐겨찾기          -->
             <div class = "featured-categories-title">
               <div class="template-board-title">
                 <h1>
@@ -124,7 +125,6 @@
                   <span>Business</span>
                 </a>
               </div>
-
 
               <div class="category-item-container">
                 <a class="featured-categories-link" th:href="@{/template/design}" title="Design">
@@ -180,6 +180,1031 @@
                 </a>
               </div>
             </div>
+
+            <!-- 새 템플릿 소개 -->
+            <div>
+              <h2 class="templates-content-h2">
+                <div class="templates-content-icon"></div>
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">New and notable templates</span>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/business.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Business</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Business
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/design.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Design</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Design
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/education.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Education</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Education
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/engineering.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Engineering</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Engineering
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/marketing.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Marketing</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Marketing
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/management.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Project management</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Project management
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div>
+              <h2 class="templates-content-h2">
+                <img th:src="@{/images/icons/remote.svg}" class="templates-content-icon">
+                <span style="line-height: 24px; font-size: 20px; margin-bottom: 0;">Remote work</span>
+                <button class="templates-content-more-btn" type="button">
+                  More template for Remote work
+                </button>
+              </h2>
+              <div class="templates-content-box">
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image" style="background-image: url(&quot;https://d2k1ftgv7pobq7.cloudfront.net/images/backgrounds/gradients/alien.svg&quot;);"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          Tier List
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Engineering Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Use this template to create a tier list for anything you want. A tier list is a way to rank items in a category from best to worst. This could be: best NBA players, GOAT'd pasta dishes, and tastiest fast food joints.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          2.9K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          23.3K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="templates-content-item">
+                  <a th:href="@{#}" class="templates-content-link">
+                    <div class="templates-content-item-image"></div>
+                    <div class="templates-content-item-desc">
+                      <div class="templates-content-team-icon">
+                        <span class="templates-content-team-icon-images"></span>
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 2;">
+                        <div class="templates-content-title">
+                          New Hire Onboarding
+                        </div>
+                      </div>
+                      <div class="templates-content-team-name">
+                        by Trello Team
+                      </div>
+                      <div class="templates-content-text" style="-webkit-line-clamp: 3;">
+                        <div class="templates-content-desc-text">
+                          Help new employees start strong with this onboarding template.
+                        </div>
+                      </div>
+                      <div style="margin-top:10px;">
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 16V4.99188C5 3.8918 5.90195 3 7.00853 3H14.9915L15 3.00002V5H7V16H5ZM8 19C8 20.1046 8.89543 21 10 21H18C19.1046 21 20 20.1046 20 19V8C20 6.89543 19.1046 6 18 6H10C8.89543 6 8 6.89543 8 8V19ZM10 8V19H18V8H10Z" fill="currentColor"></path></svg>
+                          </span>
+                          18.3K
+                        </span>
+                        &nbsp;
+                        <span class="templates-content-num">
+                          <span>
+                            <svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.0006 18C7.46367 18 4.00142 13.74 4.00142 12C4.00142 9.999 7.45967 6 12.0006 6C16.3775 6 19.9988 9.973 19.9988 12C19.9988 13.74 16.5366 18 12.0006 18ZM12.0006 4C6.48003 4 2.00012 8.841 2.00012 12C2.00012 15.086 6.5771 20 12.0006 20C17.4241 20 22.0001 15.086 22.0001 12C22.0001 8.841 17.5212 4 12.0006 4ZM11.9775 13.9844C10.8745 13.9844 9.97752 13.0874 9.97752 11.9844C9.97752 10.8814 10.8745 9.9844 11.9775 9.9844C13.0805 9.9844 13.9775 10.8814 13.9775 11.9844C13.9775 13.0874 13.0805 13.9844 11.9775 13.9844ZM11.9775 7.9844C9.77152 7.9844 7.97752 9.7784 7.97752 11.9844C7.97752 14.1904 9.77152 15.9844 11.9775 15.9844C14.1835 15.9844 15.9775 14.1904 15.9775 11.9844C15.9775 9.7784 14.1835 7.9844 11.9775 7.9844Z" fill="currentColor"></path></svg>
+                          </span>
+                          28K
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>

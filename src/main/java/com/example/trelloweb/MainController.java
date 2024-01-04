@@ -7,22 +7,24 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-    @GetMapping("/home")
+    @GetMapping("/")
     public ModelAndView mainPage() {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/home");
         return view;
     }
-    @RequestMapping("/")
-    public String toHome() {
-        return "redirect:/home";
-    }
-
     //이동 예정
     @RequestMapping("/editprofile")
     public ModelAndView editProfile() {
         ModelAndView view = new ModelAndView();
         view.setViewName("/views/profile/editProfile");
+        return view;
+    }
+
+    @RequestMapping("/profile")
+    public ModelAndView profile() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("/views/profile/profile");
         return view;
     }
 }
