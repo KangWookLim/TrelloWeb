@@ -13,4 +13,8 @@
         into signuptoken
         values (#{token} , #{email}, sysdate + 1/24 *0.5, 'no')
     </insert>
+
+    <select id = "findAllMembers" resultType="">
+        select * from Users;
+    </select>
 </mapper>

@@ -39,9 +39,12 @@
             <div  style="margin-bottom: 16px">
                 <form action="">
                     <p style="font-size: 12px; color: #42526E">fields with <span style="color: red">*</span> are mandatory.</p>
-                    <div style = "margin-bottom: 10px">ID: <span style="color: red">*</span><input id="email" type="email" name="email" placeholder="이메일을 입력하세요" class="emailInput"></div>
-                    <div style = "margin-bottom: 10px">PW: <span style="color: red">*</span><input id="password" type="password" name="password" placeholder="비밀번호를 입력하세요" class = "emailInput"></div>
-                    <div style = "margin-bottom: 10px">FullName: <span style="color: red">*</span><input id = "fullname" name = "fullname" class = "emailInput"></div>
+                    <div style = "margin-bottom: 10px">ID: <span style="color: red">*</span><input id="email" type="email" name="email" placeholder="사용할 아이디를 입력하세요" class="emailInput"></div>
+                    <button id = "checkID" type = "button" onclick = "userIDCheck()">Check Duplicate</button>
+                    <div style = "margin-bottom: 10px">Password: <span style="color: red">*</span><input id="password" type="password" name="password" placeholder="비밀번호를 입력하세요" class = "emailInput"></div>
+                    <div style = "margin-bottom: 10px">Confirm Password: <span style="color: red">*</span><input id="passwordConfirm" type="password" name="password" placeholder="비밀번호 재입력" class = "emailInput"></div>
+                    <div style = "margin-bottom: 10px">FirstName: <span style="color: red">*</span><input id = "firstname" name = "firstname" class = "emailInput alphabetOnly"></div>
+                    <div style = "margin-bottom: 10px">LastName: <span style="color: red">*</span><input id = "lastname" name = "lastname" class = "emailInput alphabetOnly"></div>
                     <div style = "margin-bottom: 10px">NickName: <span style="color: red">*</span><input id = "nickname" name = "nickname" class = "emailInput"></div>
                     <div style = "margin-bottom: 10px">Gender: <span style="color: red">*</span><br>
                         <label>

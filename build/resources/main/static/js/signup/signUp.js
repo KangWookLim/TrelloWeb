@@ -32,3 +32,23 @@ $(document).ready(function () {
         })
     }
 )
+
+const alphabetInputs = document.querySelectorAll('.alphabetOnly');
+alphabetInputs.forEach(function(input) {
+    input.addEventListener("input", () => {
+        let val = input.value.replace(/[^a-zA-Z]/g,"");
+        input.value = val;
+    })
+
+});
+
+let nickNameInput = document.querySelector("#nickname");
+
+nickNameInput.addEventListener("input", () => {
+    let val = nickNameInput.value.replace(/[^a-zA-Z0-9]/g,"");
+    nickNameInput.value = val;
+})
+
+function userIDCheck() {
+
+}
