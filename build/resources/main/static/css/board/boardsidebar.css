@@ -22,8 +22,6 @@
     left: 0;
     bottom: 0;
     width: 16px;
-    height: 100%;
-    min-height: 100%;
     border-right: 1px solid #9fadbc;
     transform: translate3d(-100%, 0, 0);
     transition: transform 100ms ease-in;
@@ -42,11 +40,11 @@
     min-height: 57px;
     border-bottom: 1px solid #BDBDBD
 }
-.sidebar-logo-worksapce-btn div{
+.sidebar-logo-workspace-btn div{
     height: 32px;
     width: 32px;
 }
-.sidebar-logo-worksapce-btn div img{
+.sidebar-logo-workspace-btn div img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -89,8 +87,8 @@
 }
 .sidebar-show-btn{
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -105,13 +103,160 @@
     height: 24px;
     width: 24px;
     margin: 15px 0 0 16px;
-    display: flex;
+    display: none;
     background-color: rgba(255,255,255,0.16);
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(16px);
     border:1px solid ;
 }
-img:not(:root){
-   overflow: hidden;
+
+.sidebar-board-options-container{
+    padding-top: 12px;
+}
+.sidebar-board-options-container a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 11px;
+    text-decoration: none;
+    height: 32px;
+    cursor: pointer;
+
+}
+.sidebar-board-options-container a:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.icon-container{
+    display: flex;
+    line-height: 1;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-workspace-view-list div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 4px;
+}
+.sidebar-workspace-view-list-title{
+    color: rgb(140,155,171);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+    line-height: 24px;
+    margin: 0;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+.sidebar-workspace-list{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 32px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-left: 14px;
+}
+.sidebar-workspace-list:hover{
+    cursor: pointer;
+    background-color: rgba(159,173,188,30%);
+}
+.sidebar-workspace-list:hover > .sidebar-hover-view-icon-cont{
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    display: grid;
+    position: absolute;
+    right: 8px;
+}
+.sidebar-workspace-list:hover > .sidebar-hover-view-icon-cont:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.sidebar-hover-view-icon-cont{
+    display: none;
+}
+.sidebar-workspace-list > div{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-right: 8px;
+    width: 24px;
+    height: 20px;
+}
+.sidebar-btn-title{
+    flex: 1;
+    margin: 0 0 2px 12px;
+    color: rgb(140,155,171);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.sidebar-btn-title:hover{
+    color: rgb(140,155,171);
+    cursor: pointer;
 }
 
+.sidebar-member-btn-btn{
+    margin: 0 6px 0 6px;
+    padding: 4px 4px 4px 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 3px; border: transparent;
+}
+.sidebar-member-btn-btn:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.sidebar-boardset-container{
+
+}
+.Yourboards:hover .sidebar-hover-view-icon-cont{
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+    display: grid;
+    position: absolute;
+    right: 30px;
+}
+.Yourboards:hover .sidebar-hover-view-icon-cont:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.yourboard-plus-btn{
+    position: absolute;
+    right: 5px;
+    border: none;
+    background-color: transparent;
+    border-radius: 3px;
+}
+.yourboard-plus-btn:hover{
+    background-color: rgba(159,173,188,30%);
+}
+.board-nonstar-icon{
+    position: absolute;
+    top: 1px;
+    right: 2px;
+}
+.sidebar-workspace-list:hover > .board-nonstar-icon{
+    display: flex !important;
+}
+.board-star-icon{
+    position: absolute;
+    top: 1px;
+    right: 2px;
+}

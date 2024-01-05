@@ -234,3 +234,15 @@ a:hover {
     height: 24px; /* 이미지의 세로 크기를 조절 */
 }
 
+#checkID {
+    background-color: #0052CC;
+    color: white;
+    padding : 8px 6px;
+    border: none;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom:10px;
+}
+#checkID:hover {
+    background-color: #01409b;
+}
