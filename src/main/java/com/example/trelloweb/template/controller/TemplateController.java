@@ -16,4 +16,11 @@ public class TemplateController {
         return view;
     }
 
+    @GetMapping("/template/business")
+    public ModelAndView business() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/template/business");
+        return view;
+    }
+
 }
