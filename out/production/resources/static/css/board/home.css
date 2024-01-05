@@ -1,0 +1,181 @@
+*{
+    color:#b6c2cf;
+}
+a {
+    text-decoration: none;
+}
+#home-middle-side-container {
+    margin-top: 40px;
+    padding-left: 45px;
+    width: 465px;
+}
+#home-right-side-container {
+    height:90vh;
+    margin-top: 40px;
+    max-width: 392px;
+    overflow-y: auto;
+    padding-left: 50px;
+    position: sticky;
+    top: 40px;
+    width: 100%;
+}
+.home-middle-side-box {
+    flex-direction: column;
+    background-color: #1d2125;
+    border-radius: 4px;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+    display: flex;
+    margin-bottom: 16px;
+    position: relative;
+    width: 100%;
+}
+.home-middle-side-image {
+    background-color: #38291e;
+    background-image: url(https://trello.com/assets/e55b3540e5c1f06a51d7.svg);
+    height: 108px;
+    border-radius: 4px 4px 0 0;
+    min-height: 100px;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    flex: 0 0 auto;
+}
+.home-middle-side-text-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    padding: 16px;
+    width: 100%;
+}
+.home-middle-side-text-box span {
+    text-align: center;
+}
+.home-middle-side-title-text {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.home-middle-side-sub-text {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 10px 0;
+}
+#recently-viewed-container, #link-container, .home-starred-board-container {
+    padding-bottom : 24px;
+}
+.home-right-board-title {
+    align-items: baseline;
+    display: flex;
+    height: 32px;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    padding: 0 0 0 12px;
+}
+.home-right-board-title-image {
+    flex: 0 0 auto;
+    margin-left: -8px;
+    position: relative;
+    text-align: center;
+    top: -2px;
+    width: 32px;
+}
+.home-right-board-title-text {
+    color: #9fadbc;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 8px 0;
+}
+.home-right-starred-board {
+    align-items: center;
+    border-radius: 4px;
+    display: flex;
+    height: 48px;
+    position: relative;
+}
+.home-right-board-link {
+    background : none;
+    font-weight: 400;
+    box-shadow: none;
+    margin: 0;
+    align-items: center;
+    border-radius: 4px;
+    border: 0;
+    box-sizing: border-box;
+    color: #9fadbc;
+    cursor: pointer;
+    display: flex;
+    height: 48px;
+    padding: 8px 40px 8px 8px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+}
+.home-right-board-link:hover {
+    background-color: #a6c5e229;
+}
+.home-right-board-image {
+    background-size: cover;
+    border-radius: 4px;
+    display: block;
+    flex: 0 0 auto;
+    height: 28px;
+    margin-right: 8px;
+    width: 32px;
+}
+.home-right-board-text {
+    display: block;
+    margin-right: 8px;
+    overflow: hidden;
+}
+.home-right-board-text>.board-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #b6c2cf;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 18px;
+}
+.home-right-board-text>.ws-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #9fadbc;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+    margin-top: 1px;
+}
+.home-right-board-star-full {
+    background:none;
+    font-weight: 400;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    border-radius: 4px;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 24px;
+}
+.home-right-board-star-full>img {
+    height : 16px;
+    width : 16px;
+}
