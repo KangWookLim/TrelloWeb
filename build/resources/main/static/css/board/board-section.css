@@ -1,0 +1,38 @@
+.workspace-setting-options-sec{
+    display: none;
+    position: fixed;
+    z-index: 9;
+    inset: 215px auto auto 234px;
+    width: 304px;
+    border-radius: 8px;
+    color: rgb(182,194,207);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    background-color: #282e33;
+    box-sizing: border-box;
+    outline: 0;
+    overflow: hidden;
+}
+.workspace-setting-options {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: 100%;
+    padding: 6px 12px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    outline: 0;
+    color: rgb(182,194,207);
+}
+.workspace-setting-options:hover{
+    color: rgb(182,194,207);
+    cursor: pointer;
+}
+
+.workspace-setting-options-container li:hover{
+    background-color: rgba(159,173,188,30%);
+}
