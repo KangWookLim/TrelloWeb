@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/css/template/business.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+
+    <div id = "content-wrapper">
+        <div class = "home-container">
+            <nav id = "home-left-side-container">
+                <div>
+                    <ul id = "home-sidebar-btn-container">
+                        <li>
+                            <a th:href="@{/board}" class = "home-sidebar-btn" id="home-board-btn" onclick = "toBoard()">
+                                <img th:src="@{/images/icons/trello.png}" class = "home-sidebar-board-btn"/>
+                                Boards
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/template}" class = "home-sidebar-btn" id="home-template-btn">
+                                <img th:src="@{/images/icons/template.png}" class = "home-sidebar-template-btn"/>
+                                Templates
+                            </a>
+                            <ul>
+                                <a th:href="@{/template/business}" class="home-sidebar-btn-link"><li id="sidebar-business-btn" class="home-sidebar-btn template-sidebar-btn-items">Business</li></a>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Design</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Education</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Engineering</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Marketing</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">HR & Operations</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Personal</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Productivity</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Product management</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Project management</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Remote work</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Sales</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Support</li>
+                                <li class="home-sidebar-btn template-sidebar-btn-items">Team management</li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a th:href="@{/home}" class = "home-sidebar-btn" id="home-home-btn">
+                                <img th:src="@{/images/icons/home.png}" class = "home-sidebar-home-btn"/>
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul id="home-workspace-container">
+                        <div id="home-workspace-title"> Workspaces </div>
+                        <li id = "home-workspace-tab">
+                            <a id = "home-workspace-box">
+                                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
+                                <span>Workspace Name</span>
+                                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+                            </a>
+                            <ul id = "ws-btn-ul">
+                                <li class = "ws-btn-container">
+                                    <a href = "" class = "ws-btn-group">
+                                        <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>
+                                        <span>Boards</span>
+                                    </a>
+                                </li>
+                                <li class = "ws-btn-container">
+                                    <a href = "" class = "ws-btn-group">
+                                        <img th:src="@{/images/icons/heart.png}" class = "ws-btn-icon"/>
+                                        <span>Highlights</span>
+                                    </a>
+                                </li>
+                                <li class = "ws-btn-container">
+                                    <a href = "" class = "ws-btn-group">
+                                        <img th:src="@{/images/icons/views.png}" class = "ws-btn-icon"/>
+                                        <span>Boards</span>
+                                    </a>
+                                </li>
+                                <li class = "ws-btn-container">
+                                    <a href = "" class = "ws-btn-group">
+                                        <img th:src="@{/images/icons/team.png}" class = "ws-btn-icon"/>
+                                        <span>Members</span>
+                                    </a>
+                                </li>
+                                <li class = "ws-btn-container">
+                                    <a href = "" class = "ws-btn-group">
+                                        <img th:src="@{/images/icons/settings.png}" class = "ws-btn-icon"/>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id = "home-board-wrapper">
+                <div id = "content-all-board">
+                    <div style="width: 100%; max-width: 825px; min-width: 288px;">
+                        <div class="template-head-bar">
+                            <ul>
+                                <li class="template-head-link-item">
+                                    <a href="/template">Template gallery </a>
+                                </li>
+                                <li class="template-head-link-item">
+                                    <a href="/template/business">Business</a>
+                                </li>
+                            </ul>
+                            <div class="featured-search-container" role="searchbox">
+                                <div style="position: relative; box-sizing: border-box;">
+                                    <div class="featured-search-bar">
+                                        <input class="featured-search-input" type="text" placeholder="Find template"/>
+                                        <img src="/images/icons/search.png" class="featured-search-icon">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#home-template-btn").addClass("home-active-btn")
+            $("#sidebar-business-btn").addClass("home-active-btn")
+            const activeTemplate = $("#home-template-btn").children("img");
+            activeTemplate.attr("src", function(index, attr){
+                return attr.replace("template", "templateA");
+            });
+        })
+
+        $("#home-workspace-box").click(function() {
+            console.log("check1");
+            $("#ws-btn-ul").toggleClass("menuon");
+            const arrowImage = $("#home-workspace-box").children("img");
+            arrowImage.attr("src", function(index, attr){
+                if (attr.match('up')) {
+                    return attr.replace("up", "down");
+                }
+                else {
+                    return attr.replace("down", "up");
+                }
+            });
+        });
+    </script>
+</div>
+</html>

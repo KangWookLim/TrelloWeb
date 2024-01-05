@@ -201,14 +201,16 @@
 
     })
 
+    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
     $(".home-right-recent-board").hover(function(){
       if($(".star-empty").css("display").match("none")){
         return $(".star-empty").css("display","block");
       }else {
         return $(".star-empty").css("display","none");
       }
-
     })
+
+    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
     $(".star-empty").hover(function() {
       const starImage = $(".star-empty").children("img");
       console.log("check");
