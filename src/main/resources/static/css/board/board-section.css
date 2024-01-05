@@ -36,3 +36,50 @@
 .workspace-setting-options-container li:hover{
     background-color: rgba(159,173,188,30%);
 }
+.board-style-section{
+    position: fixed;
+    display: none;
+    inset: 100px auto auto 576px;
+    width: 304px;
+    background-color: #282e33;
+    border-radius: 8px;
+    flex-direction: column;
+}
+.board-style-section header{
+    padding: 4px 8px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.board-style-section header h2{
+    color: #9fadbc;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+    line-height: 40px;
+    display: block;
+    height: 40px;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.style-sec-close-btn{
+    width: 32px;
+    height: 32px;
+    background-color: transparent;
+    border: none;
+    justify-self: end;
+    position: absolute;
+    right: 10px;
+}
+.style-sec-close-btn:hover{
+    border-radius: 5px;
+    background-color: rgba(159,173,188,30%);
+}
+.board-style-list{
+    color: white;
+    list-style: none;
+}

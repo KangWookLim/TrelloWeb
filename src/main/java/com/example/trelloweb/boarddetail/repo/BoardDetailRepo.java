@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
@@ -19,7 +21,6 @@ public class BoardDetailRepo {
                     rs.getString("description"),
                     rs.getString("template_id")
             );
-
     protected List<BoardDetailVo> getAllBoard(){
         String sql = "select * from board";
         return jdbcTemplate.query(sql,rowMapper);

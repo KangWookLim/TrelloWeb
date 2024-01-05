@@ -2,7 +2,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
     height: 100%;
     width: 260px;
     overflow-y: auto;
@@ -11,7 +10,7 @@
     backdrop-filter: blur(6px);
     transform: translate3d(-100%, 0, 0);
     transition: transform 100ms ease-in;
-    border-right: 1px solid #9fadbc;
+    border-right: 1px solid #848ea0;
 }
 .sidebar-show{
     transform: translate3d(0%, 0, 0) !important;
@@ -22,7 +21,7 @@
     left: 0;
     bottom: 0;
     width: 16px;
-    border-right: 1px solid #9fadbc;
+    border-right: 1px solid #848ea0;
     transform: translate3d(-100%, 0, 0);
     transition: transform 100ms ease-in;
 }
@@ -38,7 +37,7 @@
     align-items: center;
     padding: 8px 12px 8px;
     min-height: 57px;
-    border-bottom: 1px solid #BDBDBD
+    border-bottom: 1px solid #848ea0
 }
 .sidebar-logo-workspace-btn div{
     height: 32px;
@@ -54,7 +53,7 @@
     margin-left: 8px;
     margin-right: 4px;
     text-align: left;
-    color: #9fadbc;
+    color: #848ea0;
 }
 .sidebar-logo-text-container span {
 }
@@ -127,14 +126,7 @@
 .sidebar-board-options-container a:hover{
     background-color: rgba(159,173,188,30%);
 }
-.icon-container{
-    display: flex;
-    line-height: 1;
-    width: 24px;
-    height: 24px;
-    justify-content: center;
-    align-items: center;
-}
+
 .sidebar-workspace-view-list div{
     display: flex;
     flex-direction: row;
@@ -247,16 +239,7 @@
 .yourboard-plus-btn:hover{
     background-color: rgba(159,173,188,30%);
 }
-.board-nonstar-icon{
-    position: absolute;
-    top: 1px;
-    right: 2px;
-}
+
 .sidebar-workspace-list:hover > .board-nonstar-icon{
     display: flex !important;
-}
-.board-star-icon{
-    position: absolute;
-    top: 1px;
-    right: 2px;
 }
