@@ -32,7 +32,6 @@ spring:
             required: true
   datasource:
     driver-class-name: oracle.jdbc.OracleDriver
-
     url: jdbc:oracle:thin:@192.168.8.17:1521:xe
     username: trellodb
     password: 1234
