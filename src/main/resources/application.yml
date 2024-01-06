@@ -1,11 +1,11 @@
 server:
   port: 8091
-  file:
-    storage:
-      #      #Mac OS
-      #      path: /Users/laku_mwa/resource/
-      #      Windows OS
-      path: C:\NakyeonInt\resources
+#  file:
+#    storage:
+#      #      #Mac OS
+#      #      path: /Users/laku_mwa/resource/
+#      #      Windows OS
+#      path: C:\NakyeonInt\resources
 
 spring:
   main:
@@ -17,24 +17,32 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
-  mail:
-    host: smtp.gmail.com
-    port: 587
-    username: cnakyeon@gmail.com
-    password: pptf ftcn otng rvvc
-    properties:
-      mail:
-        smtp:
-          auth: true
-          timeout: 5000
-          starttls:
-            enable: true
-            required: true
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: cnakyeon@gmail.com
+#    password: pptf ftcn otng rvvc
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          timeout: 5000
+#          starttls:
+#            enable: true
+#            required: true
+  h2:
+    console:
+      path: /h2
+      enabled: true
   datasource:
-    driver-class-name: oracle.jdbc.OracleDriver
-    url: jdbc:oracle:thin:@192.168.8.17:1521:xe
-    username: trellodb
+    url: jdbc:h2:~/trelloDB;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: trelloDB
     password: 1234
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@192.168.8.17:1521:xe
+#    username: trellodb
+#    password: 1234
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 50
@@ -45,7 +53,15 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
-
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        show_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
   thymeleaf:
     cache: false
     check-template-location: true
