@@ -1,3 +1,4 @@
+let isIDDuplicate = true;
 $(document).ready(function () {
         const urlParams = new URLSearchParams(window.location.search);
         const token = urlParams.get('token');
@@ -50,5 +51,32 @@ nickNameInput.addEventListener("input", () => {
 })
 
 function userIDCheck() {
+    const ID = $('#ID').val();
+    isIDDuplicate = true;
 
+    if($.trim(ID).length === 0) {
+        alert('아이디를 입력하십시오.');
+        return;
+    }
+    $.ajax({
+        url : 'signup/chkID',
+        type : 'get',
+        datatype : 'json',
+        data : 'json',
+        data : {
+            ID : ID
+        }
+    }).done(function (data){
+        if(data === 0) {
+            alert('ID not duplicate');
+            console.log(data);
+            isIDDuplicate = false;
+            $('#ID').prop('disabled', true);
+        }else {
+            alert('ID is already in use');
+        }
+    }).fail(function (xhr, status, error) {
+        alert('Unexpected error. Please contact System Administrator for ');
+        console.log(status);
+    });
 }

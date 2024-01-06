@@ -31,7 +31,8 @@ public class securityconfig {
                         .requestMatchers(new AntPathRequestMatcher("/**"))
                         .permitAll())
                 .csrf((csrf) -> csrf
-                        .ignoringRequestMatchers(new AntPathRequestMatcher("/**")))
+                        .ignoringRequestMatchers(new AntPathRequestMatcher("/**"))
+                        .ignoringRequestMatchers(new AntPathRequestMatcher("/h2")))
                 .headers(headers -> headers
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(
                                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN
