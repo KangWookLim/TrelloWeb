@@ -36,7 +36,10 @@ public class securityconfig {
                 .headers(headers -> headers
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(
                                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN
-                        )));
+                        )))
+                .formLogin(formLogin -> formLogin
+                        .loginPage("/user/login")
+                        .defaultSuccessUrl("/"));
         return http.getOrBuild();
     }
     @Bean
