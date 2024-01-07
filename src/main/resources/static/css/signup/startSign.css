@@ -64,7 +64,7 @@ a:hover {
     color: rgb(23, 43, 77);
 }
 
-#btn1 {
+.btn1 {
     align-items: baseline;
     border-width: 0px;
     border-radius: 3px;

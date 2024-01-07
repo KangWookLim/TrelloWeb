@@ -19,7 +19,7 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Entity(name = "users")
 public class UserVo {
     @Id
@@ -58,7 +58,7 @@ public class UserVo {
 
     private LocalDateTime UPDATE_DATE;
 
-    @Column(length = 500)@ColumnDefault("'안녕하세요!'")
+    @Column(length = 1000)@ColumnDefault("'안녕하세요!'")
     private String BIO;
 
     @Column(nullable = true)
