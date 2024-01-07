@@ -1,6 +1,8 @@
 package com.example.trelloweb.user.base.vo;
 
 import com.example.trelloweb.board.board_mem.vo.Board_memVo;
+import com.example.trelloweb.card.comment.vo.Card_CommentVo;
+import com.example.trelloweb.card.mem.vo.Card_MemVo;
 import com.example.trelloweb.user.Blocked_User.vo.Blocked_UserVo;
 import com.example.trelloweb.user.Recent_Act.vo.Recent_ActVo;
 import com.example.trelloweb.user.Starred_Board.vo.Starred_BoardVo;
@@ -82,4 +84,10 @@ public class UserVo {
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
     private List<Board_memVo> board_MemVoList;
+
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    private List<Card_MemVo> card_MemVoList;
+
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    private  List<Card_CommentVo> card_commentVoList;
 }
