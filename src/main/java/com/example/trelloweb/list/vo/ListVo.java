@@ -1,13 +1,16 @@
 package com.example.trelloweb.list.vo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
+import com.example.trelloweb.card.base.vo.CardVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @Data
-@Entity
+@Entity(name = "List")
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class ListVo {
@@ -23,4 +26,7 @@ public class ListVo {
     @ManyToOne
     @JoinColumn(name = "Board_Id")
     private BoardVo boardvo;
+
+    @OneToMany(mappedBy = "list_id", cascade = CascadeType.REMOVE)
+    private List<CardVo> cardVoList;
 }
