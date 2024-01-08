@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
@@ -107,13 +106,60 @@
                 <span class="ws-title">text workspace1</span>
               </span>
             </a>
-            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star-full">
+            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star star-full">
               <img th:src="@{/images/icons/star-full.png}">
             </button>
           </div>
         </div></div>
-        <div id="recently-viewed-container"></div>
-        <div id="link-container"></div>
+        <div id="recently-viewed-container">
+          <div class="home-right-board-title">
+            <div class="home-right-board-title-image">
+              <span data-testid="ClockIcon" aria-hidden="true" class="css-snhnyn" style="--icon-primary-color: quiet; --icon-secondary-color: inherit;"><svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 6C13 5.44772 12.5523 5 12 5C11.4477 5 11 5.44772 11 6V12C11 12.2652 11.1054 12.5196 11.2929 12.7071L13.7929 15.2071C14.1834 15.5976 14.8166 15.5976 15.2071 15.2071C15.5976 14.8166 15.5976 14.1834 15.2071 13.7929L13 11.5858V6Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z" fill="currentColor"></path></svg></span>
+            </div>
+            <div class="home-right-board-title-text"> Recently viewed </div>
+          </div>
+          <div class="home-right-recent-board">
+            <a href="#" class="home-right-board-link">
+              <div class="home-right-board-image" style="background-image: url(&quot;https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x335/85f98e58c06949d5781a8ad156007d35/photo-1671119904316-3e7b29f954f2.jpg&quot;)"></div>
+              <span class="home-right-board-text">
+                <span class="board-title">recent board1</span>
+                <span class="ws-title">recent workspace1</span>
+              </span>
+            </a>
+            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star star-empty">
+              <img th:src="@{/images/icons/star-gray.png}">
+            </button>
+          </div>
+
+          <div class="home-right-recent-board">
+            <a href="#" class="home-right-board-link">
+              <div class="home-right-board-image" style="background-image: url(&quot;https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x335/85f98e58c06949d5781a8ad156007d35/photo-1671119904316-3e7b29f954f2.jpg&quot;)"></div>
+              <span class="home-right-board-text">
+                <span class="board-title">recent board1</span>
+                <span class="ws-title">recent workspace1</span>
+              </span>
+            </a>
+            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star star-empty">
+              <img th:src="@{/images/icons/star-gray.png}">
+            </button>
+          </div>
+
+        </div>
+        <div id="link-container">
+          <div class="home-right-board-title">
+            <div class="home-right-board-title-text"> Links </div>
+          </div>
+          <div class="home-right-link-board">
+            <a href="#" class="home-right-board-link">
+              <div class="home-right-add-icon">
+                <img th:src="@{/images/icons/plus.png}">
+              </div>
+              <span class="home-right-board-text">
+                <span class="board-title" style="font-weight:400;">Create a board</span>
+              </span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -141,8 +187,8 @@
       });
     });
 
-    $(".home-right-board-star-full").hover(function() {
-      const starImage = $(".home-right-board-star-full").children("img");
+    $(".star-full").hover(function() {
+      const starImage = $(".star-full").children("img");
       starImage.attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -153,6 +199,32 @@
       });
 
     })
+
+    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
+    $(".home-right-recent-board").hover(function(){
+      if($(".star-empty").css("display").match("none")){
+        return $(".star-empty").css("display","block");
+      }else {
+        return $(".star-empty").css("display","none");
+      }
+    })
+
+    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
+    $(".star-empty").hover(function() {
+      const starImage = $(".star-empty").children("img");
+      console.log("check");
+
+      starImage.attr("src", function(index, attr){
+        if (attr.match('gray')) {
+          return attr.replace("gray", "empty");
+        }
+        else {
+          return attr.replace("empty", "gray");
+        }
+      });
+
+    })
+
   </script>
 </div>
 </html>

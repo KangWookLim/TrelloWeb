@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
@@ -17,7 +19,7 @@ public class BoardController {
     }
 
     @GetMapping("/home")
-    public ModelAndView home() {
+    public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/board/home");
         return view;

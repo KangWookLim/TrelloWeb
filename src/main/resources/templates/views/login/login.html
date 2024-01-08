@@ -36,8 +36,8 @@
             </div>
             <div  style="margin-bottom: 16px">
                 <form th:action="@{/user/login}" method="post">
-                    <input  type="text" id="username" name="username" placeholder="아이디를 입력하세요" class="emailInput" style="margin-bottom: 10px;">
-                    <input id="password" type="password" name="password" placeholder="비밀번호를 입력하세요" class = "emailInput">
+                    <input  type="text" id="username" name="username" placeholder="아이디를 입력하세요" class="InputBox" style="margin-bottom: 10px;">
+                    <input id="password" type="password" name="password" placeholder="비밀번호를 입력하세요" class = "InputBox">
                     <div style="margin-top: 8px">
                         <button type="submit" class="btn1"> 로그인 </button>
                     </div>
@@ -46,7 +46,7 @@
 <!--                        동의하고 <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank"-->
 <!--                                rel="noreferrer noopener">개인정보 보호정책</a>을 인정한 것으로 간주됩니다.</p></div>-->
                     <div style="margin-top: 8px">
-                        <button type = "button" class="btn1" onclick = "userEmailChk();">
+                        <button type = "button" class="btn1" onclick = "location.href='/user/signup'">
                             <span>
                                 가입
                             </span>

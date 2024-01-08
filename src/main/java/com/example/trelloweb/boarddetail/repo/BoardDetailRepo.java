@@ -14,7 +14,7 @@
 //    NamedParameterJdbcTemplate jdbcTemplate;
 //    RowMapper<BoardDetailVo> rowMapper = (rs, rowNum) ->
 //            new BoardDetailVo(
-//                    rs.getString("board_id"),
+//                     rs.getString("board_id"),
 //                    rs.getString("ws_id"),
 //                    rs.getString("name"),
 //                    rs.getString("image_url"),
