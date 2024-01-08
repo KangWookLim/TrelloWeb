@@ -17,32 +17,25 @@ public class SignupForm {
     @NotEmpty(message = "비밀번호를 확인해주세요")
     private String pwcheck;
 
-    @NotEmpty(message = "닉네임을 입력해주세요")
-    private String nickname;
+    @NotEmpty(message = "성을 입력해주세요")
+    private String firstname;
 
     @NotEmpty(message = "이름을 입력해주세요")
-    private String fullname;
+    private String lastname;
+
+    @NotEmpty(message = "닉네임을 입력해주세요")
+    private String nickname;
 
     @NotEmpty(message = "연락처를 입력해주세요")
     private String phone;
 
-    @NotEmpty(message = "이메일을 입력해주세요")
-    private String EMAIL;
-
-    private String IMG_URL;
-
     private String BIRTH;
 
-    private char GENDER;
+    private String EMAIL;
 
-    @Size(max = 1000, message = "자기소개가 너무 깁니다")
+    @NotEmpty(message = "성별을 선택해주세요")
+    private String GENDER;
+
+    @Size(max = 500, message = "자기소개는 500자 이하입니다")
     private String BIO;
-
-    private String SOCIAL_LINK_1;
-
-    private String SOCIAL_LINK_2;
-
-    private String SOCIAL_LINK_3;
-
-    private String SOCIAL_LINK_4;
 }

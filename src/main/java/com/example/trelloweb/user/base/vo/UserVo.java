@@ -48,7 +48,7 @@ public class UserVo {
     private String BIRTH;
 
     @ColumnDefault(value = "'M'")
-    private char GENDER;
+    private String GENDER;
 
     @Column(length = 100, unique = true, nullable = false)
     private String PHONE;

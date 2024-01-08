@@ -26,20 +26,22 @@ public class securityconfig {
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
-                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/**"))
                         .permitAll())
                 .csrf((csrf) -> csrf
-                        .ignoringRequestMatchers(new AntPathRequestMatcher("/**"))
-                        .ignoringRequestMatchers(new AntPathRequestMatcher("/h2")))
+                        .ignoringRequestMatchers(new AntPathRequestMatcher("/h2/**")))
                 .headers(headers -> headers
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(
                                 XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN
                         )))
                 .formLogin(formLogin -> formLogin
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/"));
+                        .defaultSuccessUrl("/home"))
+                .logout(logout -> logout
+                        .logoutUrl("/user/logout")
+                        .logoutSuccessUrl("/"));
+
         return http.getOrBuild();
     }
     @Bean
