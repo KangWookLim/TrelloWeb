@@ -131,4 +131,71 @@ html, body{
     cursor: pointer;
     background-color: #FFFFFF1d;
 }
+
+.list-add-container {
+    padding: 0 6px;
+    display: block;
+    flex-shrink: 0;
+    align-self : flex-start;
+    height: 88px;
+}
+.list-add-container-form {
+    background-color : #101204;
+    border-radius : 12px;
+    padding : 8px;
+    width: 272px;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+    box-sizing: border-box;
+}
+.list-textarea {
+    font-size: 14px;
+    background-color: transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #b6c2cf;
+    max-height: 256px;
+    min-height: 20px;
+    overflow : hidden;
+    overflow-wrap: break-word;
+    padding: 6px 12px;
+    resize: none;
+    width: 100%;
+    border-color : transparent;
+}
+.list-textarea:focus {
+    outline : none;
+    border : 2px solid #579dff !important;
+}
+.list-textarea::placeholder {
+    color : #b6c2cf;
+}
+.list-textarea:hover {
+    background-color: #282e33;
+    border-color: #3d474f;
+}
+.add-list-confirm-button {
+    background-color: #579dff;
+    border : none;
+    line-height: 20px;
+    font-size: 14px;
+    align-items: center;
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-weight: 500;
+    color: black;
+}
+
+.list-close-button {
+    padding: 6px;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+}
+
+.list-close-button:hover {
+    background-color: #282f27 !important;
+}
+
+
 /*.board*/
