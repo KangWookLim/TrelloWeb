@@ -40,3 +40,9 @@ style_timeline.click(function (){
         style_timeline.prop('checked',true);
     }
 })
+//focus 걸기
+/*const style_form = $('.list-add-container-form');
+const focusme = $('#focusme')
+style_form.click(function (){
+    focusme.focus();
+})*/
