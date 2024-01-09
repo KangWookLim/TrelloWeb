@@ -6,11 +6,13 @@ server:
 #      #      path: /Users/laku_mwa/resource/
 #      #      Windows OS
 #      path: C:\NakyeonInt\resources
-
 spring:
+  profiles:
+    include: oauth
   main:
     allow-bean-definition-overriding: true
   devtools:
+
     livereload:
       enabled: true
     restart:
@@ -77,3 +79,7 @@ spring:
 mybatis:
   config-location: classpath:config/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml
+google:
+  client:
+    id: 293701646925-6cekh9e5r61t26ml40kjeslh3uh0jnuj.apps.googleusercontent.com
+    pw: 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

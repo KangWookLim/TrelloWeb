@@ -1,11 +1,11 @@
-package com.example.trelloweb.user.login_API.Role;
+package com.example.trelloweb.user.Role;
 
 import lombok.Getter;
 
 @Getter
 public enum UserRole {
-    ADMIN("ROLE_ADMIN"),
-    USER("ROLE_USER");
+    ADMIN("ADMIN"),
+    USER("USER");
     UserRole(String val){
         this.value = val;
     }

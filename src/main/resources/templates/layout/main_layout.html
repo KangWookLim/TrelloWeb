@@ -10,6 +10,8 @@
     <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
     <link rel="shortcut icon" href="/favicon.ico">
     <title>TrelloWeb</title>
+    <link rel="stylesheet" th:href="@{/css/board/board.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
     <th:block th:replace="fragments/config::config"></th:block>
 </head>
 <body>

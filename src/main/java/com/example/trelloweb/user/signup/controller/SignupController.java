@@ -27,7 +27,6 @@ public class SignupController {
         view.setViewName("/views/signup/startSign");
         return view;
     }
-
     @GetMapping("/chkEmail")
     @ResponseBody
     public int chkEmail(@RequestParam("email") String email){

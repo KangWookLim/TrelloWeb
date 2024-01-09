@@ -1,4 +1,4 @@
-package com.example.trelloweb.home.controller;
+package com.example.trelloweb.mainpage.controller;
 
 
 import org.springframework.stereotype.Controller;

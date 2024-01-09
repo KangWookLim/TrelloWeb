@@ -11,13 +11,6 @@ public class UserController {
 
     private final UserService userService;
 
-    @RequestMapping("/user/chkEmail")
-    @ResponseBody
-    public int checkEmail(@RequestParam(name="Email") String email) throws Exception {
-        System.out.println(email);
-        return userService.checkEmail(email);
-    }
-
     /*@RequestMapping("/user/getInfo")
     @ResponseBody
     public int getInfoById(@RequestParam(name = "userUID") String userUID) throws Exception {
