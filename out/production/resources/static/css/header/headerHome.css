@@ -145,9 +145,9 @@ nav {
 .headerexpand {
     z-index: 5;
     background: white;
-    height: 150px;
     width: 100%;
     display: flex;
+    transition: all 1000ms ease-out;
 }
 
 .headerexpand_left {
@@ -218,7 +218,9 @@ nav {
 }
 
 .dn {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    height: 0 !important;
 }
 
 .productsInAction {
