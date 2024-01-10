@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.content{
+    background-color: #1c2b41;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
