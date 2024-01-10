@@ -27,4 +27,3 @@ replay_pid*
 #settingFile
 .gradle/
 .idea/
-application-oauth.yml
