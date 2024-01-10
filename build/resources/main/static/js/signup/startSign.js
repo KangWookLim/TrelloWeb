@@ -6,26 +6,25 @@ function userEmailChk() {
     if ($.trim(Email).length === 0) {
         alert('이메일을 입력하십시오.');
         return false;
+    }else if(Email.indexOf(" ") >= 0){
+        alert('공백을 입력할 수 없습니다.')
+        return
     }
 
     $.ajax({
         url : '/user/chkEmail',
-        type : 'post',
-        dataType : 'json',
-        data : 'json',
+        type : 'get',
         data :{
-            Email : Email
+            email : Email
         }
     }).done(function (data){
         if (data === 0) {
-            console.log(data);
             alert('사용가능한 이메일 입니다');
-            window.location.href = "/emailSent?email=" + encodeURIComponent($('#email').val());
         }
         else {
             console.log(data);
             alert('이미 등록된 이메일 입니다.');
-            window.location.href = "/login";
+            window.location.href = "/user/startSign";
         }
     }).fail(    function (xhr, status, error) {
         alert('시스템에 문제가 발생했습니다. 관리자에게 문의해주세요.');
