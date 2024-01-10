@@ -71,7 +71,7 @@ public class SignupController {
             return view;
         }
         try {
-            userSignupService.creat(signupForm.getId(), signupForm.getPw(),signupForm.getNickname(), signupForm.getFirstname()+signupForm.getLastname(), signupForm.getEMAIL(),signupForm.getBIRTH(), "M",
+            userSignupService.creat(signupForm.getId(), signupForm.getPw(),signupForm.getNickname(), signupForm.getName(), signupForm.getEMAIL(),signupForm.getBIRTH(), "M",
                     signupForm.getPhone(),signupForm.getBIO());
         }catch (DataIntegrityViolationException e){
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
