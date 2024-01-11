@@ -34,10 +34,8 @@ public class BoardVo {
     private String description;
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE)
-    @Column(name = "board_member_id")
     private List<Board_memVo> board_memVoList;
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE)
-    @Column(name = "list_id")
     private List<ListVo> listVoList;
 }
