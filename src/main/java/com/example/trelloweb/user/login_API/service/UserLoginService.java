@@ -39,6 +39,7 @@ public class UserLoginService implements UserDetailsService {
         return AuthUser.builder()
                 .ID(userVo.getID())
                 .PW(userVo.getPW())
+                .IMG_URL(userVo.getIMG_URL())
                 .authorities(authorities)
                 .build();
     }

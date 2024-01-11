@@ -4,9 +4,11 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@Builder
+@Getter
+@Setter
 public class SignupForm {
     @Size(min = 3, max = 25, message = "아이디 길이는 3~25 글자 사이입니다")
     @NotEmpty(message = "ID를 입력해주세요")
@@ -20,7 +22,7 @@ public class SignupForm {
     private String pwcheck;
 
     @NotEmpty(message = "이름을 입력해주세요")
-    private String name;
+    private String fullname;
 
     @NotEmpty(message = "닉네임을 입력해주세요")
     private String nickname;
