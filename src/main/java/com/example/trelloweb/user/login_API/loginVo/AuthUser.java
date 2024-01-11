@@ -22,6 +22,8 @@ public class AuthUser implements UserDetails {
 
     @NotNull private String PW;
 
+    @NotNull private String IMG_URL;
+
     private List<GrantedAuthority> authorities;
 
     @Override

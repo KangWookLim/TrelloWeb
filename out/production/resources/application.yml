@@ -79,3 +79,6 @@ spring:
 mybatis:
   config-location: classpath:config/mybatis-config.xml
   mapper-locations: classpath:mapper/**/*.xml
+file:
+  resource:
+    path: ~/TrelloResources

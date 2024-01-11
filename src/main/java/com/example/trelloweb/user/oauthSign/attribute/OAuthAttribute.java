@@ -34,12 +34,4 @@ public class OAuthAttribute {
                 .nameAttributeKey(userNameAttributeName)
                 .build();
     }
-
-    public SignupForm toSignupForm(){
-        return SignupForm.builder()
-                .name(name)
-                .EMAIL(email)
-                .build();
-
-    }
 }

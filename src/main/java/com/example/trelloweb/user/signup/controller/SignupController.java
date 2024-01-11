@@ -53,7 +53,6 @@ public class SignupController {
     @GetMapping("/signup")
     public ModelAndView signup(SignupForm signupForm){
         ModelAndView view = new ModelAndView();
-
         view.setViewName("/views/signup/signUp");
         return view;
     }
@@ -71,7 +70,7 @@ public class SignupController {
             return view;
         }
         try {
-            userSignupService.creat(signupForm.getId(), signupForm.getPw(),signupForm.getNickname(), signupForm.getName(), signupForm.getEMAIL(),signupForm.getBIRTH(), "M",
+            userSignupService.creat(signupForm.getId(), signupForm.getPw(),signupForm.getNickname(), signupForm.getFullname(), signupForm.getEMAIL(),signupForm.getBIRTH(), "M",
                     signupForm.getPhone(),signupForm.getBIO());
         }catch (DataIntegrityViolationException e){
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");

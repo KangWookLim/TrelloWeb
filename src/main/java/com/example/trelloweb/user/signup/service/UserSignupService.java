@@ -5,6 +5,7 @@ import com.example.trelloweb.user.base.vo.UserVo;
 import com.example.trelloweb.user.signup.repo.SignUpRepo;
 import com.example.trelloweb.user.signup.vo.SignupVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
