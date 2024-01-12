@@ -66,6 +66,9 @@ a {
 #recently-viewed-container, #link-container, .home-starred-board-container {
     padding-bottom : 24px;
 }
+.content{
+    overflow: auto;
+}
 .home-right-board-title {
     align-items: baseline;
     display: flex;

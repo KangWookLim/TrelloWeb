@@ -20,7 +20,6 @@ public class BoardController {
 
     @GetMapping("/home")
     public ModelAndView home(Principal principal) {
-        System.out.println(principal);
         ModelAndView view = new ModelAndView();
         view.setViewName("views/board/home");
         return view;

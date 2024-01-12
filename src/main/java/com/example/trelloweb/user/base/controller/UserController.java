@@ -11,11 +11,4 @@ public class UserController {
 
     private final UserService userService;
 
-    /*@RequestMapping("/user/getInfo")
-    @ResponseBody
-    public int getInfoById(@RequestParam(name = "userUID") String userUID) throws Exception {
-        System.out.println()
-
-    }*/
-
 }
