@@ -1,19 +1,26 @@
 package com.example.trelloweb.board.Base.controller;
 
+import com.example.trelloweb.board.Base.Service.BoardSearchService;
+import com.example.trelloweb.board.Base.vo.Boards;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
+    private final BoardSearchService boardSearchService;
 
     @GetMapping("/board")
-    public ModelAndView board() {
+    public ModelAndView board(Principal principal) {
         ModelAndView view = new ModelAndView();
+        String mem_id = principal.getName();
+        List<Boards> boardsList = this.boardSearchService.loadBoardByUsername(mem_id);
+        view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
         return view;
     }
@@ -21,6 +28,7 @@ public class BoardController {
     @GetMapping("/home")
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
+        System.out.println(principal.getName());
         view.setViewName("views/board/home");
         return view;
     }
