@@ -6,11 +6,13 @@ server:
 #      #      path: /Users/laku_mwa/resource/
 #      #      Windows OS
 #      path: C:\NakyeonInt\resources
-
 spring:
+  profiles:
+    include: oauth
   main:
     allow-bean-definition-overriding: true
   devtools:
+
     livereload:
       enabled: true
     restart:

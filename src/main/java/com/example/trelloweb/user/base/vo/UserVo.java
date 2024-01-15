@@ -33,6 +33,7 @@ public class UserVo {
     private String PW;
 
     @Column
+    @ColumnDefault("'profile/images/user.png'")
     private String IMG_URL;
 
     @Column(length = 100, unique = true, nullable = false)

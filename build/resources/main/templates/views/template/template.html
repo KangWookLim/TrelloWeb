@@ -2,13 +2,14 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.springframework.org/security/tags"
       layout:decorate="~{layout/main_layout}">
 
 <div layout:fragment="content">
   <link rel="stylesheet" th:href="@{/css/template/template.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
 
-  <div id = "content-wrapper">
+  <div id = "content-w rapper">
     <div class = "home-container">
       <nav id = "home-left-side-container">
         <div>
