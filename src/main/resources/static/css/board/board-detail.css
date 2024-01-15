@@ -16,7 +16,9 @@ html, body{
     min-height: 100%;
 }
 .content-container{
-    width: 100%;
+    display: flex;
+    overflow-x: visible;
+    min-width: 100%;
     height: calc(100% - 57px);
     min-height: calc(100% - 57px);
 }
@@ -108,12 +110,19 @@ html, body{
     background-color: #EEEEEE;
 }
 .list-container{
-    width: 100%;
     height: 100%;
     min-height: 100%;
     padding: 12px 12px 0;
     display: flex;
     background-color: #1c2b41;
+}
+.list-adding-parts-container{
+    height: 100%;
+    min-height: 100%;
+    padding: 12px 12px 0;
+    display: flex;
+    background-color: #1c2b41;
+
 }
 .list-add-btn{
     display: flex;
