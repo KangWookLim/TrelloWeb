@@ -44,11 +44,12 @@ public class securityconfig {
                 .formLogin(formLogin -> formLogin
                         .loginPage("/user/login")
                         .defaultSuccessUrl("/home"))
+                .oauth2Login(oauth2Login -> oauth2Login
+                        .loginPage("/user/login")
+                        .defaultSuccessUrl("/home"))
                 .logout(logout -> logout
                         .logoutUrl("/user/logout")
-                        .logoutSuccessUrl("/"))
-                .oauth2Login(oauth2Login -> oauth2Login
-                        .loginPage("/Oauth2Login"));
+                        .logoutSuccessUrl("/"));
         return http.getOrBuild();
     }
     @Bean
