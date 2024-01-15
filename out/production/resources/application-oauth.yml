@@ -4,7 +4,10 @@ spring:
       client:
         registration:
           google:
-            client-id: 293701646925-6cekh9e5r61t26ml40kjeslh3uh0jnuj.apps.googleusercontent.com
-            client-secret: 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
-            scope: profile,email
+            client-id: 1030221416987-tmt4jaulnksmr4ojtd1eio1m7j2ughvf.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - profile
+              - email
+            redirect-uri: http://localhost:8091/login/oauth2/code/google
 

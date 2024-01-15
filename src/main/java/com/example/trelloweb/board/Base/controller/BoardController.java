@@ -21,6 +21,7 @@ public class BoardController {
     @GetMapping("/home")
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
+        System.out.println(principal);
         view.setViewName("views/board/home");
         return view;
     }

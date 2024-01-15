@@ -24,7 +24,7 @@ public class UserLoginService implements UserDetailsService {
     private final UserJpaRepo userJpaRepo;
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByID(username);
+        Optional<UserVo> optionalUserVo = this.userJpaRepo.findById(username);
         if(optionalUserVo.isEmpty()){
             throw  new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
         }
@@ -37,7 +37,7 @@ public class UserLoginService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
         return AuthUser.builder()
-                .ID(userVo.getID())
+                .ID(userVo.getId())
                 .PW(userVo.getPW())
                 .IMG_URL(userVo.getIMG_URL())
                 .authorities(authorities)

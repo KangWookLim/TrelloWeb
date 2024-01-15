@@ -21,21 +21,16 @@ public class SignupForm {
     @NotEmpty(message = "비밀번호를 확인해주세요")
     private String pwcheck;
 
+    @NotEmpty(message = "이메일을 확인해주세요")
+    private String EMAIL;
+
     @NotEmpty(message = "이름을 입력해주세요")
     private String fullname;
 
     @NotEmpty(message = "닉네임을 입력해주세요")
     private String nickname;
 
-    @NotEmpty(message = "연락처를 입력해주세요")
-    private String phone;
-
     private String BIRTH;
-
-    private String EMAIL;
-
-    @NotEmpty(message = "성별을 선택해주세요")
-    private String GENDER;
 
     @Size(max = 500, message = "자기소개는 500자 이하입니다")
     private String BIO;
