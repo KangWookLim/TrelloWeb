@@ -29,6 +29,8 @@ public class CardVo {
     @JoinColumn(name = "list_id")
     private ListVo list_id;
 
+    private int card_order;
+
     @Column(length = 200, nullable = false)
     private String name;
 
