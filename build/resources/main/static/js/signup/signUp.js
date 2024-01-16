@@ -1,6 +1,4 @@
-let isIDDuplicate = true;
 let isNickNameDuplicate = true;
-let isPhoneNumberDuplicate = true;
 let  isUserEmailChk = true;
 function getCSRFToken() {
     const metaTag = document.querySelector('meta[name="_csrf"]');
@@ -158,7 +156,7 @@ function userEmailChk() {
 }
 const signup_btn = $('#signup-btn');
 function submitablecheck(){
-    if(isNickNameDuplicate||isIDDuplicate||isPhoneNumberDuplicate||isUserEmailChk){
+    if(isNickNameDuplicate||isUserEmailChk){
         signup_btn.prop('disabled', true)
         signup_btn.css('background-color', 'gray')
     }else{

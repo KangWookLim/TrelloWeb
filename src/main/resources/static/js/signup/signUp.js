@@ -156,7 +156,7 @@ function userEmailChk() {
 }
 const signup_btn = $('#signup-btn');
 function submitablecheck(){
-    if(isNickNameDuplicate||isIDDuplicate||isPhoneNumberDuplicate||isUserEmailChk){
+    if(isNickNameDuplicate||isUserEmailChk){
         signup_btn.prop('disabled', true)
         signup_btn.css('background-color', 'gray')
     }else{

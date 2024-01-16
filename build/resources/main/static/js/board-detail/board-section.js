@@ -40,9 +40,43 @@ style_timeline.click(function (){
         style_timeline.prop('checked',true);
     }
 })
+
+
 //focus 걸기
 /*const style_form = $('.list-add-container-form');
 const focusme = $('#focusme')
 style_form.click(function (){
     focusme.focus();
 })*/
+const list_add_btn = $('.list-add-btn');
+const list_add_container = $('.list-add-container');
+const content_container  = $('.content-container');
+const list_add_card_button = $('.list-add-card-button');
+list_add_btn.click(function (){
+    list_add_btn.hide();
+    list_add_container.show();
+    event.stopPropagation();
+    console.log("h2");
+})
+
+list_add_container.click(function () {
+    event.stopPropagation();
+    }
+)
+content_container.click(function () {
+    list_add_container.hide();
+    list_add_btn.show();
+    console.log("h3");
+})
+
+$( function () {
+    $('.list-container').sortable({
+        cancel: ".not-sortable"
+    });
+});
+
+$( function () {
+    $('.cards-section').sortable({
+        connectWith : ".cards-section"
+    })
+})
