@@ -74,3 +74,9 @@ $( function () {
         cancel: ".not-sortable"
     });
 });
+
+$( function () {
+    $('.cards-section').sortable({
+        connectWith : ".cards-section"
+    })
+})
