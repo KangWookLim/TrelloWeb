@@ -19,12 +19,11 @@ public class UserSignupService {
     private final SignUpRepo signUpRepo;
     private final PasswordEncoder passwordEncoder;
 
-    public UserVo creat(String Id, String Email, String PW, String NICKNAME, String FULLNAME,
+    public UserVo creat(String email, String PW, String NICKNAME, String FULLNAME,
                          String Birth, String Bio) {
                 UserVo user = new UserVo();
-                user.setId(Id);
+                user.setEMAIL(email);
                 user.setPW(passwordEncoder.encode(PW));
-                user.setEMAIL(Email);
                 user.setNICKNAME(NICKNAME);
                 user.setFULLNAME(FULLNAME);
                 user.setBIRTH(Birth);
