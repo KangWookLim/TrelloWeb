@@ -37,7 +37,7 @@ public class UserLoginService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
         return AuthUser.builder()
-                .ID(userVo.getEMAIL())
+                .UID(String.valueOf(userVo.getUser_uid()))
                 .IMG_URL(userVo.getIMG_URL())
                 .authorities(authorities)
                 .build();
