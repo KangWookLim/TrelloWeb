@@ -1,7 +1,7 @@
 package com.example.trelloweb.config;
 
 import com.example.trelloweb.user.Role.UserRole;
-import com.example.trelloweb.user.oauthSign.service.CustomOAuth2UserService;
+import com.example.trelloweb.user.oauthLogin.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +34,8 @@ public class securityconfig {
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),new AntPathRequestMatcher("/user/startSign")).anonymous()
                         .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/home/**")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/board/**")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/board/**")
+                                        ,new AntPathRequestMatcher("/template/**")).hasRole(UserRole.USER.getValue())
                         .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole(UserRole.ADMIN.getValue())
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
                 )
@@ -50,7 +51,8 @@ public class securityconfig {
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
                         .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
-                                .userService(customOAuth2UserService)))
+                                .userService(customOAuth2UserService))
+                        .defaultSuccessUrl("/user/OAuth2UserCheck"))
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                         .logoutSuccessUrl("/")
