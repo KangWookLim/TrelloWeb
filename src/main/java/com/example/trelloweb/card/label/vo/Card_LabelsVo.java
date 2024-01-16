@@ -21,7 +21,7 @@ public class Card_LabelsVo {
     private CardVo cardvo;
 
     @ColumnDefault(value = "null")
-    private String titel;
+    private String title;
 
     @Column(nullable = false)
     private String color;
