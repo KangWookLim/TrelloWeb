@@ -3,6 +3,7 @@ package com.example.trelloweb.board.Base.repo;
 import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.user.base.vo.UserVo;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
@@ -13,7 +14,8 @@ import java.util.Optional;
 * 클래스에 담아서 나오기 때문입니다.
 * 이 부분 중요합니다 다른 코드 잘 가져오는 것은 좋습니다, 하지만 그냥 가져오는게 아니라 어떤 흐름인지
 * 읽고 가져와주시면 감사드리겠습니다.*/
+
+@Repository
 public interface BoardJpaRepo extends JpaRepository<BoardVo,Long> {
-    Optional<BoardVo> findByBoardId(Long boardId);
 }
 
