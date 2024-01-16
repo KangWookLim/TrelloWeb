@@ -9,11 +9,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name = "task_itme")
+@Entity(name = "task_item")
 public class Task_itemVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long task_itme_id;
+    private Long task_item_id;
 
     @ManyToOne
     @JoinColumn(name = "task_id")
