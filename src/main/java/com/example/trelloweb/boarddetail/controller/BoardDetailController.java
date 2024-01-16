@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 public class BoardDetailController {
     @RequestMapping("/board_detail")
-    public ModelAndView dtail(){
+    public ModelAndView detail(){
         ModelAndView view = new ModelAndView();
         view.setViewName("/views/board/board_detail");
         return view;
