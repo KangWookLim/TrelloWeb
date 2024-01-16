@@ -13,24 +13,14 @@ public class SignupRestController {
 
     @GetMapping("/chkEmail")
     @ResponseBody
-    public int chkEmail(@RequestParam("email") String email){
+    public int chkEmail(@RequestParam("email") String email) {
         return userSignupService.checkEmail(email);
-    }
-    @GetMapping("/idcheck")
-    @ResponseBody
-    public int checkDuplicateSignup(@RequestParam("id") String id){
-        return userSignupService.idDuplicateCheck(id);
     }
 
     @GetMapping("/nickcheck")
     @ResponseBody
-    public int nickcheck(@RequestParam("nick") String nick){
+    public int nickcheck(@RequestParam("nick") String nick) {
         return userSignupService.nicknameCheck(nick);
     }
 
-    @GetMapping("/phonecheck")
-    @ResponseBody
-    public int phonecheck(@RequestParam("phone") String phone){
-        return userSignupService.phoneCheck(phone);
-    }
 }
