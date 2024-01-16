@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class AuthUser implements UserDetails {
 
-    @NotNull private String ID;
+    @NotNull private String UID;
 
     @NotNull private String PW;
 
@@ -33,12 +32,12 @@ public class AuthUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.PW;
+        return PW;
     }
 
     @Override
     public String getUsername() {
-        return this.ID;
+        return this.UID;
     }
 
     @Override

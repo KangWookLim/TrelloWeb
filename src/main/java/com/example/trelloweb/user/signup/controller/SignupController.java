@@ -21,35 +21,6 @@ import java.util.List;
 public class SignupController {
     private final UserSignupService userSignupService;
 
-    @GetMapping("/startSign")
-    public ModelAndView startSign(){
-        ModelAndView view = new ModelAndView();
-        view.setViewName("/views/signup/startSign");
-        return view;
-    }
-    @GetMapping("/chkEmail")
-    @ResponseBody
-    public int chkEmail(@RequestParam("email") String email){
-        return userSignupService.checkEmail(email);
-    }
-    @GetMapping("/idcheck")
-    @ResponseBody
-    public int checkDuplicateSignup(@RequestParam("id") String id){
-        return userSignupService.idDuplicateCheck(id);
-    }
-
-    @GetMapping("/nickcheck")
-    @ResponseBody
-    public int nickcheck(@RequestParam("nick") String nick){
-        return userSignupService.nicknameCheck(nick);
-    }
-
-    @GetMapping("/phonecheck")
-    @ResponseBody
-    public int phonecheck(@RequestParam("phone") String phone){
-        return userSignupService.phoneCheck(phone);
-    }
-
     @GetMapping("/signup")
     public ModelAndView signup(SignupForm signupForm){
         ModelAndView view = new ModelAndView();
@@ -70,8 +41,7 @@ public class SignupController {
             return view;
         }
         try {
-            userSignupService.creat(signupForm.getId(), signupForm.getPw(),signupForm.getNickname(), signupForm.getFullname(), signupForm.getEMAIL(),signupForm.getBIRTH(), "M",
-                    signupForm.getPhone(),signupForm.getBIO());
+            userSignupService.creat(signupForm.getEMAIL(), signupForm.getPw(),signupForm.getNickname(), signupForm.getFullname(),signupForm.getBIRTH(), signupForm.getBIO());
         }catch (DataIntegrityViolationException e){
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
             return view;
@@ -79,7 +49,7 @@ public class SignupController {
             bindingResult.reject("signupFailed", e.getMessage());
             return view;
         }
-        view.setViewName("redirect:/");
+        view.setViewName("redirect:/home");
         return view;
     }
 }

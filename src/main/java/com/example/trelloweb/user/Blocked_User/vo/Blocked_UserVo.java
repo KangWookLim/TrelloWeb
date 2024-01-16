@@ -26,5 +26,5 @@ public class Blocked_UserVo {
     private UserVo Blocking_USER_UID;
 
     @Column
-    private LocalDateTime Blocked_Tiem;
+    private LocalDateTime Blocked_Time;
 }

@@ -23,21 +23,21 @@ public class UserLoginService implements UserDetailsService {
 
     private final UserJpaRepo userJpaRepo;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByID(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByEMAIL(email);
         if(optionalUserVo.isEmpty()){
             throw  new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
         }
         UserVo userVo = optionalUserVo.get();
         List<GrantedAuthority> authorities = new ArrayList<>();
-        if("admin".equals(username)){
+        if("admin".equals(email)){
             authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }else{
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
         return AuthUser.builder()
-                .ID(userVo.getID())
+                .UID(String.valueOf(userVo.getUser_uid()))
                 .PW(userVo.getPW())
                 .IMG_URL(userVo.getIMG_URL())
                 .authorities(authorities)

@@ -1,6 +1,7 @@
 package com.example.trelloweb.config;
 
 import com.example.trelloweb.user.Role.UserRole;
+import com.example.trelloweb.user.oauthSign.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +10,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -20,6 +20,9 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class securityconfig {
+
+
+    private final CustomOAuth2UserService customOAuth2UserService;
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
@@ -46,10 +49,12 @@ public class securityconfig {
                         .defaultSuccessUrl("/home"))
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/home"))
+                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
+                                .userService(customOAuth2UserService)))
                 .logout(logout -> logout
-                        .logoutUrl("/user/logout")
-                        .logoutSuccessUrl("/"));
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true));
         return http.getOrBuild();
     }
     @Bean

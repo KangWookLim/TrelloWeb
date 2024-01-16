@@ -16,43 +16,36 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "users")
 public class UserVo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long USER_UID;
+    private Long user_uid;
 
     @Column(length = 100, unique = true, nullable = false)
-    private String ID;
+    private String EMAIL;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100)
     private String PW;
 
     @Column
     @ColumnDefault("'profile/images/user.png'")
     private String IMG_URL;
 
-    @Column(length = 100, unique = true, nullable = false)
+    @Column(length = 100, unique = true)
     private String NICKNAME;
 
     @Column(length = 100, nullable = false)
     private String FULLNAME;
 
-    @Column(length = 100, unique = true, nullable = false)
-    private String EMAIL;
-
     @Column(length = 100)
     private String BIRTH;
-
-    @ColumnDefault(value = "'M'")
-    private String GENDER;
-
-    @Column(length = 100, unique = true, nullable = false)
-    private String PHONE;
 
     @CreatedDate
     private LocalDateTime CREATE_DATE;

@@ -34,3 +34,5 @@ public class WorkSpaceVo {
     @OneToMany(mappedBy = "WS_ID", cascade = CascadeType.REMOVE)
     private List<BoardVo> boardVoList;
 }
+
+
