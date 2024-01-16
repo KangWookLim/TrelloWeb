@@ -20,8 +20,6 @@ public class AuthUser implements UserDetails {
 
     @NotNull private String ID;
 
-    @NotNull private String PW;
-
     @NotNull private String IMG_URL;
 
     private List<GrantedAuthority> authorities;
@@ -33,7 +31,7 @@ public class AuthUser implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.PW;
+        return null;
     }
 
     @Override

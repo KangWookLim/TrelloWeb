@@ -1,7 +1,6 @@
 package com.example.trelloweb.board.Base.repo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
-import com.example.trelloweb.user.base.vo.UserVo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

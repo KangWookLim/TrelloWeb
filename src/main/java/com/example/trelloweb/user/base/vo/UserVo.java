@@ -25,17 +25,20 @@ import java.util.List;
 public class UserVo {
 
     @Id
-    @Column(length = 100)
-    private String Id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long user_uid;
 
-    @Column(length = 100, nullable = false)
+    @Column(length = 100, unique = true, nullable = false)
+    private String EMAIL;
+
+    @Column(length = 100)
     private String PW;
 
     @Column
     @ColumnDefault("'profile/images/user.png'")
     private String IMG_URL;
 
-    @Column(length = 100, unique = true, nullable = false)
+    @Column(length = 100, unique = true)
     private String NICKNAME;
 
     @Column(length = 100, nullable = false)
@@ -43,9 +46,6 @@ public class UserVo {
 
     @Column(length = 100)
     private String BIRTH;
-
-    @Column(length = 100, unique = true, nullable = false)
-    private String EMAIL;
 
     @CreatedDate
     private LocalDateTime CREATE_DATE;

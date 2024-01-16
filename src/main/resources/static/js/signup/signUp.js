@@ -1,6 +1,4 @@
-let isIDDuplicate = true;
 let isNickNameDuplicate = true;
-let isPhoneNumberDuplicate = true;
 let  isUserEmailChk = true;
 function getCSRFToken() {
     const metaTag = document.querySelector('meta[name="_csrf"]');
