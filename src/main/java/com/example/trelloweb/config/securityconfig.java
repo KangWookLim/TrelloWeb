@@ -1,7 +1,6 @@
 package com.example.trelloweb.config;
 
 import com.example.trelloweb.user.Role.UserRole;
-import com.example.trelloweb.user.oauthSign.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +21,7 @@ import org.springframework.security.web.header.writers.frameoptions.XFrameOption
 public class securityconfig {
 
 
-    private final CustomOAuth2UserService customOAuth2UserService;
+//    private final CustomOAuth2UserService customOAuth2UserService;
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
@@ -49,10 +48,9 @@ public class securityconfig {
                         .defaultSuccessUrl("/home"))
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/user/signup")
-                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
-                                .userService(customOAuth2UserService))
-                        .defaultSuccessUrl("/home"))
+                        .defaultSuccessUrl("/user/signup"))
+//                        .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
+//                                .userService(customOAuth2UserService))
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
                         .logoutSuccessUrl("/")

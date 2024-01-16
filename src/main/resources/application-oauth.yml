@@ -9,5 +9,5 @@ spring:
             scope:
               - profile
               - email
-            redirect-uri: http://localhost:8091/login/oauth2/code/google
+            redirect-uri: http://localhost:8091/user/login/oauth2/code/google
 

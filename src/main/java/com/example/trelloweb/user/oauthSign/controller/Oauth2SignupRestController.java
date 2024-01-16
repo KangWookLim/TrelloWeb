@@ -1,6 +1,6 @@
 package com.example.trelloweb.user.oauthSign.controller;
 
-import com.example.trelloweb.user.oauthSign.service.CustomOAuth2UserService;
+//import com.example.trelloweb.user.oauthSign.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,5 +14,5 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/user")
 public class Oauth2SignupRestController {
-    private final CustomOAuth2UserService customOAuth2UserService;
+
 }
