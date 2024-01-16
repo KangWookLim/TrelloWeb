@@ -49,6 +49,7 @@ public class securityconfig {
                         .defaultSuccessUrl("/home"))
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
+                        .defaultSuccessUrl("/user/signup")
                         .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
                                 .userService(customOAuth2UserService))
                         .defaultSuccessUrl("/home"))
