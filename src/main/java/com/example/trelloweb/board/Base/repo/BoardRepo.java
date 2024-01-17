@@ -3,9 +3,12 @@ package com.example.trelloweb.board.Base.repo;
 import com.example.trelloweb.board.Base.vo.Boards;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +16,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class BoardRepo {
     private final NamedParameterJdbcTemplate jdbcTemplate;
-    private final RowMapper<Boards> rowMapper = (rs, rowNum) ->
+    RowMapper<Boards> rowMapper = (rs, rowNum) ->
             new Boards(
                     rs.getInt("WS_ID"),
                     rs.getString("WS_NAME"),
@@ -26,39 +29,26 @@ public class BoardRepo {
                     rs.getString("BOARD_DES"),
                     rs.getString("BOARD_ACCESS")
             );
+    RowMapper<Boards> WSrowMapper = (rs, rowNum) ->
+            new Boards(
+                    rs.getInt("WS_ID"),
+                    rs.getString("NAME"),
+                    rs.getString("IMG_URL"),
+                    rs.getString("ROLE"),
+                    rs.getString("CREATED_DATE")
+            );
 
 
-    public List<Boards> getAllBoardInfo(String memId) {
-        String query =
-    "WITH\n" +
-    "   USER_WS AS(\n" +
-    "       SELECT *\n" +
-    "       FROM ws_members\n" +
-    "       WHERE user_uid = :memId\n" +
-    "   ),\n" +
-    "   MEM_WS AS (\n" +
-    "       SELECT WS2.*, WS1.ROLE\n" +
-    "       FROM USER_WS WS1\n" +
-    "       LEFT OUTER JOIN WORKSPACE WS2\n" +
-    "       ON WS1.WS_ID = WS2.WS_ID\n" +
-    "       ORDER BY WS2.CREATED_DATE DESC\n" +
-    "   ),\n" +
-    "   USER_BOARD AS(\n" +
-    "       SELECT *\n" +
-    "       FROM BOARD_MEMBER\n" +
-    "       WHERE USER_UID = :memId\n" +
-    "   ),\n" +
-    "   MEM_BOARD AS(\n" +
-    "       SELECT B2.*, B1.BOARD_ACCESS\n" +
-    "       FROM USER_BOARD B1\n" +
-    "       LEFT OUTER JOIN BOARD B2\n" +
-    "       ON B1.BOARD_ID = B2.BOARD_ID\n" +
-    "   )\n" +
-    "SELECT T1.WS_ID WS_ID, NAME WS_NAME, IMG_URL WS_IMG, ROLE WS_ROLE, CREATED_DATE WS_DATE, BOARD_ID, BOARD_NAME, IMAGE_URL BOARD_IMG, DESCRIPTION BOARD_DES, BOARD_ACCESS\n" +
-    "FROM MEM_BOARD T1\n" +
-    "LEFT OUTER JOIN MEM_WS T2\n" +
-    "ON T1.WS_ID = T2.WS_ID;";
-        Map<String, Object> param = Map.of("memId", memId);
-        return jdbcTemplate.query(query, param, rowMapper);
+
+    public List<Boards> getAllBoardInfo(String memId)
+    {
+        String query = " WITH USER_WS AS(SELECT * FROM ws_members WHERE USER_UID = "+ memId +" ), MEM_WS AS (SELECT WS2.*, WS1.ROLE FROM USER_WS WS1 LEFT OUTER JOIN WORKSPACE WS2 ON WS1.WS_ID = WS2.WS_ID ORDER BY WS2.CREATED_DATE DESC),USER_BOARD AS(SELECT * FROM BOARD_MEMBER WHERE USER_UID = "+memId+"),MEM_BOARD AS(SELECT B2.*, B1.BOARD_ACCESS FROM USER_BOARD B1 LEFT OUTER JOIN BOARD B2 ON B1.BOARD_ID = B2.BOARD_ID)SELECT T1.WS_ID WS_ID, NAME WS_NAME, IMG_URL WS_IMG, ROLE WS_ROLE, CREATED_DATE WS_DATE, BOARD_ID, BOARD_NAME, IMAGE_URL BOARD_IMG, DESCRIPTION BOARD_DES, BOARD_ACCESS FROM MEM_BOARD T1 LEFT OUTER JOIN MEM_WS T2 ON T1.WS_ID = T2.WS_ID";
+        return jdbcTemplate.query(query, rowMapper);
+    }
+
+    public List<Boards> getAllWSInfo(String memId)
+    {
+        String query = "SELECT T1.WS_ID WS_ID, NAME, IMG_URL, ROLE, CREATED_DATE FROM WORKSPACE T2 LEFT OUTER JOIN WS_MEMBERS T1 ON T2.WS_ID = T1.WS_ID WHERE T1.USER_UID = "+ memId;
+        return jdbcTemplate.query(query, WSrowMapper);
     }
 }

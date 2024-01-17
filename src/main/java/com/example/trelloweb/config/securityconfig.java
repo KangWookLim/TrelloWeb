@@ -33,9 +33,7 @@ public class securityconfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),new AntPathRequestMatcher("/user/startSign")).anonymous()
                         .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/home/**")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/board/**")
-                                        ,new AntPathRequestMatcher("/template/**")).hasRole(UserRole.USER.getValue())
+                        .requestMatchers(new AntPathRequestMatcher("/home/**"), new AntPathRequestMatcher("/board/**"), new AntPathRequestMatcher("/template/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole(UserRole.ADMIN.getValue())
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
                 )
