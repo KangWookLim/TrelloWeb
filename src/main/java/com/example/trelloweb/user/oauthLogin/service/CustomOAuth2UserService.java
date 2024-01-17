@@ -18,6 +18,5 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String registation = userRequest.getClientRegistration().getRegistrationId();
         String usernameAttribute = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint().getUserNameAttributeName();
         return oAuth2User;
-
     }
 }

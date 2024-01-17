@@ -1,5 +1,7 @@
 package com.example.trelloweb.board.Base.controller;
 
+import com.example.trelloweb.user.Recent_Act.vo.Recent_ActVo;
+import com.example.trelloweb.user.login_API.loginVo.AuthUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

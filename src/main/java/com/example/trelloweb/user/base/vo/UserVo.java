@@ -10,6 +10,8 @@ import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
@@ -21,6 +23,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity(name = "users")
 public class UserVo {
 
@@ -52,7 +56,7 @@ public class UserVo {
 
     private LocalDateTime UPDATE_DATE;
 
-    @Column(length = 1000)@ColumnDefault("'안녕하세요!'")
+    @Column(length = 1000)
     private String BIO;
 
     @Column(nullable = true)
