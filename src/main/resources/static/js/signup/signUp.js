@@ -8,50 +8,7 @@ $(document).ready(function() {
     submitablecheck();
 })
 
-const alphabetInputs = document.querySelectorAll('.alphabetOnly');
-alphabetInputs.forEach(function(input) {
-    input.addEventListener("input", () => {
-        let val = input.value.replace(/[^a-zA-Z]/g,"");
-        input.value = val;
-    })
-
-});
-
 let nickNameInput = document.querySelector("#nickname");
-
-nickNameInput.addEventListener("input", () => {
-    let val = nickNameInput.value.replace(/[^a-zA-Z0-9]/g,"");
-    nickNameInput.value = val;
-})
-function userIDCheck() {
-    const id = $('#id').val();
-    if(id.trim()===""){
-        alert("아이디를 입력해주세요")
-        return
-    }else if(id.indexOf(" ")>=0){
-        alert("공백이 포함될 수 없습니다")
-        return
-    }
-    $.ajax({
-        url : '/user/idcheck',
-        type : 'get',
-        data : {
-            id : id
-        }
-    }).done(function (data){
-        if(data === 0) {
-            alert('사용 가능합니다');
-            isIDDuplicate = false;
-            submitablecheck()
-
-        }else {
-            alert('중복된 아이디입니다.');
-        }
-    }).fail(function (xhr, status, error) {
-        alert('Unexpected error. Please contact System Administrator for ');
-        console.log(status);
-    });
-}
 
 function userNickCheck(){
     const nick = $('#nickname').val();
@@ -82,45 +39,37 @@ function userNickCheck(){
     });
 }
 
-function userPhoneCheck(){
-    const phone = $('#phone').val();
-    if(phone.trim()===""){
-        alert("닉네임을 입력해주세요")
-        return
-    }else if(phone.indexOf(" ")>=0){
-        alert("공백이 포함될 수 없습니다")
-        return
-    }
-    $.ajax({
-        url : '/user/phonecheck',
-        type : 'get',
-        data : {
-            phone : phone
-        }
-    }).done(function (data){
-        if(data === 0) {
-            alert('사용 가능합니다');
-            isPhoneNumberDuplicate = false;
-            submitablecheck()
-        }else {
-            alert('중복된 연락처입니다.');
-        }
-    }).fail(function (xhr, status, error) {
-        alert('Unexpected error. Please contact System Administrator for ');
-        console.log(status);
-    });
-}
-
 const inputbox = $('.InputBox')
 
 inputbox.click(function (){
     inputbox.each(function (index ,element){
-        if(element.value.trim() === ""|| (element.value.length < 3 || element.value.length > 20)){
-            element.style.border = '2px solid palevioletred'
-        }else if(element.value.indexOf(" ") >= 0){
-            element.style.border = '2px solid palevioletred'
-            element.value = "";
-            element.placeholder = "공백이 포함 되어있습니다"
+        if(element.value !== "") {
+            if (element.value.length < 3 || element.value.length > 20) {
+                element.style.border = '2px solid palevioletred'
+            } else if (element.value.indexOf(" ") >= 0) {
+                element.style.border = '2px solid palevioletred'
+                element.value = "";
+                element.placeholder = "공백이 포함 되어있습니다"
+            } else {
+                element.style.border = '2px solid rgba(223,225,230,255)'
+            }
+        }else {
+            element.style.border = '2px solid rgba(223,225,230,255)'
+        }
+    })
+})
+inputbox.blur(function (){
+    inputbox.each(function (index ,element){
+        if(element.value !== "") {
+            if (element.value.length < 3 || element.value.length > 20) {
+                element.style.border = '2px solid palevioletred'
+            } else if (element.value.indexOf(" ") >= 0) {
+                element.style.border = '2px solid palevioletred'
+                element.value = "";
+                element.placeholder = "공백이 포함 되어있습니다"
+            } else {
+                element.style.border = '2px solid rgba(223,225,230,255)'
+            }
         }else{
             element.style.border = '2px solid rgba(223,225,230,255)'
         }

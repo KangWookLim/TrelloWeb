@@ -34,16 +34,9 @@ public class UserSignupService {
                 return user;
     }
 
-    public int idDuplicateCheck(String id){
-        return signUpRepo.idduplicatCheck(id);
-    }
 
     public int nicknameCheck(String nickname){
         return signUpRepo.nickduplicatCheck(nickname);
-    }
-
-    public int phoneCheck(String phone){
-        return signUpRepo.phoneduplicatCheck(phone);
     }
 
     public int checkEmail(String email) {

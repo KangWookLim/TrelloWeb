@@ -32,21 +32,19 @@ public class SignupController {
         ModelAndView view = new ModelAndView();
         view.addObject("signupForm", signupForm);
         view.setViewName("/views/signup/signUp");
-        if(bindingResult.hasErrors()){
-            return view;
-        }
-
         if(!signupForm.getPw().equals(signupForm.getPwcheck())){
-            bindingResult.rejectValue("pwcheck", "passwordInCorrect","비밀번호 확인을 다시 입력해주세요");
+            bindingResult.rejectValue("pwcheck", "passwordInCorrect","비밀번호와 비밀번호 확인이 다릅니다");
+        }
+        if(bindingResult.hasErrors()){
             return view;
         }
         try {
             userSignupService.creat(signupForm.getEMAIL(), signupForm.getPw(),signupForm.getNickname(), signupForm.getFullname(),signupForm.getBIRTH(), signupForm.getBIO());
         }catch (DataIntegrityViolationException e){
-            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
+            bindingResult.reject("signupFailed", "이미 등록된 사용자입니다");
             return view;
         }catch (Exception e){
-            bindingResult.reject("signupFailed", e.getMessage());
+            bindingResult.reject("signupFailed", "알 수 없는 오류입니다");
             return view;
         }
         view.setViewName("redirect:/home");

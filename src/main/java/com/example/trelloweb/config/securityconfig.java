@@ -33,7 +33,9 @@ public class securityconfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),new AntPathRequestMatcher("/user/startSign")).anonymous()
                         .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/home/**"), new AntPathRequestMatcher("/board/**"), new AntPathRequestMatcher("/template/**")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/home/**"),new AntPathRequestMatcher("/user/loginsetting")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/board/**")
+                                        ,new AntPathRequestMatcher("/template/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole(UserRole.ADMIN.getValue())
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
                 )
@@ -45,7 +47,7 @@ public class securityconfig {
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
                 .formLogin(formLogin -> formLogin
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/home"))
+                        .defaultSuccessUrl("/user/loginsetting"))
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
                         .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint
