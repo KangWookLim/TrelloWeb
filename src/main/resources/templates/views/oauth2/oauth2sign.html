@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.springframework.org/security/tags">
+>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,26 +36,33 @@
                 <div>
                 </div>
             </div>
-            <div  style="margin-bottom: 16px">
-                <form th:action="@{/user/OAuth2UserCheck}" th:object="${oAuth2SignForm}" method="post" id="signup-form">
-                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
-                        <div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div>
-                    </div>
-                </form>
-                <form th:action="@{/user/OAuth2UserCheck}" th:object="${oAuth2SignForm}" method="post">
+                <!--/*@thymesVar id="thirdSignForm" type="com.example.trelloweb.user.oauthLogin.form.ThirdSignForm"*/-->
+                <form th:action="@{/user/OAuth2UserCheck}" th:object="${thirdSignForm}" method="post">
                     <p style="font-size: 12px; color: #42526E"><span style="color: red">*</span>필수 확인란입니다.</p>
-                    <div style = "margin-bottom: 10px">Password: <span style="color: red">*</span><input type="password" th:field="*{PW}" placeholder="비밀번호를 입력하세요" class = "InputBox"></div>
-                    <div style = "margin-bottom: 10px">Confirm Password: <span style="color: red">*</span><input type="password" th:field="*{PWCK}" placeholder="비밀번호 재입력" class = "InputBox"></div>
-                    <div style = "margin-bottom: 10px">NickName: <span style="color: red">*</span><input th:field="*{nickname}" class = "InputBox"></div>
+                    <div style = "margin-bottom: 10px">Password: <span style="color: red">*</span>
+                        <input type="password" th:field="*{PW}" placeholder="비밀번호를 입력하세요" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('PW')}" th:errors="*{PW}"></div>
+                    </div>
+
+                    <div style = "margin-bottom: 10px">Confirm Password: <span style="color: red">*</span>
+                        <input type="password" th:field="*{PWCK}" placeholder="비밀번호 재입력" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('PWCK')}" th:errors="*{PWCK}"></div>
+                    </div>
+                    <div style = "margin-bottom: 10px">NickName: <span style="color: red">*</span>
+                        <input th:field="*{nickname}" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></div>
+                    </div>
                     <button id = "checkNick" type = "button" onclick = "userNickCheck()">중복 확인</button>
-                    <div style = "margin-bottom: 10px">Birthday: <span style="color: red">*</span><br><input type="date" th:field="*{Birth}"></div>
+                    <div style = "margin-bottom: 10px">Birthday: <span style="color: red">*</span><br>
+                        <input type="date" th:field="*{birth}">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('birth')}" th:errors="*{birth}"></div>
+                    </div>
                     <div><p class="div2">가입하면 Atlassian <a href="https://www.atlassian.com/legal/cloud-terms-of-service" target="_blank" rel="noreferrer noopener">Cloud 이용 약관</a>에 동의하고 <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noreferrer noopener">개인정보 보호정책</a>을 인정한 것으로 간주됩니다.</p></div>
                     <div style="margin-top: 8px">
                         <input type = "submit" class="btn1" id="signup-btn">
                     </div>
 
                 </form>
-            </div>
 
             <div class = "footerWrapper">
 
@@ -108,8 +115,9 @@
 
             </div>
         </section>
-
     </div>
 </div>
+<script type="text/javascript" th:src="@{/js/oauthsign/oauthsign.js}">
+</script>
 </body>
 </html>

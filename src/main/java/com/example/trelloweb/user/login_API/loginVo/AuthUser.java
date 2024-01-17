@@ -7,9 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
@@ -20,8 +22,6 @@ public class AuthUser implements UserDetails {
     @NotNull private String UID;
 
     @NotNull private String PW;
-
-    @NotNull private String IMG_URL;
 
     private List<GrantedAuthority> authorities;
 
@@ -59,4 +59,6 @@ public class AuthUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 }
