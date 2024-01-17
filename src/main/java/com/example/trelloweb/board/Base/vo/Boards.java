@@ -28,4 +28,15 @@ public class Boards {
     private String BOARD_DES;
 
     private String BOARD_ACCESS;
+    public Boards (Integer WS_ID, String WS_NAME, String WS_IMG, String WS_ROLE, String WS_DATE){
+        this.WS_ID = WS_ID;
+
+        this.WS_NAME = WS_NAME;
+
+        this.WS_IMG = WS_IMG;
+
+        this.WS_ROLE = WS_ROLE;
+
+        this.WS_DATE = WS_DATE;
+    }
 }
