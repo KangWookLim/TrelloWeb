@@ -28,5 +28,6 @@ public class ListVo {
     private BoardVo boardvo;
 
     @OneToMany(mappedBy = "list_id", cascade = CascadeType.REMOVE)
+    @OrderBy("card_order ASC")
     private List<CardVo> cardVoList;
 }

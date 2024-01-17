@@ -18,10 +18,11 @@ html, body{
 }
 .content-container{
     display: flex;
-    overflow-x: visible;
+    overflow-x: auto;
+    max-width: 100%;
     min-width: 100%;
-    height: calc(100% - 57px);
-    min-height: calc(100% - 57px);
+    height: calc(100% - 105px);
+    min-height: calc(100% - 105px);
 }
 .content-header-container{
     height:fit-content;
@@ -115,6 +116,7 @@ html, body{
     min-height: 100%;
     padding: 12px 12px 0;
     display: flex;
+    flex-shrink: 0;
     background-color: #1c2b41;
 }
 .list-adding-parts-container{
@@ -123,7 +125,7 @@ html, body{
     padding: 12px 12px 0;
     display: flex;
     background-color: #1c2b41;
-
+    flex-shrink: 0;
 }
 .list-add-btn{
     display: flex;
