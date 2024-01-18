@@ -42,7 +42,7 @@ public class UserLoginService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
         return AuthUser.builder()
-                .UID(String.valueOf(userVo.getUser_uid()))
+                .UID(String.valueOf(userVo.getUseruid()))
                 .PW(userVo.getPW())
                 .authorities(authorities)
                 .build();

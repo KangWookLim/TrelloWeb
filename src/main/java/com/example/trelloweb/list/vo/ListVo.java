@@ -16,9 +16,11 @@ import java.util.List;
 public class ListVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long List_Id;
+    @Column(name = "List_id")
+    private Long ListId;
 
-    private int list_order;
+    @Column(name = "list_order")
+    private int listorder;
 
     @Column(length = 50, nullable = false)
     private String name;
@@ -27,7 +29,7 @@ public class ListVo {
     @JoinColumn(name = "Board_Id")
     private BoardVo boardvo;
 
-    @OneToMany(mappedBy = "list_id", cascade = CascadeType.REMOVE)
-    @OrderBy("card_order ASC")
+    @OneToMany(mappedBy = "listid", cascade = CascadeType.REMOVE)
+    @OrderBy("cardorder ASC")
     private List<CardVo> cardVoList;
 }

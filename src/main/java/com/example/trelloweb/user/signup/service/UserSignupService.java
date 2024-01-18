@@ -28,8 +28,8 @@ public class UserSignupService {
                 user.setFULLNAME(FULLNAME);
                 user.setBIRTH(Birth);
                 user.setBIO(Bio);
-                user.setCREATE_DATE(LocalDateTime.now());
-                user.setUPDATE_DATE(LocalDateTime.now());
+                user.setCREATEDATE(LocalDateTime.now());
+                user.setUPDATEDATE(LocalDateTime.now());
                 userJpaRepo.save(user);
                 return user;
     }

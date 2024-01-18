@@ -1,12 +1,8 @@
 package com.example.trelloweb.user.Recent_Act.vo;
 
 import com.example.trelloweb.user.base.vo.UserVo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
@@ -17,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity(name = "User_Recent_Act")
-public class Recent_ActVo {
+public class RecentActVo {
     @Id
     private Long Id;
 
@@ -25,8 +21,10 @@ public class Recent_ActVo {
     @JoinColumn(name = "user_uid")
     private UserVo uservo;
 
-    private String Act_Category;
+    @Column(name = "act_category")
+    private String ActCategory;
 
     @CreatedDate
-    private LocalDateTime Act_Date;
+    @Column(name = "act_date")
+    private LocalDateTime ActDate;
 }

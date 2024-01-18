@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class Card_MemPK implements Serializable {
+public class CardMemPK implements Serializable {
     private Long uservo;
     private Long cardvo;
 }

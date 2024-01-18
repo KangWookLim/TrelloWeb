@@ -11,10 +11,11 @@ import org.hibernate.annotations.ColumnDefault;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity(name = "Card_Labels")
-public class Card_LabelsVo {
+public class CardLabelsVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long label_id;
+    @Column(name = "label_id")
+    private Long labelid;
 
     @ManyToOne
     @JoinColumn(name = "card_id")
