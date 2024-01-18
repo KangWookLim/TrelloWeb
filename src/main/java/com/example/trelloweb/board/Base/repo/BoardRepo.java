@@ -1,7 +1,9 @@
 package com.example.trelloweb.board.Base.repo;
 
 import com.example.trelloweb.board.Base.vo.Boards;
+import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.jdbc.Work;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -29,8 +31,8 @@ public class BoardRepo {
                     rs.getString("BOARD_DES"),
                     rs.getString("BOARD_ACCESS")
             );
-    RowMapper<Boards> WSrowMapper = (rs, rowNum) ->
-            new Boards(
+    RowMapper<WorkSpaces> WSrowMapper = (rs, rowNum) ->
+            new WorkSpaces(
                     rs.getInt("WS_ID"),
                     rs.getString("NAME"),
                     rs.getString("IMG_URL"),
@@ -46,7 +48,7 @@ public class BoardRepo {
         return jdbcTemplate.query(query, rowMapper);
     }
 
-    public List<Boards> getAllWSInfo(String memId)
+    public List<WorkSpaces> getAllWSInfo(String memId)
     {
         String query = "SELECT T1.WS_ID WS_ID, NAME, IMG_URL, ROLE, CREATED_DATE FROM WORKSPACE T2 LEFT OUTER JOIN WS_MEMBERS T1 ON T2.WS_ID = T1.WS_ID WHERE T1.USER_UID = "+ memId;
         return jdbcTemplate.query(query, WSrowMapper);

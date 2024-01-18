@@ -3,13 +3,14 @@
     color-scheme : dark;
     margin : 0;
     padding : 0;
+
 }
 #header-container {
     position: relative;
     z-index : 5;
     background-color : #1d2125;
     height : 48px;
-    width : 100vw;
+    width : calc(100vw - 17px) ;
     padding : 8px;
     border-bottom : 1px solid;
     border-bottom-color : hsla(221, 18%, 68%, 0.16);
@@ -175,7 +176,7 @@
 .header-user-btn:hover {
     background : #a6c5e229;
 }
-.header-dropdown-container {
+#drop-header-create {
     position: fixed;
     inset: 48px auto auto 580px;
     width: 304px;
@@ -194,7 +195,7 @@
     outline: 0;
     overflow: hidden;
 }
-.header-dropdown-container li {
+#drop-header-create li {
     display: list-item;
 }
 .header-dropdown-btn {
@@ -336,4 +337,89 @@
     overflow: hidden;
     white-space: nowrap;
     -webkit-print-color-adjust: exact;
+}
+#drop-create-board {
+    position: fixed;
+    inset: 48px auto auto 580px;
+    width: 304px;
+    color: #b6c2cf;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    background-color: #282e33;
+    border-radius: 8px;
+    box-sizing: border-box;
+    outline: 0;
+    overflow: hidden;
+}
+.drop-create-board-header {
+    padding: 4px 8px;
+    position: relative;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 32px 1fr 32px;
+}
+.drop-create-board-title {
+    color: #9fadbc;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+    line-height: 40px;
+    display: block;
+    position: relative;
+    height: 40px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 32px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+.return-to-drop-down {
+    grid-column: 1;
+    grid-row: 1;
+    color: #8c9bab;
+    border-radius: 8px;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    outline: none;
+}
+.drop-create-left-arrow, .drop-create-close{
+    display: inline-block;
+    flex-shrink: 0;
+    line-height: 1;
+    width: 14px;
+    height: 14px;
+}
+.close-drop-down {
+    grid-column: 3;
+    grid-row: 1;
+    color: #8c9bab;
+    border-radius: 8px;
+    display: flex;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+    outline: none;
+}
+#drop-create-board-container {
+
 }
