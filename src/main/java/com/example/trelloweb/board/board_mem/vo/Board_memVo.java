@@ -23,6 +23,6 @@ public class Board_memVo {
     @JoinColumn(name = "Board_Id")
     private BoardVo boardvo;
 
-    @Column(nullable = false) @ColumnDefault("'Nomal'")
-    private String Board_access;
+    @Column(nullable = false, name = "board_access") @ColumnDefault("'Nomal'")
+    private String Boardaccess;
 }

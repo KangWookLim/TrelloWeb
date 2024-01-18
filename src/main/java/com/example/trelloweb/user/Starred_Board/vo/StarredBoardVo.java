@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity(name = "User_Starred_Board")
-public class Starred_BoardVo {
+public class StarredBoardVo {
     @Id
     @ManyToOne
     @JoinColumn(name = "user_uid")

@@ -1,7 +1,7 @@
-package com.example.trelloweb.card.comment.vo;
+package com.example.trelloweb.card.tasklist.base.vo;
 
 import com.example.trelloweb.card.base.vo.CardVo;
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.card.tasklist.item.vo.TaskitemVO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,31 +9,28 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
-@Entity(name = "Card_comment")
-public class Card_CommentVo {
+@Entity(name = "card_task")
+public class CardTaskVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Card_Comment_Id;
+    @Column(name = "Task_id")
+    private Long Taskid;
 
     @ManyToOne
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 
-    @ManyToOne
-    @JoinColumn(name = "user_uid")
-    private UserVo uservo;
-
     @Column(nullable = false)
-    private String comment;
+    private String title;
 
     @CreatedDate
-    private LocalDateTime createdDate;
+    private LocalDateTime createddate;
 
-    private String origin_file_name;
-
-    private String stored_file_name;
+    @OneToMany(mappedBy = "cardtaskvo", cascade = CascadeType.REMOVE)
+    private List<TaskitemVO> taskItemList;
 }

@@ -28,10 +28,10 @@ public class WorkSpaceVo {
 
     private String IMG_URL;
 
-    @OneToMany(mappedBy = "WS_ID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
     private List<WorkSpaceMemVo> workspaceMem;
 
-    @OneToMany(mappedBy = "WS_ID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
     private List<BoardVo> boardVoList;
 }
 
