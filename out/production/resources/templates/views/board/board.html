@@ -146,125 +146,69 @@
             <h3 class="board-page-section-header-name">
               YOUR WORKSPACES
             </h3>
-            <div class="board-page-section-header">
-              <div class="board-icon-container">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class="board-page-section-header-icon">
-              </div>
-              <h3 class="board-section-header-name">
-                Workspace Name
-              </h3>
-              <div class="board-page-section-header-options">
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/trello.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Boards
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/views.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Views
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/team.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Members(5)
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/settings.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Settings
-                  </span>
-                </a>
-              </div>
-            </div>
-            <ul class="board-section-list">
-              <li class="board-section-list-item">
-                <a class="board-section-item-img">
-                  <div class="board-detail-box">
-                    <div class="board-detail-name">
-                      test board
-                    </div>
-                    <div class="board-detail-ws">
-                          <span>
-                          test workspace
-                          </span>
-                      <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
-                    </div>
-                  </div>
-                </a>
-                <div class="ex-margin1"></div>
-              </li>
-              <li class="board-section-list-item">
-                <div class="board-section-add">
-                  <p>Create new board</p>
-                  <p class="remaining">6 remaining</p>
-                  <div></div>
-                </div>
-              </li>
-            </ul>
+            <div th:each="WSList : ${WSList}">
 
-            <div class="board-page-section-header">
-              <div class="board-icon-container">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class="board-page-section-header-icon">
-              </div>
-              <h3 class="board-section-header-name">
-                Workspace Name
-              </h3>
-              <div class="board-page-section-header-options">
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/trello.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Boards
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/views.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Views
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/team.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Members(5)
-                  </span>
-                </a>
-                <a class="board-page-section-header-options-items">
-                  <img th:src="@{/images/icons/settings.png}" class="board-page-section-header-options-items-icon">
-                  <span class="board-page-section-header-options-items-name">
-                    Settings
-                  </span>
-                </a>
-              </div>
-            </div>
-            <ul class="board-section-list">
-              <li class="board-section-list-item">
-                <a class="board-section-item-img">
-                  <div class="board-detail-box">
-                    <div class="board-detail-name">
-                      test board
-                    </div>
-                    <div class="board-detail-ws">
-                          <span>
-                          test workspace
-                          </span>
-                      <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
-                    </div>
-                  </div>
-                </a>
-                <div class="ex-margin1"></div>
-              </li>
-              <li class="board-section-list-item">
-                <div class="board-section-add">
-                  <p>Create new board</p>
-                  <p class="remaining">6 remaining</p>
-                  <div></div>
+              <div class="board-page-section-header">
+                <div class="board-icon-container">
+                  <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class="board-page-section-header-icon">
                 </div>
-              </li>
-            </ul>
+                <h3 class="board-section-header-name" th:text="${WSList.getWS_NAME}">
+                </h3>
+                <div class="board-page-section-header-options">
+                  <a class="board-page-section-header-options-items">
+                    <img th:src="@{/images/icons/trello.png}" class="board-page-section-header-options-items-icon">
+                    <span class="board-page-section-header-options-items-name">
+                      Boards
+                    </span>
+                  </a>
+                  <a class="board-page-section-header-options-items">
+                    <img th:src="@{/images/icons/views.png}" class="board-page-section-header-options-items-icon">
+                    <span class="board-page-section-header-options-items-name">
+                      Views
+                    </span>
+                  </a>
+                  <a class="board-page-section-header-options-items">
+                    <img th:src="@{/images/icons/team.png}" class="board-page-section-header-options-items-icon">
+                    <span class="board-page-section-header-options-items-name">
+                      Members(5)
+                    </span>
+                  </a>
+                  <a class="board-page-section-header-options-items">
+                    <img th:src="@{/images/icons/settings.png}" class="board-page-section-header-options-items-icon">
+                    <span class="board-page-section-header-options-items-name">
+                      Settings
+                    </span>
+                  </a>
+                </div>
+              </div>
+              <ul class="board-section-list">
+                <li class="board-section-list-item" th:each="boardsList : ${boardsList}" th:if="${WSList.getWS_ID == boardsList.getWS_ID}">
+                  <a class="board-section-item-img">
+                    <div class="board-detail-box">
+                      <div class="board-detail-name" th:text="${boardsList.getBOARD_NAME}">
+
+                      </div>
+                      <div class="board-detail-ws">
+                            <span th:text="${boardsList.getWS_NAME}">
+
+                            </span>
+                        <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="ex-margin1"></div>
+                </li>
+                <li class="board-section-list-item">
+                  <div class="board-section-add">
+                    <p>Create new board</p>
+                    <p class="remaining">6 remaining</p>
+                    <div></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+
           </div>
 
         </div>
