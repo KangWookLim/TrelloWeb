@@ -80,3 +80,12 @@ $( function () {
         connectWith : ".cards-section"
     })
 })
+
+function addListToBoard() {
+    var listFrame = document.getElementById("listFrame");
+    console.log(listFrame);
+    console.log(document.getElementById("listFrame"));
+    var clone = listFrame.content.cloneNode(true);
+    document.querySelector(".list-container").appendChild(clone);
+    clone.querySelector(".list").removeAttribute("hidden");
+}

@@ -2,7 +2,7 @@ package com.example.trelloweb.board.Base.controller;
 
 import com.example.trelloweb.board.Base.service.BoardSearchService;
 import com.example.trelloweb.board.Base.vo.Boards;
-import jakarta.servlet.http.HttpSession;
+import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,9 +20,10 @@ public class BoardController {
     @GetMapping("/board")
     @ResponseBody
     public ModelAndView board(Principal principal) {
+
         ModelAndView view = new ModelAndView();
         List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
-        List<Boards> WSList = boardSearchService.findAllWS(principal.getName());
+        List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
         view.addObject("WSList", WSList);
         view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
@@ -31,8 +32,10 @@ public class BoardController {
 
     @GetMapping("/home")
     public ModelAndView home(Principal principal) {
-        System.out.println(principal);
         ModelAndView view = new ModelAndView();
+        System.out.println(principal.getName());
+        List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
+        view.addObject("WSList", WSList);
         view.setViewName("views/board/home");
         return view;
     }
