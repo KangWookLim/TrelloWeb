@@ -1,6 +1,6 @@
 package com.example.trelloweb.card.tasklist.item.vo;
 
-import com.example.trelloweb.card.tasklist.base.vo.Card_TaskVo;
+import com.example.trelloweb.card.tasklist.base.vo.CardTaskVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,14 +10,15 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @Data
 @Entity(name = "task_item")
-public class Task_itemVO {
+public class TaskitemVO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long task_item_id;
+    @Column(name = "task_item_id")
+    private Long taskitemid;
 
     @ManyToOne
     @JoinColumn(name = "task_id")
-    private Card_TaskVo cardtaskvo;
+    private CardTaskVo cardtaskvo;
 
     @Column(nullable = false)
     private String title;

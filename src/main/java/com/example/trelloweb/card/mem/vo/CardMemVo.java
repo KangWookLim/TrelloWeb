@@ -7,12 +7,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-@IdClass(Card_MemPK.class)
+@IdClass(CardMemPK.class)
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity(name = "card_members")
-public class Card_MemVo {
+public class CardMemVo {
     @Id
     @ManyToOne
     @JoinColumn(name = "card_id")

@@ -1,10 +1,10 @@
 package com.example.trelloweb.card.base.vo;
 
 import com.example.trelloweb.card.attatchments.vo.Card_attatchmentVo;
-import com.example.trelloweb.card.comment.vo.Card_CommentVo;
-import com.example.trelloweb.card.label.vo.Card_LabelsVo;
-import com.example.trelloweb.card.mem.vo.Card_MemVo;
-import com.example.trelloweb.card.tasklist.base.vo.Card_TaskVo;
+import com.example.trelloweb.card.comment.vo.CardCommentVo;
+import com.example.trelloweb.card.label.vo.CardLabelsVo;
+import com.example.trelloweb.card.mem.vo.CardMemVo;
+import com.example.trelloweb.card.tasklist.base.vo.CardTaskVo;
 import com.example.trelloweb.list.vo.ListVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -27,9 +27,10 @@ public class CardVo {
 
     @ManyToOne
     @JoinColumn(name = "list_id")
-    private ListVo list_id;
+    private ListVo listid;
 
-    private int card_order;
+    @Column(name = "card_order")
+    private int cardorder;
 
     @Column(length = 200, nullable = false)
     private String name;
@@ -48,18 +49,18 @@ public class CardVo {
     private LocalDateTime updated_date;
 
     @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
-    private List<Card_LabelsVo> card_labelsVoList;
+    private List<CardLabelsVo> card_labelsVoList;
 
     @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
-    private List<Card_MemVo> card_memVoList;
+    private List<CardMemVo> card_memVoList;
 
     @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
     private List<Card_attatchmentVo> card_attatchmentVoList;
 
     @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
-    private List<Card_CommentVo> card_commentVoList;
+    private List<CardCommentVo> card_commentVoList;
 
     @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
-    private List<Card_TaskVo> card_taskVoList;
+    private List<CardTaskVo> card_taskVoList;
 
 }
