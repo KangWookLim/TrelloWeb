@@ -52,6 +52,7 @@ const list_add_btn = $('.list-add-btn');
 const list_add_container = $('.list-add-container');
 const content_container  = $('.content-container');
 const list_add_card_button = $('.list-add-card-button');
+let allAddCardSections = $('.add-card-section');
 list_add_btn.click(function (){
     list_add_btn.hide();
     list_add_container.show();
@@ -66,6 +67,7 @@ list_add_container.click(function () {
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
+    allAddCardSections.setAttribute('hidden', 'true');
     console.log("h3");
 })
 
@@ -81,11 +83,30 @@ $( function () {
     })
 })
 
-function addListToBoard() {
-    var listFrame = document.getElementById("listFrame");
-    console.log(listFrame);
-    console.log(document.getElementById("listFrame"));
-    var clone = listFrame.content.cloneNode(true);
-    document.querySelector(".list-container").appendChild(clone);
-    clone.querySelector(".list").removeAttribute("hidden");
+function addListToBoard(event) {
+    var formElement = event.target.closest('form');
+    var textareaElement = formElement.querySelector('.list-textarea');
+    var textareaValue = textareaElement.value;
+    if (textareaValue !== "" && textareaValue !== null){
+        var listFrame = document.getElementById("listFrame");
+        var clone = listFrame.content.cloneNode(true);
+        clone.querySelector('.list-textarea').value = textareaValue;
+        document.querySelector(".list-container").appendChild(clone);
+        $('.cards-section').sortable({
+            connectWith : ".cards-section"
+        })
+        list_add_container.hide();
+        list_add_btn.show();
+    }
+}
+
+function showAddCard(event) {
+    var listAddCard = event.target.closest('.list-add-card');
+    console.log(listAddCard);
+    var list = listAddCard.closest('.list-detail');
+    console.log(list)
+    var addCardSection = list.querySelector('.add-card-section');
+    addCardSection.removeAttribute('hidden');
+    event.stopPropagation();
+
 }
