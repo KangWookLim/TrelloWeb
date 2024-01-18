@@ -94,8 +94,8 @@
                         </div>
                     </div>
                     <div style="min-width:0 ;">
-                        <div style="margin-top: 2px;">Name</div>
-                        <div class="header-profile-mail">Email@gmail.com</div>
+                        <div style="margin-top: 2px;" th:text="${#authentication.principal.getAttribute('nickname')}"></div>
+                        <div class="header-profile-mail" th:text="${#authentication.principal.getAttribute('email')}" ></div>
                     </div>
                 </div>
                 <div class="header-profile-line"></div>

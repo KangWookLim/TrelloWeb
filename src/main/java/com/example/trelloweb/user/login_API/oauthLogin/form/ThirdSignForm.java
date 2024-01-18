@@ -1,4 +1,4 @@
-package com.example.trelloweb.user.oauthLogin.form;
+package com.example.trelloweb.user.login_API.oauthLogin.form;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;

@@ -1,4 +1,4 @@
-package com.example.trelloweb.user.oauthLogin.controller;
+package com.example.trelloweb.user.login_API.oauthLogin.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
