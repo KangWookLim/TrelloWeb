@@ -1,17 +1,20 @@
-package com.example.trelloweb.user.oauthLogin.controller;
+package com.example.trelloweb.user.login_API.oauthLogin.controller;
 
 import com.example.trelloweb.user.base.repo.UserJpaRepo;
-import com.example.trelloweb.user.oauthLogin.form.ThirdSignForm;
+import com.example.trelloweb.user.login_API.oauthLogin.form.ThirdSignForm;
+import com.example.trelloweb.user.login_API.service.UserLoginService;
 import com.example.trelloweb.user.signup.service.UserSignupService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.security.Principal;
 import java.util.Map;
 
 @RequestMapping("/user")
@@ -21,12 +24,12 @@ public class OAuth2UserController {
 
     private final UserJpaRepo userJpaRepo;
     private final UserSignupService userSignupService;
+    private final UserLoginService loginService;
 
     @GetMapping("/OAuth2UserCheck")
-    public ModelAndView OAuth2User(ThirdSignForm thirdSignForm, OAuth2AuthenticationToken authenticationToken){
+    public ModelAndView OAuth2User(ThirdSignForm thirdSignForm, Principal principal){
         ModelAndView view = new ModelAndView();
-        String authEmail = authenticationToken.getPrincipal().getAttribute("email");
-        if(userJpaRepo.existsByEMAIL(authEmail)){
+        if(userJpaRepo.existsById(Long.parseLong(principal.getName()))){
             view.setViewName("redirect:/home");
         }else{
             view.setViewName("views/oauth2/oauth2sign");
@@ -39,7 +42,8 @@ public class OAuth2UserController {
         ModelAndView view = new ModelAndView();
         view.addObject("thirdSignForm", thirdSignForm);
         view.setViewName("views/oauth2/oauth2sign");
-        System.out.println(authenticationToken.getPrincipal().getAttributes());
+        SecurityContextHolder.getContext().setAuthentication(null);
+        System.out.println(authuser);
         if(bindingResult.hasErrors()){
             return view;
         }
@@ -56,7 +60,7 @@ public class OAuth2UserController {
             bindingResult.reject("signupFailed", "알 수 없는 오류입니다");
             return view;
         }
-        view.setViewName("redirect:/home");
+        view.setViewName("redirect:/user/login");
         return view;
     }
 }
