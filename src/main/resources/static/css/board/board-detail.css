@@ -8,6 +8,7 @@ html, body{
     display: flex;
     flex: 1 1 0;
     flex-direction: column;
+    overflow-y: hidden;
 }
 .boardsidebar{
     width: 260px;
