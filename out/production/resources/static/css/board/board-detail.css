@@ -18,6 +18,7 @@ html, body{
     min-height: 100%;
 }
 .content-container{
+    background-color: #1c2b41;
     display: flex;
     overflow-x: auto;
     max-width: 100%;
@@ -115,7 +116,7 @@ html, body{
 .list-container{
     height: 100%;
     min-height: 100%;
-    padding: 12px 12px 0;
+    padding-top: 12px;
     display: flex;
     flex-shrink: 0;
     background-color: #1c2b41;
@@ -211,7 +212,7 @@ html, body{
     background-color: #282f27 !important;
 }
 
-.list {
+.list-detail-container {
     padding: 0 6px;
     align-self: flex-start;
     flex-shrink: 0;
@@ -312,11 +313,44 @@ html, body{
 
 }
 
+.cards-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 2px 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 1;
+    list-style: none;
+}
+.card-outer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+    scroll-margin: 80px;
+    padding-bottom: 8px;
+    background-color: transparent;
+    border: none;
+}
+
+.card-inner {
+    display: flow-root;
+    position: relative;
+    padding : 8px 12px 4px;
+    min-height: 24px;
+    z-index: 10;
+    width: 100%;
+    background-color: #22272b;
+    border-radius: 8px;
+}
+
 /*.board*/
 
 /* card modal 부분 */
 .card-background {
-    display: none;
+    display: flex;
     overflow-x: hidden;
     align-items: flex-start;
     background-color: #000000a3;
@@ -332,7 +366,7 @@ html, body{
 .card-container {
     display: block;
     overflow: visible;
-    background-color: #282e33;
+    background-color: #323940;
     border-radius: 12px;
     margin: 48px 0 80px;
     position: relative;
@@ -376,35 +410,59 @@ html, body{
     border: none;
 }
 
-.cards-section {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
+.card-main {
+    float: left;
     margin: 0;
-    padding: 2px 0;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    min-height: 24px;
+    padding: 0 8px 8px 16px;
+    position: relative;
+    width: 552px;
     z-index: 1;
-    list-style: none;
 }
-.card-outer {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-    scroll-margin: 80px;
-    padding-bottom: 8px;
-    background-color: transparent;
-    border: none;
+.card-sidebar {
+    float: right;
+    overflow: hidden;
+    padding: 0 16px 8px 8px;
+    width: 192px;
 }
 
-.card-inner {
-    display: flow-root;
+.card-sidebar-menu {
+    clear : both;
+    margin-bottom : 24px;
+    position : relative;
+}
+.card-sidebar-button {
+
+    background-color: #3b444c;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #b6c2cf;
+    cursor: pointer;
+    display: block;
+    font-weight: 500;
+    height: 32px;
+    margin-top: 8px;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 6px 12px;
     position: relative;
-    padding : 8px 12px 4px;
-    min-height: 24px;
-    z-index: 10;
+    text-decoration: none !important;
+    text-overflow: ellipsis;
+    transition-duration: 85ms;
+    transition-property: background-color,border-color,box-shadow;
+    transition-timing-function: ease;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+}
+.card-sidebar-menu > hr {
+    margin : 8px 0;
+    background-color: white !important;
+    border : 0;
+    height: 1px;
+    padding : 0;
     width: 100%;
-    background-color: #22272b;
-    border-radius: 8px;
+    box-sizing: initial;
 }
