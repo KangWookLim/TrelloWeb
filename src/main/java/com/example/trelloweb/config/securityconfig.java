@@ -1,7 +1,6 @@
 package com.example.trelloweb.config;
 
-import com.example.trelloweb.user.Role.UserRole;
-import com.example.trelloweb.user.oauthLogin.service.CustomOAuth2UserService;
+import com.example.trelloweb.user.login_API.oauthLogin.service.CustomOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,10 +32,11 @@ public class securityconfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),new AntPathRequestMatcher("/user/startSign")).anonymous()
                         .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/home/**"),new AntPathRequestMatcher("/user/loginsetting")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/board/**")
-                                        ,new AntPathRequestMatcher("/template/**")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole(UserRole.ADMIN.getValue())
+                        .requestMatchers(new AntPathRequestMatcher("/user/loginsetting")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/home/**")
+                                        ,new AntPathRequestMatcher("/board/**")
+                                        ,new AntPathRequestMatcher("/template/**")).hasAnyRole("USER","ADMIN")
+                        .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole("ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
                 )
                 .exceptionHandling(exception -> exception
@@ -47,7 +47,7 @@ public class securityconfig {
                         .addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN)))
                 .formLogin(formLogin -> formLogin
                         .loginPage("/user/login")
-                        .defaultSuccessUrl("/user/loginsetting"))
+                        .defaultSuccessUrl("/home"))
                 .oauth2Login(oauth2Login -> oauth2Login
                         .loginPage("/user/login")
                         .userInfoEndpoint(userInfoEndpoint -> userInfoEndpoint

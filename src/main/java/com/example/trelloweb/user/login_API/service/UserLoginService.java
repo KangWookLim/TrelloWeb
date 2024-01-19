@@ -22,13 +22,9 @@ import java.util.Optional;
 @Service
 public class UserLoginService implements UserDetailsService {
 
-
-
-
-
     private final UserJpaRepo userJpaRepo;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public AuthUser loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<UserVo> optionalUserVo = this.userJpaRepo.findByEMAIL(username);
         if(optionalUserVo.isEmpty()){
             throw  new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
@@ -44,6 +40,8 @@ public class UserLoginService implements UserDetailsService {
         return AuthUser.builder()
                 .UID(String.valueOf(userVo.getUseruid()))
                 .PW(userVo.getPW())
+                .attributes(Map.of("email",userVo.getEMAIL(),"picture",userVo.getIMGURL(),"nickname",userVo.getNICKNAME()))
+                .AuthProvider("Trello")
                 .authorities(authorities)
                 .build();
     }

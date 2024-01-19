@@ -2,6 +2,7 @@ package com.example.trelloweb.board.Base.service;
 
 import com.example.trelloweb.board.Base.repo.BoardRepo;
 import com.example.trelloweb.board.Base.vo.Boards;
+import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class BoardSearchService{
     public List<Boards> findAllboards(String memid) {
         return boardrepo.getAllBoardInfo(memid);
     }
-    public List<Boards> findAllWS(String memid) {
+    public List<WorkSpaces> findAllWS(String memid) {
         return boardrepo.getAllWSInfo(memid);
     }
 

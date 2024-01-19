@@ -47,7 +47,7 @@ public class SignupController {
             bindingResult.reject("signupFailed", "알 수 없는 오류입니다");
             return view;
         }
-        view.setViewName("redirect:/home");
+        view.setViewName("redirect:/user/login");
         return view;
     }
 }
