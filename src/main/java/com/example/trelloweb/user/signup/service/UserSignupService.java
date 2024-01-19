@@ -34,6 +34,22 @@ public class UserSignupService {
                 return user;
     }
 
+    public UserVo OAuth2create(String email, String PW, String NICKNAME, String FULLNAME,
+                         String Birth, String Bio, String IMGURL){
+        UserVo user = new UserVo();
+        user.setEMAIL(email);
+        user.setPW(passwordEncoder.encode(PW));
+        user.setNICKNAME(NICKNAME);
+        user.setFULLNAME(FULLNAME);
+        user.setIMGURL(IMGURL);
+        user.setBIRTH(Birth);
+        user.setBIO(Bio);
+        user.setCREATEDATE(LocalDateTime.now());
+        user.setUPDATEDATE(LocalDateTime.now());
+        userJpaRepo.save(user);
+        return user;
+    }
+
 
     public int nicknameCheck(String nickname){
         return signUpRepo.nickduplicatCheck(nickname);

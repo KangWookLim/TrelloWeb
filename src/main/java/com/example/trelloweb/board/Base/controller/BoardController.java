@@ -17,10 +17,9 @@ import java.util.List;
 public class BoardController {
     private final BoardSearchService boardSearchService;
 
-    @GetMapping("/board")
+    @GetMapping("/board")//User's current board
     @ResponseBody
     public ModelAndView board(Principal principal) {
-
         ModelAndView view = new ModelAndView();
         List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
@@ -30,10 +29,10 @@ public class BoardController {
         return view;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
-        System.out.println(principal.getName());
+        System.out.println(principal    );
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
         view.addObject("WSList", WSList);
         view.setViewName("views/board/home");

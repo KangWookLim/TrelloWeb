@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.io.Serial;
+import java.security.Principal;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.Map;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthUser implements UserDetails, OAuth2User {
+public class AuthUser implements UserDetails, OAuth2User{
 
     @Serial
     private static final long serialVersionUID = 5216516135213203541L;

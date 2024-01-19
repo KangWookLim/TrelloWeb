@@ -90,7 +90,7 @@
                 <div class="header-profile-info">
                     <div class="header-profile-image">
                         <div class="header-profile-img-wrapper">
-                            <span role="img"  class="header-profile-img-file" style="background-image: url(&quot;https://trello-members.s3.amazonaws.com/63a5e31d54a92b001ce22969/3890b8dc6632d7a3fe678459da067003/170.png&quot;); height: 40px; width: 40px; line-height: 40px;"></span>
+                            <img th:src="@{${#authentication.principal.getAttribute('picture')}}" class="header-profile-img-file" style="height: 40px; width: 40px; line-height: 40px;">
                         </div>
                     </div>
                     <div style="min-width:0 ;">
