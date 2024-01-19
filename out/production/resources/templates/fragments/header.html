@@ -23,10 +23,10 @@
                 <button class = "header-flexible-btn">Templates<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
             </div>
             <button onclick="dp_create()" class = "header-create-btn"> Create </button>
-            <div class = "header-dropdown-container" id="drop-header-create" style="display : none;">
+            <div id="drop-header-create" style="display : none;">
                 <ul>
                     <li>
-                        <button class="header-dropdown-btn">
+                        <button onclick="create_board()" class="header-dropdown-btn">
                             <span class="header-dropdown-icon"><img class="header-dropdown-png"th:src="@{/images/icons/trello.png}" alt="create-board-icon"/> </span>
                             <span>Create board</span>
                             <p class="header-dropdown-text">
@@ -54,6 +54,22 @@
                     </li>
                 </ul>
             </div>
+            <div class = "drop-create-board" id="drop-create-board" style="display:none;">
+                <div class="drop-create-board-header">
+                    <h2 class="drop-create-board-title"> Create board</h2>
+                    <button onclick="dp_create()" class="return-to-drop-down">
+                        <img th:src="@{/images/icons/left-arrow.png}" class="drop-create-left-arrow"/>
+                    </button>
+                    <button onclick="close_dropdown_board()" class="close-drop-down">
+                        <img th:src="@{/images/icons/close.png}" class="drop-create-close"/>
+                    </button>
+                </div>
+                <form id="createBoard">
+                    <div id="drop-create-board-container">
+
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="header-flex-box"></div>
         <div class="header-right-container">
@@ -74,8 +90,7 @@
                 <div class="header-profile-info">
                     <div class="header-profile-image">
                         <div class="header-profile-img-wrapper">
-                            <span role="img"  class="header-profile-img-file" style="height: 40px; width: 40px; line-height: 40px;" th:src="${#authentication.principal.getAttribute('picture')}">
-                            </span>
+                            <img th:src="@{${#authentication.principal.getAttribute('picture')}}" class="header-profile-img-file" style="height: 40px; width: 40px; line-height: 40px;">
                         </div>
                     </div>
                     <div style="min-width:0 ;">
@@ -101,6 +116,8 @@
     <script>
         function dp_create() {
             let click = document.getElementById("drop-header-create")
+            let click2 = document.getElementById("drop-create-board");
+            click2.style.display = "none";
             if(click.style.display === "none") {
                 click.style.display = "block";
             }else{
@@ -115,6 +132,24 @@
                 click.style.display = "none";
             }
         }
+        function create_board() {
+            let click = document.getElementById("drop-create-board");
+            dp_create();
+            if(click.style.display === "none") {
+                click.style.display = "block";
+            }else{
+                click.style.display = "none";
+            }
+        }
+        function close_dropdown_board() {
+            let click = document.getElementById("drop-header-create")
+            let click2 = document.getElementById("drop-create-board");
+            click.style.display = "none";
+            click2.style.display = "none";
+
+        }
+
+
     </script>
 
 </div>
