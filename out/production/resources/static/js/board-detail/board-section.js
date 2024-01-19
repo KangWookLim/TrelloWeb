@@ -67,7 +67,9 @@ list_add_container.click(function () {
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
-    allAddCardSections.setAttribute('hidden', 'true');
+    if (allAddCardSections.length > 0) {
+        allAddCardSections.setAttribute('hidden', 'true');
+    }
     console.log("h3");
 })
 
@@ -92,6 +94,7 @@ function addListToBoard(event) {
         var clone = listFrame.content.cloneNode(true);
         clone.querySelector('.list-textarea').value = textareaValue;
         document.querySelector(".list-container").appendChild(clone);
+        document.querySelector(".list-container").style.padding = "12px 12px 0";
         $('.cards-section').sortable({
             connectWith : ".cards-section"
         })

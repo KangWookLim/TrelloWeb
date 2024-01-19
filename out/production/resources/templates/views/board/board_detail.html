@@ -309,7 +309,7 @@
     </div>
     <div class="content-container">
         <div class="list-container">
-            <div th:each = "list, loop : ${boards.get(0).getListVoList()}" class="list">
+            <div th:each = "list, loop : ${boards.get(0).getListVoList()}"  class="list-detail-container">
                 <div class="list-detail">
                     <div  class="list-header not-sortable">
                         <textarea class = "list-textarea" style="width: 220px; height: 32px" th:text="${list.name}"></textarea>
@@ -338,7 +338,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="list-adding-parts-container">
             <div class="list-add-btn not-sortable">
@@ -375,8 +374,52 @@
                             <textarea>lol</textarea>
                             <p>in list <a href="#">123</a></p>
                     </div>
-                    <div class="card-main"></div>
-                    <div class="card-sidebar"></div>
+                    <div class="card-main">
+                        <div>label, notification, due date</div>
+                        <div>description</div>
+                        <div>attatchment trello card</div>
+                        <div>attatchment file</div>
+                        <div>checklist</div>
+                        <div>activity</div>
+                    </div>
+                    <div class="card-sidebar">
+                        <div class = "card-sidebar-menu">
+                            <h3 style="font-size: 12px">
+                                Add to card
+                            </h3>
+                            <div>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                                <a href="#" class="card-sidebar-button">Members</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 12px">
+                                Power-Ups
+                            </h3>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 12px">
+                                Automation
+                            </h3>
+                        </div>
+                        <div class = "card-sidebar-menu">
+                            <h3 style="font-size: 12px">
+                                Actions
+                            </h3>
+                            <a href="#" class="card-sidebar-button">Members</a>
+                            <a href="#" class="card-sidebar-button">Members</a>
+                            <a href="#" class="card-sidebar-button">Members</a>
+                            <hr>
+                            <a href="#" class="card-sidebar-button">Members</a>
+                            <a href="#" class="card-sidebar-button">Members</a>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -434,7 +477,7 @@
         </div>
     </section>
     <template id = "listFrame">
-        <div class="list">
+        <div class="list-detail-container">
             <div class="list-detail">
                 <div class="list-header not-sortable">
                     <textarea class = "list-textarea" style="width: 220px; height: 32px"></textarea>
