@@ -12,8 +12,13 @@ import java.util.List;
 public class BoardDetailService {
     private final BoardDetailRepo boardDetailRepo;
     public List<BoardVo> getAllBoard() {
+
         return boardDetailRepo.findAll();
     }
+
+    /*public List<BoardVo> getBoardById(Long boardId) {
+        return boardDetailRepo.findAllByBoardId(boardId);
+    }*/
 
     /*public List<BoardVo> getAllByBoardId(Long boardID) {
         return boardDetailRepo.findallByBoardId(boardID);
