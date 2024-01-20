@@ -7,38 +7,55 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
-import java.util.ArrayList;
+import java.io.Serial;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthUser implements UserDetails {
+public class AuthUser implements UserDetails, OAuth2User {
 
-    @NotNull private String ID;
+    @Serial
+    private static final long serialVersionUID = 5216516135213203541L;
+
+    @NotNull private String UID;
 
     @NotNull private String PW;
 
-    @NotNull private String IMG_URL;
+    @NotNull private String AuthProvider;
+
+    private Map<String,Object> attributes;
 
     private List<GrantedAuthority> authorities;
 
+    public Object getAttribute(String name){
+        return attributes.get(name);
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
     @Override
+    public String getName() {
+        return this.UID;
+    }
+
+    @Override
     public String getPassword() {
-        return this.PW;
+        return PW;
     }
 
     @Override
     public String getUsername() {
-        return this.ID;
+        return this.UID;
     }
 
     @Override

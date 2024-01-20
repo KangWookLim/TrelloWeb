@@ -21,14 +21,15 @@ public class BoardVo {
     @Column(name = "board_id")
     private Long BoardId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "WS_ID")
-    private WorkSpaceVo WS_ID;
+    private WorkSpaceVo WSID;
 
     @Column(length = 100, nullable = false)
     private String BoardName;
 
-    private String image_URL;
+    @Column(name="image_URL")
+    private String imageURL;
 
     @Column(length = 500) @ColumnDefault("'My_Board'")
     private String description;

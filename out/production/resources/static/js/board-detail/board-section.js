@@ -40,9 +40,76 @@ style_timeline.click(function (){
         style_timeline.prop('checked',true);
     }
 })
+
+
 //focus 걸기
 /*const style_form = $('.list-add-container-form');
 const focusme = $('#focusme')
 style_form.click(function (){
     focusme.focus();
 })*/
+const list_add_btn = $('.list-add-btn');
+const list_add_container = $('.list-add-container');
+const content_container  = $('.content-container');
+const list_add_card_button = $('.list-add-card-button');
+let allAddCardSections = $('.add-card-section');
+list_add_btn.click(function (){
+    list_add_btn.hide();
+    list_add_container.show();
+    event.stopPropagation();
+    console.log("h2");
+})
+
+list_add_container.click(function () {
+    event.stopPropagation();
+    }
+)
+content_container.click(function () {
+    list_add_container.hide();
+    list_add_btn.show();
+    if (allAddCardSections.length > 0) {
+        allAddCardSections.setAttribute('hidden', 'true');
+    }
+    console.log("h3");
+})
+
+$( function () {
+    $('.list-container').sortable({
+        cancel: ".not-sortable"
+    });
+});
+
+$( function () {
+    $('.cards-section').sortable({
+        connectWith : ".cards-section"
+    })
+})
+
+function addListToBoard(event) {
+    var formElement = event.target.closest('form');
+    var textareaElement = formElement.querySelector('.list-textarea');
+    var textareaValue = textareaElement.value;
+    if (textareaValue !== "" && textareaValue !== null){
+        var listFrame = document.getElementById("listFrame");
+        var clone = listFrame.content.cloneNode(true);
+        clone.querySelector('.list-textarea').value = textareaValue;
+        document.querySelector(".list-container").appendChild(clone);
+        document.querySelector(".list-container").style.padding = "12px 12px 0";
+        $('.cards-section').sortable({
+            connectWith : ".cards-section"
+        })
+        list_add_container.hide();
+        list_add_btn.show();
+    }
+}
+
+function showAddCard(event) {
+    var listAddCard = event.target.closest('.list-add-card');
+    console.log(listAddCard);
+    var list = listAddCard.closest('.list-detail');
+    console.log(list)
+    var addCardSection = list.querySelector('.add-card-section');
+    addCardSection.removeAttribute('hidden');
+    event.stopPropagation();
+
+}

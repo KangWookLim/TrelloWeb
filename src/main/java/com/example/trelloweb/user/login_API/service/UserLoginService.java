@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -23,8 +24,8 @@ public class UserLoginService implements UserDetailsService {
 
     private final UserJpaRepo userJpaRepo;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByID(username);
+    public AuthUser loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByEMAIL(username);
         if(optionalUserVo.isEmpty()){
             throw  new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
         }
@@ -37,9 +38,10 @@ public class UserLoginService implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
         return AuthUser.builder()
-                .ID(userVo.getID())
+                .UID(String.valueOf(userVo.getUseruid()))
                 .PW(userVo.getPW())
-                .IMG_URL(userVo.getIMG_URL())
+                .attributes(Map.of("email",userVo.getEMAIL(),"picture",userVo.getIMGURL(),"nickname",userVo.getNICKNAME()))
+                .AuthProvider("Trello")
                 .authorities(authorities)
                 .build();
     }

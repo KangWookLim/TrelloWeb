@@ -1,6 +1,8 @@
 package com.example.trelloweb.user.signup.form;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
@@ -10,32 +12,27 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SignupForm {
-    @Size(min = 3, max = 25, message = "아이디 길이는 3~25 글자 사이입니다")
-    @NotEmpty(message = "ID를 입력해주세요")
-    private String id;
-
-    @Size(min = 3, max = 20, message = "비밀번호 길이는 3~25글자 사이입니다")
-    @NotEmpty(message = "비밀번호를 입력해주세요")
-    private String pw;
-
-    @NotEmpty(message = "비밀번호를 확인해주세요")
-    private String pwcheck;
-
-    @NotEmpty(message = "이름을 입력해주세요")
-    private String fullname;
-
-    @NotEmpty(message = "닉네임을 입력해주세요")
-    private String nickname;
-
-    @NotEmpty(message = "연락처를 입력해주세요")
-    private String phone;
-
-    private String BIRTH;
-
+    @NotBlank(message = "이메일을 확인해주세요")
+//    @Pattern(regexp = "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,6}$", message = "이메일 형식이 올바르지 않습니다")
     private String EMAIL;
 
-    @NotEmpty(message = "성별을 선택해주세요")
-    private String GENDER;
+    @NotBlank(message = "비밀번호를 입력해주세요")
+//    @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,16}$", message = "영어, 숫자, 특수문자(@$!%*#?&)를 포함한 8~16자입니다")
+    private String pw;
+
+    @NotBlank(message = "비밀번호를 확인해주세요")
+    private String pwcheck;
+
+    @NotBlank(message = "이름을 입력해주세요")
+//    @Pattern(regexp = "^\\D*$", message = "이름에 숫자가 들어갈 수 없습니다")
+    private String fullname;
+
+    @NotBlank(message = "닉네임을 입력해주세요")
+//    @Pattern(regexp = "^[a-zA-Z0-9가-힣]+$", message = "닉네임에 특수문자가 들어갈 수 없습니다")
+    private String nickname;
+
+    @NotBlank(message = "생년월일을 선택해주세요")
+    private String BIRTH;
 
     @Size(max = 500, message = "자기소개는 500자 이하입니다")
     private String BIO;

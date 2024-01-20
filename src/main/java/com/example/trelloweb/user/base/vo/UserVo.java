@@ -1,94 +1,94 @@
 package com.example.trelloweb.user.base.vo;
 
 import com.example.trelloweb.board.board_mem.vo.Board_memVo;
-import com.example.trelloweb.card.comment.vo.Card_CommentVo;
-import com.example.trelloweb.card.mem.vo.Card_MemVo;
+import com.example.trelloweb.card.comment.vo.CardCommentVo;
+import com.example.trelloweb.card.mem.vo.CardMemVo;
 import com.example.trelloweb.user.Blocked_User.vo.Blocked_UserVo;
-import com.example.trelloweb.user.Recent_Act.vo.Recent_ActVo;
-import com.example.trelloweb.user.Starred_Board.vo.Starred_BoardVo;
+import com.example.trelloweb.user.Recent_Act.vo.RecentActVo;
+import com.example.trelloweb.user.Starred_Board.vo.StarredBoardVo;
 import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity(name = "users")
 public class UserVo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long USER_UID;
-
-    @Column(length = 100, unique = true, nullable = false)
-    private String ID;
-
-    @Column(length = 100, nullable = false)
-    private String PW;
-
-    @Column
-    @ColumnDefault("'profile/images/user.png'")
-    private String IMG_URL;
-
-    @Column(length = 100, unique = true, nullable = false)
-    private String NICKNAME;
-
-    @Column(length = 100, nullable = false)
-    private String FULLNAME;
+    @Column(name = "user_uid")
+    private Long useruid;
 
     @Column(length = 100, unique = true, nullable = false)
     private String EMAIL;
 
     @Column(length = 100)
+    private String PW;
+
+    @Column(name = "img_url")
+    @ColumnDefault("'profile/images/user.png'")
+    private String IMGURL;
+
+    @Column(length = 100, unique = true)
+    private String NICKNAME;
+
+    @Column(length = 100, nullable = false)
+    private String FULLNAME;
+
+    @Column(length = 100)
     private String BIRTH;
 
-    @ColumnDefault(value = "'M'")
-    private String GENDER;
-
-    @Column(length = 100, unique = true, nullable = false)
-    private String PHONE;
-
     @CreatedDate
-    private LocalDateTime CREATE_DATE;
+    @Column(name = "create_date")
+    private LocalDateTime CREATEDATE;
 
-    private LocalDateTime UPDATE_DATE;
+    @Column(name = "update_date")
+    private LocalDateTime UPDATEDATE;
 
-    @Column(length = 1000)@ColumnDefault("'안녕하세요!'")
+    @Column(length = 1000)
     private String BIO;
 
-    @Column(nullable = true)
-    private String SOCIAL_LINK_1;
-    @Column(nullable = true)
-    private String SOCIAL_LINK_2;
-    @Column(nullable = true)
-    private String SOCIAL_LINK_3;
-    @Column(nullable = true)
-    private String SOCIAL_LINK_4;
+    @Column(nullable = true, name = "social_link_1")
+    private String SOCIALLINK1;
+    @Column(nullable = true, name = "social_link_2")
+    private String SOCIALLINK2;
+    @Column(nullable = true, name = "social_link_3")
+    private String SOCIALLINK3;
+    @Column(nullable = true, name = "social_link_4")
+    private String SOCIALLINK4;
 
     @OneToMany(mappedBy = "Blocking_USER_UID", cascade = CascadeType.REMOVE)
     private List<Blocked_UserVo> blocking_userVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
-    private List<Recent_ActVo> recent_actVoList;
+    private List<RecentActVo> recentactVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
-    private List<Starred_BoardVo> starred_boardVoList;
+    private List<StarredBoardVo> starredboardVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
     private List<WorkSpaceMemVo> workSpaceMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
-    private List<Board_memVo> board_MemVoList;
+    private List<Board_memVo> boardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
-    private List<Card_MemVo> card_MemVoList;
+    private List<CardMemVo> cardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
-    private  List<Card_CommentVo> card_commentVoList;
+    private  List<CardCommentVo> cardcommentVoList;
 }

@@ -285,3 +285,10 @@ a:hover {
 #checkEmail:hover {
     background-color: #01409b;
 }
+
+.invaild{
+    color: palevioletred;
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 10px;
+}

@@ -37,39 +37,34 @@
                 </div>
             </div>
             <div  style="margin-bottom: 16px">
-                <form th:action="@{/user/signup}" th:object="${signupForm}" method="post" id="signup-form">
-                    <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
-                        <div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div>
-                    </div>
-                </form>
                 <form th:action="@{/user/signup}" th:object="${signupForm}" method="post">
                     <p style="font-size: 12px; color: #42526E"><span style="color: red">*</span>필수 확인란입니다.</p>
-                    <div style = "margin-bottom: 10px">ID: <span style="color: red">*</span><input  type="text" th:field="*{id}"  placeholder="사용할 아이디를 입력하세요" class="InputBox"></div>
-                    <button id = "checkID" type = "button" onclick = "userIDCheck()">중복 확인</button>
-                    <div style = "margin-bottom: 10px">Email: <span style="color: red">*</span><input  type="text" th:field="*{EMAIL}"  placeholder="이메일을 입력하세요" class="InputBox"></div>
-                    <button id = "checkEmail" type = "button" onclick = "userEmailChk()">중복 확인</button>
-                    <div style = "margin-bottom: 10px">Password: <span style="color: red">*</span><input type="password" th:field="*{pw}" placeholder="비밀번호를 입력하세요" class = "InputBox"></div>
-                    <div style = "margin-bottom: 10px">Confirm Password: <span style="color: red">*</span><input type="password" th:field="*{pwcheck}" placeholder="비밀번호 재입력" class = "InputBox"></div>
-                    <div style = "margin-bottom: 10px">FullName: <span style="color: red">*</span><input th:field="*{fullname}" class = "InputBox alphabetOnly"></div>
-                    <div style = "margin-bottom: 10px">NickName: <span style="color: red">*</span><input th:field="*{nickname}" class = "InputBox"></div>
-                    <button id = "checkNick" type = "button" onclick = "userNickCheck()">중복 확인</button>
-                    <div style = "margin-bottom: 10px">Phone Number: <span style="color: red">*</span><input th:field="*{phone}" class = "InputBox"></div>
-                    <button id = "checkPhone" type = "button" onclick = "userPhoneCheck()">중복 확인</button>
-                    <div style = "margin-bottom: 10px">Gender: <span style="color: red">*</span><br>
-                        <label>
-                            <input type="radio" th:field="*{GENDER}" value='F'>
-                            Female
-                        </label>
-                        <label>
-                            <input type="radio" th:field="*{GENDER}" value='M'>
-                            Male
-                        </label>
-<!--                        <label>-->
-<!--                            <input type="radio" name="gender" value="other">-->
-<!--                            Other-->
-<!--                        </label>-->
+                    <div style = "margin-bottom: 10px">Email: <span style="color: red">*</span>
+                        <input  type="text" th:field="*{EMAIL}"  placeholder="이메일을 입력하세요" class="InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('EMAIL')}" th:errors="*{EMAIL}"></div>
                     </div>
-                    <div style = "margin-bottom: 10px">Birthday: <span style="color: red">*</span><br><input type="date" th:field="*{BIRTH}"></div>
+                    <button id = "checkEmail" type = "button" onclick = "userEmailChk()">중복 확인</button>
+                    <div style = "margin-bottom: 10px">Password: <span style="color: red">*</span>
+                        <input type="password" th:field="*{pw}" placeholder="비밀번호를 입력하세요" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('pw')}" th:errors="*{pw}"></div>
+                    </div>
+                    <div style = "margin-bottom: 10px">Confirm Password: <span style="color: red">*</span>
+                        <input type="password" th:field="*{pwcheck}" placeholder="비밀번호 재입력" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('pwcheck')}" th:errors="*{pwcheck}"></div>
+                    </div>
+                    <div style = "margin-bottom: 10px">FullName: <span style="color: red">*</span>
+                        <input th:field="*{fullname}" class = "InputBox alphabetOnly">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('fullname')}" th:errors="*{fullname}"></div>
+                    </div>
+                    <div style = "margin-bottom: 10px">NickName: <span style="color: red">*</span>
+                        <input th:field="*{nickname}" class = "InputBox">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></div>
+                    </div>
+                    <button id = "checkNick" type = "button" onclick = "userNickCheck()">중복 확인</button>
+                    <div style = "margin-bottom: 10px">Birthday: <span style="color: red">*</span><br>
+                        <input type="date" th:field="*{BIRTH}">
+                        <div class="invaild" role="alert" th:if="${#fields.hasErrors('BIRTH')}" th:errors="*{BIRTH}"></div>
+                    </div>
                     <div>BIO(Write briefly about yourself): <textarea th:field="*{BIO}" rows = "5" cols = "42"></textarea></div>
                     <div><p class="div2">가입하면 Atlassian <a href="https://www.atlassian.com/legal/cloud-terms-of-service" target="_blank" rel="noreferrer noopener">Cloud 이용 약관</a>에 동의하고 <a href="https://www.atlassian.com/legal/privacy-policy" target="_blank" rel="noreferrer noopener">개인정보 보호정책</a>을 인정한 것으로 간주됩니다.</p></div>
                     <div style="margin-top: 8px">

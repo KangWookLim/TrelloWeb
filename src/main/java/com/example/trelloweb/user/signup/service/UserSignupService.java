@@ -19,34 +19,24 @@ public class UserSignupService {
     private final SignUpRepo signUpRepo;
     private final PasswordEncoder passwordEncoder;
 
-    public UserVo creat(String ID, String PW, String NICKNAME, String FULLNAME,
-                        String Email, String Birth, String gender, String PHONE, String Bio) {
+    public UserVo creat(String email, String PW, String NICKNAME, String FULLNAME,
+                         String Birth, String Bio) {
                 UserVo user = new UserVo();
-                user.setID(ID);
+                user.setEMAIL(email);
                 user.setPW(passwordEncoder.encode(PW));
                 user.setNICKNAME(NICKNAME);
                 user.setFULLNAME(FULLNAME);
-                user.setEMAIL(Email);
                 user.setBIRTH(Birth);
-                user.setGENDER(gender);
-                user.setPHONE(PHONE);
                 user.setBIO(Bio);
-                user.setCREATE_DATE(LocalDateTime.now());
-                user.setUPDATE_DATE(LocalDateTime.now());
+                user.setCREATEDATE(LocalDateTime.now());
+                user.setUPDATEDATE(LocalDateTime.now());
                 userJpaRepo.save(user);
                 return user;
     }
 
-    public int idDuplicateCheck(String id){
-        return signUpRepo.idduplicatCheck(id);
-    }
 
     public int nicknameCheck(String nickname){
         return signUpRepo.nickduplicatCheck(nickname);
-    }
-
-    public int phoneCheck(String phone){
-        return signUpRepo.phoneduplicatCheck(phone);
     }
 
     public int checkEmail(String email) {

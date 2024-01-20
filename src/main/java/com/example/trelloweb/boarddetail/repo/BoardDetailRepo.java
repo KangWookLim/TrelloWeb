@@ -1,28 +1,12 @@
-//package com.example.trelloweb.boarddetail.repo;
-//
-//import com.example.trelloweb.boarddetail.vo.BoardDetailVo;
-//import org.springframework.jdbc.core.RowMapper;
-//import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-//import org.springframework.stereotype.Repository;
-//
-//import java.sql.Connection;
-//import java.sql.PreparedStatement;
-//import java.util.List;
-//
-//@Repository
-//public class BoardDetailRepo {
-//    NamedParameterJdbcTemplate jdbcTemplate;
-//    RowMapper<BoardDetailVo> rowMapper = (rs, rowNum) ->
-//            new BoardDetailVo(
-//                     rs.getString("board_id"),
-//                    rs.getString("ws_id"),
-//                    rs.getString("name"),
-//                    rs.getString("image_url"),
-//                    rs.getString("description"),
-//                    rs.getString("template_id")
-//            );
-//    protected List<BoardDetailVo> getAllBoard(){
-//        String sql = "select * from board";
-//        return jdbcTemplate.query(sql,rowMapper);
-//    }
-//}
+package com.example.trelloweb.boarddetail.repo;
+
+import com.example.trelloweb.board.Base.vo.BoardVo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface BoardDetailRepo extends JpaRepository<BoardVo,Long> {
+    /*List<BoardVo> findAllByBoardId(Long boardId);*/
+
+    /*List<BoardVo> findallByBoardId(Long );*/
+}
