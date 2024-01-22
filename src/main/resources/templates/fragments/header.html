@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="header">
     <link rel="stylesheet" th:href="@{/css/header/header.css}">
@@ -64,8 +64,74 @@
                         <img th:src="@{/images/icons/close.png}" class="drop-create-close"/>
                     </button>
                 </div>
-                <form id="createBoard">
+                <form th:action="@{/board/create}" method="post">
                     <div id="drop-create-board-container">
+                        <div id="drop-create-ex-img">
+                            <div id="drop-create-ex-background">
+                                <img th:src="@{/images/background/backgroundContent.svg}"/>
+                            </div>
+                        </div>
+                        <div id="drop-create-picker-container">
+                            <div>
+                                <label for="background-picker">Background</label>
+                            </div>
+                            <div id="background-picker">
+                                <ul class="background-picker-ul">
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button button-clicked" th:style="'background-image: url(https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'">
+                                            <span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>
+                                        </button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705336402584-b5deb3aa6cd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705445826760-f020a78b4023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705312409574-a2e2b0d11d61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                </ul>
+                                <ul class="background-picker-ul">
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background1.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background2.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background3.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background4.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background5.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background6.svg} +');'"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <label for="boardTitleInput" class="board-create-title">
+                                    <div>
+                                        Board title
+                                    </div>
+                                    <input type=text id="boardTitleInput" name="BoardName" required>
+                                </label>
+                                <label for="board-ws-select">Workspace</label>
+                                <div>
+                                    <select id="board-ws-select" name="WS_ID" required>
+                                        <option th:each="WSList : ${WSList}" th:value="${WSList.getWS_ID}" th:text="${WSList.getWS_NAME}" name="WS_ID"></option>
+                                    </select>
+                                </div>
+                                <input type="hidden" id="board_background_hidden" name="ImgUrl" value="https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400">
+                                <button type="submit" class="board-create-button" id="board-create">
+                                    Create
+                                </button>
+                            </div>
+                        </div>
 
                     </div>
                 </form>
@@ -148,6 +214,19 @@
             click2.style.display = "none";
 
         }
+        $('.background-picker-button').click(function(){
+            $('.background-picker-button').removeClass("button-clicked");
+            $('.background-picker-button').empty();
+            $('#board_background_hidden').val("")
+            $(this).addClass("button-clicked");
+            $(this).append('<span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>');
+            var getting = $(this).css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+            $('#board_background_hidden').val(getting);
+            $('#drop-create-ex-background').css("background-image", "url(" + getting +")");
+        })
+
+        const csrfToken = $("meta[name='csrfToken']").attr('content');
+        const csrfParameter = $("meta[name='csrfParameter']").attr('content')
 
 
     </script>

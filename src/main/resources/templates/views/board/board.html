@@ -182,7 +182,7 @@
               </div>
               <ul class="board-section-list">
                 <li class="board-section-list-item" th:each="boardsList : ${boardsList}" th:if="${WSList.getWS_ID == boardsList.getWS_ID}">
-                  <a class="board-section-item-img">
+                  <a class="board-section-item-img" th:style="'background-image: url(' + ${boardsList.getBOARD_IMG} + ');'">
                     <div class="board-detail-box">
                       <div class="board-detail-name" th:text="${boardsList.getBOARD_NAME}">
 
