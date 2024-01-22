@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>TrelloWeb</title>
+    <link rel="stylesheet" th:href="@{/css/board/board.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+    <th:block th:replace="fragments/config::config"></th:block>
+</head>
+<body>
+<div th:replace="fragments/header::header"></div>
+    <div layout:fragment="content" class="content"
+         style = "min-height : calc(100vh - 48px);"></div>
+</body>
+</html>

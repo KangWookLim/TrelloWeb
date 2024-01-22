@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.springframework.org/security/tags">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" th:href="@{/css/board/boardsidebar.css}">
+    <link rel="stylesheet" th:href="@{/css/board/board-detail.css}">
+    <link rel="stylesheet" th:href="@{/css/board/board-section.css}">
+    <link rel="stylesheet" th:href="@{/css/board/board-modal.css}">
+
+    <title>TrelloWeb</title>
+    <th:block th:replace="~{fragments/config::config}"></th:block>
+</head>
+<body>
+<div th:replace="~{fragments/header::header}"></div>
+<div class="board-base-container" style="display: flex; flex-direction: row; position: relative; overflow-y: auto; height: 100%; min-height:calc(100% - 48px); background: black;">
+    <div layout:fragment="boardnav" class="boardsidebar">
+    </div>
+    <div layout:fragment="content" class="content">
+    </div>
+</div>
+<div layout:fragment="modal_section" class="modal">
+</div>
+<div layout:fragment="section" class="section">
+</div>
+</body>
+</html>
