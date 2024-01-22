@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+@IdClass(StarredBoardPK.class)
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor

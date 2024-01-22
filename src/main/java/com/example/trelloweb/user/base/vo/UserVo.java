@@ -29,9 +29,9 @@ import java.util.List;
 public class UserVo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "user_uid")
-    private Long useruid;
+    private String useruid;
 
     @Column(length = 100, unique = true, nullable = false)
     private String EMAIL;
@@ -71,7 +71,7 @@ public class UserVo {
     @Column(nullable = true, name = "social_link_4")
     private String SOCIALLINK4;
 
-    @OneToMany(mappedBy = "Blocking_USER_UID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "BlockingUSERUID", cascade = CascadeType.ALL)
     private List<Blocked_UserVo> blocking_userVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)

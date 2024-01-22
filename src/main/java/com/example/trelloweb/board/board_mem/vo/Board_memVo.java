@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
+@IdClass(Board_memPk.class)
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor

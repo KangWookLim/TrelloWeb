@@ -21,7 +21,7 @@ public class BoardVo {
     @Column(name = "board_id")
     private Long BoardId;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "WS_ID")
     private WorkSpaceVo WSID;
 
