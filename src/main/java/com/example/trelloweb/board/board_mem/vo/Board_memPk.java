@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @Data
 public class Board_memPk implements Serializable {
-    private Long USERUID;
-    private Long BoardID;
+    private Long uservo;
+    private Long boardvo;
 }

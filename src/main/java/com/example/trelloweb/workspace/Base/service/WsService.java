@@ -12,7 +12,7 @@ import java.util.List;
 public class WsService {
     private final WsJPARepo wsJPARepo;
     public WorkSpaceVo getWsById(Long id) {
-       return wsJPARepo.getReferenceById(id);
+       return wsJPARepo.findById(id).get();
     }
     public List<WorkSpaceVo> getAllWS(){
         return wsJPARepo.findAll();
