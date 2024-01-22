@@ -188,9 +188,9 @@
 
                       </div>
                       <div class="board-detail-ws">
-                            <span th:text="${boardsList.getWS_NAME}">
+                        <span th:text="${boardsList.getWS_NAME}">
 
-                            </span>
+                        </span>
                         <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
                       </div>
                     </div>
@@ -242,7 +242,7 @@
     $(".board-starred-icon").click(function() {
       console.log("check1");
       const arrowImage = $(".board-detail-ws").children("img");
-      arrowImage.attr("src", function(index, attr){
+      $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
         }
@@ -252,8 +252,8 @@
       });
     });
     $(".board-starred-icon").hover(function() {
-      const arrowImage = $(".board-detail-ws").children("img");
-      arrowImage.attr("src", function(index, attr){
+      const arrowImage = $(this).children("img");
+      $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
         }
