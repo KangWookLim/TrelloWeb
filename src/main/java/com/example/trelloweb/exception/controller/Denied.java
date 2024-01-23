@@ -11,7 +11,7 @@ public class Denied {
     @GetMapping("/denied")
     public ModelAndView getDenied(Principal principal){
         ModelAndView view = new ModelAndView();
-        view.setViewName("/denied/denied");
+        view.setViewName("denied/denied");
         System.out.println(principal);
         return view;
     }

@@ -38,9 +38,9 @@ public class BoardVo {
     @Column(length = 500) @ColumnDefault("'My_Board'")
     private String description;
 
-    @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Board_memVo> board_memVoList;
 
-    @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<ListVo> listVoList;
 }

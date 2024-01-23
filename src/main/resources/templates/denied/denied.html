@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      layout:decorate="~{layout/main_layout}">
-
-<div layout:fragment="content" style = "min-height : calc(100vh - 48px);">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <link rel="stylesheet" th:href="@{/css/denied/denied.css}">
     <div>
         <img alt="deniedimg" th:src="@{/images/denied/denied.jpg}">
     </div>
-    <span sec:authorize="hasRole(T(com.example.trelloweb.user.Role.UserRole).USER)">관리자 전용 페이지 입니다.</span>
 </div>
 </html>

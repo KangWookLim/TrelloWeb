@@ -16,11 +16,12 @@ public class UserSignupService {
     private final SignUpRepo signUpRepo;
     private final PasswordEncoder passwordEncoder;
 
-    public void creat(String email, String PW, String NICKNAME, String FULLNAME,
+    public void creat(String ID, String PW, String email, String NICKNAME, String FULLNAME,
                       String Birth, String Bio) {
                 UserVo user = new UserVo();
-                user.setEMAIL(email);
+                user.setID(ID);
                 user.setPW(passwordEncoder.encode(PW));
+                user.setEMAIL(email);
                 user.setNICKNAME(NICKNAME);
                 user.setFULLNAME(FULLNAME);
                 user.setBIRTH(Birth);
@@ -30,9 +31,11 @@ public class UserSignupService {
                 userJpaRepo.save(user);
     }
 
-    public void OAuth2create(String email, String PW, String NICKNAME, String FULLNAME,
+    public void OAuth2create(String UID ,String ID, String PW, String email, String NICKNAME, String FULLNAME,
                              String Birth, String Bio, String IMGURL){
         UserVo user = new UserVo();
+        user.setUseruid(UID);
+        user.setID(ID);
         user.setEMAIL(email);
         user.setPW(passwordEncoder.encode(PW));
         user.setNICKNAME(NICKNAME);
@@ -53,4 +56,6 @@ public class UserSignupService {
     public int checkEmail(String email) {
         return signUpRepo.checkEmail(email);
     }
+
+    public int IDduplicateCheck(String id){ return signUpRepo.IDduplicateCheck(id); }
 }
