@@ -5,14 +5,13 @@ server:
 #      #      #Mac OS
 #      #      path: /Users/laku_mwa/resource/
 #      #      Windows OS
-#      path: C:\NakyeonInt\resources
+#      path: C:\NakyeonInt\resources+
 spring:
   profiles:
     include: oauth
   main:
     allow-bean-definition-overriding: true
   devtools:
-
     livereload:
       enabled: true
     restart:
@@ -59,13 +58,14 @@ spring:
         useServerPrepStmts: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
         format_sql: true
         show_sql: true
     database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
   thymeleaf:
     cache: false
     check-template-location: true
