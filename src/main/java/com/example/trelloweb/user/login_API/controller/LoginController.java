@@ -20,7 +20,7 @@ public class LoginController {
     }
     @PostMapping("/check")
     @ResponseBody
-    public void check(@RequestBody String params){
+    public void check(@RequestParam Map<String,Objects> params){
         System.out.println(params);
     }
 }
