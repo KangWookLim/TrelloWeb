@@ -1,12 +1,19 @@
 package com.example.trelloweb.board.Base.controller;
 
 import com.example.trelloweb.board.Base.service.BoardSearchService;
+import com.example.trelloweb.board.Base.service.BoardService;
 import com.example.trelloweb.board.Base.vo.Boards;
 import com.example.trelloweb.board.Base.vo.WorkSpaces;
+import com.example.trelloweb.board.board_mem.service.BoardMemService;
+import com.example.trelloweb.board.board_mem.vo.Board_memVo;
+import com.example.trelloweb.user.base.service.UserService;
+import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.workspace.Base.service.WsService;
+import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -16,6 +23,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BoardController {
     private final BoardSearchService boardSearchService;
+    private final BoardService boardService;
+    private final BoardMemService boardMemService;
+    private final WsService wsService;
+    private final UserService userService;
 
     @GetMapping("/board")//User's current board
     @ResponseBody
@@ -26,6 +37,14 @@ public class BoardController {
         view.addObject("WSList", WSList);
         view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
+        return view;
+    }
+    @PostMapping("/board/create")
+    public ModelAndView createBoard(@RequestParam("BoardName") String BoardName, @RequestParam("WS_ID") int WS_ID, @RequestParam("ImgUrl") String ImgUrl, Principal principal) {
+        ModelAndView view = new ModelAndView();
+        WorkSpaceVo WS = wsService.getWsById((long)WS_ID);
+        boardMemService.create(boardService.createBoard(BoardName,  ImgUrl, WS),userService.findByUSER_UID(principal.getName()).get());
+        view.setViewName("redirect:/board");
         return view;
     }
 
