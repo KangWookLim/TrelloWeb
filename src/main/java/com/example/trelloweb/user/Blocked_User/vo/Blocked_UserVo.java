@@ -22,9 +22,9 @@ public class Blocked_UserVo {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "bolcking_user_uid", unique = true)
-    private UserVo Blocking_USER_UID;
+    @JoinColumn(name = "bolcking_user_uid")
+    private UserVo BlockingUSERUID;
 
     @Column
-    private LocalDateTime Blocked_Time;
+    private LocalDateTime BlockedTime;
 }

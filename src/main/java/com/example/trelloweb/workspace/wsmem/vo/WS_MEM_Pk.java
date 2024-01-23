@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @Data
 public class WS_MEM_Pk implements Serializable {
-    private Long uservo;
+    private String uservo;
     private Long WSID;
 }

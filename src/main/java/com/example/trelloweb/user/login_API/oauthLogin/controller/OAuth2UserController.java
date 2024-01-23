@@ -30,7 +30,8 @@ public class OAuth2UserController {
     @GetMapping("/OAuth2UserCheck")
     public ModelAndView OAuth2User(ThirdSignForm thirdSignForm, OAuth2AuthenticationToken authenticationToken){
         ModelAndView view = new ModelAndView();
-        if(userJpaRepo.existsByEMAIL((String)authenticationToken.getPrincipal().getAttributes().get("email"))){
+        String Email = (String)authenticationToken.getPrincipal().getAttributes().get("email");
+        if(userJpaRepo.existsByEMAIL(Email)){
             view.setViewName("redirect:/home");
         }else{
             view.setViewName("views/oauth2/oauth2sign");
@@ -44,7 +45,6 @@ public class OAuth2UserController {
         view.addObject("thirdSignForm", thirdSignForm);
         view.setViewName("views/oauth2/oauth2sign");
         SecurityContextHolder.getContext().setAuthentication(null);
-        System.out.println(authuser);
         if(bindingResult.hasErrors()){
             return view;
         }

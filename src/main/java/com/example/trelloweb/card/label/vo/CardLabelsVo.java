@@ -21,7 +21,7 @@ public class CardLabelsVo {
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 
-    @ColumnDefault(value = "null")
+    @Column(nullable = false)
     private String title;
 
     @Column(nullable = false)
