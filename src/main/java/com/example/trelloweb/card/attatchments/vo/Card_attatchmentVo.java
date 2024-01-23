@@ -16,16 +16,23 @@ import java.time.LocalDateTime;
 public class Card_attatchmentVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long att_id;
+    @Column(name = "att_id")
+    private Long attid;
 
     @ManyToOne
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 
     @CreatedDate
-    private LocalDateTime added_date;
+    @Column(name = "added_date")
+    private LocalDateTime addeddate;
 
-    private String origin_file_name;
+    @Column(name = "origin_file_name")
+    private String originfilename;
 
-    private String stored_file_name;
+    @Column(name = "stored_file_name")
+    private String storedfilename;
+
+    @Column(name = "att_board_id")
+    private Long attboardid;
 }
