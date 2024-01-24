@@ -48,6 +48,7 @@ public class BoardController {
         return view;
     }
 
+
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();

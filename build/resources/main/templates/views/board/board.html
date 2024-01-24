@@ -149,7 +149,7 @@
 
               <div class="board-page-section-header">
                 <div class="board-icon-container">
-                  <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class="board-page-section-header-icon">
+                  <img th:src="${WSList.getWS_IMG()}" class="board-page-section-header-icon">
                 </div>
                 <h3 class="board-section-header-name" th:text="${WSList.getWS_NAME}">
                 </h3>
@@ -241,7 +241,6 @@
 
     $(".board-starred-icon").click(function() {
       console.log("check1");
-      const arrowImage = $(".board-detail-ws").children("img");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -252,7 +251,6 @@
       });
     });
     $(".board-starred-icon").hover(function() {
-      const arrowImage = $(this).children("img");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
