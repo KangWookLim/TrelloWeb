@@ -94,6 +94,7 @@
     height : 32px;
     justify-content: center;
     align-items: center;
+    color: #9fadbc;
 }
 .header-create-btn {
     border : none;
@@ -799,4 +800,11 @@
     overflow: hidden;
     width: calc(100vw - 48px);
     z-index: 2;
+}
+.header-active-button {
+    background-color: #1c2b41;
+    color: #579dff;
+}
+.header-btn-dropdown {
+    z-index:1;
 }

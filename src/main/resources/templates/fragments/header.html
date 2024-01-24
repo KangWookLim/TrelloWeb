@@ -19,7 +19,11 @@
             <div class="header-flexible-btn-container">
                 <button class = "header-flexible-btn">Workspace<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
                 <button class = "header-flexible-btn">Recent<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
-                <button class = "header-flexible-btn">Starred<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+                <button class = "header-flexible-btn">Starred<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/>
+                    <div class="header-btn-dropdown">
+
+                    </div>
+                </button>
                 <button class = "header-flexible-btn">Templates<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
             </div>
             <button onclick="dp_create()" class = "header-create-btn"> Create </button>
@@ -315,6 +319,9 @@
         $(".ws-create-close").click(function(){
             let click = document.getElementById("drop-create-ws");
             click.style.display = "none";
+        })
+        $(".header-flexible-btn").click(function(){
+            $(this).toggleClass("header-active-button")
         })
 
     </script>

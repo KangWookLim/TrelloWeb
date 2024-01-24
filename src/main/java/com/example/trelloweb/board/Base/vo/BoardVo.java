@@ -43,4 +43,5 @@ public class BoardVo {
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE)
     private List<ListVo> listVoList;
+
 }
