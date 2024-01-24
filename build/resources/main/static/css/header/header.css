@@ -240,7 +240,7 @@
 }
 #header-user-profile-dropdown {
     position: fixed;
-    inset: 48px auto auto 1054px;
+    inset: 48px auto auto;
     width: 232px;
     color: #b6c2cf;
     font-size: 14px;
@@ -619,4 +619,184 @@
 }
 .board-create-button:active {
     background-color: #cce0ff;
+}
+.drop-create-ws {
+    z-index: 1;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.75);
+    box-sizing: border-box;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow: auto;
+    width: 100vw;
+    position: fixed;
+}
+.ws-create-cover {
+    background: transparent;
+    position: relative;
+    margin: 48px 0;
+    width: auto;
+}
+.ws-create-container {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 0 24px;
+    overflow: auto;
+    text-align: left;
+    z-index: 3;
+    margin: 64px auto 16px;
+}
+.ws-create-form {
+    width:388px;
+    text-align : left;
+}
+.ws-create-title {
+    color: #b6c2cf;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 28px;
+    display: block;
+    margin-bottom: 12px;
+}
+.ws-create-subtitle {
+    font-size: 18px;
+    color: #9fadbc;
+    margin: 12px auto 24px;
+}
+.ws-create-form label {
+    margin-top: 24px;
+    color: #b6c2cf;
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-bottom: 4px;
+}
+#WsName {
+    width: 388px;
+    height: 48px;
+    margin-bottom: 6px;
+    -webkit-appearance: none;
+    background-color: #22272b;
+    border: none;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 2px #a6c5e229;
+    box-sizing: border-box;
+    display: block;
+    line-height: 20px;
+    outline: none;
+    padding: 8px 12px;
+    transition-duration: 85ms;
+    transition-property: background-color,border-color,box-shadow;
+    transition-timing-function: ease;
+}
+.ws-input-desc {
+    color: #9fadbc;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+.ws-create-optional {
+    color: #9fadbc;
+    font-size: 12px;
+    font-weight: 100;
+}
+#WsImg {
+    width: 388px;
+    margin-bottom: 6px;
+    resize: none;
+    -webkit-appearance: none;
+    background-color: #22272b;
+    border: none;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 2px #a6c5e229;
+    box-sizing: border-box;
+    display: block;
+    line-height: 20px;
+    outline: none;
+    padding: 8px 12px;
+    transition-duration: 85ms;
+    transition-property: background-color,border-color,box-shadow;
+    transition-timing-function: ease;
+}
+.ws-create-form footer {
+    width: 100%;
+    margin-top: 12px;
+}
+.ws-create-button {
+    width: 388px;
+    height: 48px;
+    background-color: #579dff;
+    box-shadow: none;
+    border: none;
+    color: #1d2125;
+    font-weight: 500;
+    transition-property: background-color, border-color, box-shadow;
+    transition-duration: 85ms;
+    transition-timing-function: ease;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 6px 12px;
+    text-decoration: none;
+    white-space: normal;
+    font-size: 14px;
+    line-height: 20px;
+    position: relative;
+}
+.ws-create-bg-container {
+    align-items: flex-start;
+    padding-top: 112px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+.ws-create-bg-img {
+    width: 342px;
+    aspect-ratio: auto 342 / 256;
+    height: 256px;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+.ws-create-close {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    color: #9fadbc;
+    padding: 0;
+    text-decoration: none;
+    margin-top: 16px;
+    z-index: 2;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+.ws-create-flex-box {
+    position: relative;
+    align-items: stretch;
+    background-color: #22272b;
+    border-radius: 3px;
+    box-shadow: var(--ds-shadow-overlay, 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px #a6c5e229);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    min-height: 500px;
+    margin-top: 16px;
+    outline: 0;
+    overflow: hidden;
+    width: calc(100vw - 48px);
+    z-index: 2;
 }
