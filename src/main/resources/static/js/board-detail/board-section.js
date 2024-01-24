@@ -67,9 +67,10 @@ list_add_container.click(function () {
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
-    if (allAddCardSections.length > 0) {
+    /*add-card-section 클래스 히든 걸기*/
+    /*if (allAddCardSections.length > 0) {
         allAddCardSections.setAttribute('hidden', 'true');
-    }
+    }*/
     console.log("h3");
 })
 
@@ -112,4 +113,24 @@ function showAddCard(event) {
     addCardSection.removeAttribute('hidden');
     event.stopPropagation();
 
+}
+
+const modalBackground = document.getElementById("card-background");
+const modalContainer = document.getElementById("card-container");
+
+modalBackground.addEventListener('click', () => {
+    modalBackground.style.display = "none";
+});
+
+modalContainer.addEventListener('click', () => {
+    event.stopPropagation();
+})
+
+
+function setAndShowModal (element){
+    let cardId = element.getAttribute("cardid");
+    console.log(cardId);
+
+
+    modalBackground.style.display = "flex";
 }
