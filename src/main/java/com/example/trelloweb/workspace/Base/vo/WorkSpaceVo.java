@@ -19,7 +19,7 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class WorkSpaceVo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "WS_ID")
     private Long workspaceId;
 

@@ -30,7 +30,7 @@ public class BoardVo {
     private WorkSpaceVo WSID;
 
     @Column(length = 100, nullable = false)
-    private String BoardName;
+    private String boardName;
 
     @Column(name="image_URL")
     private String imageURL;
