@@ -10,6 +10,9 @@ import lombok.Setter;
 @Setter
 public class ThirdSignForm {
 
+    @NotBlank(message = "아이디를 입력해주세요")
+    private String ID;
+
     @NotBlank(message = "닉네임을 입력해주세요")
 //    @Pattern(regexp = "^[a-zA-Z0-9가-힣]+$", message = "닉네임에 특수문자가 들어갈 수 없습니다")
     private String nickname;

@@ -1,13 +1,36 @@
 let isNickNameDuplicate = true;
-function getCSRFToken() {
-    const metaTag = document.querySelector('meta[name="_csrf"]');
-    return metaTag ? metaTag.getAttribute('content') : '';
-}
+let isUserIdChk = true;
 $(document).ready(function() {
     submitablecheck();
 })
 
-let nickNameInput = document.querySelector("#nickname");
+function userIdChk(){
+    const ID = $('#ID').val();
+    if ($.trim(ID).length === 0) {
+        alert('아이디를 입력하십시오.');
+        return false;
+    }else if(ID.indexOf(" ") >= 0){
+        alert('공백을 입력할 수 없습니다.')
+        return
+    }
+
+    $.ajax({
+        url : '/user/chkID',
+        type : 'get',
+        data :{
+            id : ID
+        }
+    }).done(function (data){
+        if (data === 0) {
+            alert('사용가능한 아이디 입니다');
+            isUserIdChk = false;
+            submitablecheck()
+        }
+        else {
+            alert('이미 등록된 아이디 입니다.');
+        }
+    })
+}
 
 function userNickCheck(){
     const nick = $('#nickname').val();

@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -31,24 +32,54 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         String provider = userRequest.getClientRegistration().getRegistrationId();
         OAuth2UserService<OAuth2UserRequest, OAuth2User> oAuth2UserService = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = oAuth2UserService.loadUser(userRequest);
+        System.out.println(provider);
         System.out.println(oAuth2User);
         if(provider.equals("google")){
-            String Email = oAuth2User.getAttribute("email");
-            System.out.println(Email);
-            if(userJpaRepo.existsByEMAIL(Email)){
-                AuthUser authUser = userLoginService.loadUserByUsername(Email);
+            String UID = oAuth2User.getName();
+            Optional<UserVo> opUser = userJpaRepo.findByUseruid(UID);
+            if(opUser.isPresent()){
+                AuthUser authUser = userLoginService.loadUserByUsername(opUser.get().getID());
                 authUser.setAuthProvider(provider);
                 return authUser;
+            }else {
+                return AuthUser.builder()
+                        .UID(UID)
+                        .PW("1234")
+                        .attributes(oAuth2User.getAttributes())
+                        .AuthProvider("google")
+                        .build();
             }
         }else if(provider.equals("naver")) {
-            String Email = oAuth2User.getAttribute("email");
-            System.out.println(((Map<String, Objects>)oAuth2User.getAttribute("response")).get("email"));
-            if(userJpaRepo.existsByEMAIL(Email)){
-                AuthUser authUser = userLoginService.loadUserByUsername(Email);
+            String UID = (String) ((Map<String,Object>)oAuth2User.getAttributes().get("response")).get("id");
+            Optional<UserVo> opUser = userJpaRepo.findByUseruid(UID);
+            if(opUser.isPresent()){
+                AuthUser authUser = userLoginService.loadUserByUsername(opUser.get().getID());
                 authUser.setAuthProvider(provider);
                 return authUser;
+            }else {
+                return AuthUser.builder()
+                        .UID(UID)
+                        .PW("1234")
+                        .attributes((Map<String,Object>)oAuth2User.getAttributes().get("response"))
+                        .AuthProvider("naver")
+                        .build();
+            }
+        }else if(provider.equals("github")) {
+            String UID = oAuth2User.getName();
+            Optional<UserVo> opUser = userJpaRepo.findByUseruid(UID);
+            if(opUser.isPresent()){
+                AuthUser authUser = userLoginService.loadUserByUsername(opUser.get().getID());
+                authUser.setAuthProvider(provider);
+                return authUser;
+            }else {
+                return AuthUser.builder()
+                        .UID(UID)
+                        .PW("1234")
+                        .attributes(oAuth2User.getAttributes())
+                        .AuthProvider("github")
+                        .build();
             }
         }
-        return oAuth2User;
+        return null;
     }
 }

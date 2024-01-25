@@ -24,6 +24,6 @@ public class WorkSpaceMemVo {
     @JoinColumn(name = "WS_ID")
     private WorkSpaceVo WSID;
 
-    @Column(nullable = false) @ColumnDefault("'Nomal'")
+    @Column(nullable = false) @ColumnDefault("'Normal'")
     private String Role;
 }

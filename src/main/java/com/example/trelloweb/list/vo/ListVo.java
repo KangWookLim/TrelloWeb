@@ -29,7 +29,7 @@ public class ListVo {
     @JoinColumn(name = "Board_Id")
     private BoardVo boardvo;
 
-    @OneToMany(mappedBy = "listid", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "listid", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @OrderBy("cardorder ASC")
     private List<CardVo> cardVoList;
 }

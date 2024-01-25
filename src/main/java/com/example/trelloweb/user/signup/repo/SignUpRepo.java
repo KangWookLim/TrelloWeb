@@ -16,9 +16,18 @@ public class SignUpRepo {
     private RowMapper<SignupVo> rowMapper = ((rs, rowNum) ->
             new SignupVo(
                     rs.getString("id"),
-                    rs.getString("nickname"),
-                    rs.getString("phone")
+                    rs.getString("nickname")
             ));
+
+    public int IDduplicateCheck(String id){
+        String sql = "select count(*) from users where id = :id";
+        Map<String,String> params = Map.of("id", id);
+        try{
+            return jdbcTemplate.queryForObject(sql, params, int.class);
+        }catch (NullPointerException e){
+            return 0;
+        }
+    }
 
     public int nickduplicatCheck(String nick){
         String sql = "select count(*) from users where nickname = :nick";

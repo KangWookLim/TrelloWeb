@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,8 +16,10 @@ import java.util.List;
 @Entity(name = "Workspace")
 @RequiredArgsConstructor
 @AllArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class WorkSpaceVo {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "WS_ID")
     private Long workspaceId;
 
@@ -28,10 +31,10 @@ public class WorkSpaceVo {
 
     private String IMG_URL;
 
-    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<WorkSpaceMemVo> workspaceMem;
 
-    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<BoardVo> boardVoList;
 }
 

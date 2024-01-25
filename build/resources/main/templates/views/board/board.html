@@ -81,7 +81,7 @@
       <div id = "home-board-wrapper">
         <div id = "content-all-board">
 <!--          즐겨찾기-->
-          <div class = "board-section-box">
+          <div class = "board-section-box" id="starred-boards">
             <div class="board-section-header">
               <div class="board-icon-container">
                 <img th:src="@{/images/icons/star.png}" class="board-section-header-icon">
@@ -92,16 +92,17 @@
                 Starred boards
               </h3>
             </div>
-            <ul class="board-section-list">
-              <li class="board-section-list-item">
-                <a class="board-section-item-img">
+            <ul class="board-section-list" id="board-starred-ul">
+
+              <li class="starred-board-section-list-item" th:each="starredList : ${starredList}">
+                <a class="board-section-item-img" th:style="'background-image: url(' + ${starredList.getBOARD_IMG} + ');'">
                     <div class="board-detail-box">
-                        <div class="board-detail-name">
-                          test board
+                        <div class="board-detail-name" th:text="${starredList.getBOARD_NAME()}">
+
                         </div>
                         <div class="board-detail-ws">
-                          <span>
-                          test workspace
+                          <span th:text="${starredList.getWS_NAME}">
+
                           </span>
                           <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
                         </div>
@@ -132,7 +133,7 @@
                           <span>
                           test workspace
                           </span>
-                      <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                      <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
                     </div>
                   </div>
                 </a>
@@ -149,7 +150,7 @@
 
               <div class="board-page-section-header">
                 <div class="board-icon-container">
-                  <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class="board-page-section-header-icon">
+                  <img th:src="${WSList.getWS_IMG()}" class="board-page-section-header-icon">
                 </div>
                 <h3 class="board-section-header-name" th:text="${WSList.getWS_NAME}">
                 </h3>
@@ -191,7 +192,7 @@
                         <span th:text="${boardsList.getWS_NAME}">
 
                         </span>
-                        <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
                       </div>
                     </div>
                   </a>
@@ -223,6 +224,12 @@
       activeTrello.attr("src", function(index, attr){
         return attr.replace("trello", "trelloA");
       });
+
+      if($('.starred-board-section-list-item').length < 1) {
+        let star = document.getElementById("starred-boards");
+        star.style.display = "none"
+      }
+
     })
 
     $("#home-workspace-box").click(function() {
@@ -241,7 +248,6 @@
 
     $(".board-starred-icon").click(function() {
       console.log("check1");
-      const arrowImage = $(".board-detail-ws").children("img");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -252,7 +258,6 @@
       });
     });
     $(".board-starred-icon").hover(function() {
-      const arrowImage = $(this).children("img");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -261,8 +266,10 @@
           return attr.replace("empty", "full");
         }
       });
-
     })
+
+
+
   </script>
 </div>
 </html>
