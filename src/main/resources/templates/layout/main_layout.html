@@ -15,9 +15,8 @@
     <link rel="stylesheet" th:href="@{/css/sidebar.css}">
     <th:block th:replace="fragments/config::config"></th:block>
 </head>
-<body>
+<body style = "height : 100vh; background-color: #1d2125;">
 <div th:replace="fragments/header::header"></div>
-    <div layout:fragment="content" class="content"
-         style = "min-height : calc(100vh - 48px);"></div>
+    <div layout:fragment="content" class="content"></div>
 </body>
 </html>

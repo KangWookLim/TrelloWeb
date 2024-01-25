@@ -36,10 +36,10 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab">
+            <li id = "home-workspace-tab" th:each="WSList :${WSList}">
               <a id = "home-workspace-box">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
-                <span>Workspace Name</span>
+                <img th:src="${WSList.getWS_IMG()}" class = "ws-main-img">
+                <span th:text="${WSList.getWS_NAME}"></span>
                 <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
               </a>
               <ul id = "ws-btn-ul">
@@ -186,22 +186,21 @@
                   <a class="board-section-item-img" th:style="'background-image: url(' + ${boardsList.getBOARD_IMG} + ');'">
                     <div class="board-detail-box">
                       <div class="board-detail-name" th:text="${boardsList.getBOARD_NAME}">
-
+                      <span class="checkboard-item"></span>
                       </div>
                       <div class="board-detail-ws">
                         <span th:text="${boardsList.getWS_NAME}">
 
                         </span>
-                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
+                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon" th:value="${boardsList.getBOARD_ID}">
                       </div>
                     </div>
                   </a>
                   <div class="ex-margin1"></div>
                 </li>
-                <li class="board-section-list-item">
+                <li class="board-section-list-item" onclick="create_board()">
                   <div class="board-section-add">
                     <p>Create new board</p>
-                    <p class="remaining">6 remaining</p>
                     <div></div>
                   </div>
                 </li>
@@ -247,7 +246,11 @@
     });
 
     $(".board-starred-icon").click(function() {
-      console.log("check1");
+
+    })
+
+    $(".board-starred-icon").click(function() {
+      let board_Id = $(this).attr("value");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -256,6 +259,17 @@
           return attr.replace("empty", "full");
         }
       });
+      $.ajax({
+        type: "POST",
+        url:"/board/star",
+        data : board_Id,
+        success: function(data){
+          console.log(data);
+        },
+        error : function(xhr, status, error){
+          console.log(xhr.status);
+        }
+      })
     });
     $(".board-starred-icon").hover(function() {
       $(this).attr("src", function(index, attr){

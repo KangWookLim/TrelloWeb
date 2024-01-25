@@ -51,6 +51,18 @@ public class BoardController {
         view.setViewName("redirect:/board");
         return view;
     }
+    @RequestMapping(value="/board/star")
+    public ModelAndView updateStarBoard(@RequestParam("boardId") String boardId, Principal principal) {
+        ModelAndView view = new ModelAndView();
+        int check = boardService.checkStarredBoard(boardId, principal.getName());
+        if(check > 0) {
+            //delete starred board
+        }else{
+            //create starred board
+        }
+        view.setViewName("redirect:/board");
+        return view;
+    }
 
 
     @GetMapping("/home")//Authuser's home page

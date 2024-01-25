@@ -115,6 +115,9 @@ div {
     width: 23.5%;
     cursor: pointer;
 }
+.board-section-list-item:nth-of-type(4n), .starred-board-section-list-item:nth-of-type(4n) {
+    margin-right:0;
+}
 .board-section-item-img {
     background-image: url(https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x365/0c34d811eabe0f3e955b05f79e9517a6/photo-1696384036025-c7d7b7f6584d.jpg);
     background-position: 50%;
