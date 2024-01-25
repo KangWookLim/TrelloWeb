@@ -35,11 +35,11 @@ public class OAuth2UserRestController {
             email = (String) authUser.getAttribute("email");
             name = (String)authUser.getAttribute("name");
         }else if(authUser.getAuthProvider().equals("naver")){
-            picture = (String)authUser.getAttribute("picture");
+            picture = (String)authUser.getAttribute("profile_image");
             email = (String) authUser.getAttribute("email");
             name = (String)authUser.getAttribute("name");
         }else if(authUser.getAuthProvider().equals("github")){
-            picture = (String)authUser.getAttribute("picture");
+            picture = (String)authUser.getAttribute("avatar_url");
             email = (String) authUser.getAttribute("login");
             name = (String)authUser.getAttribute("name");
         }
