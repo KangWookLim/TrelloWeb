@@ -25,7 +25,8 @@ public class UserLoginService implements UserDetailsService {
     private final UserJpaRepo userJpaRepo;
     @Override
     public AuthUser loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByEMAIL(username);
+        Optional<UserVo> optionalUserVo = this.userJpaRepo.findByID(username);
+        System.out.println(optionalUserVo);
         if(optionalUserVo.isEmpty()){
             throw  new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
         }

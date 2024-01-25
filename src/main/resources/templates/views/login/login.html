@@ -72,10 +72,7 @@
                     </button>
                 </div>
                 <div style="margin-bottom: 16px">
-                    <button class = "btn2 btn3"><span><img src = "https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.520/apple-logo.54e0d711.svg"></span>Apple</button>
-                </div>
-                <div style="margin-bottom: 16px">
-                    <button class = "btn2 btn3"><span><img src = "https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.520/slack-logo.5d730c10.svg"></span>Slack</button>
+                    <button class = "btn2 btn3" onclick="location.href='/oauth2/authorization/github'"><span><img src = "https://aid-frontend.prod.atl-paas.net/atlassian-id/front-end/5.0.520/apple-logo.54e0d711.svg"></span>Apple</button>
                 </div>
             </div>
             <div>
@@ -135,25 +132,5 @@
 
     </div>
 </div>
-<script type="text/javascript">
-    const token = $("meta[name='_csrf']").attr("content");
-    const header = $("meta[name='_csrf_header']").attr("content");
-    function ajaxcheck(){
-        $.ajax({
-            type: "POST",
-            url: "/user/check",
-            data: {
-                name : '조성연',
-                age : 25
-            },
-            beforeSend: function(xhr){
-                xhr.setRequestHeader(header, token);
-            },
-            success(){
-                alert("성공")
-            }
-        })
-    }
-</script>
-
 </html>
+<script type="text/javascript" th:src="@{/js/login/login.js}"></script>

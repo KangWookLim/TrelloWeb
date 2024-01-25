@@ -31,10 +31,10 @@ public class WorkSpaceVo {
 
     private String IMG_URL;
 
-    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<WorkSpaceMemVo> workspaceMem;
 
-    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<BoardVo> boardVoList;
 }
 

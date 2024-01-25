@@ -11,6 +11,10 @@ public class SignupRestController {
 
     private final UserSignupService userSignupService;
 
+    @GetMapping("/chkID")
+    @ResponseBody
+    public int IDcheck(@RequestParam("id") String id){ return userSignupService.IDduplicateCheck(id); }
+
     @GetMapping("/chkEmail")
     @ResponseBody
     public int chkEmail(@RequestParam("email") String email) {

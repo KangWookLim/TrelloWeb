@@ -11,5 +11,4 @@ import java.io.Serializable;
 public class SignupVo {
     private String ID;
     private String NICKNAME;
-    private String PHONE;
 }

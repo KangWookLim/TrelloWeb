@@ -52,19 +52,19 @@ public class CardVo {
 
     private LocalDateTime updated_date;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardLabelsVo> card_labelsVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardMemVo> card_memVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Card_attatchmentVo> card_attatchmentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardCommentVo> card_commentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardTaskVo> card_taskVoList;
 
 }
