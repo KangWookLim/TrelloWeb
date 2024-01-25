@@ -43,4 +43,5 @@ public class BoardVo {
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<ListVo> listVoList;
+
 }

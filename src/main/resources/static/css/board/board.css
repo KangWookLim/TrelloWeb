@@ -108,7 +108,7 @@ div {
     justify-content: flex-start;
     margin-bottom : 0;
 }
-.board-section-list-item {
+.board-section-list-item, .starred-board-section-list-item{
     margin: 0 2% 2% 0;
     padding: 0;
     transform: translate(0);
@@ -156,6 +156,7 @@ div {
     max-height: 40px;
     overflow: hidden;
     width: 100%;
+    color:#fff;
 }
 .board-detail-ws {
     align-items: baseline;

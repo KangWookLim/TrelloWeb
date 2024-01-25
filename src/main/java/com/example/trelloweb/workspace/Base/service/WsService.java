@@ -1,5 +1,6 @@
 package com.example.trelloweb.workspace.Base.service;
 
+import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.workspace.Base.Repo.WsJPARepo;
 import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
 import lombok.RequiredArgsConstructor;
@@ -16,5 +17,12 @@ public class WsService {
     }
     public List<WorkSpaceVo> getAllWS(){
         return wsJPARepo.findAll();
+    }
+
+    public WorkSpaceVo createWS(String WsName, String WsImg) {
+        WorkSpaceVo WS = new WorkSpaceVo();
+        WS.setWorkspacename(WsName);
+        WS.setIMG_URL(WsImg);
+        return wsJPARepo.save(WS);
     }
 }

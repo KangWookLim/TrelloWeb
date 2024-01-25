@@ -614,7 +614,7 @@ html, body{
     border-radius: 3px;
     cursor: pointer;
     padding: 6px 12px;
-    text-decoration: none;
+    text-decoration: none ! important;
     white-space: normal;
     background-color: #454f59;
     color: #b6c2cf;
@@ -730,4 +730,185 @@ html, body{
     clear: both;
     content: "";
     display: table;
+}
+
+.attachment-thumbnail-priview {
+    background-color: #a1bdd914;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 3px;
+    height: 80px;
+    left: 0;
+    margin-top: -40px;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 50%;
+    width: 112px;
+    z-index: 1;
+}
+
+.attachment-thumbnail-priview-ext {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    height: 100%;
+    line-height: 80px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.attachment-thumbnail-detail {
+    font-size: 14px;
+    line-height: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 0;
+    min-height: 80px;
+    padding: 8px 8px 8px 128px;
+}
+
+.attachment-thumbnail-name {
+    word-wrap: break-word;
+    font-weight: 700;
+}
+
+.attachment-thumbnail-detail-title-options {
+    display: block;
+}
+
+.checklist-progress {
+    margin-bottom: 6px;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+.checklist-progress-percentage {
+    color: #9fadbc;
+    font-size: 11px;
+    left: 0;
+    line-height: 10px;
+    position: absolute;
+    text-align: center;
+    top: -1px;
+    width: 32px;
+}
+.checklist-progress-bar {
+    background: #a1bdd914;
+    border-radius: 4px;
+    clear: both;
+    height: 8px;
+    margin: 0 0 0 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.checklist-progress-bar-current {
+    background: #0055cc;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition-duration: .14s;
+    transition-property: width,background;
+    transition-timing-function: ease-in;
+}
+
+.checklist-items-list {
+    min-height: 8px;
+}
+.checklist-item {
+    border-radius: 12px;
+    box-sizing: border-box;
+    clear: both;
+    padding-left: 40px;
+    position: relative;
+    transform-origin: left bottom;
+    transition-duration: .15s;
+    transition-property: transform,opacity,height,padding,margin,background-color;
+    transition-timing-function: ease-in;
+}
+
+.checklist-item-checkbox {
+    cursor: pointer;
+    left: 2px;
+    margin: 6px;
+    position: absolute;
+    text-align: center;
+    top: 4px;
+}
+.checklist-item-detail {
+    border-radius: 12px;
+    margin: 0 0 0 -8px;
+    overflow-wrap: break-word;
+    padding: 6px 8px;
+    word-break: break-word;
+}
+
+.new-comment {
+    margin: 0 0 8px 40px;
+    position: relative;
+}
+
+.member {
+    left: -40px;
+    position : absolute;
+    cursor: default;
+    border-radius: 25em;
+    display: block;
+    float: left;
+    height: 32px;
+    margin: 0 4px 4px 0;
+    overflow: visible;
+    text-decoration: none;
+    user-select: none;
+    width: 32px;
+    z-index: 0;
+}
+
+.member-inside {
+    position: relative;
+    line-height: 10px;
+    overflow: visible;
+    white-space: nowrap;
+    vertical-align: top;
+}
+
+.phenom-comment {
+    margin-left: 40px;
+    min-height: 32px;
+    padding: 8px 0;
+    position: relative;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.phenom-desc {
+    display : block;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.inline-spacer {
+    display: inline-block;
+    min-width: 4px;
+}
+
+.comment {
+    background-color: #22272b;
+    border-radius: 8px;
+    box-sizing: border-box;
+    clear: both;
+    margin: 4px 2px 4px 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.current-comment {
+    padding: 8px 12px;
 }

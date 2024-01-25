@@ -3,6 +3,7 @@ package com.example.trelloweb.board.Base.controller;
 import com.example.trelloweb.board.Base.service.BoardSearchService;
 import com.example.trelloweb.board.Base.service.BoardService;
 import com.example.trelloweb.board.Base.vo.Boards;
+import com.example.trelloweb.board.Base.vo.StarredBoards;
 import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import com.example.trelloweb.board.board_mem.service.BoardMemService;
 import com.example.trelloweb.board.board_mem.vo.Board_memVo;
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Collections;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,6 +36,8 @@ public class BoardController {
         ModelAndView view = new ModelAndView();
         List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
+        List<StarredBoards> starredList = boardSearchService.findAllStarredBoards(principal.getName());
+        view.addObject("starredList", starredList);
         view.addObject("WSList", WSList);
         view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
@@ -47,6 +51,7 @@ public class BoardController {
         view.setViewName("redirect:/board");
         return view;
     }
+
 
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
