@@ -318,7 +318,7 @@
                     <div class="list-card">
                         <ol class="cards-section">
                             <li class="card-outer" th:each="card, loop : ${list.getCardVoList()}">
-                                <div class="card-inner" th:cardid = "${card.card_id}" onclick="setAndShowModal(this)">
+                                <div class="card-inner" th:cardid = "${card.cardid}" onclick="setAndShowModal(this)">
                                     <a th:text="${card.name}">
                                     </a>
                                 </div>
