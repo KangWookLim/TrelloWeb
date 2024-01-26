@@ -27,7 +27,7 @@ import java.util.List;
 public class CardVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long card_id;
+    private Long cardid;
 
     @ManyToOne
     @JoinColumn(name = "list_id")

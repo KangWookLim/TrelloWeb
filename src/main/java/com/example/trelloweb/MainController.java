@@ -12,7 +12,7 @@ public class MainController {
     @GetMapping("/")
     public ModelAndView mainPage(HttpSession session) {
         ModelAndView view = new ModelAndView();
-        view.setViewName("views/home");
+        view.setViewName("test/test");
         return view;
     }
     //이동 예정
