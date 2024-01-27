@@ -16,13 +16,11 @@ public class UserService {
     private final UserJpaRepo userJpaRepo;
 
     public int checkEmail(String email) {
-        int result = userMapper.checkEmail(email);
-        System.out.println(result);
-        return result;
+        return userMapper.checkEmail(email);
     }
 
     public Optional<UserVo> findByUSER_UID(String user_uid) {
-        return userJpaRepo.findById(Long.parseLong(user_uid));
+        return userJpaRepo.findById(user_uid);
     }
 
 }

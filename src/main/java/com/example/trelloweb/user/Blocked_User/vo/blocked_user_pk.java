@@ -7,6 +7,6 @@ import java.io.Serializable;
 
 @Data
 public class blocked_user_pk implements Serializable {
-    private Long uservo;
-    private Long Blocking_USER_UID;
+    private String uservo;
+    private String BlockingUSERUID;
 }

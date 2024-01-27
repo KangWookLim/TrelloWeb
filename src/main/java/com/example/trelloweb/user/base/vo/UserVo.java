@@ -16,6 +16,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 
 @Getter
@@ -29,18 +30,20 @@ import java.util.List;
 public class UserVo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_uid")
-    private Long useruid;
+    private String useruid;
 
-    @Column(length = 100, unique = true, nullable = false)
-    private String EMAIL;
+    @Column(unique = true, nullable = false)
+    private String ID;
 
     @Column(length = 100)
     private String PW;
 
+    @Column(length = 100, nullable = false)
+    private String EMAIL;
+
     @Column(name = "img_url")
-    @ColumnDefault("'profile/images/user.png'")
+    @ColumnDefault("'images/profile/user.png'")
     private String IMGURL;
 
     @Column(length = 100, unique = true)
@@ -71,24 +74,36 @@ public class UserVo {
     @Column(nullable = true, name = "social_link_4")
     private String SOCIALLINK4;
 
-    @OneToMany(mappedBy = "Blocking_USER_UID", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "BlockingUSERUID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Blocked_UserVo> blocking_userVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<RecentActVo> recentactVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<StarredBoardVo> starredboardVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<WorkSpaceMemVo> workSpaceMemVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Board_memVo> boardMemVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardMemVo> cardMemVoList;
 
-    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private  List<CardCommentVo> cardcommentVoList;
+
+
+    @PrePersist
+    public void prePersist() {
+        if (this.useruid == null) {
+            this.useruid = generateUuid();
+        }
+    }
+
+    private String generateUuid() {
+        return UUID.randomUUID().toString();
+    }
 }

@@ -13,7 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface UserJpaRepo extends JpaRepository<UserVo, Long> {
+public interface UserJpaRepo extends JpaRepository<UserVo, String> {
+
+    Optional<UserVo> findByUseruid(String useruid);
+    boolean existsByUseruid(String userUID);
+    Optional<UserVo> findByID(String id);
     Optional<UserVo> findByEMAIL(String email);
     boolean existsByEMAIL(String email);
 

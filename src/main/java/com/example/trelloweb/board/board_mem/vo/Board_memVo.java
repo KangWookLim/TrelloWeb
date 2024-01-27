@@ -7,8 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
+@IdClass(Board_memPk.class)
 @Data
+@DynamicInsert
+@DynamicUpdate
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity(name = "Board_member")
@@ -23,6 +28,6 @@ public class Board_memVo {
     @JoinColumn(name = "Board_Id")
     private BoardVo boardvo;
 
-    @Column(nullable = false, name = "board_access") @ColumnDefault("'Nomal'")
+    @Column(nullable = false, name = "board_access") @ColumnDefault("'Normal'")
     private String Boardaccess;
 }

@@ -9,23 +9,31 @@ import com.example.trelloweb.list.vo.ListVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Fetch;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+@Getter
 @RequiredArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity(name = "card")
 public class CardVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long card_id;
+    private Long cardid;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id")
     private ListVo listid;
 
@@ -48,19 +56,19 @@ public class CardVo {
 
     private LocalDateTime updated_date;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardLabelsVo> card_labelsVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardMemVo> card_memVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Card_attatchmentVo> card_attatchmentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardCommentVo> card_commentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<CardTaskVo> card_taskVoList;
 
 }

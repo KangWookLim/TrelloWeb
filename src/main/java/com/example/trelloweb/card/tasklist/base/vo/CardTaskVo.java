@@ -31,6 +31,6 @@ public class CardTaskVo {
     @CreatedDate
     private LocalDateTime createddate;
 
-    @OneToMany(mappedBy = "cardtaskvo", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "cardtaskvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<TaskitemVO> taskItemList;
 }

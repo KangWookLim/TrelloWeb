@@ -52,6 +52,7 @@ const list_add_btn = $('.list-add-btn');
 const list_add_container = $('.list-add-container');
 const content_container  = $('.content-container');
 const list_add_card_button = $('.list-add-card-button');
+let allAddCardSections = $('.add-card-section');
 list_add_btn.click(function (){
     list_add_btn.hide();
     list_add_container.show();
@@ -66,6 +67,10 @@ list_add_container.click(function () {
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
+    /*add-card-section 클래스 히든 걸기*/
+    /*if (allAddCardSections.length > 0) {
+        allAddCardSections.setAttribute('hidden', 'true');
+    }*/
     console.log("h3");
 })
 
@@ -81,11 +86,51 @@ $( function () {
     })
 })
 
-function addListToBoard() {
-    var listFrame = document.getElementById("listFrame");
-    console.log(listFrame);
-    console.log(document.getElementById("listFrame"));
-    var clone = listFrame.content.cloneNode(true);
-    document.querySelector(".list-container").appendChild(clone);
-    clone.querySelector(".list").removeAttribute("hidden");
+function addListToBoard(event) {
+    var formElement = event.target.closest('form');
+    var textareaElement = formElement.querySelector('.list-textarea');
+    var textareaValue = textareaElement.value;
+    if (textareaValue !== "" && textareaValue !== null){
+        var listFrame = document.getElementById("listFrame");
+        var clone = listFrame.content.cloneNode(true);
+        clone.querySelector('.list-textarea').value = textareaValue;
+        document.querySelector(".list-container").appendChild(clone);
+        document.querySelector(".list-container").style.padding = "12px 12px 0";
+        $('.cards-section').sortable({
+            connectWith : ".cards-section"
+        })
+        list_add_container.hide();
+        list_add_btn.show();
+    }
+}
+
+function showAddCard(event) {
+    var listAddCard = event.target.closest('.list-add-card');
+    console.log(listAddCard);
+    var list = listAddCard.closest('.list-detail');
+    console.log(list)
+    var addCardSection = list.querySelector('.add-card-section');
+    addCardSection.removeAttribute('hidden');
+    event.stopPropagation();
+
+}
+
+const modalBackground = document.getElementById("card-background");
+const modalContainer = document.getElementById("card-container");
+
+modalBackground.addEventListener('click', () => {
+    modalBackground.style.display = "none";
+});
+
+modalContainer.addEventListener('click', () => {
+    event.stopPropagation();
+})
+
+
+function setAndShowModal (element){
+    let cardId = element.getAttribute("cardid");
+    console.log(cardId);
+
+
+    modalBackground.style.display = "flex";
 }

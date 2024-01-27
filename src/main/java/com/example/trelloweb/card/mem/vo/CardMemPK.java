@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @Data
 public class CardMemPK implements Serializable {
-    private Long uservo;
+    private String uservo;
     private Long cardvo;
 }
