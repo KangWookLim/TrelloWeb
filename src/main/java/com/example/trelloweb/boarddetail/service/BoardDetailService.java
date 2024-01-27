@@ -8,17 +8,24 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class BoardDetailService {
     private final BoardDetailRepo boardDetailRepo;
+    private final CardDetailRepo cardDetailRepo;
     public List<BoardVo> getAllBoard() {
 
         return boardDetailRepo.findAll();
     }
 
 
+    public Optional<CardVo> getCardDetail(Long cardid) {
+
+        return cardDetailRepo.findById(cardid);
+
+    }
 }
 
 /*public List<BoardVo> getBoardById(Long boardId) {

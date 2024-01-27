@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,6 +26,14 @@ public class BoardDetailController {
         return view;
     }
 
+    @RequestMapping("/card_detail")
+    @ResponseBody
+    public CardVo getCardDetail(@RequestParam("cardid") Long cardid){
+        Optional<CardVo> optCardVo = boardDetailService.getCardDetail(cardid);
+        CardVo cardvo = optCardVo.get();
+
+        return cardvo;
+    }
 
 }
 
