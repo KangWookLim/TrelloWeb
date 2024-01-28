@@ -21,6 +21,9 @@ spring:
       client-name: naver
       authorization-grant-type: authorization_code
       redirect-uri: http://localhost:8091/login/oauth2/code/naver
+     github:
+      client-id: 527091411d4502628f25
+      client-secret: 20788e54a3077ac71a88e41f0a71036af4556d91
     provider:
      naver:
       authorization-uri: https://nid.naver.com/oauth2.0/authorize

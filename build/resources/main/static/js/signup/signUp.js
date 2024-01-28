@@ -1,5 +1,6 @@
 let isNickNameDuplicate = true;
-let  isUserEmailChk = true;
+let isUserEmailChk = true;
+let isUserIdChk = true;
 function getCSRFToken() {
     const metaTag = document.querySelector('meta[name="_csrf"]');
     return metaTag ? metaTag.getAttribute('content') : '';
@@ -103,9 +104,38 @@ function userEmailChk() {
         }
     })
 }
+
+function userIdChk(){
+    const ID = $('#ID').val();
+    if ($.trim(ID).length === 0) {
+        alert('이메일을 입력하십시오.');
+        return false;
+    }else if(ID.indexOf(" ") >= 0){
+        alert('공백을 입력할 수 없습니다.')
+        return
+    }
+
+    $.ajax({
+        url : '/user/chkID',
+        type : 'get',
+        data :{
+            id : ID
+        }
+    }).done(function (data){
+        if (data === 0) {
+            alert('사용가능한 아이디 입니다');
+            isUserIdChk = false;
+            submitablecheck()
+        }
+        else {
+            alert('이미 등록된 아이디 입니다.');
+        }
+    })
+}
+
 const signup_btn = $('#signup-btn');
 function submitablecheck(){
-    if(isNickNameDuplicate||isUserEmailChk){
+    if(isNickNameDuplicate||isUserEmailChk||isUserIdChk){
         signup_btn.prop('disabled', true)
         signup_btn.css('background-color', 'gray')
     }else{
@@ -114,38 +144,3 @@ function submitablecheck(){
     }
 }
 
-
-// $(document).ready(function () {
-//         const urlParams = new URLSearchParams(window.location.search);
-//         const token = urlParams.get('token');
-//         console.log(token);
-//         if ($.trim(token).length === 0) {
-//             alert('Token Required');
-//             window.location.href = "/"
-//
-//         }
-//
-//         $.ajax({
-//             url : '/signup/chkToken',
-//             type : 'post',
-//             dataType : 'json',
-//             data : 'json',
-//             data : {
-//                 token : token
-//             }
-//         }).done(function(data) {
-//             if (data === 0){
-//                 console.log(data);
-//                 alert ('The token is not valid');
-//                 window.location.href = "/";
-//             }
-//             else {
-//                 console.log(data);
-//             }
-//         }).fail(function (xhr, status, error) {
-//             alert('시스템에 문제가 발생했습니다. 관리자에게 문의해주세요.');
-//             console.log(status);
-//             console.log(error);
-//         })
-//     }
-// )
