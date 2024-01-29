@@ -23,7 +23,7 @@ public class CardLabelRepo {
             );
     public List<CardLabels> getLabels(Long cardId){
         String sql = "SELECT * FROM CARD_LABELS where card_id = :cardid";
-        Map<String, Long> params = Map.of("card_id",cardId);
+        Map<String, Long> params = Map.of("cardid",cardId);
         return jdbcTemplate.query(sql, params, rowMapper);
     }
 }
