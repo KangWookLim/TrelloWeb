@@ -6,6 +6,8 @@ import com.example.trelloweb.card.label.vo.CardLabelsVo;
 import com.example.trelloweb.card.mem.vo.CardMemVo;
 import com.example.trelloweb.card.tasklist.base.vo.CardTaskVo;
 import com.example.trelloweb.list.vo.ListVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +34,9 @@ public class CardVo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cardid;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "list_id")
+    @JsonBackReference
     private ListVo listid;
 
     @Column(name = "card_order")
@@ -56,19 +58,24 @@ public class CardVo {
 
     private LocalDateTime updated_date;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardLabelsVo> card_labelsVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardMemVo> card_memVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<Card_attatchmentVo> card_attatchmentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardCommentVo> card_commentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardTaskVo> card_taskVoList;
 
 }

@@ -30,9 +30,7 @@ public class BoardDetailController {
     @ResponseBody
     public CardVo getCardDetail(@RequestParam("cardid") Long cardid){
         Optional<CardVo> optCardVo = boardDetailService.getCardDetail(cardid);
-        CardVo cardvo = optCardVo.get();
-
-        return cardvo;
+        return optCardVo.orElse(null);
     }
 
 }

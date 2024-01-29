@@ -3,6 +3,8 @@ package com.example.trelloweb.board.Base.vo;
 import com.example.trelloweb.board.board_mem.vo.Board_memVo;
 import com.example.trelloweb.list.vo.ListVo;
 import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +29,7 @@ public class BoardVo {
 
     @ManyToOne
     @JoinColumn(name = "WS_ID")
+    @JsonBackReference
     private WorkSpaceVo WSID;
 
     @Column(length = 100, nullable = false)
@@ -39,9 +42,11 @@ public class BoardVo {
     private String description;
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Board_memVo> board_memVoList;
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<ListVo> listVoList;
 
 }

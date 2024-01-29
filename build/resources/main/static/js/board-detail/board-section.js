@@ -126,11 +126,34 @@ modalContainer.addEventListener('click', () => {
     event.stopPropagation();
 })
 
+//modal 변수 및 함수 선언
+//modal id는 언더바 사용
+let card_name = document.getElementById("card_name");
+let card_list_id = document.getElementById("card_list_id");
+
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
     console.log(cardId);
-
-
+    let CardDetailVo = null;
+    $.ajax({
+        type: 'get',
+        url : '/card_detail',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        CardDetailVo = data;
+    }).fail(function (xhr, status, error) {
+        alert('Unexpected error. Please contact System Administrator for ');
+        console.log(status);
+    });
+    if (CardDetailVo == null){
+        console.log("vo is null")
+    }
+    else {
+        console.log("vo is not null")
+    }
     modalBackground.style.display = "flex";
+    event.stopPropagation();
 }
