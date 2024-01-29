@@ -1,10 +1,15 @@
 @charset "UTF-8";
 
+.mandatory{
+    background-color: #42526E;
+}
+
 .profileWrapper {
     width: 920px;
     margin: auto;
     padding-top: 100px;
-
+    display: flex;
+    flex-direction: column;
 }
 .profileWrapper>hr {
     width : 100%;
@@ -13,10 +18,21 @@
 .change {
     border: 1px solid black;
     background-color: rgba(31,136,61,255);
-    padding: 8px 12px;
+    width: 130px;
+    height: 35px;
     border-radius: 6px;
     font-size: 12px;
     font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.change:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(120,136,61,255);
 }
 
 .changeButton {
@@ -240,3 +256,4 @@
     background-color: white;
     border: none;
 }
+

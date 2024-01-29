@@ -212,7 +212,7 @@
                 <img th:src="@{/images/icons/bell.png}" style = "height: 24px; width: 24px;"/>
             </button>
             <button class = "header-user-btn" onclick="dp_profile()">
-                <img th:src="@{/images/icons/user.png}" style = "height: 24px; width: 24px;"/>
+                <img th:src="@{${#authentication.principal.getAttribute('picture')}}" style = "height: 32px; width: 32px; border-radius: 16px"/>
             </button>
             <div id="header-user-profile-dropdown" style="display : none;">
                 <div class="header-profile-account">
@@ -234,6 +234,11 @@
                     <a th:href="@{/user/logout}">
                         <button class="header-profile-logout-btn">
                             Log out
+                        </button>
+                    </a>
+                    <a th:href="@{/user/profile}">
+                        <button class="header-profile-logout-btn">
+                            Profile
                         </button>
                     </a>
                 </div>

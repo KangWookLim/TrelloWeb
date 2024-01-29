@@ -2,6 +2,7 @@ package com.example.trelloweb.board.board_mem.vo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.user.base.vo.UserVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,11 +22,13 @@ public class Board_memVo {
     @Id
     @ManyToOne
     @JoinColumn(name = "USER_UID")
+    @JsonBackReference
     private UserVo uservo;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "Board_Id")
+    @JsonBackReference
     private BoardVo boardvo;
 
     @Column(nullable = false, name = "board_access") @ColumnDefault("'Normal'")
