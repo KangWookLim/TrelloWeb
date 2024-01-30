@@ -309,7 +309,7 @@
     </div>
     <div class="content-container">
         <div class="list-container">
-            <div th:each = "list, loop : ${boards.get(0).getListVoList()}"  class="list-detail-container">
+            <div th:each = "list, loop : ${board.getListVoList()}"  class="list-detail-container">
                 <div class="list-detail">
                     <div  class="list-header not-sortable">
                         <textarea class = "list-textarea" style="width: 220px; height: 32px" th:text="${list.name}"></textarea>
