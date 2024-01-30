@@ -1,6 +1,5 @@
 package com.example.trelloweb.user.Blocked_User.vo;
 
-import com.example.trelloweb.user.base.vo.UserVo;
 import lombok.Data;
 
 import java.io.Serializable;

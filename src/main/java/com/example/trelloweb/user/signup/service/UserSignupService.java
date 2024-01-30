@@ -1,7 +1,7 @@
 package com.example.trelloweb.user.signup.service;
 
 import com.example.trelloweb.user.base.repo.UserJpaRepo;
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.user.base.entity.UserVo;
 import com.example.trelloweb.user.signup.repo.SignUpRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

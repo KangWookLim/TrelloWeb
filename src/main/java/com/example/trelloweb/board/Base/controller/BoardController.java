@@ -6,20 +6,16 @@ import com.example.trelloweb.board.Base.vo.Boards;
 import com.example.trelloweb.board.Base.vo.StarredBoards;
 import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import com.example.trelloweb.board.board_mem.service.BoardMemService;
-import com.example.trelloweb.board.board_mem.vo.Board_memVo;
 import com.example.trelloweb.user.base.service.UserService;
-import com.example.trelloweb.user.base.vo.UserVo;
 import com.example.trelloweb.workspace.Base.service.WsService;
 import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Collections;
 
 @Controller
 @RequiredArgsConstructor

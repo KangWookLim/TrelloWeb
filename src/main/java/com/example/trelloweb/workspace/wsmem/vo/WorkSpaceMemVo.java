@@ -1,6 +1,6 @@
 package com.example.trelloweb.workspace.wsmem.vo;
 
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.user.base.entity.UserVo;
 import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

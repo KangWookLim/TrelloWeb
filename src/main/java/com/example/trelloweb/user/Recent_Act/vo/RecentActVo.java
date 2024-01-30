@@ -1,6 +1,6 @@
 package com.example.trelloweb.user.Recent_Act.vo;
 
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.user.base.entity.UserVo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

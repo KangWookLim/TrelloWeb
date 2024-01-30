@@ -1,7 +1,7 @@
 package com.example.trelloweb.board.board_mem.vo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.user.base.entity.UserVo;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
