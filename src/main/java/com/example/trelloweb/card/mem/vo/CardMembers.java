@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class CardMembers {
     private Long card_id;
     private String user_uid;
+    private String nickname;
 }

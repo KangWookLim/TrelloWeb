@@ -20,10 +20,15 @@ public class CardAttachmentRepo {
                     rs.getLong("att_id"),
                     rs.getLong("card_id"),
                     rs.getString("origin_file_name"),
-                    rs.getString("stored_file_name")
+                    rs.getString("stored_file_name"),
+                    rs.getString("board_name"),
+                    rs.getString("image_url")
             );
     public List<CardAttachments> getAttachments(Long cardId){
-        String sql = "SELECT * FROM CARD_ATTATCHMENTS where card_id = :cardid";
+        String sql = "SELECT ca.*, b.board_name, b.image_url\n" +
+                "FROM CARD_ATTATCHMENTS ca\n" +
+                "JOIN BOARD b ON ca.att_board_id = b.board_id\n" +
+                "WHERE ca.card_id = :cardid";
         Map<String, Long> params = Map.of("cardid",cardId);
         return jdbcTemplate.query(sql, params, rowMapper);
     }
