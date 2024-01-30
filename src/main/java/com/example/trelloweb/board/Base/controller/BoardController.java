@@ -47,7 +47,7 @@ public class BoardController {
         view.setViewName("redirect:/board");
         return view;
     }
-    @RequestMapping(value="/board/star")
+    @PostMapping(value="/board/star")
     public ModelAndView updateStarBoard(@RequestParam("boardId") String boardId, Principal principal) {
         ModelAndView view = new ModelAndView();
         int check = boardService.checkStarredBoard(boardId, principal.getName());

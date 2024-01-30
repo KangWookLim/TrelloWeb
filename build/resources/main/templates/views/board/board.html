@@ -258,14 +258,18 @@
           return attr.replace("empty", "full");
         }
       });
+      console.log(board_Id);
       $.ajax({
         type: "POST",
         url:"/board/star",
-        data : board_Id,
+        data : {
+          boardId : board_Id
+        },
         beforeSend: function(xhr){
           xhr.setRequestHeader(header, token);
         },
         success: function(data){
+          alert('성공')
           console.log(data);
         },
         error : function(xhr, status, error){
