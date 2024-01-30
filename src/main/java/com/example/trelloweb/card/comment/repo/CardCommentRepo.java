@@ -27,7 +27,7 @@ public class CardCommentRepo {
 
 
     public List<CardComments> getComments(Long cardId){
-        String sql = "SELECT * FROM CARD_COMMENT where card_id = :cardid";
+        String sql = "SELECT * FROM CARD_COMMENT where card_id = :card_id";
         Map<String, Long> params = Map.of("card_id",cardId);
         return jdbcTemplate.query(sql, params, rowMapper);
     }

@@ -64,11 +64,11 @@ public class CardDetailController {
         return cardLabelService.getLabels(cardid);
     }
 
-    /*@RequestMapping("/cardtask")
+    @RequestMapping("/task")
     @ResponseBody
     public List<CardTasks> getCardTasks(@RequestParam("cardid") Long cardid){
-        return card
-    }*/
+        return cardTaskServicve.getCardTasks(cardid);
+    }
 
 
 }
