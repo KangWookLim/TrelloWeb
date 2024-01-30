@@ -2,9 +2,8 @@ package com.example.trelloweb.user.Recent_Act.service;
 
 
 import com.example.trelloweb.user.Recent_Act.repo.ActJPARepo;
-import com.example.trelloweb.user.Recent_Act.vo.RecentActVo;
+import com.example.trelloweb.user.Recent_Act.entity.RecentActVo;
 import com.example.trelloweb.user.base.service.UserService;
-import com.example.trelloweb.user.base.vo.UserVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

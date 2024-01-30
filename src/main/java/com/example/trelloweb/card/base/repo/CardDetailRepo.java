@@ -1,15 +1,11 @@
 package com.example.trelloweb.card.base.repo;
 
-import com.example.trelloweb.card.attatchments.vo.CardAttachments;
-import com.example.trelloweb.card.base.vo.CardVo;
 import com.example.trelloweb.card.base.vo.Cards;
-import com.example.trelloweb.card.mem.vo.CardMembers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Map;
 
 @Repository
