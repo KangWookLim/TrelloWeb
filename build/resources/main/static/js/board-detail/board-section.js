@@ -159,6 +159,8 @@ function setAndShowModal (element){
 
     });
     showMembers(cardId);
+    showLabels(cardId);
+    showAttachments(cardId);
     modalBackground.style.display = "flex";
     event.stopPropagation();
 }
