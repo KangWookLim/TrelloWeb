@@ -16,11 +16,15 @@ public class CardMemberRepo {
     private final RowMapper<CardMembers> rmMembers =(rs, rowNum) ->
             new CardMembers(
                     rs.getLong("card_id"),
-                    rs.getString("user_uid")
+                    rs.getString("user_uid"),
+                    rs.getString("nickname")
             );
 
     public List<CardMembers> getCardMember(Long cardId) {
-        String sql = "SELECT * FROM CARD_MEMBERS WHERE CARD_ID = :card_id";
+        String sql = "SELECT cm.*, u.nickname\n" +
+                "FROM card_members cm\n" +
+                "JOIN users u ON cm.user_uid = u.user_uid\n" +
+                "WHERE cm.card_id = :card_id";
         Map<String, Long> params = Map.of("card_id",cardId);
         return jdbcTemplate.query(sql, params, rmMembers);
     }

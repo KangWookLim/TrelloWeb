@@ -14,23 +14,4 @@ import java.io.Serializable;
 public class StarredBoardPK implements Serializable {
     private String uservo;
     private Long boardVo;
-
-    @IdClass(StarredBoardPK.class)
-    @Data
-    @AllArgsConstructor
-    @RequiredArgsConstructor
-    @Entity(name = "User_Starred_Board")
-    public static class StarredBoardVo {
-        @Id
-        @ManyToOne
-        @JoinColumn(name = "user_uid")
-        @JsonBackReference
-        private UserVo uservo;
-
-        @Id
-        @ManyToOne
-        @JoinColumn(name = "Starred_Board_ID")
-        @JsonBackReference
-        private BoardVo boardVo;
-    }
 }
