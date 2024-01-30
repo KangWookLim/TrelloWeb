@@ -146,13 +146,13 @@
             <h3 class="board-page-section-header-name">
               YOUR WORKSPACES
             </h3>
-            <div th:each="WSList : ${WSList}">
+            <div th:each="WS : ${WSList}">
 
               <div class="board-page-section-header">
                 <div class="board-icon-container">
-                  <img th:src="${WSList.getWS_IMG()}" class="board-page-section-header-icon">
+                  <img th:src="${WS.getWS_IMG()}" class="board-page-section-header-icon">
                 </div>
-                <h3 class="board-section-header-name" th:text="${WSList.getWS_NAME}">
+                <h3 class="board-section-header-name" th:text="${WS.getWS_NAME}">
                 </h3>
                 <div class="board-page-section-header-options">
                   <a class="board-page-section-header-options-items">
@@ -182,14 +182,14 @@
                 </div>
               </div>
               <ul class="board-section-list">
-                <li class="board-section-list-item" th:each="boardsList : ${boardsList}" th:if="${WSList.getWS_ID == boardsList.getWS_ID}">
-                  <a class="board-section-item-img" th:style="'background-image: url(' + ${boardsList.getBOARD_IMG} + ');'">
+                <li class="board-section-list-item" th:each="board : ${boardsList}" th:if="${WS.getWS_ID == board.getWS_ID}">
+                  <a class="board-section-item-img" th:style="'background-image: url(' + ${board.getBOARD_IMG} + ');'" th:href="|/board/${board.BOARD_ID}|">
                     <div class="board-detail-box">
-                      <div class="board-detail-name" th:text="${boardsList.getBOARD_NAME}">
+                      <div class="board-detail-name" th:text="${board.getBOARD_NAME}">
 
                       </div>
                       <div class="board-detail-ws">
-                        <span th:text="${boardsList.getWS_NAME}">
+                        <span th:text="${board.getWS_NAME}">
 
                         </span>
                         <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">

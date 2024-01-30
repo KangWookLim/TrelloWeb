@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import java.io.Serializable;
 
 @Data
+@AllArgsConstructor
 public class StarredBoardPK implements Serializable {
     private String uservo;
     private Long boardVo;
