@@ -5,7 +5,7 @@ import com.example.trelloweb.card.comment.entity.CardCommentVo;
 import com.example.trelloweb.card.mem.entity.CardMemVo;
 import com.example.trelloweb.user.Blocked_User.entity.Blocked_UserVo;
 import com.example.trelloweb.user.Recent_Act.entity.RecentActVo;
-import com.example.trelloweb.user.Starred_Board.entity.StarredBoardPK;
+import com.example.trelloweb.user.Starred_Board.entity.StarredBoardVo;
 import com.example.trelloweb.workspace.wsmem.entity.WorkSpaceMemVo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -85,7 +85,7 @@ public class UserVo {
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<StarredBoardPK.StarredBoardVo> starredboardVoList;
+    private List<StarredBoardVo> starredboardVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
