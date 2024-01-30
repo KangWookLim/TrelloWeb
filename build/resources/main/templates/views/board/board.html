@@ -206,15 +206,14 @@
                 </li>
               </ul>
             </div>
-
-
           </div>
-
         </div>
       </div>
     </div>
   </div>
   <script>
+    const token = $("meta[name='_csrf']").attr("content");
+    const header = $("meta[name='_csrf_header']").attr("content");
     function toBoard () {
     }
     $(document).ready(function(){
@@ -261,13 +260,16 @@
       });
       $.ajax({
         type: "POST",
-        url:"/board/"+ board_Id + "/star",
+        url:"/board/star",
         data : board_Id,
-        success: function(text){
-          console.log(text);
+        beforeSend: function(xhr){
+          xhr.setRequestHeader(header, token);
         },
-        error : function(){
-          console.log(err);
+        success: function(data){
+          console.log(data);
+        },
+        error : function(xhr, status, error){
+          console.log(xhr.status);
         }
       })
     });
