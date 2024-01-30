@@ -69,6 +69,7 @@ public class CardDetailController {
     public List<CardTasks> getCardTasks(@RequestParam("cardid") Long cardid){
         return cardTaskServicve.getCardTasks(cardid);
     }
+    
 
 
 }

@@ -241,8 +241,8 @@ function showTasks(cardId) {
             console.log(data.length + " is total tasks of card");
             let tasksNum = data.length;
             for (let i = 0; i < tasksNum; i++){
-                /*showTaskItems(data[i].taskid);*/
-
+                console.log( "Attempt loading task" + data[i].task_id +" items");
+                showTaskItems(data[i].task_id);
             }
 
         }
