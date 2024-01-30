@@ -3,7 +3,7 @@ package com.example.trelloweb.user.base.service;
 
 import com.example.trelloweb.user.base.mapper.UserMapper;
 import com.example.trelloweb.user.base.repo.UserJpaRepo;
-import com.example.trelloweb.user.base.vo.UserVo;
+import com.example.trelloweb.user.base.entity.UserVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

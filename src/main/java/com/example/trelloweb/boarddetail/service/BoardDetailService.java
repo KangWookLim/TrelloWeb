@@ -1,10 +1,8 @@
 package com.example.trelloweb.boarddetail.service;
 
-import com.example.trelloweb.board.Base.vo.BoardVo;
+import com.example.trelloweb.board.Base.entity.BoardVo;
 import com.example.trelloweb.boarddetail.repo.BoardDetailJPARepo;
 import com.example.trelloweb.card.mem.repo.CardMemberRepo;
-import com.example.trelloweb.card.base.vo.Cards;
-import com.example.trelloweb.card.mem.vo.CardMembers;
 import com.example.trelloweb.card.base.repo.CardDetailJPARepo;
 import com.example.trelloweb.card.base.repo.CardDetailRepo;
 import lombok.RequiredArgsConstructor;

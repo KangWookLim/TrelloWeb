@@ -1,19 +1,13 @@
 package com.example.trelloweb.boarddetail.controller;
 
-import com.example.trelloweb.board.Base.vo.BoardVo;
+import com.example.trelloweb.board.Base.entity.BoardVo;
 import com.example.trelloweb.boarddetail.service.BoardDetailService;
-import com.example.trelloweb.card.base.vo.CardVo;
-import com.example.trelloweb.card.base.vo.Cards;
-import com.example.trelloweb.card.mem.vo.CardMembers;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
