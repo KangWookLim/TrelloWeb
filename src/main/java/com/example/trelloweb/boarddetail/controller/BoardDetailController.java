@@ -2,13 +2,18 @@ package com.example.trelloweb.boarddetail.controller;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.boarddetail.service.BoardDetailService;
+import com.example.trelloweb.card.base.vo.CardVo;
+import com.example.trelloweb.card.base.vo.Cards;
+import com.example.trelloweb.card.mem.vo.CardMembers;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -18,18 +23,16 @@ public class BoardDetailController {
     public ModelAndView detail(){
         ModelAndView view = new ModelAndView();
         List<BoardVo> boards = boardDetailService.getAllBoard();
-
-        if (boards.isEmpty()){
-            System.out.println("im empty");
-        }
-        else {
-            System.out.println("Im not empty");
-        }
         view.addObject("boards",boards);
         view.setViewName("/views/board/board_detail");
         return view;
     }
-    /*@RequestMapping("/board_detail/{board_id}")
+
+
+
+}
+
+/*@RequestMapping("/board_detail/{board_id}")
     public ModelAndView detailById(@PathVariable("board_id") Long board_id){
         ModelAndView view = new ModelAndView();
         List<BoardVo> boards = boardDetailService.getBoardById(board_id);
@@ -37,4 +40,3 @@ public class BoardDetailController {
         view.setViewName("/views/board/board_detail");
         return view;
     }*/
-}

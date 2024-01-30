@@ -2,6 +2,7 @@ package com.example.trelloweb.workspace.wsmem.vo;
 
 import com.example.trelloweb.user.base.vo.UserVo;
 import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -17,11 +18,13 @@ public class WorkSpaceMemVo {
     @Id
     @ManyToOne
     @JoinColumn(name = "USER_UID")
+    @JsonBackReference
     private UserVo uservo;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "WS_ID")
+    @JsonBackReference
     private WorkSpaceVo WSID;
 
     @Column(nullable = false) @ColumnDefault("'Normal'")

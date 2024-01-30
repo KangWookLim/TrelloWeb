@@ -2,10 +2,13 @@ package com.example.trelloweb.list.vo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.card.base.vo.CardVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.List;
 
@@ -27,9 +30,11 @@ public class ListVo {
 
     @ManyToOne
     @JoinColumn(name = "Board_Id")
+    @JsonBackReference
     private BoardVo boardvo;
 
     @OneToMany(mappedBy = "listid", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @OrderBy("cardorder ASC")
+    @JsonManagedReference
     private List<CardVo> cardVoList;
 }

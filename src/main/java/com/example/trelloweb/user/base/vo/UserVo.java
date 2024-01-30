@@ -7,6 +7,7 @@ import com.example.trelloweb.user.Blocked_User.vo.Blocked_UserVo;
 import com.example.trelloweb.user.Recent_Act.vo.RecentActVo;
 import com.example.trelloweb.user.Starred_Board.vo.StarredBoardVo;
 import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -75,24 +76,31 @@ public class UserVo {
     private String SOCIALLINK4;
 
     @OneToMany(mappedBy = "BlockingUSERUID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Blocked_UserVo> blocking_userVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<RecentActVo> recentactVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<StarredBoardVo> starredboardVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<WorkSpaceMemVo> workSpaceMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Board_memVo> boardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<CardMemVo> cardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private  List<CardCommentVo> cardcommentVoList;
 
 

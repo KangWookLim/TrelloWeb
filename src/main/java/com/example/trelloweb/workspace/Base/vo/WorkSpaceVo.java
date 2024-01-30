@@ -2,6 +2,7 @@ package com.example.trelloweb.workspace.Base.vo;
 
 import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class WorkSpaceVo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "WS_ID")
     private Long workspaceId;
 
@@ -32,9 +33,11 @@ public class WorkSpaceVo {
     private String IMG_URL;
 
     @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<WorkSpaceMemVo> workspaceMem;
 
     @OneToMany(mappedBy = "WSID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<BoardVo> boardVoList;
 }
 

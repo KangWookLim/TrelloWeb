@@ -6,19 +6,24 @@ import com.example.trelloweb.card.label.vo.CardLabelsVo;
 import com.example.trelloweb.card.mem.vo.CardMemVo;
 import com.example.trelloweb.card.tasklist.base.vo.CardTaskVo;
 import com.example.trelloweb.list.vo.ListVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Fetch;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Data
+@Getter
 @RequiredArgsConstructor
 @AllArgsConstructor
 @DynamicInsert
@@ -27,10 +32,11 @@ import java.util.List;
 public class CardVo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long card_id;
+    private Long cardid;
 
     @ManyToOne
     @JoinColumn(name = "list_id")
+    @JsonBackReference
     private ListVo listid;
 
     @Column(name = "card_order")
@@ -52,19 +58,24 @@ public class CardVo {
 
     private LocalDateTime updated_date;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardLabelsVo> card_labelsVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardMemVo> card_memVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<Card_attatchmentVo> card_attatchmentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardCommentVo> card_commentVoList;
 
-    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cardvo", cascade = CascadeType.REMOVE)
+    @JsonManagedReference
     private List<CardTaskVo> card_taskVoList;
 
 }

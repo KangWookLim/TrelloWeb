@@ -126,11 +126,75 @@ modalContainer.addEventListener('click', () => {
     event.stopPropagation();
 })
 
+//modal 변수 및 함수 선언
+//modal id는 언더바 사용
+let card_name = document.getElementById("card_name");
+let card_list_id = document.getElementById("card_list_id");
+let card_description = document.getElementById("card_description");
+let card_due_date = document.getElementById("card_due_date");
+
+
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
     console.log(cardId);
-
-
+    let CardDetailVo = null;
+    /*$.ajax({
+        type: 'get',
+        url : '/card_detail',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        CardDetailVo = data;
+    }).fail(function (xhr, status, error) {
+        alert('Unexpected error. Please contact System Administrator for ');
+        console.log(status);
+    });*/
+    if (CardDetailVo == null){
+        console.log("vo is null")
+    }
+    else {
+        console.log("vo is not null")
+    }
     modalBackground.style.display = "flex";
+    event.stopPropagation();
 }
+
+/*
+// Assuming cardVo is the received object from AJAX
+var cardVo = receivedData.cardVo;
+
+// Assuming you have a container div to hold all comments
+var commentsContainer = $("#commentsContainer");
+
+// Function to add a single comment to the container
+function addCommentToContainer(commentVo) {
+    var commentDiv = $("<div>").addClass("phenom-comment");
+    var button = $("<button>").addClass("card-member-detail").text("b1").css("margin-left", "-40px");
+    var descDiv = $("<div>").addClass("phenom-desc");
+
+    // Assuming commentVo has properties like 'author', 'timestamp', and 'detail'
+    var authorSpan = $("<span>").text(commentVo.author);
+    var timestampSpan = $("<span>").text(commentVo.timestamp).css({"font-size": "12px", "color": "#9fadbc"});
+
+    var commentDivInner = $("<div>").addClass("comment");
+    var currentCommentDiv = $("<div>").addClass("current-comment");
+    var commentParagraph = $("<p>").text(commentVo.detail).css("margin", "0");
+
+    currentCommentDiv.append(commentParagraph);
+    commentDivInner.append(currentCommentDiv);
+
+    descDiv.append(authorSpan, $("<span>").addClass("inline-spacer"), timestampSpan, commentDivInner);
+
+    commentDiv.append(button, descDiv, $("<div>").addClass("phenom-reactions"));
+
+    // Append the comment div to the container
+    commentsContainer.append(commentDiv);
+}
+
+// Loop through card_commentVoList and add each comment to the container
+cardVo.card_commentVoList.forEach(function(commentVo) {
+    addCommentToContainer(commentVo);
+});
+*/

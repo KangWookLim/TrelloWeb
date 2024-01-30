@@ -126,11 +126,119 @@ modalContainer.addEventListener('click', () => {
     event.stopPropagation();
 })
 
+//modal 변수 및 함수 선언
+//modal id는 언더바 사용
+let card_name = document.getElementById("card_name");
+let card_list_id = document.getElementById("card_list_id");
+let card_description = document.getElementById("card_description");
+let card_due_date = document.getElementById("card_due_date");
+
+
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
     console.log(cardId);
+    $.ajax({
+        type: 'get',
+        url : '/card_detail',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        console.log("success");
+        console.log(data.description);
+        card_name.value = data.name;
+        card_description.value = data.description;
+        if (data.due_date != null){
+            card_due_date.innerText = data.due_date.toString();
+        }
+        console.log(data.due_date);
+    }).fail(function (xhr, status, error) {
+        alert('Unexpected error. Please contact System Administrator for ');
+        console.log(status);
 
-
+    });
+    showMembers(cardId);
     modalBackground.style.display = "flex";
+    event.stopPropagation();
+}
+//멤버 로딩
+function showMembers(cardId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/member',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        if (data == null){
+            console.log("no members for this card")
+        } else {
+            console.log("members detected");
+            console.log(data.length + " is total members of card");
+        }
+    }).fail(function (xhr, status, error){
+       console.log("error loading members for card");
+       console.log(status);
+    });
+}
+
+function showLabels(cardId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/label',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        if (data == null){
+            console.log("no labels for this card")
+        } else {
+            console.log("labels detected");
+            console.log(data.length + " is total labels of card");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error loading labels for card");
+        console.log(status);
+    });
+}
+
+function showAttachments(cardId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/attachment',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        if (data == null){
+            console.log("no attachments for this card")
+        } else {
+            console.log("attachments detected");
+            console.log(data.length + " is total attachments of card");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error loading attachments for card");
+        console.log(status);
+    });
+}
+
+function showTasks(cardId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/task',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        if (data == null){
+            console.log("no task for this card")
+        } else {
+            console.log("tasks detected");
+            console.log(data.length + " is total tasks of card");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error loading tasks for card");
+        console.log(status);
+    });
 }
