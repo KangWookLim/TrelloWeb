@@ -350,7 +350,7 @@ html, body{
 
 /* card modal 부분 */
 .card-background {
-    display: flex;
+    display: none;
     overflow-x: hidden;
     align-items: flex-start;
     background-color: #000000a3;
@@ -912,4 +912,74 @@ html, body{
 
 .current-comment {
     padding: 8px 12px;
+}
+
+.card-sidebar-modal {
+    position: fixed;
+    background-color: #282e33;
+    padding: 12px 8px;
+    border-radius: 8px;
+    width: 304px;
+    overflow: hidden;
+    border : 1px solid black;
+
+}
+.card-sidebar-title {
+    text-align: center;
+    color: #9fadbc;
+    font-size: 14px;
+    font-weight: 600;
+    grid-column: 1/span 3;
+    grid-row: 1;
+    height: 40px;
+    letter-spacing: -.003em;
+    line-height: 40px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 1;
+}
+.card-sidebar-subtitle {
+    color: #9fadbc;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    margin-top: 16px;
+}
+
+.card-sidebar-text {
+    width: 100%;
+    margin: 4px 0 12px;
+    padding: 8px 12px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: #22272b;
+
+}
+#card-sidebar-button-members {
+    top: 250px;
+    left: 500px;
+}
+#card-sidebar-button-labels {
+    top: 300px;
+    left: 500px;
+}
+#card-sidebar-button-Checklist {
+    top: 350px;
+    left: 500px;
+}
+#card-sidebar-button-dates {
+    top: 400px;
+    left: 500px;
+}
+.add-card-member {
+    text-align: left;
+    margin: 5px 0;
+    padding: 5px 15px;
+    width: 100%;
+    background-color: #424649;
+    border-radius: 4px;
+    border: none;
 }

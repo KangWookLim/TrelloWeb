@@ -139,6 +139,9 @@ let card_label_container = $("#card_label_container");
 let card_labels = $("#card_labels");
 let trello_attachments_container = $("#trello_attachments_container");
 let board_attachment_container = $("#board_attachment_container");
+let comments_container = $("#comments_container");
+let cardTaskContainer = $("#card_task_container");
+
 
 
 function formatDateString(inputDateString) {
@@ -187,6 +190,7 @@ function setAndShowModal (element){
     showLabels(cardId);
     showAttachments(cardId);
     showTasks(cardId);
+    showComments(cardId);
     modalBackground.style.display = "flex";
     event.stopPropagation();
 }
@@ -319,6 +323,7 @@ function showTasks(cardId) {
             "cardid" : cardId
         }
     }).done(function (data){
+        cardTaskContainer.empty();
         if (data.length === 0){
             console.log("no task for this card")
         } else {
@@ -327,8 +332,21 @@ function showTasks(cardId) {
             let tasksNum = data.length;
             for (let i = 0; i < tasksNum; i++){
                 console.log( "Attempt loading task" + data[i].task_id +" items");
-
+                const taskData = data[i];
+                // card_task_inner 생성
+                const cardTaskInner = document.createElement("div");
+                cardTaskInner.id = "card_task_inner"+data[i].task_id;
+                // card-description-header 생성
+                const cardDescriptionHeader = document.createElement("div");
+                cardDescriptionHeader.classList.add("card-description-header");
+                // "Checklist" 대신 task의 title로 설정
+                cardDescriptionHeader.innerHTML = `<span class="card-header-logo"><span data-testid="ChecklistIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V13C20 12.4477 19.5523 12 19 12C18.4477 12 18 12.4477 18 13V18H6V6L16 6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H6ZM8.73534 10.3223C8.36105 9.91618 7.72841 9.89038 7.3223 10.2647C6.91619 10.639 6.89039 11.2716 7.26467 11.6777L10.8768 15.597C11.4143 16.1231 12.2145 16.1231 12.7111 15.6264L13.0754 15.2683C13.3699 14.9785 13.6981 14.6556 14.0516 14.3075C15.0614 13.313 16.0713 12.3169 17.014 11.3848L17.0543 11.3449C18.7291 9.68869 20.0004 8.42365 20.712 7.70223C21.0998 7.30904 21.0954 6.67589 20.7022 6.28805C20.309 5.90022 19.6759 5.90457 19.2881 6.29777C18.5843 7.01131 17.3169 8.27244 15.648 9.92281L15.6077 9.96263C14.6662 10.8937 13.6572 11.8889 12.6483 12.8825L11.8329 13.6851L8.73534 10.3223Z" fill="currentColor"></path></svg></span></span>${taskData.title}<div style="margin-left: 380px"><a href="#" class="due-button" style="text-decoration: none">Delete</a></div>`;
+                // card_task_inner에 card-description-header, checklist-progress 추가
+                cardTaskInner.append(cardDescriptionHeader);
+                // card_task_container에 card_task_inner 추가
+                cardTaskContainer.append(cardTaskInner);
                 showTaskItems(data[i].task_id);
+
             }
 
         }
@@ -346,18 +364,95 @@ function showTaskItems(taskId) {
             "taskid" : taskId
         }
     }).done(function (data){
-        if (data == null){
-            console.log("no items for this task")
+        var parentDiv = $("#card_task_inner" + taskId);
+        var addItemLink = '<div style="margin-left: 40px"><a href="#" class="due-button">Add an item</a></div>';
+
+        if (data.length === 0){
+            console.log("no items for this task");
+            parentDiv.append(addItemLink);
         } else {
             console.log("items detected for taskid");
-            console.log(data.length + " is total tasks of card");
-            for (let i = 0; i < data.length; i++){
+            console.log(data.length + " is total items of task with taskId " + taskId);
+            // 부모 div를 찾아서 변수에 할당
 
-                console.log(data[i].is_checked);
+            var checklistProgress = `
+    <div class="checklist-progress">
+        <span class="checklist-progress-percentage">0%</span>
+        <div class="checklist-progress-bar">
+            <div id="checklist-progress-bar-current" style="width: 0%"></div>
+        </div>
+    </div>`;
+            parentDiv.append(checklistProgress);
+            // checklist-items-list를 추가
+            var checklistItemsList = '<div class="checklist-items-list"></div>';
+            parentDiv.append(checklistItemsList);
+            for (var i = 0; i < data.length; i++) {
+                var checkbox = '<div class="checklist-item-checkbox"><input type="checkbox" ' + (data[i].is_checked ? 'checked' : '') + '></div>';
+                var detail = '<div class="checklist-item-detail">' + data[i].title + '</div>';
+
+                // checklist-item을 생성하고 checklist-items-list에 추가
+                var checklistItem = '<div class="checklist-item">' + checkbox + detail + '</div>';
+                parentDiv.find('.checklist-items-list').append(checklistItem);
             }
+
+// Add an item 링크 추가
+            var addItemLink = '<div style="margin-left: 40px"><a href="#" class="due-button">Add an item</a></div>';
+            parentDiv.append(addItemLink);
+
+
+// checklist-progress-bar 업데이트
+            var percentage = 60; // 실제로 사용하는 퍼센티지로 변경 필요
+            parentDiv.find('.checklist-progress-percentage').text(percentage + '%');
+            parentDiv.find('#checklist-progress-bar-current').css('width', percentage + '%');
+
+
+
         }
     }).fail(function (xhr, status, error){
         console.log("error loading tasks for card");
+        console.log(status);
+    });
+}
+
+function createCommentElement(commentData) {
+    var formattedDate = formatDateString(commentData.created_date);
+    return `
+    <div class="phenom-comment">
+        <button class="card-member-detail" style="margin-left: -40px">${commentData.nickname}</button>
+        <div class="phenom-desc">
+            <span>${commentData.nickname}</span>
+            <span class="inline-spacer"></span>
+            <span style="font-size: 12px; color: #9fadbc;">${formattedDate}</span>
+            <div class="comment">
+                <div class="current-comment">
+                    <p style="margin: 0;">${commentData.comment}</p>
+                </div>
+            </div>
+        </div>
+        <div class="phenom-reactions"></div>
+    </div>
+  `;
+}
+function showComments(cardId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/comment',
+        data : {
+            "cardid" : cardId
+        }
+    }).done(function (data){
+        comments_container.empty();
+        if (data.length === 0){
+            console.log("no comments");
+        } else {
+            console.log("comments found");
+            for (let i = 0; i < data.length; i++) {
+                var commentElement = createCommentElement(data[i]);
+                comments_container.append(commentElement);
+            }
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error loading labels for card");
         console.log(status);
     });
 }

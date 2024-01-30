@@ -18,7 +18,7 @@ public class BoardDetailController {
     private final BoardDetailService boardDetailService;
 
     @GetMapping("/{boardId}")
-    public ModelAndView detail(@PathVariable String boardId, Principal principal){
+    public ModelAndView detail(@PathVariable("boardId") String boardId, Principal principal){
         ModelAndView view = new ModelAndView();
         Board_memPk board_memPk = new Board_memPk(principal.getName(), Long.valueOf(boardId));
         System.out.println(board_memPk);
