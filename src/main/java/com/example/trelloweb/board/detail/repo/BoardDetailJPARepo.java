@@ -1,4 +1,4 @@
-package com.example.trelloweb.boarddetail.repo;
+package com.example.trelloweb.board.detail.repo;
 
 import com.example.trelloweb.board.Base.entity.BoardVo;
 import org.springframework.data.jpa.repository.JpaRepository;
