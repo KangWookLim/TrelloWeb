@@ -4,9 +4,12 @@ import com.example.trelloweb.board.Base.vo.Boards;
 import com.example.trelloweb.board.Base.vo.StarredBoards;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
@@ -35,6 +38,14 @@ public class StarredBoardRepo {
                 ") T1 LEFT OUTER JOIN WORKSPACE T2\n" +
                 "ON T1.WS_ID = T2.WS_ID;";
         return jdbcTemplate.query(query, rowMapper);
+    }
+
+    public int checkStarredBoard(String boardId, String memId) {
+        String query = "SELECT COUNT(*)\n" +
+                "FROM USER_STARRED_BOARD\n" +
+                "WHERE USER_UID = '"+ memId+"' AND STARRED_BOARD_ID = :boardId";
+        SqlParameterSource namedParameters = new MapSqlParameterSource("boardId",boardId);
+        return this.jdbcTemplate.queryForObject(query, namedParameters, Integer.class);
     }
 }
 
