@@ -1,7 +1,7 @@
-package com.example.trelloweb.boarddetail.service;
+package com.example.trelloweb.board.detail.service;
 
 import com.example.trelloweb.board.Base.entity.BoardVo;
-import com.example.trelloweb.boarddetail.repo.BoardDetailJPARepo;
+import com.example.trelloweb.board.detail.repo.BoardDetailJPARepo;
 import com.example.trelloweb.card.mem.repo.CardMemberRepo;
 import com.example.trelloweb.card.base.repo.CardDetailJPARepo;
 import com.example.trelloweb.card.base.repo.CardDetailRepo;
