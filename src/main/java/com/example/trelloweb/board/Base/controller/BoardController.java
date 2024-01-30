@@ -65,7 +65,6 @@ public class BoardController {
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
-        System.out.println(principal    );
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
         view.addObject("WSList", WSList);
         view.setViewName("views/board/home");
