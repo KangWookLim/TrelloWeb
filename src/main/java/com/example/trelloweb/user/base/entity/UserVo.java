@@ -1,12 +1,12 @@
 package com.example.trelloweb.user.base.entity;
 
-import com.example.trelloweb.board.board_mem.vo.Board_memVo;
-import com.example.trelloweb.card.comment.vo.CardCommentVo;
-import com.example.trelloweb.card.mem.vo.CardMemVo;
-import com.example.trelloweb.user.Blocked_User.vo.Blocked_UserVo;
-import com.example.trelloweb.user.Recent_Act.vo.RecentActVo;
-import com.example.trelloweb.user.Starred_Board.vo.StarredBoardPK;
-import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
+import com.example.trelloweb.board.board_mem.entity.Board_memVo;
+import com.example.trelloweb.card.comment.entity.CardCommentVo;
+import com.example.trelloweb.card.mem.entity.CardMemVo;
+import com.example.trelloweb.user.Blocked_User.entity.Blocked_UserVo;
+import com.example.trelloweb.user.Recent_Act.entity.RecentActVo;
+import com.example.trelloweb.user.Starred_Board.entity.StarredBoardPK;
+import com.example.trelloweb.workspace.wsmem.entity.WorkSpaceMemVo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;

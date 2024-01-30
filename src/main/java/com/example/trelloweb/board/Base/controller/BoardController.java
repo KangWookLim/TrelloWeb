@@ -8,7 +8,7 @@ import com.example.trelloweb.board.Base.vo.WorkSpaces;
 import com.example.trelloweb.board.board_mem.service.BoardMemService;
 import com.example.trelloweb.user.base.service.UserService;
 import com.example.trelloweb.workspace.Base.service.WsService;
-import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
+import com.example.trelloweb.workspace.Base.entity.WorkSpaceVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

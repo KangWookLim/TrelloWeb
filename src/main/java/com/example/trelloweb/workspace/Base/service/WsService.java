@@ -1,8 +1,7 @@
 package com.example.trelloweb.workspace.Base.service;
 
-import com.example.trelloweb.board.Base.vo.BoardVo;
 import com.example.trelloweb.workspace.Base.Repo.WsJPARepo;
-import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
+import com.example.trelloweb.workspace.Base.entity.WorkSpaceVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

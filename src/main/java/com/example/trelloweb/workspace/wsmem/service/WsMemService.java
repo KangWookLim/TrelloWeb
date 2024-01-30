@@ -1,9 +1,9 @@
 package com.example.trelloweb.workspace.wsmem.service;
 
 import com.example.trelloweb.user.base.entity.UserVo;
-import com.example.trelloweb.workspace.Base.vo.WorkSpaceVo;
+import com.example.trelloweb.workspace.Base.entity.WorkSpaceVo;
 import com.example.trelloweb.workspace.wsmem.Repo.WsMemJpaRepo;
-import com.example.trelloweb.workspace.wsmem.vo.WorkSpaceMemVo;
+import com.example.trelloweb.workspace.wsmem.entity.WorkSpaceMemVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
