@@ -1,7 +1,7 @@
-package com.example.trelloweb.boarddetail.controller;
+package com.example.trelloweb.board.detail.controller;
 
 import com.example.trelloweb.board.Base.entity.BoardVo;
-import com.example.trelloweb.boarddetail.service.BoardDetailService;
+import com.example.trelloweb.board.detail.service.BoardDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +11,10 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/board")
 public class BoardDetailController {
     private final BoardDetailService boardDetailService;
-    @RequestMapping("/board_detail")
+    @RequestMapping("/detail")
     public ModelAndView detail(){
         ModelAndView view = new ModelAndView();
         List<BoardVo> boards = boardDetailService.getAllBoard();
