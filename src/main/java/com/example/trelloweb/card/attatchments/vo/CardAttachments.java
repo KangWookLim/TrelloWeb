@@ -15,4 +15,6 @@ public class CardAttachments {
     private Long card_id;
     private String origin_file_name;
     private String stored_file_name;
+    private String board_name;
+    private String image_url;
 }

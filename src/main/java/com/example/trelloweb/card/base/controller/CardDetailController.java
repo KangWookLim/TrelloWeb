@@ -12,6 +12,8 @@ import com.example.trelloweb.card.mem.service.CardMemberService;
 import com.example.trelloweb.card.mem.vo.CardMembers;
 import com.example.trelloweb.card.tasklist.base.service.CardTaskServicve;
 import com.example.trelloweb.card.tasklist.base.vo.CardTasks;
+import com.example.trelloweb.card.tasklist.item.service.TaskItemService;
+import com.example.trelloweb.card.tasklist.item.vo.TaskItems;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,7 @@ public class CardDetailController {
     private final CardLabelService cardLabelService;
     private final CardCommentService cardCommentService;
     private final CardTaskServicve cardTaskServicve;
+    private final TaskItemService taskItemService;
     @RequestMapping("")
     @ResponseBody
     public Cards getCardDetail(@RequestParam("cardid") Long cardid){
@@ -68,6 +71,12 @@ public class CardDetailController {
     @ResponseBody
     public List<CardTasks> getCardTasks(@RequestParam("cardid") Long cardid){
         return cardTaskServicve.getCardTasks(cardid);
+    }
+
+    @RequestMapping("/task_items")
+    @ResponseBody
+    public List<TaskItems> getTaskItems(@RequestParam("taskid") Long taskid){
+        return taskItemService.getTaskItems(taskid);
     }
 
 

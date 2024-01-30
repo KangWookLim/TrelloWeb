@@ -36,10 +36,10 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab" th:each="WSList :${WSList}">
+            <li id = "home-workspace-tab">
               <a id = "home-workspace-box">
-                <img th:src="${WSList.getWS_IMG()}" class = "ws-main-img">
-                <span th:text="${WSList.getWS_NAME}"></span>
+                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
+                <span>Workspace Name</span>
                 <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
               </a>
               <ul id = "ws-btn-ul">
@@ -146,13 +146,13 @@
             <h3 class="board-page-section-header-name">
               YOUR WORKSPACES
             </h3>
-            <div th:each="WSList : ${WSList}">
+            <div th:each="WS : ${WSList}">
 
               <div class="board-page-section-header">
                 <div class="board-icon-container">
-                  <img th:src="${WSList.getWS_IMG()}" class="board-page-section-header-icon">
+                  <img th:src="${WS.getWS_IMG()}" class="board-page-section-header-icon">
                 </div>
-                <h3 class="board-section-header-name" th:text="${WSList.getWS_NAME}">
+                <h3 class="board-section-header-name" th:text="${WS.getWS_NAME}">
                 </h3>
                 <div class="board-page-section-header-options">
                   <a class="board-page-section-header-options-items">
@@ -182,38 +182,40 @@
                 </div>
               </div>
               <ul class="board-section-list">
-                <li class="board-section-list-item" th:each="boardsList : ${boardsList}" th:if="${WSList.getWS_ID == boardsList.getWS_ID}">
-                  <a class="board-section-item-img" th:style="'background-image: url(' + ${boardsList.getBOARD_IMG} + ');'">
+                <li class="board-section-list-item" th:each="board : ${boardsList}" th:if="${WS.getWS_ID == board.getWS_ID}">
+                  <a class="board-section-item-img" th:style="'background-image: url(' + ${board.getBOARD_IMG} + ');'" th:href="|/board/${board.BOARD_ID}|">
                     <div class="board-detail-box">
-                      <div class="board-detail-name" th:text="${boardsList.getBOARD_NAME}">
-                      <span class="checkboard-item"></span>
+                      <div class="board-detail-name" th:text="${board.getBOARD_NAME}">
+
                       </div>
                       <div class="board-detail-ws">
-                        <span th:text="${boardsList.getWS_NAME}">
+                        <span th:text="${board.getWS_NAME}">
 
                         </span>
-                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon" th:value="${boardsList.getBOARD_ID}">
+                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
                       </div>
                     </div>
                   </a>
                   <div class="ex-margin1"></div>
                 </li>
-                <li class="board-section-list-item" onclick="create_board()">
+                <li class="board-section-list-item">
                   <div class="board-section-add">
                     <p>Create new board</p>
+                    <p class="remaining">6 remaining</p>
                     <div></div>
                   </div>
                 </li>
               </ul>
             </div>
+
+
           </div>
+
         </div>
       </div>
     </div>
   </div>
   <script>
-    const token = $("meta[name='_csrf']").attr("content");
-    const header = $("meta[name='_csrf_header']").attr("content");
     function toBoard () {
     }
     $(document).ready(function(){
@@ -245,11 +247,7 @@
     });
 
     $(".board-starred-icon").click(function() {
-
-    })
-
-    $(".board-starred-icon").click(function() {
-      let board_Id = $(this).attr("value");
+      console.log("check1");
       $(this).attr("src", function(index, attr){
         if (attr.match('full')) {
           return attr.replace("full", "empty");
@@ -258,24 +256,6 @@
           return attr.replace("empty", "full");
         }
       });
-      console.log(board_Id);
-      $.ajax({
-        type: "POST",
-        url:"/board/star",
-        data : {
-          boardId : board_Id
-        },
-        beforeSend: function(xhr){
-          xhr.setRequestHeader(header, token);
-        },
-        success: function(data){
-          alert('성공')
-          console.log(data);
-        },
-        error : function(xhr, status, error){
-          console.log(xhr.status);
-        }
-      })
     });
     $(".board-starred-icon").hover(function() {
       $(this).attr("src", function(index, attr){

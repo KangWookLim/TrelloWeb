@@ -699,6 +699,7 @@ html, body{
 }
 
 .mini-list {
+    margin-top :16px;
     display: inline-block;
     vertical-align: top;
     background-color: #161a1d;
@@ -806,7 +807,7 @@ html, body{
     position: relative;
 }
 
-.checklist-progress-bar-current {
+#checklist-progress-bar-current {
     background: #0055cc;
     bottom: 0;
     left: 0;
