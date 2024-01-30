@@ -159,6 +159,9 @@ function setAndShowModal (element){
 
     });
     showMembers(cardId);
+    showLabels(cardId);
+    showAttachments(cardId);
+    showTasks(cardId);
     modalBackground.style.display = "flex";
     event.stopPropagation();
 }
@@ -235,6 +238,32 @@ function showTasks(cardId) {
             console.log("no task for this card")
         } else {
             console.log("tasks detected");
+            console.log(data.length + " is total tasks of card");
+            let tasksNum = data.length;
+            for (let i = 0; i < tasksNum; i++){
+                /*showTaskItems(data[i].taskid);*/
+
+            }
+
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error loading tasks for card");
+        console.log(status);
+    });
+}
+
+function showTaskItems(taskId) {
+    $.ajax({
+        type : 'get',
+        url : '/card_detail/task_items',
+        data : {
+            "taskid" : taskId
+        }
+    }).done(function (data){
+        if (data == null){
+            console.log("no items for this task")
+        } else {
+            console.log("items detected for taskid");
             console.log(data.length + " is total tasks of card");
         }
     }).fail(function (xhr, status, error){

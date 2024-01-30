@@ -1,6 +1,6 @@
 package com.example.trelloweb.user.Recent_Act.repo;
 
-import com.example.trelloweb.user.Recent_Act.vo.RecentActVo;
+import com.example.trelloweb.user.Recent_Act.entity.RecentActVo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -24,7 +24,7 @@ public class CardAttachmentRepo {
             );
     public List<CardAttachments> getAttachments(Long cardId){
         String sql = "SELECT * FROM CARD_ATTATCHMENTS where card_id = :cardid";
-        Map<String, Long> params = Map.of("card_id",cardId);
+        Map<String, Long> params = Map.of("cardid",cardId);
         return jdbcTemplate.query(sql, params, rowMapper);
     }
 }
