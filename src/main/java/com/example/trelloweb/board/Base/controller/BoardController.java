@@ -55,6 +55,7 @@ public class BoardController {
     public ModelAndView updateStarBoard(@RequestParam("boardId") String boardId, Principal principal) {
         ModelAndView view = new ModelAndView();
         int check = boardService.checkStarredBoard(boardId, principal.getName());
+        System.out.println(check);
         if(check > 0) {
             //delete starred board
         }else{
