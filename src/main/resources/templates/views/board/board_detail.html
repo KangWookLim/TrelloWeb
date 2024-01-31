@@ -667,7 +667,9 @@
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
             <ul style="list-style-type: none; padding-left: 0; margin:0;">
-                <li th:each="member, loop : ${board.getBoard_memVoList()}"><button class="add-card-member" onclick="removeMemberFromCard(this)" th:user_uid = "${member.uservo.getUseruid()}" th:text="${member.uservo.getFULLNAME() +' ('+ member.uservo.getNICKNAME()+')'}"></button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
             </ul>
         </div>
     </div>
@@ -697,7 +699,6 @@
                     <textarea class="label-text" placeholder="Give label a title" id = "label5" style="background-color: #0055cc"></textarea>
                 </li>
             </ul>
-            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-Checklist">

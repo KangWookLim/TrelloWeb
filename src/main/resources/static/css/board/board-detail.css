@@ -915,7 +915,6 @@ html, body{
 }
 
 .card-sidebar-modal {
-    display: none;
     position: fixed;
     background-color: #282e33;
     padding: 12px 8px;
@@ -961,22 +960,27 @@ html, body{
 
 }
 #card-sidebar-button-members {
+    display: block;
     top: 205px;
     left: 830px;
 }
 #card-sidebar-button-labels {
+    display: block;
     top: 245px;
     left: 830px;
 }
 #card-sidebar-button-Checklist {
+    display: block;
     top: 285px;
     left: 830px;
 }
 #card-sidebar-button-dates {
+    display: block;
     top: 325px;
     left: 830px;
 }
 #card-sidebar-button-attachment {
+    display: block;
     top: 365px;
     left: 830px;
 

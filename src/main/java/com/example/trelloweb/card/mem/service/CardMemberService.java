@@ -14,12 +14,4 @@ public class CardMemberService {
     public List<CardMembers> getCardMember(Long cardid) {
         return cardMemberRepo.getCardMember(cardid);
     }
-
-    public int removeCardMember(String user_uid, Long cardid) {
-        return cardMemberRepo.removeCardMember(user_uid, cardid);
-    }
-
-    public int addCardMember(String userUid, Long cardId) {
-        return cardMemberRepo.addCardMember(userUid, cardId);
-    }
 }

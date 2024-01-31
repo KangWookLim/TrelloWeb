@@ -4,15 +4,16 @@ import com.example.trelloweb.board.Base.entity.BoardVo;
 import com.example.trelloweb.workspace.wsmem.entity.WorkSpaceMemVo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @Entity(name = "Workspace")
 @RequiredArgsConstructor
 @AllArgsConstructor

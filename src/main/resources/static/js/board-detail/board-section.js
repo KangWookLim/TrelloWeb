@@ -161,12 +161,9 @@ function formatDateString(inputDateString) {
 }
 //
 
-let openedCard;
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
-    openedCard = element.getAttribute("cardid").toString();
-    console.log("Card " + openedCard + " is opened")
     console.log(cardId);
     $.ajax({
         type: 'get',
@@ -500,53 +497,9 @@ $('.card-sidebar-button').click(function (event){
 })
 
 function openMembersModal(){
+
     $('#card-sidebar-button-members').toggle();
 }
-function removeMemberFromCard(element){
-    let memberid = element.getAttribute("user_uid");
-    console.log(memberid);
-    $.ajax({
-        type : 'get',
-        url : "/card_detail/removeMember",
-        data : {
-            "user_uid" : memberid,
-            "cardid" : openedCard
-        }
-    }).done(function (data) {
-        if (data === 1){
-            console.log("deletion successful");
-        }
-        else if (data === 0){
-            console.log("member not found");
-            addMemberToCard(memberid, openedCard);
-        }
-    }).fail(function (XHR, Status, error) {
-        console.log("deletion failed");
-        console.log(error);
-    })
-    console.log(openedCard + " is current card number");
-}
-
-function addMemberToCard(user_uid, card_id){
-
-    console.log("user_uid : "+user_uid);
-    console.log("card_id : "+card_id);
-    console.log("lets add member");
-    $.ajax({
-        url : '/card_detail/addMember',
-        type : 'get',
-        data : {
-            "user_uid" : user_uid,
-            "card_id" : card_id
-        }
-    }).done(function (data){
-        console.log("add user completed");
-    }).fail(function (xhr, status, error) {
-        alert('add user failed');
-        console.log(status);
-    });
-}
-
 function openLabelsModal() {
     $('#card-sidebar-button-labels').toggle();
 }
