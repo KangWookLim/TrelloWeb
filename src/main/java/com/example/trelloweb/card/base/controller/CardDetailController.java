@@ -79,5 +79,17 @@ public class CardDetailController {
         return taskItemService.getTaskItems(taskid);
     }
 
+    @RequestMapping("/removeMember")
+    @ResponseBody
+    public int removeMember(@RequestParam ("user_uid") String user_uid, @RequestParam ("cardid") Long cardid){
+        return cardMemberService.removeCardMember(user_uid, cardid);
+    }
+
+    @RequestMapping("/addMember")
+    @ResponseBody
+    public int addMember(@RequestParam ("user_uid") String user_uid, @RequestParam ("card_id") Long card_id){
+        return cardMemberService.addCardMember(user_uid,card_id);
+    }
+
 
 }
