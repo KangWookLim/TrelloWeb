@@ -1,5 +1,6 @@
 package com.example.trelloweb.user.base.controller;
 
+import com.example.trelloweb.user.base.form.ProfileForm;
 import com.example.trelloweb.user.base.service.UserInfoService;
 import com.example.trelloweb.user.base.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +18,10 @@ public class UserController {
     private final UserInfoService userInfoService;
 
     @GetMapping("/profile")
-    public ModelAndView userProfile(Principal principal){
+    public ModelAndView userProfile(Principal principal, ProfileForm profileForm){
         ModelAndView view = new ModelAndView();
         view.addObject("userInfo", userInfoService.findinfoById(principal.getName()));
+        view.addObject("profileForm",profileForm);
         view.setViewName("views/profile/profile");
         return view;
     }

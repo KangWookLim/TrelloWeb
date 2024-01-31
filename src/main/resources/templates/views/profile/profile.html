@@ -2,19 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
-<div layout:fragment="content" style="height: 100%; background-color: #1d2125">
+<div layout:fragment="content" style="height: 100vh; background-color: #1d2125">
     <link rel="stylesheet" th:href="@{/css/profile/profile.css}">
     <div class ="profileWrapper">
             <h3>Public profile</h3>
             <hr>
-            <form th:object="" style="display: flex">
+            <form th:object="${profileForm}" style="display: flex">
                 <div style="width: 66.6666%;" class = "editProfileLeft">
                     <label>Full Name</label>
-                    <input class = "mandatory" type = "text" id = "fullName" th:placeholder="${userInfo.getFULLNAME()}">
-                    <label for="nickName">Nick Name</label>
-                    <input class = "mandatory" type = "text" id = "nickName" th:placeholder="${userInfo.getNICKNAME()}">
+                    <input th:field="${profileForm.fullName}" class = "mandatory" type = "text" th:placeholder="${userInfo.getFULLNAME()}">
+                    <label th:for="nickName">Nick Name</label>
+                    <input th:field="${profileForm.nickName}" class = "mandatory" type = "text" th:placeholder="${userInfo.getNICKNAME()}">
                     <label>BIO</label>
-                    <textarea id = "bio" style="width: 440px;" maxlength="200" th:placeholder="${userInfo.getBIO()}"></textarea>
+                    <textarea th:field="${profileForm.BIO}" style="width: 440px;" th:placeholder="${userInfo.getBIO()}" th:if="${userInfo.BIO!=null}"></textarea>
+                    <textarea th:field="${profileForm.BIO}" style="width: 440px;" placeholder="자기소개를 입력해주세요" th:unless="${userInfo.BIO!=null}"></textarea>
                     <label>Social accounts</label>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
@@ -27,7 +28,7 @@
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social2" th:placeholder="${userInfo.getSOCIALLINK2()}"><br>
+                    <input th:field="${profileForm.}" type = "text" class="social" id = "social2" th:placeholder="${userInfo.getSOCIALLINK2()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
