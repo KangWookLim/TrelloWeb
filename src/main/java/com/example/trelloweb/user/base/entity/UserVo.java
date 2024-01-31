@@ -14,8 +14,6 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -27,8 +25,6 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EntityListeners(AuditingEntityListener.class)
-@EnableJpaAuditing
 @DynamicInsert
 @DynamicUpdate
 @Entity(name = "users")
@@ -48,7 +44,7 @@ public class UserVo {
     private String EMAIL;
 
     @Column(name = "img_url")
-    @ColumnDefault("'/images/profile/user.png'")
+    @ColumnDefault("'images/profile/user.png'")
     private String IMGURL;
 
     @Column(length = 100, unique = true)

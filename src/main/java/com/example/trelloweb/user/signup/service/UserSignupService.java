@@ -26,6 +26,8 @@ public class UserSignupService {
                 user.setFULLNAME(FULLNAME);
                 user.setBIRTH(Birth);
                 user.setBIO(Bio);
+                user.setCREATEDATE(LocalDateTime.now());
+                user.setUPDATEDATE(LocalDateTime.now());
                 userJpaRepo.save(user);
     }
 
@@ -41,6 +43,8 @@ public class UserSignupService {
         user.setIMGURL(IMGURL);
         user.setBIRTH(Birth);
         user.setBIO(Bio);
+        user.setCREATEDATE(LocalDateTime.now());
+        user.setUPDATEDATE(LocalDateTime.now());
         userJpaRepo.save(user);
     }
 
