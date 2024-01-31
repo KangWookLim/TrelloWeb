@@ -1,7 +1,4 @@
 @charset "UTF-8";
-body{
-    height: 100vh;
-}
 
 .profileWrapper {
     width: 920px;
@@ -36,7 +33,7 @@ body{
 
 .changeButton {
     width: 130px;
-    margin: 6px 0 10px 10px;
+    margin: 6px 0 0 10px;
     border: 1px solid lightgray;
     background-color: white;
     color: black;
