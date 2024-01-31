@@ -1,9 +1,12 @@
 package com.example.trelloweb.user.base.repo;
 
 import com.example.trelloweb.user.base.entity.UserVo;
+import com.example.trelloweb.user.base.vo.UserinfoVo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 
 @Repository
@@ -14,6 +17,5 @@ public interface UserJpaRepo extends JpaRepository<UserVo, String> {
     Optional<UserVo> findByID(String id);
     Optional<UserVo> findByEMAIL(String email);
     boolean existsByEMAIL(String email);
-
 
 }

@@ -59,10 +59,8 @@ public class securityconfig {
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),
                                 new AntPathRequestMatcher("/user/startSign"),
                                 new AntPathRequestMatcher("/")).anonymous()
-                        .requestMatchers(new AntPathRequestMatcher("/user/**")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/user/loginsetting")).authenticated()
-                        .requestMatchers(new AntPathRequestMatcher("/home/**")
-                                        ,new AntPathRequestMatcher("/board/**")
+                        .requestMatchers(new AntPathRequestMatcher("/user/profile")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/board/**")
                                         ,new AntPathRequestMatcher("/template/**")).hasAnyRole("USER","ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole("ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()

@@ -2,63 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
-<div layout:fragment="content" style="height: 100%; background-color: #1c2b41">
+<div layout:fragment="content" style="height: 100%; background-color: #1d2125">
     <link rel="stylesheet" th:href="@{/css/profile/profile.css}">
     <div class ="profileWrapper">
             <h3>Public profile</h3>
             <hr>
-            <div style="display: flex">
+            <form th:object="" style="display: flex">
                 <div style="width: 66.6666%;" class = "editProfileLeft">
-                    <label>ID</label>
-                    <input class = "mandatory alphabetOnly" type = "text" id = "ID" disabled>
-                    <br>
-                    <label style="display: inline">Password</label><button class = "changeButton" id = "changePassword">Change password</button>
-                    <input class = "mandatory alphabetOnly" type = "password" id = "password" disabled>
-                    <br>
-                    <label style="display: inline">Email</label><button class = "changeButton" style="margin-left: 37px;">Change Email</button>
-                    <br>
-                    <input class = "mandatory alphabetOnly" type = "text" id = "email" disabled>
-                    <label>First Name</label>
-                    <input class = "mandatory alphabetOnly" type = "text" id = "lastName" disabled>
-                    <label>Nick Name</label>
+                    <label>Full Name</label>
+                    <input class = "mandatory" type = "text" id = "fullName" th:placeholder="${userInfo.getFULLNAME()}">
+                    <label for="nickName">Nick Name</label>
+                    <input class = "mandatory" type = "text" id = "nickName" th:placeholder="${userInfo.getNICKNAME()}">
                     <label>BIO</label>
-                    <textarea id = "bio" style="width: 440px;" maxlength="200" disabled></textarea>
+                    <textarea id = "bio" style="width: 440px;" maxlength="200" th:placeholder="${userInfo.getBIO()}"></textarea>
                     <label>Social accounts</label>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social1" placeholder="Link to social profile" disabled value="hi"><br>
+                    <input type = "text" class="social" id = "social1" th:placeholder="${userInfo.getSOCIALLINK1()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social2" placeholder="Link to social profile" disabled><br>
+                    <input type = "text" class="social" id = "social2" th:placeholder="${userInfo.getSOCIALLINK2()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social3" placeholder="Link to social profile" disabled><br>
+                    <input type = "text" class="social" id = "social3" th:placeholder="${userInfo.getSOCIALLINK3()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social4" placeholder="Link to social profile" disabled><br>
+                    <input type = "text" class="social" id = "social4" th:placeholder="${userInfo.getSOCIALLINK4()}"><br>
                 </div>
                 <div style="width: 33.3333%">
                     <label>Profile picture</label><br>
                     <img id = "profileImage" th:src="@{/images/profile/user.png}" style="margin-top: 1rem; width: 10rem; height: 10rem;">
                 </div>
 
-            </div>
+            </form>
             <br>
-            <a class="change" th:href="@{/user/editProfile}">
-                Update my profile
-            </a>
+        <a class="change" th:href="@{/user/profile}">
+            Update my profile
+        </a>
+        <a class="change" th:href="@{/user/}">
+            Update my profile
+        </a>
         <br>
     </div>
     <div id="modalContainer">
