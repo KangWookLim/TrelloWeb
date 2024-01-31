@@ -463,15 +463,67 @@ function showComments(cardId) {
 
 
 
-/* //due-date value out check
+ //due-date value out check
 let date = $("#due-date");
-function checkdatetime(){
-    console.log(date.val());
-}*/
+$('#due-date-save').click(function () {
+    if (date.val().length === 0){
+        alert("Please enter a due date");
+    } else {
+        $.ajax({
+            type : 'get',
+            url : "/card_detail/updateDueDate",
+            data : {
+                "card_id" : openedCard,
+                "due_date" : date.val()
+            }
+        }).done(function (data) {
+            if (data === 1){
+                console.log("update successful");
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error updating due date");
+            console.log(status);
+        });
+    }
+})
+
+$('#due-date-remove').click(function(){
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/removeDueDate",
+        data : {
+            "card_id" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("update successful");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error updating due date");
+        console.log(status);
+    });
+})
+$('#insertChecklist').click(function(){
+    let checklistValue = $('#checklist-value').val();
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/insertChecklist",
+        data : {
+            "card_id" : openedCard,
+            "checklist_value" : checklistValue
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("insert successful");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error adding checklist");
+        console.log(status);
+    });
+})
 
 //open and close sidebar modals
-$('.card-sidebar-button').click(function (event){
-    event.preventDefault();
+$('.card-sidebar-button').click(function (){
 
     var linkText = $(this).text().toLowerCase();
     console.log(linkText);

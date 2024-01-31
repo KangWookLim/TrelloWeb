@@ -10,7 +10,7 @@
     z-index : 5;
     background-color : #1d2125;
     height : 48px;
-    width : calc(100vw - 17px) ;
+    width : 100vw ;
     padding : 8px;
     border-bottom : 1px solid;
     border-bottom-color : hsla(221, 18%, 68%, 0.16);

@@ -92,4 +92,21 @@ public class CardDetailController {
         return cardMemberService.addCardMember(user_uid,card_id);
     }
 
+    @RequestMapping("/updateDueDate")
+    @ResponseBody
+    public int updateDueDate(@RequestParam ("card_id") Long card_id, @RequestParam ("due_date") String due_date){
+        return cardDetailService.updateDueDate(card_id, due_date);
+    }
+
+    @RequestMapping("/removeDueDate")
+    @ResponseBody
+    public int removeDueDate(@RequestParam ("card_id") Long card_id){
+        return cardDetailService.removeDueDate(card_id);
+    }
+
+    @RequestMapping("/insertChecklist")
+    @ResponseBody
+    public int insertChecklist(@RequestParam ("card_id") Long card_id, @RequestParam ("checklist_value") String checklist_value){
+        return cardTaskServicve.insertChecklist(card_id, checklist_value);
+    }
 }

@@ -12,4 +12,12 @@ public class CardDetailService {
     public Cards getCardDetail(Long cardid) {
         return cardDetailRepo.getCardByCardId(cardid);
     }
+
+    public int updateDueDate(Long cardId, String dueDate) {
+        return cardDetailRepo.updateDueDate(cardId, dueDate);
+    }
+
+    public int removeDueDate(Long cardId) {
+        return cardDetailRepo.removeDueDate(cardId);
+    }
 }

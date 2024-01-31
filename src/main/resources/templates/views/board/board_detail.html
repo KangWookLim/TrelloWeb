@@ -703,8 +703,8 @@
         <div class="card-sidebar-title">Add checklist</div>
         <div>
            <h4 class = "card-sidebar-subtitle">Title</h4>
-            <input type="text" class="card-sidebar-text" value="checklist">
-            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
+            <input type="text" class="card-sidebar-text" id = "checklist-value" value="checklist">
+            <button class="add-list-confirm-button" style="margin-bottom: 10px" id = "insertChecklist">Save</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-dates">
@@ -712,8 +712,8 @@
         <div>
             <h4 class = "card-sidebar-subtitle">Date</h4>
             <input type="datetime-local" id = "due-date">
-            <button class="add-list-confirm-button" style="margin-top: 5px">Save</button>
-            <button class="add-list-confirm-button" style="margin-top: 5px">Remove</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-save">Save</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-remove">Remove</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">

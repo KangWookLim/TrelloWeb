@@ -14,4 +14,8 @@ public class CardTaskServicve {
     public List<CardTasks> getCardTasks(Long cardid) {
         return cardTaskRepo.getAllTasks(cardid);
     }
+
+    public int insertChecklist(Long cardId, String checklistValue) {
+        return cardTaskRepo.insertChecklist(cardId, checklistValue);
+    }
 }

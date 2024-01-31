@@ -32,5 +32,15 @@ public class CardDetailRepo {
     }
 
 
+    public int updateDueDate(Long cardId, String dueDate) {
+        String sql = "UPDATE card SET due_date = :dueDate WHERE cardId = :cardId";
+        Map<String,Object> params = Map.of("cardId", cardId, "dueDate", dueDate);
+        return jdbcTemplate.update(sql, params);
+    }
 
+    public int removeDueDate(Long cardId) {
+        String sql = "UPDATE card SET due_date = NULL WHERE cardId = :cardId";
+        Map<String,Long> params = Map.of("cardId", cardId);
+        return jdbcTemplate.update(sql, params);
+    }
 }
