@@ -572,7 +572,7 @@
                             <hr>
                             <a href="#" class="card-sidebar-button">Archive</a>
                             <a href="#" class="card-sidebar-button">Share</a>
-
+                            <a href="#" class="card-sidebar-button" style="background-color: #f87168; color: black">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -662,7 +662,7 @@
             </div>
         </div>
     </template>
-    <!--<div class="card-sidebar-modal" id = "card-sidebar-button-members" style="display: block;">
+    <div class="card-sidebar-modal" id = "card-sidebar-button-members">
         <div class="card-sidebar-title">Members</div>
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
@@ -672,31 +672,65 @@
                 <li><button class="add-card-member">Nakyeon Choi</button></li>
             </ul>
         </div>
-    </div>-->
-    <div class="card-sidebar-modal" id = "card-sidebar-button-labels" style="display: block;">
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-labels">
         <div class="card-sidebar-title">Labels</div>
         <div>
             <h4 class="card-sidebar-subtitle">Labels</h4>
             <ul class="label-ul">
                 <li>
-                    <input type="checkbox">
-
+                    <input type="checkbox" class="activate_label" id = "labelcheck1">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label1" style="background-color: #216e4e"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck2">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label2" style="background-color: #e2b203"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck3">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label3" style="background-color: #ae2e24"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck4">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label4" style="background-color: #5e4db2"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck5">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label5" style="background-color: #0055cc"></textarea>
                 </li>
             </ul>
         </div>
     </div>
-    <!--<div class="card-sidebar-modal" id = "card-sidebar-button-Checklist" style="display: block;">
-        <div class="card-sidebar-title">Members</div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-Checklist">
+        <div class="card-sidebar-title">Add checklist</div>
         <div>
-        <h4 class = "card-sidebar-subtitle">Title</h4>
-        <input type="text" placeholder="search members" class="card-sidebar-text">
+           <h4 class = "card-sidebar-subtitle">Title</h4>
+            <input type="text" class="card-sidebar-text" value="checklist">
+            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
         </div>
     </div>
-    <div class="card-sidebar-modal" id = "card-sidebar-button-dates" style="display: block;">
-        <div class="card-sidebar-title">Members</div>
-        <input type="text" placeholder="search members" class="card-sidebar-text">
+    <div class="card-sidebar-modal" id = "card-sidebar-button-dates">
+        <div class="card-sidebar-title">Add due date</div>
+        <div>
+            <h4 class = "card-sidebar-subtitle">Date</h4>
+            <input type="datetime-local" id = "due-date">
+            <button class="add-list-confirm-button" style="margin-top: 5px" onclick="checkdatetime()">Save</button>
+        </div>
     </div>
--->
+    <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">
+        <div class="card-sidebar-title">Add attachment</div>
+        <div>
+            <h4 class = "card-sidebar-subtitle">File</h4>
+            <button style="margin-top: 5px">Save</button>
+            <hr>
+            <h4 class = "card-sidebar-subtitle">Recent Boards</h4>
+            <ul class="recent-ul">
+                <li>
+                    <a href="#" style="display: block; width: 100%; background-color: #0052CC">hm</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 </div>
 </html>

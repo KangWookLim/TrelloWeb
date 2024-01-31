@@ -143,7 +143,7 @@ let comments_container = $("#comments_container");
 let cardTaskContainer = $("#card_task_container");
 
 
-
+//db time format
 function formatDateString(inputDateString) {
     // Create a Date object from the input string
     const dateObject = new Date(inputDateString);
@@ -159,6 +159,8 @@ function formatDateString(inputDateString) {
 
     return formattedDateString;
 }
+//
+
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
@@ -455,4 +457,62 @@ function showComments(cardId) {
         console.log("error loading labels for card");
         console.log(status);
     });
+}
+
+
+
+/* //due-date value out check
+let date = $("#due-date");
+function checkdatetime(){
+    console.log(date.val());
+}*/
+
+//open and close sidebar modals
+$('.card-sidebar-button').click(function (event){
+    event.preventDefault();
+
+    var linkText = $(this).text().toLowerCase();
+    console.log(linkText);
+    if (linkText === "members"){
+        openMembersModal();
+    }
+    else if (linkText === "labels") {
+        openLabelsModal();
+    }
+    else if (linkText === "checklist") {
+        openChecklistModal();
+    }
+    else if (linkText === "dates") {
+        openDatesModal();
+    }
+    else if (linkText === "attachment") {
+        openAttachmentModal();
+    }
+    /*else if (linkText === "cover") {
+        console.log("labels clicked");
+    }*/
+    else {
+        console.log("yet no functions available")
+    }
+})
+
+function openMembersModal(){
+
+    $('#card-sidebar-button-members').toggle();
+}
+function openLabelsModal() {
+    $('#card-sidebar-button-labels').toggle();
+}
+function openChecklistModal() {
+    $('#card-sidebar-button-Checklist').toggle();
+}
+function openDatesModal() {
+    $('#card-sidebar-button-dates').toggle();
+}
+function openAttachmentModal() {
+    $('#card-sidebar-button-attachment').toggle();
+}
+
+function openCoverModal() {
+    $('#card-sidebar-button-members').toggle();
 }
