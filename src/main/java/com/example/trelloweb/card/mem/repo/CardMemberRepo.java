@@ -28,4 +28,17 @@ public class CardMemberRepo {
         Map<String, Long> params = Map.of("card_id",cardId);
         return jdbcTemplate.query(sql, params, rmMembers);
     }
+
+
+    public int removeCardMember(String user_uid, Long cardid) {
+        String sql = "Delete from card_members where USER_UID = :user_uid AND CARD_ID = :card_id";
+        Map<String, Object> params = Map.of("user_uid",user_uid,"card_id", cardid);
+        return jdbcTemplate.update(sql, params);
+    }
+
+    public int addCardMember(String userUid, Long cardId) {
+        String sql = "Insert into card_members values ( :card_id, :user_uid)";
+        Map<String, Object> params = Map.of("user_uid",userUid,"card_id",cardId);
+        return jdbcTemplate.update(sql,params);
+    }
 }

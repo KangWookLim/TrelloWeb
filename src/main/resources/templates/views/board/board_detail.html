@@ -667,9 +667,7 @@
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
             <ul style="list-style-type: none; padding-left: 0; margin:0;">
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li th:each="member, loop : ${board.getBoard_memVoList()}"><button class="add-card-member" onclick="removeMemberFromCard(this)" th:user_uid = "${member.uservo.getUseruid()}" th:text="${member.uservo.getFULLNAME() +' ('+ member.uservo.getNICKNAME()+')'}"></button></li>
             </ul>
         </div>
     </div>
@@ -714,7 +712,8 @@
         <div>
             <h4 class = "card-sidebar-subtitle">Date</h4>
             <input type="datetime-local" id = "due-date">
-            <button class="add-list-confirm-button" style="margin-top: 5px" onclick="checkdatetime()">Save</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px">Save</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px">Remove</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">
