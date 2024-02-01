@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,11 +30,20 @@ public class BoardController {
     @ResponseBody
     public ModelAndView board(Principal principal) {
         ModelAndView view = new ModelAndView();
+        Set<Integer> isstarred = new HashSet<>();
         List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
         List<StarredBoards> starredList = boardSearchService.findAllStarredBoards(principal.getName());
+        for(Boards b : boardsList){
+            for(StarredBoards s : starredList){
+                if(b.getBOARD_ID()==s.getBOARD_ID()){
+                    isstarred.add(b.getBOARD_ID());
+                }
+            }
+        }
         view.addObject("starredList", starredList);
         view.addObject("WSList", WSList);
+        view.addObject("isstarred",isstarred);
         view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
         return view;
@@ -48,12 +57,37 @@ public class BoardController {
         return view;
     }
 
-
+    @PostMapping("/board/star")
+    public ModelAndView updateStarBoard(@RequestParam(name="boardId") String boardId, Principal principal) {
+        ModelAndView view = new ModelAndView();
+        int check = boardService.checkStarredBoard(boardId, principal.getName());
+        if(check > 0) {
+            //delete starred board
+            boardService.deleteStarredBoard(boardId, principal.getName());
+        }else{
+            //create starred board
+            boardService.createStarredBoard(boardId, principal.getName());
+        }
+        view.setViewName("redirect:/board");
+        return view;
+    }
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
         System.out.println(principal);
+        Set<Integer> isstarred = new HashSet<>();
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
+        List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
+        List<StarredBoards> starredList = boardSearchService.findAllStarredBoards(principal.getName());
+        for(Boards b : boardsList){
+            for(StarredBoards s : starredList){
+                if(b.getBOARD_ID()==s.getBOARD_ID()){
+                    isstarred.add(b.getBOARD_ID());
+                }
+            }
+        }
+        view.addObject("starredList", starredList);
+        view.addObject("isstarred",isstarred);
         view.addObject("WSList", WSList);
         view.setViewName("views/board/home");
         return view;

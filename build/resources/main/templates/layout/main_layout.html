@@ -16,8 +16,9 @@
     <th:block th:replace="fragments/config::config"></th:block>
 </head>
 <body>
-<div th:replace="fragments/header::header"></div>
+    <div><th:block layout:fragment="header" th:include="@{/fragments/header}"></th:block>
+    </div>
     <div layout:fragment="content" class="content"
-         style = "min-height : calc(100vh - 48px);"></div>
+         style = "min-height : 100vh"></div>
 </body>
 </html>
