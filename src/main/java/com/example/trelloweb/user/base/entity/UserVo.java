@@ -75,9 +75,9 @@ public class UserVo {
     @Column(nullable = true, name = "social_link_4")
     private String SOCIALLINK4;
 
-    @OneToMany(mappedBy = "BlockingUSERUID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "BlockedUSERUID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
-    private List<Blocked_UserVo> blocking_userVoList;
+    private List<Blocked_UserVo> blocked_userVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
