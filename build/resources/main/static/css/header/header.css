@@ -807,4 +807,7 @@
 }
 .header-btn-dropdown {
     z-index:1;
+    position: fixed;
+    inset: 48px auto auto 358.5px;
+    width: 304px;
 }

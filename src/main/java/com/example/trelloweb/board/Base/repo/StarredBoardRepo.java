@@ -28,15 +28,15 @@ public class StarredBoardRepo {
     public List<StarredBoards> getAllStarredBoardInfo(String memId) {
         String query = "SELECT T1.WS_ID WS_ID, T2.NAME WS_NAME, BOARD_ID, BOARD_NAME, T1.IMAGE_URL BOARD_IMG\n" +
                 "FROM (\n" +
-                "    SELECT BOARD_ID, BOARD_NAME, IMAGE_URL,WS_ID\n" +
-                "    FROM BOARD\n" +
-                "    WHERE BOARD_ID = (\n" +
-                "        SELECT STARRED_BOARD_ID\n" +
-                "        FROM USER_STARRED_BOARD\n" +
-                "        WHERE USER_UID = '"+ memId +"'\n" +
-                "        )\n" +
-                ") T1 LEFT OUTER JOIN WORKSPACE T2\n" +
-                "ON T1.WS_ID = T2.WS_ID;";
+                "SELECT BOARD_ID, BOARD_NAME, IMAGE_URL,WS_ID\n" +
+                "FROM BOARD\n" +
+                "RIGHT OUTER JOIN\n" +
+                "(SELECT STARRED_BOARD_ID\n" +
+                "FROM USER_STARRED_BOARD\n" +
+                "WHERE USER_UID = '"+ memId +"' )\n" +
+                "ON BOARD_ID = STARRED_BOARD_ID) T1\n" +
+                "LEFT OUTER JOIN WORKSPACE T2\n" +
+                "ON T1.WS_ID = T2.WS_ID";
         return jdbcTemplate.query(query, rowMapper);
     }
     public int checkStarredBoard(String boardId, String memId) {
