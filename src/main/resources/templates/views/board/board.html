@@ -7,7 +7,8 @@
 <div layout:fragment="content">
   <link rel="stylesheet" th:href="@{/css/board/board.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
-
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
   <div id = "content-wrapper">
     <div class = "home-container">
       <nav id = "home-left-side-container">
@@ -104,7 +105,7 @@
                           <span th:text="${starredList.getWS_NAME}">
 
                           </span>
-                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon" th:value="${starredList.getBOARD_ID}">
                         </div>
                     </div>
                 </a>
@@ -186,13 +187,11 @@
                   <a class="board-section-item-img" th:style="'background-image: url(' + ${board.getBOARD_IMG} + ');'" th:href="|/board/${board.BOARD_ID}|">
                     <div class="board-detail-box">
                       <div class="board-detail-name" th:text="${board.getBOARD_NAME}">
-
                       </div>
                       <div class="board-detail-ws">
                         <span th:text="${board.getWS_NAME}">
-
                         </span>
-                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
+                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
                       </div>
                     </div>
                   </a>
