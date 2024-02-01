@@ -6,8 +6,11 @@
     list-style :none;
     line-height : 20px;
 }
+.content {
+    background-color : #1D2125;
+}
 div {
-    color: #9fadbc;
+
 }
 /* board section */
 
@@ -183,6 +186,7 @@ div {
 }
 
 .board-section-add {
+    color : #b6c2cf;
     background-color: #a1bdd914;
     display: table-cell;
     font-weight: 400;
