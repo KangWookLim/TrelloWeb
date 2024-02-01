@@ -32,4 +32,10 @@ public class CardTaskRepo {
         Map<String, Object> params = Map.of("cardid",cardId,"title", checklistValue);
         return jdbcTemplate.update(sql, params);
     }
+
+    public int removeTask(Long taskId) {
+        String sql = "Delete FROM CARD_TASK WHERE task_id = :taskid";
+        Map<String, Long> params = Map.of("taskid",taskId);
+        return jdbcTemplate.update(sql, params);
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.trelloweb.card.attatchments.entity;
 
 import com.example.trelloweb.card.base.entity.CardVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Card_attatchmentVo {
     private Long attid;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 

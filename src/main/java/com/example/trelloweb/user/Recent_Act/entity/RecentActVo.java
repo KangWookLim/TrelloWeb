@@ -1,6 +1,7 @@
 package com.example.trelloweb.user.Recent_Act.entity;
 
 import com.example.trelloweb.user.base.entity.UserVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +19,7 @@ public class RecentActVo {
     private Long Id;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_uid")
     private UserVo uservo;
 

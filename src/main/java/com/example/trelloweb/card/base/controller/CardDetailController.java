@@ -109,4 +109,40 @@ public class CardDetailController {
     public int insertChecklist(@RequestParam ("card_id") Long card_id, @RequestParam ("checklist_value") String checklist_value){
         return cardTaskServicve.insertChecklist(card_id, checklist_value);
     }
+
+    @RequestMapping("/addCover")
+    @ResponseBody
+    public int addCover(@RequestParam ("cover") String cover, @RequestParam ("card_id") Long card_id){
+        return cardDetailService.addCover(cover,card_id);
+    }
+    @RequestMapping("/removeCover")
+    @ResponseBody
+    public int removeCover(@RequestParam ("card_id") Long card_id){
+        return cardDetailService.removeCover(card_id);
+    }
+
+    @RequestMapping("/description")
+    @ResponseBody
+    public int description(@RequestParam ("description") String description, @RequestParam ("card_id") Long card_id){
+        return cardDetailService.description(description,card_id);
+    }
+
+    @RequestMapping("/deleteTask")
+    @ResponseBody
+    public void deleteTask(@RequestParam ("taskId") Long taskId){
+        cardTaskServicve.removeTask(taskId);
+    }
+
+    @RequestMapping("/deleteCard")
+    @ResponseBody
+    public void deleteCard(@RequestParam ("cardId") Long cardId){
+        cardDetailService.removeCard(cardId);
+    }
+
+    @RequestMapping("get_orderMax")
+    @ResponseBody
+    public int getOrderMax(@RequestParam ("list_id") Long list_id){
+        return cardDetailService.getOrderMax(list_id);
+    }
+
 }
