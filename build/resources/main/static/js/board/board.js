@@ -1,8 +1,11 @@
     const token = $("meta[name='_csrf']").attr("content");
     const header = $("meta[name='_csrf_header']").attr("content");
-    function toBoard () {
-    }
+    const starId = document.getElementsByClassName('#starred-board-icon')
+
     $(document).ready(function(){
+        for(let i=0; i < starId.length; i++)  {
+          console.log(starId[i].innerText + '<br>');
+        }
       $("#home-board-btn").addClass("home-active-btn")
       const activeTrello = $("#home-board-btn").children("img");
       activeTrello.attr("src", function(index, attr){

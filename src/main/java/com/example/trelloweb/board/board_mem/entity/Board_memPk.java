@@ -10,5 +10,4 @@ import java.io.Serializable;
 public class Board_memPk implements Serializable {
     private String uservo;
     private Long boardvo;
-
 }
