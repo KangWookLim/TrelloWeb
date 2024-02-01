@@ -41,9 +41,9 @@ public class BoardController {
                 }
             }
         }
-        view.addObject("isstarred",isstarred);
         view.addObject("starredList", starredList);
         view.addObject("WSList", WSList);
+        view.addObject("isstarred",isstarred);
         view.addObject("boardsList", boardsList);
         view.setViewName("views/board/board");
         return view;
@@ -74,8 +74,20 @@ public class BoardController {
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
-        System.out.println(principal    );
+        System.out.println(principal);
+        Set<Integer> isstarred = new HashSet<>();
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
+        List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
+        List<StarredBoards> starredList = boardSearchService.findAllStarredBoards(principal.getName());
+        for(Boards b : boardsList){
+            for(StarredBoards s : starredList){
+                if(b.getBOARD_ID()==s.getBOARD_ID()){
+                    isstarred.add(b.getBOARD_ID());
+                }
+            }
+        }
+        view.addObject("starredList", starredList);
+        view.addObject("isstarred",isstarred);
         view.addObject("WSList", WSList);
         view.setViewName("views/board/home");
         return view;
