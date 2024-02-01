@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
@@ -47,20 +49,18 @@ public class securityconfig {
     */
 
     private final CustomOAuth2UserService customOAuth2UserService;
-    @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-        return new BCryptPasswordEncoder();
-        //encoding the User's password
-    }
+
+
+
     @Bean
     protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),
-                                new AntPathRequestMatcher("/user/startSign"),
                                 new AntPathRequestMatcher("/")).anonymous()
                         .requestMatchers(new AntPathRequestMatcher("/user/profile")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/board/**")
+                                        ,new AntPathRequestMatcher("/home")
                                         ,new AntPathRequestMatcher("/template/**")).hasAnyRole("USER","ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/admin")).hasRole("ADMIN")
                         .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
@@ -91,13 +91,24 @@ public class securityconfig {
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true))
                 //purpose LogOut and clear the session
+                .sessionManagement(sessionManagement -> sessionManagement
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(true))
+
         ;
 
         return http.getOrBuild();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
         //Main Component for make User's Authentication and Role
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
+        //encoding the User's password
     }
 }

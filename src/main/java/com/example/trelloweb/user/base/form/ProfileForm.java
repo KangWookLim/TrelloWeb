@@ -11,6 +11,7 @@ public class ProfileForm {
     private String FullName;
     private String NickName;
     private String BIO;
+    private String BIRTH;
     private String SOCIALLINK1;
     private String SOCIALLINK2;
     private String SOCIALLINK3;

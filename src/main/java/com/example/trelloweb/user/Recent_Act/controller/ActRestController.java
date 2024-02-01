@@ -1,6 +1,5 @@
 //package com.example.trelloweb.user.Recent_Act.controller;
 //
-//import com.example.trelloweb.boarddetail.service.BoardDetailService;
 //import com.example.trelloweb.user.Recent_Act.service.ActService;
 //import lombok.RequiredArgsConstructor;
 //import org.springframework.web.bind.annotation.PathVariable;

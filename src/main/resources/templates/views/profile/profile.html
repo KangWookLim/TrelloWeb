@@ -2,13 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
-<div layout:fragment="content" style="height: 100vh; background-color: #1d2125">
+<div layout:fragment="content" style="height: 100vh; background-color: #1d2125; display: flex; flex-direction: row; justify-content: space-between; align-items: center">
     <link rel="stylesheet" th:href="@{/css/profile/profile.css}">
     <div class ="profileWrapper">
             <h3>Public profile</h3>
             <hr>
-            <form th:object="${profileForm}" style="display: flex">
-                <div style="width: 66.6666%;" class = "editProfileLeft">
+            <div style="display: flex">
+                <form th:object="${profileForm}" style="width: 66.6666%;" class = "editProfileLeft">
                     <label>Full Name</label>
                     <input th:field="${profileForm.fullName}" class = "mandatory" type = "text" th:placeholder="${userInfo.getFULLNAME()}">
                     <label th:for="nickName">Nick Name</label>
@@ -22,39 +22,38 @@
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social1" th:placeholder="${userInfo.getSOCIALLINK1()}"><br>
+                    <input th:field="${profileForm.SOCIALLINK1}" type = "text" class="social" id = "social1" th:placeholder="${userInfo.getSOCIALLINK1()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input th:field="${profileForm.}" type = "text" class="social" id = "social2" th:placeholder="${userInfo.getSOCIALLINK2()}"><br>
+                    <input th:field="${profileForm.SOCIALLINK2}" type = "text" class="social" id = "social2" th:placeholder="${userInfo.getSOCIALLINK2()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social3" th:placeholder="${userInfo.getSOCIALLINK3()}"><br>
+                    <input th:field="${profileForm.SOCIALLINK3}" type = "text" class="social" id = "social3" th:placeholder="${userInfo.getSOCIALLINK3()}"><br>
                     <span data-targets="social-account-editor.iconOptions" data-target="social-account-editor.iconGeneric" data-provider-key="generic">
                         <svg title="Social account" aria-label="Social account" role="img" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-link">
                             <path style="fill: #bac0cd" d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path>
                         </svg>
                     </span>
-                    <input type = "text" class="social" id = "social4" th:placeholder="${userInfo.getSOCIALLINK4()}"><br>
-                </div>
+                    <input th:field="${profileForm.SOCIALLINK4}" type = "text" class="social" id = "social4" th:placeholder="${userInfo.getSOCIALLINK4()}"><br>
+                    <label>Birth</label>
+                    <input type="date" th:field="*{BIRTH}" style="margin-bottom: 10px">
+                    <div class="invaild" role="alert" th:if="${#fields.hasErrors('BIRTH')}" th:errors="*{BIRTH}"></div>
+                    <a class="change" th:href="@{/user/profile}">
+                        Update
+                    </a>
+                </form>
                 <div style="width: 33.3333%">
                     <label>Profile picture</label><br>
-                    <img id = "profileImage" th:src="@{/images/profile/user.png}" style="margin-top: 1rem; width: 10rem; height: 10rem;">
+                    <img id = "profileImage" th:src="@{${#authentication.principal.getAttribute('picture')}}" style="margin-top: 1rem; width: 10rem; height: 10rem; border-radius: 5rem;">
                 </div>
-
-            </form>
+            </div>
             <br>
-        <a class="change" th:href="@{/user/profile}">
-            Update my profile
-        </a>
-        <a class="change" th:href="@{/user/}">
-            Update my profile
-        </a>
         <br>
     </div>
     <div id="modalContainer">
@@ -109,7 +108,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" th:src="@{/js/profile/profile.js}">
-    </script>
+    <div th:replace="fragments/profile_sidebar::profile_sidebar"></div>
 </div>
+<script type="text/javascript" th:src="@{/js/profile/profile.js}">
+</script>
 </html>
