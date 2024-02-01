@@ -48,7 +48,23 @@ public class BoardController {
         return view;
     }
 
-
+    @PostMapping("/board/star")
+    public ModelAndView updateStarBoard(@RequestParam(name="boardId") String boardId, Principal principal) {
+        ModelAndView view = new ModelAndView();
+        int check = boardService.checkStarredBoard(boardId, principal.getName());
+        System.out.println(boardId);
+        System.out.println(check);
+        if(check > 0) {
+            //delete starred board
+            boardService.deleteStarredBoard(boardId, principal.getName());
+        }else{
+            //create starred board
+            boardService.createStarredBoard(boardId, principal.getName());
+            System.out.println("추가");
+        }
+        view.setViewName("redirect:/board");
+        return view;
+    }
     @GetMapping("/home")//Authuser's home page
     public ModelAndView home(Principal principal) {
         ModelAndView view = new ModelAndView();
