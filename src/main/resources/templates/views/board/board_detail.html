@@ -459,7 +459,17 @@
 
                         </div>
                         <div class="card-description-wrapper" id = "card_task_container">
-                                <div class="card-description-header"><span class="card-header-logo"><span data-testid="ChecklistIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V13C20 12.4477 19.5523 12 19 12C18.4477 12 18 12.4477 18 13V18H6V6L16 6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H6ZM8.73534 10.3223C8.36105 9.91618 7.72841 9.89038 7.3223 10.2647C6.91619 10.639 6.89039 11.2716 7.26467 11.6777L10.8768 15.597C11.4143 16.1231 12.2145 16.1231 12.7111 15.6264L13.0754 15.2683C13.3699 14.9785 13.6981 14.6556 14.0516 14.3075C15.0614 13.313 16.0713 12.3169 17.014 11.3848L17.0543 11.3449C18.7291 9.68869 20.0004 8.42365 20.712 7.70223C21.0998 7.30904 21.0954 6.67589 20.7022 6.28805C20.309 5.90022 19.6759 5.90457 19.2881 6.29777C18.5843 7.01131 17.3169 8.27244 15.648 9.92281L15.6077 9.96263C14.6662 10.8937 13.6572 11.8889 12.6483 12.8825L11.8329 13.6851L8.73534 10.3223Z" fill="currentColor"></path></svg></span></span>
+                            <div id = "card_task_inner">
+                                <div class="card-description-header">
+                                    <span class="card-header-logo">
+                                        <span data-testid="ChecklistIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;">
+                                            <svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">\
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V13C20 12.4477 19.5523 12 19 12C18.4477 12 18 12.4477 18 13V18H6V6L16 6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H6ZM8.73534 10.3223C8.36105 9.91618 7.72841 9.89038 7.3223 10.2647C6.91619 10.639 6.89039 11.2716 7.26467 11.6777L10.8768 15.597C11.4143 16.1231 12.2145 16.1231 12.7111 15.6264L13.0754 15.2683C13.3699 14.9785 13.6981 14.6556 14.0516 14.3075C15.0614 13.313 16.0713 12.3169 17.014 11.3848L17.0543 11.3449C18.7291 9.68869 20.0004 8.42365 20.712 7.70223C21.0998 7.30904 21.0954 6.67589 20.7022 6.28805C20.309 5.90022 19.6759 5.90457 19.2881 6.29777C18.5843 7.01131 17.3169 8.27244 15.648 9.92281L15.6077 9.96263C14.6662 10.8937 13.6572 11.8889 12.6483 12.8825L11.8329 13.6851L8.73534 10.3223Z" fill="currentColor">
+
+                                                </path>
+                                            </svg>
+                                        </span>
+                                    </span>
                                     Checklist
                                     <div style="margin-left: 380px"><a href="#" class="due-button" style="text-decoration: none">Delete</a></div>
                                 </div>
@@ -473,14 +483,11 @@
                                 <div class="checklist-items-list">
                                     <div class="checklist-item">
                                         <div class="checklist-item-checkbox"><input type="checkbox"></div>
-                                        <div class="checklist-item-detail">1</div>
-                                    </div>
-                                    <div class="checklist-item">
-                                        <div class="checklist-item-checkbox"><input type="checkbox"></div>
                                         <div class="checklist-item-detail">2</div>
                                     </div>
                                 </div>
                                 <div style="margin-left: 40px"><a href="#" class="due-button">Add an item</a></div>
+                            </div>
                         </div>
                         <div class="card-description-wrapper">
                             <div class="card-description-header"><span class="card-header-logo"><span data-testid="CommentIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 17H12.5L8.28037 20.4014C6.97772 21.4869 5 20.5606 5 18.865V16.1973C3.2066 15.1599 2 13.2208 2 11C2 7.68629 4.68629 5 8 5H16C19.3137 5 22 7.68629 22 11C22 14.3137 19.3137 17 16 17ZM16 7H8C5.79086 7 4 8.79086 4 11C4 12.8638 5.27477 14.4299 7 14.874V19L12 15H16C18.2091 15 20 13.2091 20 11C20 8.79086 18.2091 7 16 7Z" fill="currentColor"></path></svg></span></span>Comments</div>
@@ -497,7 +504,7 @@
                                     <div class="phenom-desc">
                                         <span>Nakyeon Choi</span>
                                         <span class="inline-spacer"></span>
-                                        <span style="font-size: 12px; color: #9fadbc; ">Jan 19 at 4:39 PM</span>
+                                        <span style="font-size: 12px; color: #9fadbc; "></span>
                                             <div class="comment">
                                                 <div class="current-comment">
                                                     <p style="margin : 0;">haha</p>
@@ -565,7 +572,7 @@
                             <hr>
                             <a href="#" class="card-sidebar-button">Archive</a>
                             <a href="#" class="card-sidebar-button">Share</a>
-
+                            <a href="#" class="card-sidebar-button" style="background-color: #f87168; color: black">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -655,6 +662,75 @@
             </div>
         </div>
     </template>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-members">
+        <div class="card-sidebar-title">Members</div>
+        <div>
+            <h4 class="card-sidebar-subtitle">Board members</h4>
+            <ul style="list-style-type: none; padding-left: 0; margin:0;">
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-labels">
+        <div class="card-sidebar-title">Labels</div>
+        <div>
+            <h4 class="card-sidebar-subtitle">Labels</h4>
+            <ul class="label-ul">
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck1">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label1" style="background-color: #216e4e"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck2">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label2" style="background-color: #e2b203"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck3">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label3" style="background-color: #ae2e24"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck4">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label4" style="background-color: #5e4db2"></textarea>
+                </li>
+                <li>
+                    <input type="checkbox" class="activate_label" id = "labelcheck5">
+                    <textarea class="label-text" placeholder="Give label a title" id = "label5" style="background-color: #0055cc"></textarea>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-Checklist">
+        <div class="card-sidebar-title">Add checklist</div>
+        <div>
+           <h4 class = "card-sidebar-subtitle">Title</h4>
+            <input type="text" class="card-sidebar-text" value="checklist">
+            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
+        </div>
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-dates">
+        <div class="card-sidebar-title">Add due date</div>
+        <div>
+            <h4 class = "card-sidebar-subtitle">Date</h4>
+            <input type="datetime-local" id = "due-date">
+            <button class="add-list-confirm-button" style="margin-top: 5px" onclick="checkdatetime()">Save</button>
+        </div>
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">
+        <div class="card-sidebar-title">Add attachment</div>
+        <div>
+            <h4 class = "card-sidebar-subtitle">File</h4>
+            <button style="margin-top: 5px">Save</button>
+            <hr>
+            <h4 class = "card-sidebar-subtitle">Recent Boards</h4>
+            <ul class="recent-ul">
+                <li>
+                    <a href="#" style="display: block; width: 100%; background-color: #0052CC">hm</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
 </div>
 </html>

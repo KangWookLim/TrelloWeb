@@ -21,13 +21,17 @@ public class CardCommentRepo {
                     rs.getLong("card_id"),
                     rs.getString("created_date"),
                     rs.getString("comment"),
-                    rs.getString("user_uid")
+                    rs.getString("user_uid"),
+                    rs.getString("nickname")
             );
 
 
 
     public List<CardComments> getComments(Long cardId){
-        String sql = "SELECT * FROM CARD_COMMENT where card_id = :card_id";
+        String sql = "SELECT CARD_COMMENT.*, USERS.nickname\n" +
+                "FROM CARD_COMMENT\n" +
+                "JOIN USERS ON CARD_COMMENT.user_uid = USERS.user_uid\n" +
+                "WHERE CARD_COMMENT.card_id = :card_id";
         Map<String, Long> params = Map.of("card_id",cardId);
         return jdbcTemplate.query(sql, params, rowMapper);
     }

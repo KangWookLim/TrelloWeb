@@ -13,4 +13,5 @@ public class CardComments {
     private String created_date;
     private String comment;
     private String user_uid;
+    private String nickname;
 }

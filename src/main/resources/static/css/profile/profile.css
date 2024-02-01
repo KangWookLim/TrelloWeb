@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-.mandatory{
-    background-color: #42526E;
-}
-
 .profileWrapper {
     width: 920px;
     margin: auto;
@@ -54,35 +50,13 @@
     margin: 6px 0;
 
 }
-
-
-
 .editProfileLeft>input[type="text"],.editProfileLeft>input[type="password"] {
     width: 440px;
     padding: 5px 12px;
-    /*border : 1px solid lightgray;*/
-    border: none;
-    border-bottom: 1px solid lightgray;
-    /*border-radius: 6px;*/
-    color: black;
-    background-color: white;
-}
-
-.editProfileLeft>input[type="radio"],.editProfileLeft>input[type="radio"]:checked {
-    appearance: none;
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 100%;
-    margin-left: 0.3rem;
-    margin-top: 0.1rem;
-    border: black 1px solid;
-}
-.editProfileLeft>input[type="radio"] {
-    background-color: white;
-}
-
-.editProfileLeft>input[type="radio"]:checked {
-    background-color: black;
+    border : 1px solid lightgray;
+    border-radius: 6px;
+    background-color: #1d2125;
+    color: white;
 }
 
 .editProfileLeft>p {
@@ -90,10 +64,10 @@
     margin: 4px 0;
 }
 .editProfileLeft>textarea {
-    background-color: white;
-    color: black;
+    background-color: #1d2125;
+    color: white;
+    border : 1px solid lightgray;
     border-radius: 6px;
-    border: 1px solid lightgray;
     padding: 8px 12px;
 
 }
@@ -102,10 +76,9 @@
     width: 417px;
     margin: 6px 0;
     padding: 5px 12px;
-    border: none;
-    border-bottom: 1px solid lightgray;
-    color: black;
-    background-color: white;
+    border : 1px solid lightgray;
+    background-color: #1d2125;
+    color: white;
 }
 .social::placeholder {
     color: #bac0cd;

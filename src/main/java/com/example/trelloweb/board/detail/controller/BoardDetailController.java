@@ -20,14 +20,11 @@ public class BoardDetailController {
     @GetMapping("/{boardId}")
     public ModelAndView detail(@PathVariable("boardId") String boardId, Principal principal){
         ModelAndView view = new ModelAndView();
-        BoardVo boardvo = boardDetailService.findBoardById(boardId);
         Board_memPk board_memPk = new Board_memPk(principal.getName(), Long.valueOf(boardId));
-        if(boardDetailService.existsById(board_memPk)){
-            view.addObject("board",boardvo);
-            view.setViewName("/views/board/board_detail");
-        }else{
-            throw new IllegalStateException("잘못된 접근입니다");
-        }
+        System.out.println(board_memPk);
+        BoardVo boardvo = boardDetailService.findBoardById(boardId);
+        view.addObject("board",boardvo);
+        view.setViewName("/views/board/board_detail");
         return view;
     }
 }
