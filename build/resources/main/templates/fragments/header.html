@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header">
+    <link rel="stylesheet" th:href="@{/css/header/header.css}">
+    <div style="background-color:#1d2125; z-index:99;">
+        <div id = "header-container">
+        <div id = "logo-container">
+            <button class = "header-menu-btn">
+                <img th:src="@{/images/icons/menu.png}" class="header-menu-img" />
+            </button>
+            </div>
+        <a th:href="@{/home}">
+            <div class = "header-home-btn">
+                <img th:src="@{/images/icons/TrelloLogo.png}" class="header-home-img"/>
+            </div>
+        </a>
+        <div class = "header-left-container">
+            <div class="header-flexible-btn-container">
+                <button class = "header-flexible-btn">Workspace<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+                <button class = "header-flexible-btn">Recent<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+                <button class = "header-flexible-btn">Starred<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/>
+                    <div class="header-btn-dropdown">
+
+                    </div>
+                </button>
+                <button class = "header-flexible-btn">Templates<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+            </div>
+            <button onclick="dp_create()" class = "header-create-btn"> Create </button>
+            <div id="drop-header-create" style="display : none;">
+                <ul>
+                    <li>
+                        <button onclick="create_board()" class="header-dropdown-btn">
+                            <span class="header-dropdown-icon"><img class="header-dropdown-png"th:src="@{/images/icons/trello.png}" alt="create-board-icon"/> </span>
+                            <span>Create board</span>
+                            <p class="header-dropdown-text">
+                                A board is made up of cards ordered on lists. Use it to manage projects, track information, or organize anything.
+                            </p>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="header-dropdown-btn">
+                            <span class="header-dropdown-icon"><img class="header-dropdown-png"th:src="@{/images/icons/template.png}" alt="create-board-icon"/> </span>
+                            <span>Start with a template</span>
+                            <p class="header-dropdown-text">
+                                Get started faster with a board template.
+                            </p>
+                        </button>
+                    </li>
+                    <li>
+                        <button onclick="create_ws()" class="header-dropdown-btn">
+                            <span class="header-dropdown-icon"><img class="header-dropdown-png"th:src="@{/images/icons/team.png}" alt="create-board-icon"/> </span>
+                            <span>Create Workspace</span>
+                            <p class="header-dropdown-text">
+                                A Workspace is a group of boards and people. Use it to organize your company, side hustle, family, or friends.
+                            </p>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class = "drop-create-board" id="drop-create-board" style="display:none;">
+                <div class="drop-create-board-header">
+                    <h2 class="drop-create-board-title"> Create board</h2>
+                    <button onclick="dp_create()" class="return-to-drop-down">
+                        <img th:src="@{/images/icons/left-arrow.png}" class="drop-create-left-arrow"/>
+                    </button>
+                    <button onclick="close_dropdown_board()" class="close-drop-down">
+                        <img th:src="@{/images/icons/close.png}" class="drop-create-close"/>
+                    </button>
+                </div>
+                <form th:action="@{/board/create}" method="post">
+                    <div id="drop-create-board-container">
+                        <div id="drop-create-ex-img">
+                            <div id="drop-create-ex-background">
+                                <img th:src="@{/images/background/backgroundContent.svg}"/>
+                            </div>
+                        </div>
+                        <div id="drop-create-picker-container">
+                            <div>
+                                <label>Background</label>
+                            </div>
+                            <div id="background-picker">
+                                <ul class="background-picker-ul">
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button button-clicked" th:style="'background-image: url(https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'">
+                                            <span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>
+                                        </button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705336402584-b5deb3aa6cd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705445826760-f020a78b4023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                    <li class="background-picker-li">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(https://images.unsplash.com/photo-1705312409574-a2e2b0d11d61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400);}'"></button>
+                                    </li>
+                                </ul>
+                                <ul class="background-picker-ul">
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background1.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background2.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background3.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background4.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background5.svg} +');'"></button>
+                                    </li>
+                                    <li class="background-picker-li-sm">
+                                        <button type="button" class="background-picker-button" th:style="'background-image: url(' + @{/images/background/background6.svg} +');'"></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <label for="boardTitleInput" class="board-create-title">
+                                    <div>
+                                        Board title
+                                    </div>
+                                    <input type=text id="boardTitleInput" name="BoardName" required>
+                                </label>
+                                <label for="board-ws-select">Workspace</label>
+                                <div>
+                                    <select id="board-ws-select" name="WS_ID" required>
+                                        <option th:each="WSList : ${WSList}" th:value="${WSList.getWS_ID}" th:text="${WSList.getWS_NAME}" name="WS_ID"></option>
+                                    </select>
+                                </div>
+                                <input type="hidden" id="board_background_hidden" name="ImgUrl" value="https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400">
+                                <button type="submit" class="board-create-button" id="board-create">
+                                    Create
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div style="left: 0;position: absolute;top: 0;z-index: 80;">
+                <div class = "drop-create-ws" id="drop-create-ws" style="display:none;">
+                <div class="ws-create-cover">
+                    <div class="ws-create-flex-box">
+                        <div class="ws-create-container">
+                            <form th:action="@{/ws/create}" method="post" class="ws-create-form">
+                                <span class="ws-create-title">
+                                    Let's build a Workspace
+                                </span>
+                                <span class="ws-create-subtitle">
+                                    Boost your productivity by making it easier for everyone to access boards in one location.
+                                </span>
+                                <label for="WsName">Workspace name</label>
+                                <input type="text" id="WsName" name="WsName" placeholder="Your Team Name" required>
+                                <span class="ws-input-desc">This is the name of your company, team or organization.</span>
+                                <label>Workspace Image</label>
+                                <input type="hidden" id="ws_background_hidden" name="ImgUrl" value="http://localhost:8091/images/background/background1.svg">
+                                <div>
+                                    <ul class="background-picker-ul">
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background1.svg} +');'">
+                                                <span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>
+                                            </button>
+                                        </li>
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background2.svg} +');'"></button>
+                                        </li>
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background3.svg} +');'"></button>
+                                        </li>
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background4.svg} +');'"></button>
+                                        </li>
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background5.svg} +');'"></button>
+                                        </li>
+                                        <li class="background-picker-li-sm">
+                                            <button type="button" class="ws-picker-button" th:style="'background-image: url(' + @{/images/background/background6.svg} +');'"></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="ws-input-desc">Get your members on board with a few words about your Workspace.</span>
+                                <footer>
+                                    <button type="submit" class="ws-create-button">Continue</button>
+                                </footer>
+                            </form>
+                        </div>
+                        <div class="ws-create-bg-container" th:style="'background-image:url(/images/background/ws_bg.svg'">
+                            <div style="height: 256px;width: 342px;">
+                                <img class="ws-create-bg-img" th:src="@{/images/background/ws_bg_content.svg}">
+                            </div>
+                        </div>
+                        <button class="ws-create-close">
+                            <span style="display:inline-block;line-height: 1;">
+                                <svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor"></path></svg>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="header-flex-box"></div>
+        <div class="header-right-container">
+            <div class="header-search-bar">
+                <img th:src="@{/images/icons/search.png}" style = "height: 16px; width: 16px; margin : 0 5px ;"/>
+                <input type="text" class="header-text-input" placeholder="Search">
+            </div>
+            <button class = "header-bell-btn">
+                <img th:src="@{/images/icons/bell.png}" style = "height: 24px; width: 24px;"/>
+            </button>
+            <button class = "header-user-btn" onclick="dp_profile()">
+                <img th:src="@{${#authentication.principal.getAttribute('picture')}}" style = "height: 32px; width: 32px; border-radius: 16px"/>
+            </button>
+            <div id="header-user-profile-dropdown" style="display : none;">
+                <div class="header-profile-account">
+                    <h2>ACCOUNT</h2>
+                </div>
+                <div class="header-profile-info">
+                    <div class="header-profile-image">
+                        <div class="header-profile-img-wrapper">
+                            <img th:src="@{${#authentication.principal.getAttribute('picture')}}" class="header-profile-img-file" style="height: 40px; width: 40px; line-height: 40px;">
+                        </div>
+                    </div>
+                    <div style="min-width:0 ;">
+                        <div style="margin-top: 2px;" th:text="${#authentication.principal.getAttribute('nickname')}"></div>
+                        <div class="header-profile-mail" th:text="${#authentication.principal.getAttribute('email')}" ></div>
+                    </div>
+                </div>
+                <div class="header-profile-line"></div>
+                <div>
+                    <a th:href="@{/user/logout}">
+                        <button class="header-profile-logout-btn">
+                            Log out
+                        </button>
+                    </a>
+                    <a th:href="@{/user/profile}">
+                        <button class="header-profile-logout-btn">
+                            Profile
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div>
+
+        </div>
+    </div>
+    <script>
+        function dp_create() {
+            let click = document.getElementById("drop-header-create")
+            let click2 = document.getElementById("drop-create-board");
+            click2.style.display = "none";
+            if(click.style.display === "none") {
+                click.style.display = "block";
+            }else{
+                click.style.display = "none";
+            }
+        }
+        function dp_profile() {
+            let click = document.getElementById("header-user-profile-dropdown");
+            if(click.style.display === "none") {
+                click.style.display = "block";
+            }else{
+                click.style.display = "none";
+            }
+        }
+        function create_board() {
+            let click = document.getElementById("drop-create-board");
+            if($('option[name=WS_ID]').length === 0){
+                alert("워크스페이스를 생성하세요");
+                return 0;
+            }
+            dp_create();
+            if(click.style.display === "none") {
+                click.style.display = "block";
+            }else{
+                click.style.display = "none";
+            }
+        }
+        function close_dropdown_board() {
+            let click = document.getElementById("drop-header-create")
+            let click2 = document.getElementById("drop-create-board");
+            click.style.display = "none";
+            click2.style.display = "none";
+
+        }
+        $('.background-picker-button').click(function(){
+            $('.background-picker-button').removeClass("button-clicked");
+            $('.background-picker-button').empty();
+            $('#board_background_hidden').val("")
+            $(this).addClass("button-clicked");
+            $(this).append('<span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>');
+            var getting = $(this).css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+            $('#board_background_hidden').val(getting);
+            $('#drop-create-ex-background').css("background-image", "url(" + getting +")");
+        })
+        $('.ws-picker-button').click(function(){
+            $('.ws-picker-button').removeClass("button-clicked");
+            $('.ws-picker-button').empty();
+            $('#board_background_hidden').val("")
+            $(this).addClass("button-clicked");
+            $(this).append('<span class=create-board-check-icon> <svg width="24" height="24" color="#1d2125" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.73534 12.3223C6.36105 11.9162 5.72841 11.8904 5.3223 12.2647C4.91619 12.639 4.89039 13.2716 5.26467 13.6777L8.87678 17.597C9.41431 18.1231 10.2145 18.1231 10.7111 17.6264C10.7724 17.5662 10.7724 17.5662 11.0754 17.2683C11.3699 16.9785 11.6981 16.6556 12.0516 16.3075C13.0614 15.313 14.0713 14.3169 15.014 13.3848L15.0543 13.3449C16.7291 11.6887 18.0004 10.4236 18.712 9.70223C19.0998 9.30904 19.0954 8.67589 18.7022 8.28805C18.309 7.90022 17.6759 7.90457 17.2881 8.29777C16.5843 9.01131 15.3169 10.2724 13.648 11.9228L13.6077 11.9626C12.6662 12.8937 11.6572 13.8889 10.6483 14.8825C10.3578 15.1685 10.0845 15.4375 9.83288 15.6851L6.73534 12.3223Z" fill="currentColor"></path></svg> </span>');
+            var getting = $(this).css("background-image").replace(/^url\(['"](.+)['"]\)/, '$1');
+            $('#ws_background_hidden').val(getting);
+        })
+
+        function create_ws() {
+            let click = document.getElementById("drop-create-ws");
+            dp_create();
+            if(click.style.display === "none") {
+                click.style.display = "flex";
+            }else{
+                click.style.display = "none";
+            }
+        }
+
+        const csrfToken = $("meta[name='csrfToken']").attr('content');
+        const csrfParameter = $("meta[name='csrfParameter']").attr('content')
+
+        $(".ws-create-close").click(function(){
+            let click = document.getElementById("drop-create-ws");
+            click.style.display = "none";
+        })
+        $(".header-flexible-btn").click(function(){
+            $(this).toggleClass("header-active-button")
+        })
+
+    </script>
+
+</div>
+
+</html>
