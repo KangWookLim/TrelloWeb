@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,9 +30,18 @@ public class BoardController {
     @ResponseBody
     public ModelAndView board(Principal principal) {
         ModelAndView view = new ModelAndView();
+        Set<Integer> isstarred = new HashSet<>();
         List<Boards> boardsList = boardSearchService.findAllboards(principal.getName());
         List<WorkSpaces> WSList = boardSearchService.findAllWS(principal.getName());
         List<StarredBoards> starredList = boardSearchService.findAllStarredBoards(principal.getName());
+        for(Boards b : boardsList){
+            for(StarredBoards s : starredList){
+                if(b.getBOARD_ID()==s.getBOARD_ID()){
+                    isstarred.add(b.getBOARD_ID());
+                }
+            }
+        }
+        view.addObject("isstarred",isstarred);
         view.addObject("starredList", starredList);
         view.addObject("WSList", WSList);
         view.addObject("boardsList", boardsList);

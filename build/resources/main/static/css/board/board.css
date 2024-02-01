@@ -211,6 +211,9 @@ div {
 .board-section-add p {
     margin-bottom: 0;
 }
+.board-section-list-item:nth-of-type(4n), .starred-board-section-list-item:nth-of-type(4n) {
+    margin-right:0;
+}
 .board-section-add>.remaining{
     font-size: 12px;
     margin: 0;

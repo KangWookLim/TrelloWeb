@@ -148,7 +148,6 @@
               YOUR WORKSPACES
             </h3>
             <div th:each="WS : ${WSList}">
-
               <div class="board-page-section-header">
                 <div class="board-icon-container">
                   <img th:src="${WS.getWS_IMG()}" class="board-page-section-header-icon">
@@ -191,7 +190,8 @@
                       <div class="board-detail-ws">
                         <span th:text="${board.getWS_NAME}">
                         </span>
-                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
+                        <img th:src="@{/images/icons/star-full.png}" th:if="${isstarred.contains(board.BOARD_ID)}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
+                        <img th:src="@{/images/icons/star-empty.png}" th:if="${!isstarred.contains(board.BOARD_ID)}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
                       </div>
                     </div>
                   </a>
