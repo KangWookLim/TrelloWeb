@@ -2,16 +2,11 @@
     const header = $("meta[name='_csrf_header']").attr("content");
 
     $(document).ready(function(){
-      $("#home-board-btn").addClass("home-active-btn")
-      const activeTrello = $("#home-board-btn").children("img");
-      activeTrello.attr("src", function(index, attr){
-        return attr.replace("trello", "trelloA");
+      $("#home-home-btn").addClass("home-active-btn")
+      const activeTemplate = $("#home-home-btn").children("img");
+      activeTemplate.attr("src", function(index, attr){
+        return attr.replace("home", "homeA");
       });
-
-      if($('.starred-board-section-list-item').length < 1) {
-        let star = document.getElementById("starred-boards");
-        star.style.display = "none"
-      }
     })
 
     $("#home-workspace-box").click(function() {
@@ -27,6 +22,7 @@
         }
       });
     });
+
 
     $(".board-starred-icon").click(function(e) {
        e.preventDefault();

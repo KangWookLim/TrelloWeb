@@ -93,13 +93,21 @@ ul {
     padding-bottom: 40px;
 }
 #home-workspace-title {
-    padding : 8px 0;
+    color: #9fadbc;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    flex: 1 1 auto;
+    padding: 8px 0;
+    margin: 0 0 0 12px;
 }
 #home-workspace-box span{
     flex: 1 1 auto;
     width: min-content;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #b6c2cf;
+    font-weight: 500;
 }
 #home-workspace-box {
     align-items: center;

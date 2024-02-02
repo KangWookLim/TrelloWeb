@@ -16,11 +16,29 @@
             </a>
             <div class = "header-left-container">
                 <div class="header-flexible-btn-container">
-                    <button class = "header-flexible-btn">Workspace<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
-                        <div class=""></div>
+                    <button class = "header-flexible-btn" id="ws_dp">Workspace<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+                        <div class="header-btn-dropdown" id="ws-header-box" style="display:none; inset: 48px auto auto 135px;">
+                            <div class="header-btn-dropdown-wrapper" style="padding :0;">
+                                <nav>
+                                    <ul class="header-btn-dropdown-ul">
+                                        <div style="padding-bottom: 4px;">
+                                            <h2 class="header-btn-dropdown-h2">Your Workspace</h2>
+                                            <ul>
+                                                <li th:each="WS : ${WSList}">
+                                                    <a href="" class="header-ws-dropdown">
+                                                        <img th:src="${WS.getWS_IMG()}" class="header-ws-icon">
+                                                        <p class="header-ws-title" th:text="${WS.getWS_NAME}"></p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     <button class = "header-flexible-btn">Recent<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
-                    <button onclick="starred_dp()" class = "header-flexible-btn">Starred<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
-                        <div class="header-btn-dropdown" id="starred_dp" style="display:none;">
+                    <button class = "header-flexible-btn" id="starred_dp">Starred<img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/></button>
+                        <div class="header-btn-dropdown" id="starred-header-box" style="display:none;">
                             <div class="header-btn-dropdown-wrapper">
                                 <div>
                                     <ul class="header-btn-dropdown-ul">

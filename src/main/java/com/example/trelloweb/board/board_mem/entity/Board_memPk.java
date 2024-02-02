@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.io.Serializable;
 
-@RequiredArgsConstructor
 @AllArgsConstructor
 @Data
 @RequiredArgsConstructor

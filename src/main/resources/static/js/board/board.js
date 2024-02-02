@@ -1,9 +1,7 @@
     const token = $("meta[name='_csrf']").attr("content");
     const header = $("meta[name='_csrf_header']").attr("content");
-//    const starId = ${starredList}.finct()
 
     $(document).ready(function(){
-//        console.log(starId);
       $("#home-board-btn").addClass("home-active-btn")
       const activeTrello = $("#home-board-btn").children("img");
       activeTrello.attr("src", function(index, attr){
