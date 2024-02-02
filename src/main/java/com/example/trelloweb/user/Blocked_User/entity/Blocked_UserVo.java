@@ -23,9 +23,9 @@ public class Blocked_UserVo {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "bolcking_user_uid")
+    @JoinColumn(name = "blocked_user_uid")
     @JsonBackReference
-    private UserVo BlockingUSERUID;
+    private UserVo BlockedUSERUID;
 
     @Column
     private LocalDateTime BlockedTime;

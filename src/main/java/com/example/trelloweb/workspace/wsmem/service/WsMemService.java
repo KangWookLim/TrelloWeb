@@ -16,7 +16,7 @@ public class WsMemService {
         WorkSpaceMemVo WsMemVo = new WorkSpaceMemVo();
         WsMemVo.setUservo(userVo);
         WsMemVo.setWSID(WsVo);
-        WsMemVo.setRole("Nomal");
+        WsMemVo.setRole("Normal");
         wsMemJpaRepo.save(WsMemVo);
     }
 }
