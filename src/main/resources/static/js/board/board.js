@@ -14,18 +14,18 @@
       }
     })
 
-    $("#home-workspace-box").click(function() {
-      console.log("check1");
-      $("#ws-btn-ul").toggleClass("menuon");
-      const arrowImage = $("#home-workspace-box").children("img");
-      arrowImage.attr("src", function(index, attr){
+    $(".home-workspace-tab").click(function() {
+        const menu = $(this).children("ul");
+        menu.toggleClass("menuon");
+        const arrowImage = $(this).children('.home-workspace-box').children("img");
+        arrowImage.attr("src", function(index, attr){
         if (attr.match('up')) {
           return attr.replace("up", "down");
         }
         else {
           return attr.replace("down", "up");
         }
-      });
+        });
     });
 
     $(".board-starred-icon").click(function(e) {

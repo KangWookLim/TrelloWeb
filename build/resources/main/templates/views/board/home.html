@@ -36,13 +36,13 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab" th:each="WS : ${WSList}">
-              <a id = "home-workspace-box">
+            <li class = "home-workspace-tab" th:each="WS : ${WSList}">
+              <a class = "home-workspace-box">
                 <img th:src="${WS.getWS_IMG()}" class = "ws-main-img">
                 <span th:text="${WS.getWS_NAME}"></span>
-                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+                <img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/>
               </a>
-              <ul id = "ws-btn-ul">
+              <ul class = "ws-btn-ul">
                 <li class = "ws-btn-container">
                   <a href = "" class = "ws-btn-group">
                     <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>

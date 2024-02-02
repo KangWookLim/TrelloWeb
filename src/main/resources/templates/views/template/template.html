@@ -54,13 +54,13 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab">
-              <a id = "home-workspace-box">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
-                <span>Workspace Name</span>
-                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+            <li class = "home-workspace-tab" th:each="WS : ${WSList}">
+              <a class = "home-workspace-box">
+                <img th:src="${WS.getWS_IMG()}" class = "ws-main-img">
+                <span th:text="${WS.getWS_NAME}"></span>
+                <img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/>
               </a>
-              <ul id = "ws-btn-ul">
+              <ul class = "ws-btn-ul">
                 <li class = "ws-btn-container">
                   <a href = "" class = "ws-btn-group">
                     <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>

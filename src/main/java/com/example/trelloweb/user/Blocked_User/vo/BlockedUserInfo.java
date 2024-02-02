@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 public class BlockedUserInfo implements Serializable {
-    private String NickName;
-    private String img_Url;
+    private String useruid;
+    private String NICKNAME;
+    private String IMGURL;
 }
