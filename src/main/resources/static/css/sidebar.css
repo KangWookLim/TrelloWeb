@@ -83,7 +83,7 @@ ul {
     text-align : center;
     display : block;
 }
-#home-workspace-tab a #header-under-arrow {
+.home-workspace-tab a .header-under-arrow {
     height : 16px;
     width : 20px;
     margin : 0 8px 0 0;
@@ -101,7 +101,7 @@ ul {
     padding: 8px 0;
     margin: 0 0 0 12px;
 }
-#home-workspace-box span{
+.home-workspace-box span{
     flex: 1 1 auto;
     width: min-content;
     overflow: hidden;
@@ -109,7 +109,7 @@ ul {
     color: #b6c2cf;
     font-weight: 500;
 }
-#home-workspace-box {
+.home-workspace-box {
     align-items: center;
     background-color: transparent;
     border-radius: 8px;
@@ -123,7 +123,7 @@ ul {
     padding: 6px 8px;
     color : #8c9bab;
 }
-#home-workspace-box:hover {
+.home-workspace-box:hover {
     background-color : #a6c5e229;
     cursor : pointer;
 }
@@ -156,10 +156,10 @@ ul {
     width : 24px;
     height : 24px;
 }
-#ws-btn-ul {
+.ws-btn-ul {
     display : none;
 }
-#ws-btn-ul.menuon {
+.ws-btn-ul.menuon {
     display : block;
 }
 #home-board-wrapper {
