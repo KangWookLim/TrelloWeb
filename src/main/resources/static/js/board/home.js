@@ -64,3 +64,17 @@
         }
       });
     })
+
+    $(".home-workspace-tab").click(function() {
+        const menu = $(this).children("ul");
+        menu.toggleClass("menuon");
+        const arrowImage = $(this).children('.home-workspace-box').children("img");
+        arrowImage.attr("src", function(index, attr){
+        if (attr.match('up')) {
+          return attr.replace("up", "down");
+        }
+        else {
+          return attr.replace("down", "up");
+        }
+        });
+    });
