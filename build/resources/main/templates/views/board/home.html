@@ -6,7 +6,8 @@
 <div layout:fragment="content">
   <link rel="stylesheet" th:href="@{/css/board/home.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
-
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
   <div id = "content-wrapper">
     <div class = "home-container" style="min-height:calc(100vh - 48px);">
       <nav id = "home-left-side-container">
@@ -35,13 +36,13 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab">
-              <a id = "home-workspace-box">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
-                <span>Workspace Name</span>
-                <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
+            <li class = "home-workspace-tab" th:each="WS : ${WSList}">
+              <a class = "home-workspace-box">
+                <img th:src="${WS.getWS_IMG()}" class = "ws-main-img">
+                <span th:text="${WS.getWS_NAME}"></span>
+                <img th:src="@{/images/icons/down-arrow.png}" class="header-under-arrow"/>
               </a>
-              <ul id = "ws-btn-ul">
+              <ul class = "ws-btn-ul">
                 <li class = "ws-btn-container">
                   <a href = "" class = "ws-btn-group">
                     <img th:src="@{/images/icons/trello.png}" class = "ws-btn-icon"/>
@@ -98,16 +99,17 @@
             </div>
             <div class="home-right-board-title-text"> Starred </div>
           </div>
-          <div class="home-right-starred-board">
+<!--          starred board List -->
+          <div class="home-right-starred-board" th:each="starredList : ${starredList}">
             <a href="#" class="home-right-board-link">
-              <div class="home-right-board-image" style="background-image: url(&quot;https://trello-backgrounds.s3.amazonaws.com/SharedBackground/480x365/0c34d811eabe0f3e955b05f79e9517a6/photo-1696384036025-c7d7b7f6584d.jpg&quot;)"></div>
+              <div class="home-right-board-image" th:style="'background-image: url(' + ${starredList.getBOARD_IMG} + ');'"></div>
               <span class="home-right-board-text">
-                <span class="board-title">text board1</span>
-                <span class="ws-title">text workspace1</span>
+                <span class="board-title" th:text="${starredList.getBOARD_NAME()}"></span>
+                <span class="ws-title" th:text="${starredList.getWS_NAME}"></span>
               </span>
             </a>
-            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star star-full">
-              <img th:src="@{/images/icons/star-full.png}">
+            <button title="Click to unstar text board. It will be removed from your starred list." class="home-right-board-star  star-full">
+              <img th:src="@{/images/icons/star-full.png}" class= "starred-board-icon board-starred-icon" th:value="${starredList.getBOARD_ID}">
             </button>
           </div>
         </div></div>
@@ -162,68 +164,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    $(document).ready(function(){
-      $("#home-home-btn").addClass("home-active-btn")
-      const activeTemplate = $("#home-home-btn").children("img");
-      activeTemplate.attr("src", function(index, attr){
-        return attr.replace("home", "homeA");
-      });
-    })
-
-    $("#home-workspace-box").click(function() {
-      console.log("check1");
-      $("#ws-btn-ul").toggleClass("menuon");
-      const arrowImage = $("#home-workspace-box").children("img");
-      arrowImage.attr("src", function(index, attr){
-        if (attr.match('up')) {
-          return attr.replace("up", "down");
-        }
-        else {
-          return attr.replace("down", "up");
-        }
-      });
-    });
-
-    $(".star-full").hover(function() {
-      const starImage = $(".star-full").children("img");
-      starImage.attr("src", function(index, attr){
-        if (attr.match('full')) {
-          return attr.replace("full", "empty");
-        }
-        else {
-          return attr.replace("empty", "full");
-        }
-      });
-
-    })
-
-    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
-    $(".home-right-recent-board").hover(function(){
-      if($(".star-empty").css("display").match("none")){
-        return $(".star-empty").css("display","block");
-      }else {
-        return $(".star-empty").css("display","none");
-      }
-    })
-
-    // 추후에 선택자를 고유의 아이디나 인덱스로 지정
-    $(".star-empty").hover(function() {
-      const starImage = $(".star-empty").children("img");
-      console.log("check");
-
-      starImage.attr("src", function(index, attr){
-        if (attr.match('gray')) {
-          return attr.replace("gray", "empty");
-        }
-        else {
-          return attr.replace("empty", "gray");
-        }
-      });
-
-    })
-
-  </script>
+  <script type="text/javascript" th:src="@{/js/board/home.js}"></script>
 </div>
 </html>

@@ -51,6 +51,7 @@ public class BoardDetailController {
     }
 }
 
+
 /*@RequestMapping("/board_detail/{board_id}")
     public ModelAndView detailById(@PathVariable("board_id") Long board_id){
         ModelAndView view = new ModelAndView();

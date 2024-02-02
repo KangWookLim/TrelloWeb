@@ -7,7 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CardDetailJPARepo extends JpaRepository<CardVo, Long> {
 
-
-
-
 }

@@ -1,11 +1,11 @@
-arguments=--init-script C\:\\Users\\ITSC\\AppData\\Roaming\\TabNine\\language-servers\\bundled_java\\1.24.0\\app\\configuration\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle
+arguments=--init-script C\:\\Users\\\uCD5C\uB099\uC5F0\\AppData\\Roaming\\TabNine\\language-servers\\bundled_java\\1.24.0\\app\\configuration\\org.eclipse.osgi\\53\\0\\.cp\\gradle\\init\\init.gradle
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(VERSION(7.4.2))
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
-java.home=C\:/Program Files/Java/jdk-11.0.10
+java.home=C\:/Program Files (x86)/Common Files/Oracle/Java
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true

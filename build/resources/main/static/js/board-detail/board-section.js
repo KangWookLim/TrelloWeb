@@ -74,6 +74,22 @@ content_container.click(function () {
     console.log("h3");
 })
 
+function addCard(){
+    let openedList = 1;
+    $.ajax({
+        url : '/card_detail/get_orderMax',
+        type : 'get',
+        data : {
+            "list_id" : openedList
+        }
+    }).done(function (data){
+        console.log(data + " is max number of order of cards from list " + openedList);
+    }).fail(function (xhr, status, error){
+        console.log("error getting max order");
+    })
+}
+
+
 $( function () {
     $('.list-container').sortable({
         cancel: ".not-sortable"
@@ -86,7 +102,8 @@ $( function () {
     })
 })
 
-function addListToBoard(event) {
+function addListToBoard(event, element) {
+    console.log(element.getAttribute("board_id") + " is current board id");
     var formElement = event.target.closest('form');
     var textareaElement = formElement.querySelector('.list-textarea');
     var textareaValue = textareaElement.value;
@@ -102,6 +119,18 @@ function addListToBoard(event) {
         list_add_container.hide();
         list_add_btn.show();
     }
+    /*list 추가 > sortable 적용 > ajax로 name값 넣어서 insert*/
+    /*if (textareaValue !== "" && textareaValue !== null){
+        $.ajax({
+            url : '/card_detail/addList',
+            type : 'get',
+            data : {
+                "name" : textareaValue,
+                "board_id" : location.backhere
+            }
+        })
+    }*/
+
 }
 
 function showAddCard(event) {
@@ -141,6 +170,7 @@ let trello_attachments_container = $("#trello_attachments_container");
 let board_attachment_container = $("#board_attachment_container");
 let comments_container = $("#comments_container");
 let cardTaskContainer = $("#card_task_container");
+let card_banner = $(".card-banner");
 
 
 //db time format
@@ -159,11 +189,22 @@ function formatDateString(inputDateString) {
 
     return formattedDateString;
 }
-//
+function setDueDate(date) {
+    if (date != null){
+        card_due_date_container.show();
+        card_due_date.innerText = formatDateString(date.toString());
+    } else {
+        card_due_date_container.hide();
+    }
+}
 
+//
+let openedCard;
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
+    openedCard = element.getAttribute("cardid").toString();
+    console.log("Card " + openedCard + " is opened");
     console.log(cardId);
     $.ajax({
         type: 'get',
@@ -176,17 +217,14 @@ function setAndShowModal (element){
         console.log(data.description);
         card_name.value = data.name;
         card_description.value = data.description;
-        if (data.due_date != null){
-            card_due_date_container.show();
-            card_due_date.innerText = formatDateString(data.due_date.toString());
-        } else {
-            card_due_date_container.hide();
-        }
+        let coverColor = data.cover;
+        console.log(coverColor);
+        setCoverColor(coverColor);
+        setDueDate(data.due_date);
         console.log(data.due_date);
     }).fail(function (xhr, status, error) {
         alert('Unexpected error. Please contact System Administrator for ');
         console.log(status);
-
     });
     showMembers(cardId);
     showLabels(cardId);
@@ -317,6 +355,37 @@ function showAttachments(cardId) {
     });
 }
 
+function deleteCard(){
+    $.ajax({
+        type: "get",
+        url : '/card_detail/deleteCard',
+        data : {
+            "cardId" : openedCard
+        }
+    }).done(function(data){
+        console.log("successfully deleted task " + openedCard + " from list");
+        location.reload();
+    }).fail(function (xhr, status, error){
+        console.log("error deleting task from card");
+    })
+}
+
+function deleteTask(element){
+    let taskId = element.dataset.task_id;
+    console.log(taskId);
+    $.ajax({
+        type: "get",
+        url : '/card_detail/deleteTask',
+        data : {
+            "taskId" : taskId
+        }
+    }).done(function(data){
+        console.log("successfully deleted task " + taskId + " from card");
+    }).fail(function (xhr, status, error){
+        console.log("error deleting task from card");
+    })
+}
+
 function showTasks(cardId) {
     $.ajax({
         type : 'get',
@@ -327,7 +396,7 @@ function showTasks(cardId) {
     }).done(function (data){
         cardTaskContainer.empty();
         if (data.length === 0){
-            console.log("no task for this card")
+            console.log("no task for this card");
         } else {
             console.log("tasks detected");
             console.log(data.length + " is total tasks of card");
@@ -337,20 +406,20 @@ function showTasks(cardId) {
                 const taskData = data[i];
                 // card_task_inner 생성
                 const cardTaskInner = document.createElement("div");
-                cardTaskInner.id = "card_task_inner"+data[i].task_id;
+                let task_id = data[i].task_id;
+                cardTaskInner.id = "card_task_inner"+task_id;
                 // card-description-header 생성
                 const cardDescriptionHeader = document.createElement("div");
                 cardDescriptionHeader.classList.add("card-description-header");
                 // "Checklist" 대신 task의 title로 설정
-                cardDescriptionHeader.innerHTML = `<span class="card-header-logo"><span data-testid="ChecklistIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V13C20 12.4477 19.5523 12 19 12C18.4477 12 18 12.4477 18 13V18H6V6L16 6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H6ZM8.73534 10.3223C8.36105 9.91618 7.72841 9.89038 7.3223 10.2647C6.91619 10.639 6.89039 11.2716 7.26467 11.6777L10.8768 15.597C11.4143 16.1231 12.2145 16.1231 12.7111 15.6264L13.0754 15.2683C13.3699 14.9785 13.6981 14.6556 14.0516 14.3075C15.0614 13.313 16.0713 12.3169 17.014 11.3848L17.0543 11.3449C18.7291 9.68869 20.0004 8.42365 20.712 7.70223C21.0998 7.30904 21.0954 6.67589 20.7022 6.28805C20.309 5.90022 19.6759 5.90457 19.2881 6.29777C18.5843 7.01131 17.3169 8.27244 15.648 9.92281L15.6077 9.96263C14.6662 10.8937 13.6572 11.8889 12.6483 12.8825L11.8329 13.6851L8.73534 10.3223Z" fill="currentColor"></path></svg></span></span>${taskData.title}<div style="margin-left: 380px"><a href="#" class="due-button" style="text-decoration: none">Delete</a></div>`;
+                cardDescriptionHeader.innerHTML = `<span class="card-header-logo"><span data-testid="ChecklistIcon" aria-hidden="true" class="css-1aufzry" style="--icon-primary-color: inherit; --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H18C19.1046 20 20 19.1046 20 18V13C20 12.4477 19.5523 12 19 12C18.4477 12 18 12.4477 18 13V18H6V6L16 6C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H6ZM8.73534 10.3223C8.36105 9.91618 7.72841 9.89038 7.3223 10.2647C6.91619 10.639 6.89039 11.2716 7.26467 11.6777L10.8768 15.597C11.4143 16.1231 12.2145 16.1231 12.7111 15.6264L13.0754 15.2683C13.3699 14.9785 13.6981 14.6556 14.0516 14.3075C15.0614 13.313 16.0713 12.3169 17.014 11.3848L17.0543 11.3449C18.7291 9.68869 20.0004 8.42365 20.712 7.70223C21.0998 7.30904 21.0954 6.67589 20.7022 6.28805C20.309 5.90022 19.6759 5.90457 19.2881 6.29777C18.5843 7.01131 17.3169 8.27244 15.648 9.92281L15.6077 9.96263C14.6662 10.8937 13.6572 11.8889 12.6483 12.8825L11.8329 13.6851L8.73534 10.3223Z" fill="currentColor"></path></svg></span></span>${taskData.title}<div style="margin-left: 380px"><a href="#" class="due-button" onclick="deleteTask(this)" style="text-decoration: none" data-task_id="${task_id}" >Delete</a></div>`;
+                //
                 // card_task_inner에 card-description-header, checklist-progress 추가
                 cardTaskInner.append(cardDescriptionHeader);
                 // card_task_container에 card_task_inner 추가
                 cardTaskContainer.append(cardTaskInner);
                 showTaskItems(data[i].task_id);
-
             }
-
         }
     }).fail(function (xhr, status, error){
         console.log("error loading tasks for card");
@@ -461,15 +530,93 @@ function showComments(cardId) {
 
 
 
-/* //due-date value out check
+ //due-date value out check
 let date = $("#due-date");
-function checkdatetime(){
-    console.log(date.val());
-}*/
+$('#due-date-save').click(function () {
+    if (date.val().length === 0){
+        alert("Please enter a due date");
+    } else {
+        $.ajax({
+            type : 'get',
+            url : "/card_detail/updateDueDate",
+            data : {
+                "card_id" : openedCard,
+                "due_date" : date.val()
+            }
+        }).done(function (data) {
+            if (data === 1){
+                console.log("update successful");
+                setDueDate(date.val());
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error updating due date");
+            console.log(status);
+        });
+    }
+})
+
+$('#due-date-remove').click(function(){
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/removeDueDate",
+        data : {
+            "card_id" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("update successful");
+            setDueDate(null);
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error updating due date");
+        console.log(status);
+    });
+})
+$('#insertChecklist').click(function(){
+    let checklistValue = $('#checklist-value').val();
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/insertChecklist",
+        data : {
+            "card_id" : openedCard,
+            "checklist_value" : checklistValue
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("insert successful");
+            showTasks(openedCard);
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error adding checklist");
+        console.log(status);
+    });
+})
+//when description changes
+$('#card_description').change(function () {
+    let description = $('#card_description').val();
+    console.log(description);
+    $.ajax({
+        url : "/card_detail/description",
+        type : 'get',
+        data : {
+            "description" : description,
+            "card_id" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("insert description successful");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error changing description");
+        console.log(status);
+    });
+
+
+});
+
 
 //open and close sidebar modals
-$('.card-sidebar-button').click(function (event){
-    event.preventDefault();
+$('.card-sidebar-button').click(function (){
 
     var linkText = $(this).text().toLowerCase();
     console.log(linkText);
@@ -488,9 +635,9 @@ $('.card-sidebar-button').click(function (event){
     else if (linkText === "attachment") {
         openAttachmentModal();
     }
-    /*else if (linkText === "cover") {
-        console.log("labels clicked");
-    }*/
+    else if (linkText === "cover") {
+        openCoverModal();
+    }
     else {
         console.log("yet no functions available")
     }
@@ -499,7 +646,58 @@ $('.card-sidebar-button').click(function (event){
 function openMembersModal(){
 
     $('#card-sidebar-button-members').toggle();
+
 }
+function removeMemberFromCard(element){
+    let memberid = element.getAttribute("user_uid");
+    console.log(memberid);
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/removeMember",
+        data : {
+            "user_uid" : memberid,
+            "cardid" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("deletion successful");
+            showMembers(openedCard);
+        }
+        else if (data === 0){
+            console.log("member not found");
+            addMemberToCard(memberid, openedCard);
+        }
+    }).fail(function (XHR, Status, error) {
+        console.log("deletion failed");
+        console.log(error);
+    })
+
+    console.log(openedCard + " is current card number");
+
+
+}
+
+function addMemberToCard(user_uid, card_id){
+
+    console.log("user_uid : "+user_uid);
+    console.log("card_id : "+card_id);
+    console.log("lets add member");
+    $.ajax({
+        url : '/card_detail/addMember',
+        type : 'get',
+        data : {
+            "user_uid" : user_uid,
+            "card_id" : card_id
+        }
+    }).done(function (data){
+        console.log("add user completed");
+        showMembers(openedCard);
+    }).fail(function (xhr, status, error) {
+        alert('add user failed');
+        console.log(status);
+    });
+}
+
 function openLabelsModal() {
     $('#card-sidebar-button-labels').toggle();
 }
@@ -514,5 +712,67 @@ function openAttachmentModal() {
 }
 
 function openCoverModal() {
-    $('#card-sidebar-button-members').toggle();
+    $('#card-sidebar-button-cover').toggle();
+}
+
+    $(".color-picker").click(function(){
+        let background = $(this).css('background-color');
+        console.log(background);
+        $.ajax({
+            type: 'get',
+            url : '/card_detail',
+            data : {
+                "cardid" : openedCard
+            }
+        }).done(function (data){
+            if (data.cover === background) {
+                console.log(data.cover);
+                $.ajax({
+                    url : "/card_detail/removeCover",
+                    type : 'get',
+                    data : {
+                        "card_id" : openedCard
+                    }
+                }).done(function(data){
+                    console.log("Removed cover");
+                    setCoverColor(null);
+                }).fail(function (xhr, status, error) {
+                    alert('Error removing cover color to card');
+                    console.log(status);
+                });
+            }
+            else {
+                $.ajax({
+                    url : "/card_detail/addCover",
+                    type : 'get',
+                    data : {
+                        "cover" : background,
+                        "card_id" : openedCard
+                    }
+                }).done(function(data){
+                    console.log("Added cover")
+                    setCoverColor(background);
+                }).fail(function (xhr, status, error) {
+                    alert('Error adding cover color to card');
+                    console.log(status);
+                });
+            }
+
+        }).fail(function (xhr, status, error) {
+            alert('Unexpected error. Please contact System Administrator for ');
+            console.log(status);
+
+        });
+
+
+    })
+
+function setCoverColor(coverColor){
+    if (coverColor === null){
+        console.log("cover color not included");
+        card_banner.css('height', 0);
+    } else {
+        card_banner.css('height', 116);
+        card_banner.css('backgroundColor', coverColor);
+    }
 }

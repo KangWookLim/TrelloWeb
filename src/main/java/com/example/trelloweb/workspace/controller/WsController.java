@@ -5,10 +5,7 @@ import com.example.trelloweb.workspace.Base.service.WsService;
 import com.example.trelloweb.workspace.wsmem.service.WsMemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -22,9 +19,15 @@ public class WsController {
     @RequestMapping("/board")
     @ResponseBody
     public void getWS(){
-
-
     }
+
+    @GetMapping("/ws/{WsId}")
+    public ModelAndView boardWs(@RequestParam("WsId") Integer WsId, Principal principal) {
+        ModelAndView view = new ModelAndView();
+
+        return view;
+    }
+
     @PostMapping("/ws/create")
     public ModelAndView createWS(@RequestParam("WsName") String WsName, @RequestParam("ImgUrl") String ImgUrl, Principal principal) {
         ModelAndView view = new ModelAndView();

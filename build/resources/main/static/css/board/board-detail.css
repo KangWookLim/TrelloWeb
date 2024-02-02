@@ -915,6 +915,7 @@ html, body{
 }
 
 .card-sidebar-modal {
+    display: none;
     position: fixed;
     background-color: #282e33;
     padding: 12px 8px;
@@ -960,30 +961,28 @@ html, body{
 
 }
 #card-sidebar-button-members {
-    display: block;
     top: 205px;
     left: 830px;
 }
 #card-sidebar-button-labels {
-    display: block;
     top: 245px;
     left: 830px;
 }
 #card-sidebar-button-Checklist {
-    display: block;
     top: 285px;
     left: 830px;
 }
 #card-sidebar-button-dates {
-    display: block;
     top: 325px;
     left: 830px;
 }
 #card-sidebar-button-attachment {
-    display: block;
     top: 365px;
     left: 830px;
-
+}
+#card-sidebar-button-cover {
+    top: 405px;
+    left: 830px;
 }
 .add-card-member {
     text-align: left;
@@ -1030,5 +1029,31 @@ html, body{
 .recent-ul {
     padding: 0;
     list-style-type: none;
-
+}
+.cover-colors {
+    display: grid;
+    gap: 8px;
+    padding: 4px;
+    margin: 0 -4px;
+    overflow-y: hidden;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.color-picker {
+    margin: 0;
+    border-radius: 3px;
+    width: 50px;
+    height: 32px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: none;
+    border : none;
+}
+.card-banner {
+    height: 116px;
+    background-size: initial;
+    background-origin: content-box;
+    padding: 0px;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
 }

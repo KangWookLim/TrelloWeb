@@ -32,5 +32,43 @@ public class CardDetailRepo {
     }
 
 
+    public int updateDueDate(Long cardId, String dueDate) {
+        String sql = "UPDATE card SET due_date = :dueDate WHERE cardId = :cardId";
+        Map<String,Object> params = Map.of("cardId", cardId, "dueDate", dueDate);
+        return jdbcTemplate.update(sql, params);
+    }
 
+    public int removeDueDate(Long cardId) {
+        String sql = "UPDATE card SET due_date = NULL WHERE cardId = :cardId";
+        Map<String,Long> params = Map.of("cardId", cardId);
+        return jdbcTemplate.update(sql, params);
+    }
+
+    public int addCover(Long cardId, String cover) {
+        String sql = "Update card SET cover = :cover WHERE cardId = :card_Id";
+        Map<String, Object> params = Map.of( "cover", cover,"card_Id", cardId);
+        return jdbcTemplate.update(sql,params);
+    }
+
+    public int removeCover(Long cardId) {
+        String sql = "Update card SET cover = null WHERE cardId = :card_Id";
+        Map<String, Long> params = Map.of("card_Id", cardId);
+        return jdbcTemplate.update(sql,params);
+    }
+
+    public int description(String description, Long cardId) {
+        String sql = "Update card SET description = :description WHERE cardId = :card_Id";
+        Map<String, Object> params = Map.of( "description", description,"card_Id", cardId);
+        return jdbcTemplate.update(sql,params);
+    }
+
+    public int getOrderMax(Long listId) {
+        String sql = "Select max(card_order) from card where list_id = :listId";
+        Map<String, Long> params = Map.of("listId",listId);
+        try{
+            return jdbcTemplate.queryForObject(sql, params, int.class);
+        }catch (NullPointerException e){
+            return 0;
+        }
+    }
 }

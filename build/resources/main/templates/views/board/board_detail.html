@@ -327,7 +327,7 @@
                         <div class="add-card-section not-sortable" hidden>
                             <form>
                                 <textarea class = "list-card-title" style="height: 74px;" placeholder="Enter a title for this card"></textarea>
-                                <button type="button" class="add-list-confirm-button">Add card</button>
+                                <button type="button" class="add-list-confirm-button" onclick="addCard()">Add card</button>
                                 <button type = "button" class = "list-close-button"><span><span data-testid="CloseIcon" aria-hidden="true" style="--icon-primary-color: var(--ds-text-accent-gray-bolder, #172B4D); --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor"></path></svg></span></span></button>
                             </form>
                         </div>
@@ -357,7 +357,7 @@
                 <form method="get" class = "list-add-container-form">
                     <textarea placeholder="Enter list title" style="height: 32px" class ="list-textarea"></textarea>
                     <div>
-                        <input type = "button" class="add-list-confirm-button" onclick="addListToBoard(event)" value="Add list"/>
+                        <input type = "button" class="add-list-confirm-button" onclick="addListToBoard(event, this)" value="Add list" th:board_id = "${board.boardId}"/>
                         <button type = "button" class = "list-close-button"><span><span data-testid="CloseIcon" aria-hidden="true" style="--icon-primary-color: var(--ds-text-accent-gray-bolder, #172B4D); --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor"></path></svg></span></span></button>
                     </div>
                 </form>
@@ -399,7 +399,7 @@
                             <div class="card-main-item" id = "card_due_date_container">
                                 <h3 class="card-main-item-header">Due date</h3>
                                 <div style="display: flex">
-                                    <input type = "checkbox" style="margin: 8px 4px 8px 0;">
+                                    <!--<input type = "checkbox" style="margin: 8px 4px 8px 0;">-->
                                     <div>
                                         <button class="due-button" id = "card_due_date">Jan 24 at 4:33 PM</button>
                                     </div>
@@ -572,7 +572,7 @@
                             <hr>
                             <a href="#" class="card-sidebar-button">Archive</a>
                             <a href="#" class="card-sidebar-button">Share</a>
-                            <a href="#" class="card-sidebar-button" style="background-color: #f87168; color: black">Delete</a>
+                            <a href="#" class="card-sidebar-button" onclick="deleteCard()" style="background-color: #f87168; color: black">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -667,9 +667,7 @@
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
             <ul style="list-style-type: none; padding-left: 0; margin:0;">
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
-                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li th:each="member, loop : ${board.getBoard_memVoList()}"><button class="add-card-member" onclick="removeMemberFromCard(this)" th:user_uid = "${member.uservo.getUseruid()}" th:text="${member.uservo.getFULLNAME() +' ('+ member.uservo.getNICKNAME()+')'}"></button></li>
             </ul>
         </div>
     </div>
@@ -705,8 +703,8 @@
         <div class="card-sidebar-title">Add checklist</div>
         <div>
            <h4 class = "card-sidebar-subtitle">Title</h4>
-            <input type="text" class="card-sidebar-text" value="checklist">
-            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
+            <input type="text" class="card-sidebar-text" id = "checklist-value" value="checklist">
+            <button class="add-list-confirm-button" style="margin-bottom: 10px" id = "insertChecklist">Save</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-dates">
@@ -714,7 +712,8 @@
         <div>
             <h4 class = "card-sidebar-subtitle">Date</h4>
             <input type="datetime-local" id = "due-date">
-            <button class="add-list-confirm-button" style="margin-top: 5px" onclick="checkdatetime()">Save</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-save">Save</button>
+            <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-remove">Remove</button>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">
@@ -729,6 +728,24 @@
                     <a href="#" style="display: block; width: 100%; background-color: #0052CC">hm</a>
                 </li>
             </ul>
+        </div>
+    </div>
+    <div class="card-sidebar-modal" id = "card-sidebar-button-cover">
+        <div class="card-sidebar-title">Cover</div>
+        <div>
+            <h4 class = "card-sidebar-subtitle">Colors</h4>
+            <div class="cover-colors">
+                <button class="color-picker" style="background-color: #216e4e"></button>
+                <button class="color-picker" style="background-color: #7f5f01"></button>
+                <button class="color-picker" style="background-color: #a54800"></button>
+                <button class="color-picker" style="background-color: #ae2e24"></button>
+                <button class="color-picker" style="background-color: #5e4db2"></button>
+                <button class="color-picker" style="background-color: #0055cc"></button>
+                <button class="color-picker" style="background-color: #206a83"></button>
+                <button class="color-picker" style="background-color: #4c6b1f"></button>
+                <button class="color-picker" style="background-color: #943d73"></button>
+                <button class="color-picker" style="background-color: #596773"></button>
+            </div>
         </div>
     </div>
 
