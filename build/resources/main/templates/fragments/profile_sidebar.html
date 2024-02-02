@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="profile_sidebar"  style="position: absolute; top: 48px; right: 0;width: 268px; height: 100%; border-left: 1px solid silver; ">
+    <link rel="stylesheet" th:href="@{/css/profile/profilesidebar.css}">
+    <div class="sidebar-container">
+        <div class="profile-sidebar-btns-container">
+            <span class="profile-sidebar-title">Mod Private Pofile</span>
+        </div>
+        <ul>
+            <li>
+                <a class="profile-sidebar-btns" id="id_mod">ID Mod</a>
+            </li>
+            <li>
+                <a class="profile-sidebar-btns" id="pw_mod">PW Mod</a>
+            </li>
+            <li>
+                <a class="profile-sidebar-btns" id="Email_mod">Email Mod</a>
+            </li>
+        </ul>
+        <div class="profile-sidebar-btns-container">
+            <a class="profile-sidebar-btns" th:href="@{#}">Blocked User</a>
+            <ul>
+                <li th:each="block, loop: ${blockedUserList}">
+                    <img th:src="${block.img_Url}">
+                    <a th:text="${block.NickName}"></a>
+                </li>
+            </ul>
+        </div>
+        <ul>
+
+        </ul>
+        <div class="profile-sidebar-btns-container">
+            <a class="profile-sidebar-btns" th:href="@{#}">Recent Act</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

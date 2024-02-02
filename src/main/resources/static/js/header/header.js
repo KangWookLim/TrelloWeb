@@ -1,6 +1,4 @@
-//        function starred_dp() {
-//            $('#starred_dp').toggleClass("displayNone");
-//        }
+
         function dp_create() {
             let click = document.getElementById("drop-header-create")
             let click2 = document.getElementById("drop-create-board");
@@ -33,13 +31,14 @@
                 click.style.display = "none";
             }
         }
+
         function close_dropdown_board() {
             let click = document.getElementById("drop-header-create")
             let click2 = document.getElementById("drop-create-board");
             click.style.display = "none";
             click2.style.display = "none";
-
         }
+
         $('.background-picker-button').click(function(){
             $('.background-picker-button').removeClass("button-clicked");
             $('.background-picker-button').empty();
@@ -50,6 +49,7 @@
             $('#board_background_hidden').val(getting);
             $('#drop-create-ex-background').css("background-image", "url(" + getting +")");
         })
+
         $('.ws-picker-button').click(function(){
             $('.ws-picker-button').removeClass("button-clicked");
             $('.ws-picker-button').empty();
@@ -83,11 +83,32 @@
             $except = $(this);
             $(".header-flexible-btn").not($except).removeClass("header-active-button");
             $except.toggleClass("header-active-button")
-            if($('#starred_dp').hasClass("displayNone")){
-                $('#starred_dp').removeClass("displayNone");
+            checkStarredDp();
+            checkWsDp();
+        })
+
+        function checkStarredDp() {
+            if($('#starred_dp').hasClass('header-active-button')){
+                $('#starred-header-box').addClass('displayNone');
             }else{
-                $('#starred_dp').addClass("displayNone");
+                $('#starred-header-box').removeClass('displayNone');
             }
+        }
+        function checkWsDp() {
+            if($('#ws_dp').hasClass('header-active-button')){
+                $('#ws-header-box').addClass('displayNone');
+            }else{
+                $('#ws-header-box').removeClass('displayNone');
+            }
+        }
 
-
+        $(".starred-board-icon").hover(function() {
+          $(this).attr("src", function(index, attr){
+            if (attr.match('full')) {
+              return attr.replace("full", "empty");
+            }
+            else {
+              return attr.replace("empty", "full");
+            }
+          });
         })
