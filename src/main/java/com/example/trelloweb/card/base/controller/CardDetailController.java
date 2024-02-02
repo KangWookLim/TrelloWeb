@@ -80,4 +80,69 @@ public class CardDetailController {
     }
 
 
+    @RequestMapping("/removeMember")
+    @ResponseBody
+    public int removeMember(@RequestParam ("user_uid") String user_uid, @RequestParam ("cardid") Long cardid){
+        return cardMemberService.removeCardMember(user_uid, cardid);
+    }
+
+    @RequestMapping("/addMember")
+    @ResponseBody
+    public int addMember(@RequestParam ("user_uid") String user_uid, @RequestParam ("card_id") Long card_id){
+        return cardMemberService.addCardMember(user_uid,card_id);
+    }
+
+    @RequestMapping("/updateDueDate")
+    @ResponseBody
+    public int updateDueDate(@RequestParam ("card_id") Long card_id, @RequestParam ("due_date") String due_date){
+        return cardDetailService.updateDueDate(card_id, due_date);
+    }
+
+    @RequestMapping("/removeDueDate")
+    @ResponseBody
+    public int removeDueDate(@RequestParam ("card_id") Long card_id){
+        return cardDetailService.removeDueDate(card_id);
+    }
+
+    @RequestMapping("/insertChecklist")
+    @ResponseBody
+    public int insertChecklist(@RequestParam ("card_id") Long card_id, @RequestParam ("checklist_value") String checklist_value){
+        return cardTaskServicve.insertChecklist(card_id, checklist_value);
+    }
+
+    @RequestMapping("/addCover")
+    @ResponseBody
+    public int addCover(@RequestParam ("cover") String cover, @RequestParam ("card_id") Long card_id){
+        return cardDetailService.addCover(cover,card_id);
+    }
+    @RequestMapping("/removeCover")
+    @ResponseBody
+    public int removeCover(@RequestParam ("card_id") Long card_id){
+        return cardDetailService.removeCover(card_id);
+    }
+
+    @RequestMapping("/description")
+    @ResponseBody
+    public int description(@RequestParam ("description") String description, @RequestParam ("card_id") Long card_id){
+        return cardDetailService.description(description,card_id);
+    }
+
+    @RequestMapping("/deleteTask")
+    @ResponseBody
+    public void deleteTask(@RequestParam ("taskId") Long taskId){
+        cardTaskServicve.removeTask(taskId);
+    }
+
+    @RequestMapping("/deleteCard")
+    @ResponseBody
+    public void deleteCard(@RequestParam ("cardId") Long cardId){
+        cardDetailService.removeCard(cardId);
+    }
+
+    @RequestMapping("get_orderMax")
+    @ResponseBody
+    public int getOrderMax(@RequestParam ("list_id") Long list_id){
+        return cardDetailService.getOrderMax(list_id);
+    }
+
 }

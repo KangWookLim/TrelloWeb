@@ -2,6 +2,8 @@ package com.example.trelloweb.card.tasklist.base.entity;
 
 import com.example.trelloweb.card.base.entity.CardVo;
 import com.example.trelloweb.card.tasklist.item.entity.TaskitemVO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,6 +24,7 @@ public class CardTaskVo {
     private Long Taskid;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 
@@ -32,5 +35,6 @@ public class CardTaskVo {
     private LocalDateTime createddate;
 
     @OneToMany(mappedBy = "cardtaskvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<TaskitemVO> taskItemList;
 }

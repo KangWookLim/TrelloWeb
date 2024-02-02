@@ -1,6 +1,7 @@
 package com.example.trelloweb.card.label.entity;
 
 import com.example.trelloweb.card.base.entity.CardVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class CardLabelsVo {
     private Long labelid;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "card_id")
     private CardVo cardvo;
 

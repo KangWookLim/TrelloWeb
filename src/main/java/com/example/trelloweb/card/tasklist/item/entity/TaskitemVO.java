@@ -1,6 +1,7 @@
 package com.example.trelloweb.card.tasklist.item.entity;
 
 import com.example.trelloweb.card.tasklist.base.entity.CardTaskVo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +18,7 @@ public class TaskitemVO {
     private Long taskitemid;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "task_id")
     private CardTaskVo cardtaskvo;
 
