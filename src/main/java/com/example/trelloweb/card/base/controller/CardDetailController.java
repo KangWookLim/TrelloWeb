@@ -15,11 +15,13 @@ import com.example.trelloweb.card.tasklist.base.vo.CardTasks;
 import com.example.trelloweb.card.tasklist.item.service.TaskItemService;
 import com.example.trelloweb.card.tasklist.item.vo.TaskItems;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -145,4 +147,10 @@ public class CardDetailController {
         return cardDetailService.getOrderMax(list_id);
     }
 
+    @RequestMapping("addComment")
+    @ResponseBody
+    public void addComment(@RequestParam ("card_id") Long card_id, @RequestParam("comment") String comment, Principal principal){
+        System.out.println(principal.getName() + "this is your current user_uid from principal");
+        cardCommentService.addComment(card_id, comment, principal.getName());
+    }
 }
