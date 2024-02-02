@@ -6,6 +6,7 @@ import com.example.trelloweb.user.base.form.ProfileForm;
 import com.example.trelloweb.user.base.repo.UserJPAClassRepo;
 import com.example.trelloweb.user.base.service.UserInfoService;
 import com.example.trelloweb.user.base.service.UserService;
+import com.example.trelloweb.user.base.vo.UserinfoVo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +23,22 @@ public class UserController {
     private final UserInfoService userInfoService;
     private final UserJPAClassRepo userJPAClassRepo;
 
-    @GetMapping("/profile")
-    public ModelAndView userProfile(Principal principal, ProfileForm profileForm){
+    @GetMapping("/profile/U{useruid}")
+    public ModelAndView userProfile(@PathVariable("useruid") String useruid){
         ModelAndView view = new ModelAndView();
-        UserVo user = userService.findByUSER_UID(principal.getName()).orElse(null);
-        view.addObject("userInfo", userInfoService.findinfoById(principal.getName()));
-        view.addObject("blockedUserList", userJPAClassRepo.findBlockedUserInfoByUserUid(principal.getName()));
+        UserinfoVo userinfoVo = userInfoService.findinfoById(useruid);
+        ProfileForm profileForm = ProfileForm.builder()
+                .NickName(userinfoVo.getNICKNAME())
+                .FullName(userinfoVo.getFULLNAME())
+                .SOCIALLINK1(userinfoVo.getSOCIALLINK1())
+                .SOCIALLINK2(userinfoVo.getSOCIALLINK2())
+                .SOCIALLINK3(userinfoVo.getSOCIALLINK3())
+                .SOCIALLINK4(userinfoVo.getSOCIALLINK4())
+                .BIO(userinfoVo.getBIO())
+                .BIRTH(userinfoVo.getBIRTH())
+                .build();
+        view.addObject("userInfo", userinfoVo);
+        view.addObject("blockedUserList", userJPAClassRepo.findBlockedUserInfoByUserUid(useruid));
         view.addObject("profileForm",profileForm);
         view.setViewName("views/profile/profile");
         return view;
