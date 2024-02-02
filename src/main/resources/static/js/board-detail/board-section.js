@@ -102,7 +102,8 @@ $( function () {
     })
 })
 
-function addListToBoard(event) {
+function addListToBoard(event, element) {
+    console.log(element.getAttribute("board_id") + " is current board id");
     var formElement = event.target.closest('form');
     var textareaElement = formElement.querySelector('.list-textarea');
     var textareaValue = textareaElement.value;
@@ -118,6 +119,18 @@ function addListToBoard(event) {
         list_add_container.hide();
         list_add_btn.show();
     }
+    /*list 추가 > sortable 적용 > ajax로 name값 넣어서 insert*/
+    /*if (textareaValue !== "" && textareaValue !== null){
+        $.ajax({
+            url : '/card_detail/addList',
+            type : 'get',
+            data : {
+                "name" : textareaValue,
+                "board_id" : location.backhere
+            }
+        })
+    }*/
+
 }
 
 function showAddCard(event) {
