@@ -7,7 +7,8 @@
 <div layout:fragment="content">
   <link rel="stylesheet" th:href="@{/css/board/board.css}">
   <link rel="stylesheet" th:href="@{/css/sidebar.css}">
-
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
   <div id = "content-wrapper">
     <div class = "home-container">
       <nav id = "home-left-side-container">
@@ -36,10 +37,10 @@
         <div>
           <ul id="home-workspace-container">
             <div id="home-workspace-title"> Workspaces </div>
-            <li id = "home-workspace-tab">
+            <li id = "home-workspace-tab" th:each="WS : ${WSList}">
               <a id = "home-workspace-box">
-                <img src="https://trello-logos.s3.amazonaws.com/dfe01fdaa08dbff54f575d60e2dd5818/30.png" class = "ws-main-img">
-                <span>Workspace Name</span>
+                <img th:src="${WS.getWS_IMG()}" class = "ws-main-img">
+                <span th:text="${WS.getWS_NAME}"></span>
                 <img th:src="@{/images/icons/down-arrow.png}" id="header-under-arrow"/>
               </a>
               <ul id = "ws-btn-ul">
@@ -104,7 +105,7 @@
                           <span th:text="${starredList.getWS_NAME}">
 
                           </span>
-                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon">
+                          <img th:src="@{/images/icons/star-full.png}" class="board-starred-icon starred-board-icon" th:value="${starredList.getBOARD_ID}">
                         </div>
                     </div>
                 </a>
@@ -147,7 +148,6 @@
               YOUR WORKSPACES
             </h3>
             <div th:each="WS : ${WSList}">
-
               <div class="board-page-section-header">
                 <div class="board-icon-container">
                   <img th:src="${WS.getWS_IMG()}" class="board-page-section-header-icon">
@@ -186,13 +186,12 @@
                   <a class="board-section-item-img" th:style="'background-image: url(' + ${board.getBOARD_IMG} + ');'" th:href="|/board/${board.BOARD_ID}|">
                     <div class="board-detail-box">
                       <div class="board-detail-name" th:text="${board.getBOARD_NAME}">
-
                       </div>
                       <div class="board-detail-ws">
                         <span th:text="${board.getWS_NAME}">
-
                         </span>
-                        <img th:src="@{/images/icons/star-empty.png}" class="board-starred-icon">
+                        <img th:src="@{/images/icons/star-full.png}" th:if="${isstarred.contains(board.BOARD_ID)}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
+                        <img th:src="@{/images/icons/star-empty.png}" th:if="${!isstarred.contains(board.BOARD_ID)}" class="board-starred-icon" style="z-index:999" th:value="${board.getBOARD_ID}">
                       </div>
                     </div>
                   </a>
@@ -207,69 +206,11 @@
                 </li>
               </ul>
             </div>
-
-
           </div>
-
         </div>
       </div>
     </div>
   </div>
-  <script>
-    function toBoard () {
-    }
-    $(document).ready(function(){
-      $("#home-board-btn").addClass("home-active-btn")
-      const activeTrello = $("#home-board-btn").children("img");
-      activeTrello.attr("src", function(index, attr){
-        return attr.replace("trello", "trelloA");
-      });
-
-      if($('.starred-board-section-list-item').length < 1) {
-        let star = document.getElementById("starred-boards");
-        star.style.display = "none"
-      }
-
-    })
-
-    $("#home-workspace-box").click(function() {
-      console.log("check1");
-      $("#ws-btn-ul").toggleClass("menuon");
-      const arrowImage = $("#home-workspace-box").children("img");
-      arrowImage.attr("src", function(index, attr){
-        if (attr.match('up')) {
-          return attr.replace("up", "down");
-        }
-        else {
-          return attr.replace("down", "up");
-        }
-      });
-    });
-
-    $(".board-starred-icon").click(function() {
-      console.log("check1");
-      $(this).attr("src", function(index, attr){
-        if (attr.match('full')) {
-          return attr.replace("full", "empty");
-        }
-        else {
-          return attr.replace("empty", "full");
-        }
-      });
-    });
-    $(".board-starred-icon").hover(function() {
-      $(this).attr("src", function(index, attr){
-        if (attr.match('full')) {
-          return attr.replace("full", "empty");
-        }
-        else {
-          return attr.replace("empty", "full");
-        }
-      });
-    })
-
-
-
-  </script>
+  <script type="text/javascript" th:src="@{/js/board/board.js}"></script>
 </div>
 </html>

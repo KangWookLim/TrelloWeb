@@ -160,7 +160,11 @@ function formatDateString(inputDateString) {
     return formattedDateString;
 }
 //
+<<<<<<< HEAD
 let openedCard;
+=======
+
+>>>>>>> main
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
@@ -463,6 +467,7 @@ function showComments(cardId) {
 
 
 
+<<<<<<< HEAD
  //due-date value out check
 let date = $("#due-date");
 $('#due-date-save').click(function () {
@@ -524,6 +529,17 @@ $('#insertChecklist').click(function(){
 
 //open and close sidebar modals
 $('.card-sidebar-button').click(function (){
+=======
+/* //due-date value out check
+let date = $("#due-date");
+function checkdatetime(){
+    console.log(date.val());
+}*/
+
+//open and close sidebar modals
+$('.card-sidebar-button').click(function (event){
+    event.preventDefault();
+>>>>>>> main
 
     var linkText = $(this).text().toLowerCase();
     console.log(linkText);
@@ -554,6 +570,7 @@ function openMembersModal(){
 
     $('#card-sidebar-button-members').toggle();
 }
+<<<<<<< HEAD
 function removeMemberFromCard(element){
     let memberid = element.getAttribute("user_uid");
     console.log(memberid);
@@ -599,6 +616,8 @@ function addMemberToCard(user_uid, card_id){
     });
 }
 
+=======
+>>>>>>> main
 function openLabelsModal() {
     $('#card-sidebar-button-labels').toggle();
 }

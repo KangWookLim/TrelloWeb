@@ -667,7 +667,13 @@
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
             <ul style="list-style-type: none; padding-left: 0; margin:0;">
+<<<<<<< HEAD
                 <li th:each="member, loop : ${board.getBoard_memVoList()}"><button class="add-card-member" onclick="removeMemberFromCard(this)" th:user_uid = "${member.uservo.getUseruid()}" th:text="${member.uservo.getFULLNAME() +' ('+ member.uservo.getNICKNAME()+')'}"></button></li>
+=======
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+                <li><button class="add-card-member">Nakyeon Choi</button></li>
+>>>>>>> main
             </ul>
         </div>
     </div>
@@ -703,8 +709,13 @@
         <div class="card-sidebar-title">Add checklist</div>
         <div>
            <h4 class = "card-sidebar-subtitle">Title</h4>
+<<<<<<< HEAD
             <input type="text" class="card-sidebar-text" id = "checklist-value" value="checklist">
             <button class="add-list-confirm-button" style="margin-bottom: 10px" id = "insertChecklist">Save</button>
+=======
+            <input type="text" class="card-sidebar-text" value="checklist">
+            <button class="add-list-confirm-button" style="margin-bottom: 10px">Save</button>
+>>>>>>> main
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-dates">
@@ -712,8 +723,12 @@
         <div>
             <h4 class = "card-sidebar-subtitle">Date</h4>
             <input type="datetime-local" id = "due-date">
+<<<<<<< HEAD
             <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-save">Save</button>
             <button class="add-list-confirm-button" style="margin-top: 5px" id = "due-date-remove">Remove</button>
+=======
+            <button class="add-list-confirm-button" style="margin-top: 5px" onclick="checkdatetime()">Save</button>
+>>>>>>> main
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-attachment">

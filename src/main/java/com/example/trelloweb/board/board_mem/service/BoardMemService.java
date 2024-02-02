@@ -16,7 +16,7 @@ public class BoardMemService {
         Board_memVo boardMemVo = new Board_memVo();
         boardMemVo.setUservo(userVo);
         boardMemVo.setBoardvo(boardVo);
-        boardMemVo.setBoardaccess("Nomal");
+        boardMemVo.setBoardaccess("Normal");
         boardMemJpaRepo.save(boardMemVo);
     }
 
