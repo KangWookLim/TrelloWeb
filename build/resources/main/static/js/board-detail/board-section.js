@@ -160,10 +160,16 @@ function formatDateString(inputDateString) {
     return formattedDateString;
 }
 //
+<<<<<<< HEAD
+let openedCard;
+=======
 
+>>>>>>> main
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
+    openedCard = element.getAttribute("cardid").toString();
+    console.log("Card " + openedCard + " is opened");
     console.log(cardId);
     $.ajax({
         type: 'get',
@@ -461,6 +467,69 @@ function showComments(cardId) {
 
 
 
+<<<<<<< HEAD
+ //due-date value out check
+let date = $("#due-date");
+$('#due-date-save').click(function () {
+    if (date.val().length === 0){
+        alert("Please enter a due date");
+    } else {
+        $.ajax({
+            type : 'get',
+            url : "/card_detail/updateDueDate",
+            data : {
+                "card_id" : openedCard,
+                "due_date" : date.val()
+            }
+        }).done(function (data) {
+            if (data === 1){
+                console.log("update successful");
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error updating due date");
+            console.log(status);
+        });
+    }
+})
+
+$('#due-date-remove').click(function(){
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/removeDueDate",
+        data : {
+            "card_id" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("update successful");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error updating due date");
+        console.log(status);
+    });
+})
+$('#insertChecklist').click(function(){
+    let checklistValue = $('#checklist-value').val();
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/insertChecklist",
+        data : {
+            "card_id" : openedCard,
+            "checklist_value" : checklistValue
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("insert successful");
+        }
+    }).fail(function (xhr, status, error){
+        console.log("error adding checklist");
+        console.log(status);
+    });
+})
+
+//open and close sidebar modals
+$('.card-sidebar-button').click(function (){
+=======
 /* //due-date value out check
 let date = $("#due-date");
 function checkdatetime(){
@@ -470,6 +539,7 @@ function checkdatetime(){
 //open and close sidebar modals
 $('.card-sidebar-button').click(function (event){
     event.preventDefault();
+>>>>>>> main
 
     var linkText = $(this).text().toLowerCase();
     console.log(linkText);
@@ -500,6 +570,54 @@ function openMembersModal(){
 
     $('#card-sidebar-button-members').toggle();
 }
+<<<<<<< HEAD
+function removeMemberFromCard(element){
+    let memberid = element.getAttribute("user_uid");
+    console.log(memberid);
+    $.ajax({
+        type : 'get',
+        url : "/card_detail/removeMember",
+        data : {
+            "user_uid" : memberid,
+            "cardid" : openedCard
+        }
+    }).done(function (data) {
+        if (data === 1){
+            console.log("deletion successful");
+        }
+        else if (data === 0){
+            console.log("member not found");
+            addMemberToCard(memberid, openedCard);
+        }
+    }).fail(function (XHR, Status, error) {
+        console.log("deletion failed");
+        console.log(error);
+    })
+    console.log(openedCard + " is current card number");
+}
+
+function addMemberToCard(user_uid, card_id){
+
+    console.log("user_uid : "+user_uid);
+    console.log("card_id : "+card_id);
+    console.log("lets add member");
+    $.ajax({
+        url : '/card_detail/addMember',
+        type : 'get',
+        data : {
+            "user_uid" : user_uid,
+            "card_id" : card_id
+        }
+    }).done(function (data){
+        console.log("add user completed");
+    }).fail(function (xhr, status, error) {
+        alert('add user failed');
+        console.log(status);
+    });
+}
+
+=======
+>>>>>>> main
 function openLabelsModal() {
     $('#card-sidebar-button-labels').toggle();
 }
