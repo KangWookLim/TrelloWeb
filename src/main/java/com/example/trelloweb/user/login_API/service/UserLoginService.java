@@ -43,6 +43,7 @@ public class UserLoginService implements UserDetailsService {
         } else {
             authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
         }
+        System.out.println("실행");
         return AuthUser.builder().
                 UID(String.valueOf(userVo.getUseruid())).
                 PW(userVo.getPW()).

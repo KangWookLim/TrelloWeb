@@ -9,7 +9,6 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Data
-@RequiredArgsConstructor
 public class Board_memPk implements Serializable {
     private String uservo;
     private Long boardvo;

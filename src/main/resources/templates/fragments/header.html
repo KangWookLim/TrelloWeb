@@ -262,7 +262,7 @@
                                 Log out
                             </button>
                         </a>
-                        <a th:href="@{/user/profile}">
+                        <a th:href="|/user/profile/U${#authentication.getPrincipal().getName()}|">
                             <button class="header-profile-logout-btn">
                                 Profile
                             </button>

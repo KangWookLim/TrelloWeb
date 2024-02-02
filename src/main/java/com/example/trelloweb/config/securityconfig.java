@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -58,7 +59,7 @@ public class securityconfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(new AntPathRequestMatcher("/user/login"),new AntPathRequestMatcher("/user/signup"),
                                 new AntPathRequestMatcher("/")).anonymous()
-                        .requestMatchers(new AntPathRequestMatcher("/user/profile")).authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/user/profile/**")).authenticated()
                         .requestMatchers(new AntPathRequestMatcher("/board/**")
                                         ,new AntPathRequestMatcher("/home")
                                         ,new AntPathRequestMatcher("/template/**")).hasAnyRole("USER","ADMIN")
@@ -88,12 +89,10 @@ public class securityconfig {
                 //Third party Authentication like google and naver
                 .logout(logout -> logout
                         .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-                        .logoutSuccessUrl("/")
-                        .invalidateHttpSession(true))
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .logoutSuccessUrl("/"))
                 //purpose LogOut and clear the session
-                .sessionManagement(sessionManagement -> sessionManagement
-                        .maximumSessions(1)
-                        .maxSessionsPreventsLogin(true))
 
         ;
 
