@@ -18,7 +18,8 @@ html, body{
     min-height: 100%;
 }
 .content-container{
-    background-color: #1c2b41;
+    /*배경이미지삽입*/
+    background-color: transparent;
     display: flex;
     overflow-x: auto;
     max-width: 100%;
@@ -119,14 +120,14 @@ html, body{
     padding-top: 12px;
     display: flex;
     flex-shrink: 0;
-    background-color: #1c2b41;
+    background-color: transparent;
 }
 .list-adding-parts-container{
     height: 100%;
     min-height: 100%;
     padding: 12px 12px 0;
     display: flex;
-    background-color: #1c2b41;
+    background-color: transparent;
     flex-shrink: 0;
 }
 .list-add-btn{
@@ -213,6 +214,7 @@ html, body{
 }
 
 .list-detail-container {
+    background: transparent;
     padding: 0 6px;
     align-self: flex-start;
     flex-shrink: 0;

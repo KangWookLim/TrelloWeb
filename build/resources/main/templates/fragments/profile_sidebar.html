@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="profile_sidebar"  style="position: absolute; top: 48px; right: 0;width: 268px; height: 100%; border-left: 1px solid silver; ">
+<div th:if="${#authentication.getName().equals(userInfo.getuseruid())}" th:fragment="profile_sidebar"  style="position: absolute; top: 48px; right: 0;width: 268px; height: 100%; border-left: 1px solid silver; ">
     <link rel="stylesheet" th:href="@{/css/profile/profilesidebar.css}">
-    <div class="sidebar-container">
+    <div class="sidebar-container" >
         <div class="profile-sidebar-btns-container">
             <span class="profile-sidebar-title">Mod Private Pofile</span>
         </div>
@@ -20,13 +20,19 @@
         </ul>
         <div class="profile-sidebar-btns-container">
             <a class="profile-sidebar-btns" th:href="@{#}">Blocked User</a>
+        </div>
             <ul>
-                <li th:each="block, loop: ${blockedUserList}">
-                    <img th:src="${block.img_Url}">
-                    <a th:text="${block.NickName}"></a>
+                <li th:each="block, loop: ${blockedUserList}" th:if="${loop.index le 2}">
+                    <a class="profile-sidebar-btns" th:href="|/user/profile/U${block.useruid}|">
+                        <img class="blockeduser-img" th:src="${block.iMGURL}">
+                        <span class="blockeduser-nick" th:text="${block.NICKNAME}" ></span>
+                    </a>
+                </li>
+                <li style="color: #bac0cd; border: none" th:if="${#lists.size(blockedUserList) > 1}">
+                    . . .
                 </li>
             </ul>
-        </div>
+
         <ul>
 
         </ul>

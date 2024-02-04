@@ -37,4 +37,8 @@ public class CardCommentService {
         cardCommentVo.setCardvo(cardVo);
         cardCommentJPARepo.save(cardCommentVo);
     }
+
+    public void deleteComment(Long commentId) {
+        cardCommentJPARepo.deleteById(commentId);
+    }
 }

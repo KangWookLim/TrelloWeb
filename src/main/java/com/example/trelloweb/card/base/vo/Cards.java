@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Cards {
-
+    private Integer list_id;
     private Integer CARD_ORDER;
     private Long CARDID;
     private String created_date;
@@ -17,4 +17,5 @@ public class Cards {
     private String name;
     private String description;
     private String cover;
+    private String listname;
 }
