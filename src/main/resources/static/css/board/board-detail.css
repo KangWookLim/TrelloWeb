@@ -19,15 +19,17 @@ html, body{
 }
 .content-container{
     /*배경이미지삽입*/
-    background-color: transparent;
+    background-size: cover;
+    background-position: center;
     display: flex;
     overflow-x: auto;
     max-width: 100%;
     min-width: 100%;
-    height: calc(100% - 105px);
-    min-height: calc(100% - 105px);
+    height: calc(100% - 57px);
+    min-height: calc(100% - 57px);
 }
 .content-header-container{
+    margin-top: 48px;
     height:fit-content;
     position: relative;
     display: inline-flex;

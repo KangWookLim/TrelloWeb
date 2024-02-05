@@ -30,4 +30,16 @@ public class ListDetailController {
     public void reorderList(@RequestParam ("list_id") Long list_id, @RequestParam ("order") Integer order){
         listService.reorderList(list_id, order);
     }
+
+    @RequestMapping("/removeList")
+    @ResponseBody
+    public void removeList(@RequestParam("listId") Long ListId){
+        listService.removeList(ListId);
+    }
+
+    @RequestMapping("/editListTitle")
+    @ResponseBody
+    public void editListTitle(@RequestParam("Title") String title, @RequestParam("listId") Long listId){
+        listService.editListTitle(title,listId);
+    }
 }

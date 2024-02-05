@@ -40,4 +40,13 @@ public class ListService {
         listVo.setListorder(order);
         listJPARepo.save(listVo);
     }
+    public void removeList(Long listId){
+        listJPARepo.deleteById(listId);
+    }
+
+    public void editListTitle(String title, Long listId) {
+        ListVo listVo = listJPARepo.findById(listId).orElse(null);
+        listVo.setName(title);
+        listJPARepo.save(listVo);
+    }
 }

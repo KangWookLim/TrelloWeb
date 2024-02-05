@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.io.Serializable;
 
 @AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 public class Board_memPk implements Serializable {
     private String uservo;
