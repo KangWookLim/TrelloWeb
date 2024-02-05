@@ -24,11 +24,10 @@ public class UserController {
     private final UserJPAClassRepo userJPAClassRepo;
 
     @GetMapping("/profile/U{useruid}")
-    public ModelAndView userProfile(@PathVariable("useruid") String useruid){
+    public ModelAndView userProfile(@PathVariable("useruid") String useruid, Principal principal){
         ModelAndView view = new ModelAndView();
         UserinfoVo userinfoVo = userInfoService.findinfoById(useruid);
         ProfileForm profileForm = ProfileForm.builder()
-                .NickName(userinfoVo.getNICKNAME())
                 .FullName(userinfoVo.getFULLNAME())
                 .SOCIALLINK1(userinfoVo.getSOCIALLINK1())
                 .SOCIALLINK2(userinfoVo.getSOCIALLINK2())
@@ -37,8 +36,10 @@ public class UserController {
                 .BIO(userinfoVo.getBIO())
                 .BIRTH(userinfoVo.getBIRTH())
                 .build();
+        if(useruid.equals(principal.getName())){
+            view.addObject("blockedUserList", userJPAClassRepo.findBlockedUserInfoByUserUid(useruid));
+        }
         view.addObject("userInfo", userinfoVo);
-        view.addObject("blockedUserList", userJPAClassRepo.findBlockedUserInfoByUserUid(useruid));
         view.addObject("profileForm",profileForm);
         view.setViewName("views/profile/profile");
         return view;

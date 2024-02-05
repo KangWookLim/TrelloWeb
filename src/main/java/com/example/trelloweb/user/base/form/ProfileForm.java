@@ -1,5 +1,6 @@
 package com.example.trelloweb.user.base.form;
 
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
@@ -9,7 +10,7 @@ import lombok.*;
 @NoArgsConstructor
 public class ProfileForm {
     private String FullName;
-    private String NickName;
+    @Size(max = 500, message = "자기소개는 500자 이하입니다")
     private String BIO;
     private String BIRTH;
     private String SOCIALLINK1;
