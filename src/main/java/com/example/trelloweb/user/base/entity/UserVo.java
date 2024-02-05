@@ -7,6 +7,7 @@ import com.example.trelloweb.user.Blocked_User.entity.Blocked_UserVo;
 import com.example.trelloweb.user.Recent_Act.entity.RecentActVo;
 import com.example.trelloweb.user.Starred_Board.entity.StarredBoardVo;
 import com.example.trelloweb.workspace.wsmem.entity.WorkSpaceMemVo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
@@ -77,30 +78,37 @@ public class UserVo {
 
     @OneToMany(mappedBy = "BlockedUSERUID", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<Blocked_UserVo> blocked_userVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<RecentActVo> recentactVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<StarredBoardVo> starredboardVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<WorkSpaceMemVo> workSpaceMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<Board_memVo> boardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private List<CardMemVo> cardMemVoList;
 
     @OneToMany(mappedBy = "uservo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JsonManagedReference
+    @JsonIgnore
     private  List<CardCommentVo> cardcommentVoList;
 
 
