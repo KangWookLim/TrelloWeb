@@ -53,6 +53,7 @@ const list_add_container = $('.list-add-container');
 const content_container  = $('.content-container');
 const list_add_card_button = $('.list-add-card-button');
 let allAddCardSections = $('.add-card-section');
+let list_detail = $('.list-detail');
 list_add_btn.click(function (){
     list_add_btn.hide();
     list_add_container.show();
@@ -64,6 +65,12 @@ list_add_container.click(function () {
     event.stopPropagation();
     }
 )
+
+list_detail.click(function (){
+    event.stopPropagation();
+})
+
+
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
