@@ -307,13 +307,15 @@
                     </span>
         </div>
     </div>
-    <div class="content-container">
+    <div class="content-container" th:style ="'background-image : url('+${board.imageURL}+')'">
         <div class="list-container">
             <div th:each = "list, loop : ${board.getListVoList()}"  class="list-detail-container" th:listid = "${list.listId}">
                 <div class="list-detail">
                     <div  class="list-header not-sortable">
-                        <textarea class = "list-textarea" style="width: 220px; height: 32px" th:text="${list.name}"></textarea>
-                        <button class = "list-action-button"><span class="nch-icon A3PtEe1rGIm_yL neoUEAwI0GETBQ fAvkXZrzkeHLoc"><span data-testid="OverflowMenuHorizontalIcon" aria-hidden="true" style="--icon-primary-color: currentColor; --icon-secondary-color: inherit;"><svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="currentColor"></path></svg></span></span></button>
+                        <textarea class = "list-textarea list-title-area" style="width: 180px; height: 32px" th:listId = "${list.listId}" th:text="${list.name}"></textarea>
+                        <button class = "list-action-button" th:listId="${list.listId}" onclick="removeList(this)">
+                            Delete
+                        </button>
                     </div>
                     <div class="list-card">
                         <ol class="cards-section">
@@ -666,9 +668,9 @@
         <div class="card-sidebar-title">Members</div>
         <div>
             <h4 class="card-sidebar-subtitle">Board members</h4>
-            <!--<ul style="list-style-type: none; padding-left: 0; margin:0;">
+            <ul style="list-style-type: none; padding-left: 0; margin:0;">
                 <li th:each="member, loop : ${board.getBoard_memVoList()}"><button class="add-card-member" onclick="removeMemberFromCard(this)" th:user_uid = "${member.uservo.getUseruid()}" th:text="${member.uservo.getFULLNAME() +' ('+ member.uservo.getNICKNAME()+')'}"></button></li>
-            </ul>-->
+            </ul>
         </div>
     </div>
     <div class="card-sidebar-modal" id = "card-sidebar-button-labels">
