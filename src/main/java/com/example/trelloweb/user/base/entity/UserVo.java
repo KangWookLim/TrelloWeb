@@ -45,7 +45,7 @@ public class UserVo {
     private String EMAIL;
 
     @Column(name = "img_url")
-    @ColumnDefault("'images/profile/user.png'")
+    @ColumnDefault("'/images/profile/user.png'")
     private String IMGURL;
 
     @Column(length = 100, unique = true)
