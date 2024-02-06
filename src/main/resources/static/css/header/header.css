@@ -179,7 +179,7 @@
 }
 #drop-header-create {
     position: fixed;
-    inset: 48px auto auto 580px;
+    inset: 48px auto auto 350px;
     width: 304px;
     max-height: 677px;
     -webkit-overflow-scrolling: touch;
@@ -341,7 +341,7 @@
 }
 #drop-create-board {
     position: fixed;
-    inset: 48px auto auto 580px;
+    inset: 48px auto auto 350px;
     width: 304px;
     color: #b6c2cf;
     font-size: 14px;
@@ -808,7 +808,7 @@
 .header-btn-dropdown {
     z-index:1;
     position: fixed;
-    inset: 48px auto auto 358.5px;
+    inset: 48px auto auto 255px;
     width: 304px;
     color: #b6c2cf;
     font-size: 14px;
