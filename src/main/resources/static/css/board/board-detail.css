@@ -542,7 +542,7 @@ html, body{
     float: left;
     height: 32px;
     margin: 0 4px 4px 0;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
     text-decoration: none;
     border : none;
@@ -553,7 +553,11 @@ html, body{
     user-select: none;
     width: 32px;
     z-index: 0;
-    padding: 0;
+    padding: 5px;
+}
+.card-member-detail:hover{
+    width: fit-content;
+
 }
 
 .card-main-labels-list {
