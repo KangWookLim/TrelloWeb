@@ -53,6 +53,7 @@ const list_add_container = $('.list-add-container');
 const content_container  = $('.content-container');
 const list_add_card_button = $('.list-add-card-button');
 let allAddCardSections = $('.add-card-section');
+let list_detail = $('.list-detail');
 list_add_btn.click(function (){
     list_add_btn.hide();
     list_add_container.show();
@@ -64,6 +65,12 @@ list_add_container.click(function () {
     event.stopPropagation();
     }
 )
+
+list_detail.click(function (){
+    event.stopPropagation();
+})
+
+
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
@@ -71,6 +78,8 @@ content_container.click(function () {
     /*if (allAddCardSections.length > 0) {
         allAddCardSections.setAttribute('hidden', 'true');
     }*/
+    let allAddCardSection = $('.add-card-section');
+    allAddCardSection.attr('hidden', true);
     console.log("h3");
 })
 
@@ -304,6 +313,39 @@ function formatDateString(inputDateString) {
 
     return formattedDateString;
 }
+
+const backgroundImages = [
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1358x1920/c4b12af65970ab36e306a792eb9b5b92/photo-1705154580249-55990fe3a8fb.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1281x1920/a42fd455c005dcfad21cd1ee5f892bc4/photo-1705336402584-b5deb3aa6cd2.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/69663f756c39f078810be5fbe2a8c5af/photo-1705445826760-f020a78b4023.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/ec75dd1c8e20f8ffcd64191ead8d26f1/photo-1705312409574-a2e2b0d11d61.jpg')"
+]
+$(document).ready(function(){
+    for (let i = 0; i < backgroundImages.length; i++){
+        console.log(backgroundImages[i]);
+    }
+    let backgroundUrl = $('.content-container').css('background-image');
+    backgroundUrl = backgroundUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '').trim();
+    switch (backgroundUrl){
+        case "https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[0]);
+            break;
+        case "https://images.unsplash.com/photo-1705336402584-b5deb3aa6cd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[1]);
+            break;
+        case "https://images.unsplash.com/photo-1705445826760-f020a78b4023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[2]);
+            break;
+        case "https://images.unsplash.com/photo-1705312409574-a2e2b0d11d61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[3]);
+            break;
+        default :
+            console.log("no match");
+    }
+    $('.content-container').css('background-image')
+    console.log(backgroundUrl);
+});
+
 function setDueDate(date) {
     if (date != null){
         card_due_date_container.show();
@@ -471,6 +513,25 @@ function showAttachments(cardId) {
         console.log("error loading attachments for card");
         console.log(status);
     });
+}
+
+function removeList(element){
+    let listId = element.getAttribute("listId");
+    console.log(listId);
+    $.ajax({
+        url : '/list_detail/removeList',
+        type : 'get',
+        data : {
+            "listId": listId
+        }
+    }).done(function (){
+        console.log("list " + listId+ "removed");
+        let grandParent = element.parentNode.parentNode.parentNode;
+        grandParent.parentNode.removeChild(grandParent);
+    }).fail(function (xhr, status, error){
+        console.log("error removing list")
+    })
+    event.stopPropagation();
 }
 
 function deleteCard(){
@@ -1043,3 +1104,24 @@ function setComment() {
 
     }
 }
+
+$('.list-title-area').on('input', function(){
+    let modifyId = $(this).attr("listId");
+    let newListTitle = $(this).val();
+    console.log(newListTitle);
+    console.log(modifyId);
+    if (newListTitle.length > 0){
+        $.ajax({
+            url : '/list_detail/editListTitle',
+            type : 'get',
+            data : {
+                "Title" : newListTitle,
+                "listId" : modifyId
+            }
+        }).done(function (){
+
+        }).fail(function (xhr,status,error){
+            console.log("error editing title for list")
+        })
+    }
+});
