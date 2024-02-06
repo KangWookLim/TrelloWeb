@@ -307,17 +307,19 @@
                     </span>
         </div>
     </div>
-    <div class="content-container">
+    <div class="content-container" th:style ="'background-image : url('+${board.imageURL}+')'">
         <div class="list-container">
-            <div th:each = "list, loop : ${board.getListVoList()}"  class="list-detail-container">
+            <div th:each = "list, loop : ${board.getListVoList()}"  class="list-detail-container" th:listid = "${list.listId}">
                 <div class="list-detail">
                     <div  class="list-header not-sortable">
-                        <textarea class = "list-textarea" style="width: 220px; height: 32px" th:text="${list.name}"></textarea>
-                        <button class = "list-action-button"><span class="nch-icon A3PtEe1rGIm_yL neoUEAwI0GETBQ fAvkXZrzkeHLoc"><span data-testid="OverflowMenuHorizontalIcon" aria-hidden="true" style="--icon-primary-color: currentColor; --icon-secondary-color: inherit;"><svg width="16" height="16" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 14C6.10457 14 7 13.1046 7 12C7 10.8954 6.10457 10 5 10C3.89543 10 3 10.8954 3 12C3 13.1046 3.89543 14 5 14ZM12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14ZM21 12C21 13.1046 20.1046 14 19 14C17.8954 14 17 13.1046 17 12C17 10.8954 17.8954 10 19 10C20.1046 10 21 10.8954 21 12Z" fill="currentColor"></path></svg></span></span></button>
+                        <textarea class = "list-textarea list-title-area" style="width: 180px; height: 32px" th:listId = "${list.listId}" th:text="${list.name}"></textarea>
+                        <button class = "list-action-button" th:listId="${list.listId}" onclick="removeList(this)">
+                            Delete
+                        </button>
                     </div>
                     <div class="list-card">
                         <ol class="cards-section">
-                            <li class="card-outer" th:each="card, loop : ${list.getCardVoList()}">
+                            <li class="card-outer" th:cardid = "${card.cardid}" th:each="card, loop : ${list.getCardVoList()}">
                                 <div class="card-inner" th:cardid = "${card.cardid}" onclick="setAndShowModal(this)">
                                     <a th:text="${card.name}">
                                     </a>
@@ -327,7 +329,7 @@
                         <div class="add-card-section not-sortable" hidden>
                             <form>
                                 <textarea class = "list-card-title" style="height: 74px;" placeholder="Enter a title for this card"></textarea>
-                                <button type="button" class="add-list-confirm-button" onclick="addCard()">Add card</button>
+                                <button type="button" class="add-list-confirm-button"  th:listid = "${list.listId}" onclick="addCard(this)">Add card</button>
                                 <button type = "button" class = "list-close-button"><span><span data-testid="CloseIcon" aria-hidden="true" style="--icon-primary-color: var(--ds-text-accent-gray-bolder, #172B4D); --icon-secondary-color: inherit;"><svg width="24" height="24" role="presentation" focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12Z" fill="currentColor"></path></svg></span></span></button>
                             </form>
                         </div>

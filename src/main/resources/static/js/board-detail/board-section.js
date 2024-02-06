@@ -53,6 +53,7 @@ const list_add_container = $('.list-add-container');
 const content_container  = $('.content-container');
 const list_add_card_button = $('.list-add-card-button');
 let allAddCardSections = $('.add-card-section');
+let list_detail = $('.list-detail');
 list_add_btn.click(function (){
     list_add_btn.hide();
     list_add_container.show();
@@ -64,6 +65,12 @@ list_add_container.click(function () {
     event.stopPropagation();
     }
 )
+
+list_detail.click(function (){
+    event.stopPropagation();
+})
+
+
 content_container.click(function () {
     list_add_container.hide();
     list_add_btn.show();
@@ -71,11 +78,16 @@ content_container.click(function () {
     /*if (allAddCardSections.length > 0) {
         allAddCardSections.setAttribute('hidden', 'true');
     }*/
+    let allAddCardSection = $('.add-card-section');
+    allAddCardSection.attr('hidden', true);
     console.log("h3");
 })
 
-function addCard(){
-    let openedList = 1;
+function addCard(element){
+    let openedList = element.getAttribute("listid");
+    let textarea = element.parentNode.querySelector('.list-card-title');
+    let cardtitle = textarea.value;
+    console.log(cardtitle);
     $.ajax({
         url : '/card_detail/get_orderMax',
         type : 'get',
@@ -84,6 +96,21 @@ function addCard(){
         }
     }).done(function (data){
         console.log(data + " is max number of order of cards from list " + openedList);
+        let order = data;
+        $.ajax({
+            url : '/card_detail/addCardtoList',
+            type : 'get',
+            data : {
+                "list_id" : openedList,
+                "card_name" : cardtitle,
+                "card_order" : order + 1
+            }
+        }).done(function (data){
+            console.log("card is added to list " + openedList);
+            location.reload();
+        }).fail(function (xhr, status, error){
+            console.log("error getting max order");
+        })
     }).fail(function (xhr, status, error){
         console.log("error getting max order");
     })
@@ -92,22 +119,85 @@ function addCard(){
 
 $( function () {
     $('.list-container').sortable({
-        cancel: ".not-sortable"
+        cancel: ".not-sortable",
+        update : function(event, ui){
+            let movedListItem = ui.item.attr("listid");
+            console.log(movedListItem + " is moved");
+            let boardLists = ui.item.parent().children().map(function () {
+                return $(this).attr("listid");
+            }).get();
+            console.log(boardLists);
+            for (let i = 0; i < boardLists.length; i++) {
+                $.ajax({
+                    url : '/list_detail/reorderList',
+                    type : 'get',
+                    data : {
+                        "list_id" : boardLists[i],
+                        "order" : i + 1
+                    }
+                }).done(function (){
+                    console.log(boardLists[i] + "'s new order = " + i);
+                }).fail(function (xhr, status, error){
+                    console.log("error reordering list");
+                    console.log(error);
+                })
+            }
+        }
     });
 });
 
 $( function () {
     $('.cards-section').sortable({
-        connectWith : ".cards-section"
+        connectWith : ".cards-section",
+        update : function(event, ui){
+            if (this === ui.item.parent()[0]) {
+                let movedCardItem = ui.item.attr("cardid");
+                let destinationList = ui.item.parent().parent().parent().parent().attr("listid");
+                $.ajax({
+                    url : '/card_detail/moveCard',
+                    type : 'get',
+                    data : {
+                        "card_id" : movedCardItem,
+                        "list_id" : destinationList
+                    }
+                }).done(function(){
+                    let listItems = ui.item.parent().children().map(function () {
+                        return $(this).attr("cardid");
+                    }).get();
+                    for(let i = 0; i < listItems.length; i++){
+                        $.ajax({
+                            url : '/card_detail/reorderCard',
+                            type : 'get',
+                            data : {
+                                "card_id" : listItems[i],
+                                "order" : i + 1
+                            }
+                        }).done(function(){
+                            console.log(listItems[i] + " new order = " + i);
+                        }).fail(function(xhr, status, error){
+                            console.log("error reordering card");
+                            console.log(error);
+                        })
+                    }
+
+                }).fail(function(xhr, status, error){
+                    console.log("error moving card");
+                    console.log(error);
+                });
+            }
+
+        }
     })
 })
 
 function addListToBoard(event, element) {
-    console.log(element.getAttribute("board_id") + " is current board id");
+    let boardId = element.getAttribute("board_id");
+    console.log(boardId + " is current board id");
     var formElement = event.target.closest('form');
     var textareaElement = formElement.querySelector('.list-textarea');
     var textareaValue = textareaElement.value;
-    if (textareaValue !== "" && textareaValue !== null){
+    //listframe을 직접 추가하는 방식
+    /*if (textareaValue !== "" && textareaValue !== null){
         var listFrame = document.getElementById("listFrame");
         var clone = listFrame.content.cloneNode(true);
         clone.querySelector('.list-textarea').value = textareaValue;
@@ -118,18 +208,51 @@ function addListToBoard(event, element) {
         })
         list_add_container.hide();
         list_add_btn.show();
-    }
-    /*list 추가 > sortable 적용 > ajax로 name값 넣어서 insert*/
-    /*if (textareaValue !== "" && textareaValue !== null){
+    }*/
+    //페이지 새로고침으로 해결
+    if (textareaValue !== "" && textareaValue !== null){
         $.ajax({
-            url : '/card_detail/addList',
+            url : '/list_detail/getMaxListOrder',
             type : 'get',
             data : {
-                "name" : textareaValue,
-                "board_id" : location.backhere
+                "board_id" : boardId
             }
+        }).done(function (data) {
+            console.log(data + " is max order of list in board " + boardId);
+            let maxOrder = data;
+            console.log(maxOrder + " order");
+            $.ajax({
+                url : '/list_detail/addList',
+                type : 'get',
+                data : {
+                    "list_name" : textareaValue,
+                    "board_id" : boardId,
+                    "order" : maxOrder + 1
+                }
+            }).done(function () {
+                location.reload();
+            }).fail(function (xhr, status, error) {
+                console.log("error adding list");
+                console.log(error);
+            })
+        }).fail(function (xhr, status, error) {
+            console.log("error getting order of lists");
+            console.log(error);
         })
-    }*/
+        /*$.ajax({
+            url : '/list_detail/addList',
+            type : 'get',
+            data : {
+                "list_name" : textareaValue,
+                "board_id" : boardId
+            }
+        }).done(function (data) {
+            location.reload();
+        }).fail(function (xhr, status, error) {
+            console.log("error adding list");
+            console.log(error);
+        })*/
+    }
 
 }
 
@@ -148,7 +271,8 @@ const modalBackground = document.getElementById("card-background");
 const modalContainer = document.getElementById("card-container");
 
 modalBackground.addEventListener('click', () => {
-    modalBackground.style.display = "none";
+    location.reload();
+    /*modalBackground.style.display = "none";*/
 });
 
 modalContainer.addEventListener('click', () => {
@@ -158,7 +282,6 @@ modalContainer.addEventListener('click', () => {
 //modal 변수 및 함수 선언
 //modal id는 언더바 사용
 let card_name = document.getElementById("card_name");
-let card_list_id = document.getElementById("card_list_id");
 let card_description = document.getElementById("card_description");
 let card_due_date_container = $("#card_due_date_container");
 let card_due_date = document.getElementById("card_due_date");
@@ -171,6 +294,7 @@ let board_attachment_container = $("#board_attachment_container");
 let comments_container = $("#comments_container");
 let cardTaskContainer = $("#card_task_container");
 let card_banner = $(".card-banner");
+let card_list_id = $('#card_list_id');
 
 
 //db time format
@@ -189,6 +313,39 @@ function formatDateString(inputDateString) {
 
     return formattedDateString;
 }
+
+const backgroundImages = [
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1358x1920/c4b12af65970ab36e306a792eb9b5b92/photo-1705154580249-55990fe3a8fb.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1281x1920/a42fd455c005dcfad21cd1ee5f892bc4/photo-1705336402584-b5deb3aa6cd2.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/69663f756c39f078810be5fbe2a8c5af/photo-1705445826760-f020a78b4023.jpg')",
+    "url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1280x1920/ec75dd1c8e20f8ffcd64191ead8d26f1/photo-1705312409574-a2e2b0d11d61.jpg')"
+]
+$(document).ready(function(){
+    for (let i = 0; i < backgroundImages.length; i++){
+        console.log(backgroundImages[i]);
+    }
+    let backgroundUrl = $('.content-container').css('background-image');
+    backgroundUrl = backgroundUrl.replace(/^url\(["']?/, '').replace(/["']?\)$/, '').trim();
+    switch (backgroundUrl){
+        case "https://images.unsplash.com/photo-1705154580249-55990fe3a8fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDF8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[0]);
+            break;
+        case "https://images.unsplash.com/photo-1705336402584-b5deb3aa6cd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDJ8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[1]);
+            break;
+        case "https://images.unsplash.com/photo-1705445826760-f020a78b4023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDN8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[2]);
+            break;
+        case "https://images.unsplash.com/photo-1705312409574-a2e2b0d11d61?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3MDY2fDB8MXxjb2xsZWN0aW9ufDR8MzE3MDk5fHx8fHwyfHwxNzA1NjM1ODc1fA&ixlib=rb-4.0.3&q=80&w=400" :
+            $('.content-container').css('background-image', backgroundImages[3]);
+            break;
+        default :
+            console.log("no match");
+    }
+    $('.content-container').css('background-image')
+    console.log(backgroundUrl);
+});
+
 function setDueDate(date) {
     if (date != null){
         card_due_date_container.show();
@@ -200,6 +357,7 @@ function setDueDate(date) {
 
 //
 let openedCard;
+
 
 function setAndShowModal (element){
     let cardId = element.getAttribute("cardid");
@@ -215,6 +373,8 @@ function setAndShowModal (element){
     }).done(function (data){
         console.log("success");
         console.log(data.description);
+        console.log(data.listname);
+        card_list_id.text(data.listname);
         card_name.value = data.name;
         card_description.value = data.description;
         let coverColor = data.cover;
@@ -355,6 +515,25 @@ function showAttachments(cardId) {
     });
 }
 
+function removeList(element){
+    let listId = element.getAttribute("listId");
+    console.log(listId);
+    $.ajax({
+        url : '/list_detail/removeList',
+        type : 'get',
+        data : {
+            "listId": listId
+        }
+    }).done(function (){
+        console.log("list " + listId+ "removed");
+        let grandParent = element.parentNode.parentNode.parentNode;
+        grandParent.parentNode.removeChild(grandParent);
+    }).fail(function (xhr, status, error){
+        console.log("error removing list")
+    })
+    event.stopPropagation();
+}
+
 function deleteCard(){
     $.ajax({
         type: "get",
@@ -380,6 +559,7 @@ function deleteTask(element){
             "taskId" : taskId
         }
     }).done(function(data){
+        showTasks(openedCard);
         console.log("successfully deleted task " + taskId + " from card");
     }).fail(function (xhr, status, error){
         console.log("error deleting task from card");
@@ -428,63 +608,159 @@ function showTasks(cardId) {
 }
 
 function showTaskItems(taskId) {
+    //get percentage value of items within task
+    let tmppercentage;
     $.ajax({
         type : 'get',
-        url : '/card_detail/task_items',
+        url : '/card_detail/task_items_percent',
         data : {
             "taskid" : taskId
         }
-    }).done(function (data){
-        var parentDiv = $("#card_task_inner" + taskId);
-        var addItemLink = '<div style="margin-left: 40px"><a href="#" class="due-button">Add an item</a></div>';
+    }).done(function(data){
+       tmppercentage = data;
+       console.log(tmppercentage + "%");
+        $.ajax({
+            type : 'get',
+            url : '/card_detail/task_items',
+            data : {
+                "taskid" : taskId
+            }
+        }).done(function (data){
+            var parentDiv = $("#card_task_inner" + taskId);
+            var addItemLink = '<div style="margin-left: 40px">'
+                + '<textarea class="list-card-title" placeholder="Add an Item to Task"></textarea>'
+                + '<a href="#" class="due-button" onclick="addItemtoTask(this,' + taskId + ')">Add an item</a>'
+                + '</div>';
+            if (data.length === 0){
+                console.log("no items for this task");
+                parentDiv.append(addItemLink);
+            } else {
+                console.log("items detected for taskid");
+                console.log(data.length + " is total items of task with taskId " + taskId);
+                // 부모 div를 찾아서 변수에 할당
 
-        if (data.length === 0){
-            console.log("no items for this task");
-            parentDiv.append(addItemLink);
-        } else {
-            console.log("items detected for taskid");
-            console.log(data.length + " is total items of task with taskId " + taskId);
-            // 부모 div를 찾아서 변수에 할당
-
-            var checklistProgress = `
+                var checklistProgress = `
     <div class="checklist-progress">
-        <span class="checklist-progress-percentage">0%</span>
+        <span class="checklist-progress-percentage">${tmppercentage}%</span>
         <div class="checklist-progress-bar">
-            <div id="checklist-progress-bar-current" style="width: 0%"></div>
+            <div id="checklist-progress-bar-current" style="width: ${tmppercentage}%"></div>
         </div>
     </div>`;
-            parentDiv.append(checklistProgress);
-            // checklist-items-list를 추가
-            var checklistItemsList = '<div class="checklist-items-list"></div>';
-            parentDiv.append(checklistItemsList);
-            for (var i = 0; i < data.length; i++) {
-                var checkbox = '<div class="checklist-item-checkbox"><input type="checkbox" ' + (data[i].is_checked ? 'checked' : '') + '></div>';
-                var detail = '<div class="checklist-item-detail">' + data[i].title + '</div>';
+                parentDiv.append(checklistProgress);
+                // checklist-items-list를 추가
+                var checklistItemsList = '<div class="checklist-items-list"></div>';
+                parentDiv.append(checklistItemsList);
+                for (var i = 0; i < data.length; i++) {
+                    var checkbox = '<div class="checklist-item-checkbox">' +
+                        '<input type="checkbox" ' + (data[i].is_checked ? 'checked' : '') +
+                        ' onclick="setTaskItem(this, ' + data[i].task_item_id + ')">' +
+                        '</div>';
+                    var detail = '<div class="checklist-item-detail" style = "display: flex;"><span style ="width: 50px;">' + data[i].title + '</span>'+'<div style = "margin-left: 350px"><a href="#" class="due-button" style="text-decoration: none; font-size: 10px;" onclick="deleteTaskItem('+data[i].task_item_id+')">Delete Item</a></div>'+'</div>';
 
-                // checklist-item을 생성하고 checklist-items-list에 추가
-                var checklistItem = '<div class="checklist-item">' + checkbox + detail + '</div>';
-                parentDiv.find('.checklist-items-list').append(checklistItem);
-            }
+                    // checklist-item을 생성하고 checklist-items-list에 추가
+                    var checklistItem = '<div class="checklist-item">' + checkbox + detail + '</div>';
+                    parentDiv.find('.checklist-items-list').append(checklistItem);
+                }
 
 // Add an item 링크 추가
-            var addItemLink = '<div style="margin-left: 40px"><a href="#" class="due-button">Add an item</a></div>';
-            parentDiv.append(addItemLink);
+                parentDiv.append(addItemLink);
 
 
 // checklist-progress-bar 업데이트
-            var percentage = 60; // 실제로 사용하는 퍼센티지로 변경 필요
-            parentDiv.find('.checklist-progress-percentage').text(percentage + '%');
-            parentDiv.find('#checklist-progress-bar-current').css('width', percentage + '%');
+                /*var percentage = tmppercentage; // 실제로 사용하는 퍼센티지로 변경 필요
+                parentDiv.find('.checklist-progress-percentage').text(percentage + '%');
+                parentDiv.find('#checklist-progress-bar-current').css('width', percentage + '%');*/
 
 
 
-        }
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error loading tasks for card");
+            console.log(status);
+        });
     }).fail(function (xhr, status, error){
-        console.log("error loading tasks for card");
+        console.log("error loading task items percent");
+        console.log(status);
+    });
+    //)
+
+}
+
+function deleteTaskItem(taskItemId){
+    console.log(taskItemId);
+    $.ajax({
+        url : '/card_detail/deleteTaskItem',
+        type : 'get',
+        data : {
+            "taskItemId" : taskItemId
+        }
+    }).done(function (){
+        showTasks(openedCard);
+    }).fail(function (xhr, status, error){
+        console.log("error deleting task item");
+        console.log(status);
+    })
+
+}
+
+function setTaskItem(element, taskItemId){
+    let checked = element.checked;
+    console.log(checked);
+    console.log(taskItemId);
+    $.ajax({
+        url : '/card_detail/setTaskItem',
+        type : 'get',
+        data : {
+            "taskItemId" : taskItemId,
+            "checked" : checked
+        }
+    }).done(function(){
+        showTasks(openedCard);
+    }).fail(function(xhr, status,error){
+        console.log("error setting task item state");
         console.log(status);
     });
 }
+function addItemtoTask(element,taskId) {
+    let text = element.previousElementSibling.value;
+    if (text != null && text != "") {
+        console.log(taskId + " : " + text);
+        $.ajax({
+            url : '/card_detail/addItemtoTask',
+            type : 'get',
+            data : {
+                "taskid" : taskId,
+                "text" : text
+            }
+        }).done(function(data){
+            showTasks(openedCard);
+        }).fail(function(xhr, status, error){
+            console.log("error adding items to task");
+            console.log(status);
+        })
+    }
+    else {
+        console.log("no text to add");
+    }
 
+}
+
+function deleteComment(card_comment_id){
+    console.log(card_comment_id);
+    $.ajax({
+        url : '/card_detail/deleteComment',
+        type : 'get',
+        data : {
+            "card_comment_id" : card_comment_id
+        }
+    }).done(function(data){
+        console.log("success deleting comment");
+        showComments(openedCard);
+    }).fail(function(xhr, status, error){
+        console.log("error deleting comment");
+        console.log(status);
+    })
+}
 function createCommentElement(commentData) {
     var formattedDate = formatDateString(commentData.created_date);
     return `
@@ -494,6 +770,7 @@ function createCommentElement(commentData) {
             <span>${commentData.nickname}</span>
             <span class="inline-spacer"></span>
             <span style="font-size: 12px; color: #9fadbc;">${formattedDate}</span>
+            <span style="margin-left: 250px; cursor: pointer;" onclick="deleteComment(${commentData.card_comment_id})">Delete comment</span>
             <div class="comment">
                 <div class="current-comment">
                     <p style="margin: 0;">${commentData.comment}</p>
@@ -591,27 +868,51 @@ $('#insertChecklist').click(function(){
         console.log(status);
     });
 })
+//when card_name changes
+$('#card_name').change(function () {
+    let name = $('#card_name').val();
+    console.log(name);
+    if (name != ""){
+        $.ajax({
+            url : "/card_detail/name",
+            type : 'get',
+            data : {
+                "name" : name,
+                "card_id" : openedCard
+            }
+        }).done(function (data) {
+            if (data === 1){
+                console.log("insert name successful");
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error changing name");
+            console.log(status);
+        });
+    }
+
+});
+
 //when description changes
 $('#card_description').change(function () {
     let description = $('#card_description').val();
     console.log(description);
-    $.ajax({
-        url : "/card_detail/description",
-        type : 'get',
-        data : {
-            "description" : description,
-            "card_id" : openedCard
-        }
-    }).done(function (data) {
-        if (data === 1){
-            console.log("insert description successful");
-        }
-    }).fail(function (xhr, status, error){
-        console.log("error changing description");
-        console.log(status);
-    });
-
-
+    if (description != ""){
+        $.ajax({
+            url : "/card_detail/description",
+            type : 'get',
+            data : {
+                "description" : description,
+                "card_id" : openedCard
+            }
+        }).done(function (data) {
+            if (data === 1){
+                console.log("insert description successful");
+            }
+        }).fail(function (xhr, status, error){
+            console.log("error changing description");
+            console.log(status);
+        });
+    }
 });
 
 
@@ -803,3 +1104,24 @@ function setComment() {
 
     }
 }
+
+$('.list-title-area').on('input', function(){
+    let modifyId = $(this).attr("listId");
+    let newListTitle = $(this).val();
+    console.log(newListTitle);
+    console.log(modifyId);
+    if (newListTitle.length > 0){
+        $.ajax({
+            url : '/list_detail/editListTitle',
+            type : 'get',
+            data : {
+                "Title" : newListTitle,
+                "listId" : modifyId
+            }
+        }).done(function (){
+
+        }).fail(function (xhr,status,error){
+            console.log("error editing title for list")
+        })
+    }
+});

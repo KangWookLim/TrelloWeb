@@ -15,6 +15,7 @@ public class CardDetailRepo {
 
     private final RowMapper<Cards> rowMapper =(rs, rowNum) ->
             new Cards(
+                    rs.getInt("list_id"),
                     rs.getInt("card_order"),
                     rs.getLong("cardid"),
                     rs.getString("created_date"),
@@ -22,11 +23,12 @@ public class CardDetailRepo {
                     rs.getString("due_date"),
                     rs.getString("name"),
                     rs.getString("description"),
-                    rs.getString("cover")
+                    rs.getString("cover"),
+                    rs.getString("listname")
             );
     public Cards getCardByCardId(Long cardId) {
 
-        String sql = "SELECT * FROM card WHERE cardId = :cardId";
+        String sql = "SELECT card.*, LIST.name as listname FROM card Join LIST on card.list_id = list.list_id WHERE card.cardId = :cardId";
         Map<String,Long> params = Map.of("cardId", cardId);
         return jdbcTemplate.queryForObject(sql, params ,rowMapper);
     }
@@ -70,5 +72,11 @@ public class CardDetailRepo {
         }catch (NullPointerException e){
             return 0;
         }
+    }
+
+    public int name(String name, Long cardId) {
+        String sql = "Update card SET name = :name WHERE cardId = :card_Id";
+        Map<String, Object> params = Map.of( "name", name,"card_Id", cardId);
+        return jdbcTemplate.update(sql,params);
     }
 }

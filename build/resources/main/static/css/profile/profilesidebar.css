@@ -31,9 +31,10 @@ ul{
 
 li{
     border: 1px solid silver;
-    padding-left: 10px;
+    padding: 0 10px;
     margin: 10px 0;
     border-radius: 5px;
+    width: 50%;
 }
 
 li > .profile-sidebar-btns{
@@ -51,4 +52,14 @@ li > .profile-sidebar-btns:hover{
 
 
 .sidebar-container{
+}
+
+.blockeduser-nick{
+    color: #9fadbc;
+}
+
+.blockeduser-img{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
 }

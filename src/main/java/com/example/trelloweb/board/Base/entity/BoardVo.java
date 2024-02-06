@@ -45,6 +45,7 @@ public class BoardVo {
     private List<Board_memVo> board_memVoList;
 
     @OneToMany(mappedBy = "boardvo", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OrderBy("listorder ASC")
     @JsonManagedReference
     private List<ListVo> listVoList;
 

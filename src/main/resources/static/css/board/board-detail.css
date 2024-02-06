@@ -11,22 +11,26 @@ html, body{
     overflow-y: hidden;
 }
 .boardsidebar{
+
     width: 260px;
     box-shadow: 1px 0px 0px 0px transparent;
-    z-index: 5;
+    z-index: 4;
     height: 100%;
     min-height: 100%;
 }
 .content-container{
-    background-color: #1c2b41;
+    /*배경이미지삽입*/
+    background-size: cover;
+    background-position: center;
     display: flex;
     overflow-x: auto;
     max-width: 100%;
     min-width: 100%;
-    height: calc(100% - 105px);
-    min-height: calc(100% - 105px);
+    height: calc(100% - 57px);
+    min-height: calc(100% - 57px);
 }
 .content-header-container{
+    margin-top: 48px;
     height:fit-content;
     position: relative;
     display: inline-flex;
@@ -119,14 +123,14 @@ html, body{
     padding-top: 12px;
     display: flex;
     flex-shrink: 0;
-    background-color: #1c2b41;
+    background-color: transparent;
 }
 .list-adding-parts-container{
     height: 100%;
     min-height: 100%;
     padding: 12px 12px 0;
     display: flex;
-    background-color: #1c2b41;
+    background-color: transparent;
     flex-shrink: 0;
 }
 .list-add-btn{
@@ -213,6 +217,7 @@ html, body{
 }
 
 .list-detail-container {
+    background: transparent;
     padding: 0 6px;
     align-self: flex-start;
     flex-shrink: 0;
@@ -538,7 +543,7 @@ html, body{
     float: left;
     height: 32px;
     margin: 0 4px 4px 0;
-    overflow: visible;
+    overflow: hidden;
     position: relative;
     text-decoration: none;
     border : none;
@@ -549,7 +554,11 @@ html, body{
     user-select: none;
     width: 32px;
     z-index: 0;
-    padding: 0;
+    padding: 5px;
+}
+.card-member-detail:hover{
+    width: fit-content;
+
 }
 
 .card-main-labels-list {

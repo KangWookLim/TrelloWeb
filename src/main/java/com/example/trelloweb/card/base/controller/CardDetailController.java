@@ -129,6 +129,13 @@ public class CardDetailController {
         return cardDetailService.description(description,card_id);
     }
 
+    @RequestMapping("/name")
+    @ResponseBody
+    public int name(@RequestParam ("name") String name, @RequestParam ("card_id") Long card_id){
+        return cardDetailService.name(name,card_id);
+    }
+
+
     @RequestMapping("/deleteTask")
     @ResponseBody
     public void deleteTask(@RequestParam ("taskId") Long taskId){
@@ -152,5 +159,53 @@ public class CardDetailController {
     public void addComment(@RequestParam ("card_id") Long card_id, @RequestParam("comment") String comment, Principal principal){
         System.out.println(principal.getName() + "this is your current user_uid from principal");
         cardCommentService.addComment(card_id, comment, principal.getName());
+    }
+
+    @RequestMapping("addCardtoList")
+    @ResponseBody
+    public void addCardtoList(@RequestParam ("list_id") Long list_id, @RequestParam ("card_order") Integer card_order, @RequestParam("card_name") String card_name){
+        cardDetailService.addCardtoList(card_order, list_id,card_name);
+    }
+
+    @RequestMapping("addItemtoTask")
+    @ResponseBody
+    public void addItemtoTask(@RequestParam ("taskid") Long task_id, @RequestParam("text") String title){
+        taskItemService.addItemtoTask(task_id, title);
+    }
+
+    @RequestMapping("task_items_percent")
+    @ResponseBody
+    public int task_items_percent(@RequestParam ("taskid") Long task_id){
+        return taskItemService.task_items_percent(task_id);
+    }
+
+    @RequestMapping("/setTaskItem")
+    @ResponseBody
+    public void setTaskItem(@RequestParam ("taskItemId") Long task_item_id, @RequestParam ("checked") Boolean checked){
+        taskItemService.setTaskItem(task_item_id, checked);
+    }
+
+    @RequestMapping("/deleteTaskItem")
+    @ResponseBody
+    public void deleteTaskItem(@RequestParam ("taskItemId") Long task_item_id){
+        taskItemService.deleteTaskItem(task_item_id);
+    }
+
+    @RequestMapping("/deleteComment")
+    @ResponseBody
+    public void deleteComment(@RequestParam ("card_comment_id") Long comment_id){
+        cardCommentService.deleteComment(comment_id);
+    }
+
+    @RequestMapping("/moveCard")
+    @ResponseBody
+    public void moveCard(@RequestParam ("card_id") Long card_id, @RequestParam ("list_id") Long list_id){
+        cardDetailService.moveCard(card_id, list_id);
+    }
+
+    @RequestMapping("/reorderCard")
+    @ResponseBody
+    public void reorderCard(@RequestParam ("card_id") Long card_id, @RequestParam ("order") Integer card_order){
+        cardDetailService.reorderCard(card_id, card_order);
     }
 }
